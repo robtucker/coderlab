@@ -2,3 +2,6 @@
 .vscode
 nbproject
 nbprojects
+
+node_modules
+dist
