@@ -1,12 +1,17 @@
-import { CoursesContainer } from "./courses.container";
+import { injectReducer } from "../app.store";
 
-import CourseList from "./components/course-list";
+export const CoursesRoutes = (store) => ({
+    path : 'courses',
+    getComponent (nextState, cb) {
+        require.ensure([], (require) => {
 
+            const CoursesContainer = require('./courses.container').CoursesContainer
+            const reducer = require('./courses.store').coursesReducer
 
-export const CoursesRoutes = (store) => {
-    
-    return {
-        path: '/courses',
-        component: CoursesContainer,
+            injectReducer(store, { key: 'courses', reducer })
+
+            cb(null, CoursesContainer)
+
+        }, 'courses')
     }
-};
+});

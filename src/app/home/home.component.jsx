@@ -18,11 +18,6 @@ export class Home extends Component {
         return (
             <section>
                 <h1>Home</h1>
-                <Link to="/about">About</Link><br/>
-                <Link to="/courses">Courses</Link>
-
-                <h3 onClick={this.handleClick}> Increment counter </h3>
-                <h4>{ this.currentState }</h4>
             </section>
         );
     }
