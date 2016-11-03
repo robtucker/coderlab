@@ -1,4 +1,4 @@
-import { injectReducer } from "../app.store";
+import { injectReducer } from "../../app.store";
 
 export const CoursesRoutes = (store) => ({
     path : 'courses',

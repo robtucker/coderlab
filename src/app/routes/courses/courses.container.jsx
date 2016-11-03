@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 
 import CourseList from "./components/course-list";
 
-const addCourseAction = (id, name) => ({
+const addCourse = (id, name) => ({
     type: "ADD_COURSE",
     id: id,
     name: name
@@ -17,7 +17,7 @@ const mapDispatchToProps = (dispatch) => {
                 let name = event.target.value;
                 let id = courseId++;
                 console.log(`adding course ${name}`);
-                dispatch(addCourseAction(id, name))
+                dispatch(addCourse(id, name))
             }
         },
         onCourseClick: (id) => {
