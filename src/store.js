@@ -2,17 +2,18 @@ import { createStore, combineReducers } from 'redux';
 
 import { navbarReducer } from "./layouts/navbar";
 
+
 const appReducers = {
     navbar: navbarReducer
 };
 
-const AppStore = createStore(combineReducers(appReducers));
+const store = createStore(combineReducers(appReducers));
 
-AppStore.asyncReducers = appReducers;
+store.asyncReducers = appReducers;
 
-console.log(AppStore.getState());
+console.log(store.getState());
 
-export { AppStore };
+export { store };
 
 export const injectReducer = (store, { key, reducer }) => {
     store.asyncReducers[key] = reducer;

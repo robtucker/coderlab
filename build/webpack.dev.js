@@ -18,24 +18,19 @@ const APP_GLOBALS = helpers.mergeEnvironment({
     HOST: HOST
 });
 
-//console.log(APP_GLOBALS);
-
 /**
  * Merge in the development webpack config properties
  */
 const WEBPACK_CONFIG = helpers.mergeWebpackConfig({
-    plugins: [
-        new webpack.DefinePlugin(helpers.configureAppGlobals(APP_GLOBALS))
-    ],
+    // plugins: [
+    //     //new webpack.DefinePlugin(helpers.configureAppGlobals(APP_GLOBALS))
+    // ],
     devServer: {
-        port: PORT,
-        host: HOST,
-        historyApiFallback: APP_GLOBALS.HISTORY_API_FALLBACK,
-        watchOptions: {
-            aggregateTimeout: 300,
-            poll: 1000
-        },
-    },
+        //hot: true,
+        port: 3000,
+        contentBase: './dist/',
+        historyApiFallback: true
+    }
 });
 
 //console.log(WEBPACK_CONFIG);

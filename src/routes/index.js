@@ -1,9 +1,9 @@
-import { AppStore } from "./app.store";
+import { store } from "../store";
 
-import { CoreLayout } from "./layouts";
-import { HomeContainer } from "./routes/home";
-import { AboutRoutes } from "./routes/about";
-import { CoursesRoutes }  from "./routes/courses";
+import { CoreLayout } from "../layouts";
+import { HomeContainer } from "./home";
+import { AboutRoutes } from "./about";
+import { CoursesRoutes }  from "./courses";
 
 export const AppRoutes = {
     path        : '/',
@@ -11,7 +11,7 @@ export const AppRoutes = {
     indexRoute  : { component: HomeContainer },
     childRoutes : [
         // async routes must add their reducers into the store when they are loaded
-        CoursesRoutes(AppStore),
+        CoursesRoutes(store),
         AboutRoutes
     ]
 };

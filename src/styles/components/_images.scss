@@ -1,0 +1,12 @@
+@mixin bg-img ($url, $size: contain, $height: auto){
+    height: $height;
+    width: 100%;
+    background-position: center center;
+    background-size: $size;
+    background-repeat: no-repeat;
+    background-image: $url;
+}
+
+// .img-mobile-web {
+//     @include bg-img(url(../assets/img/mobile-web2.png), contain, $img-panel-height)
+// }

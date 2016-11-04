@@ -1,0 +1,19 @@
+@import "variables";
+
+// OOCSS: Custom classes
+// portable classes that can be applied to any element
+// these classes are mostly designed to set 1 single value
+@import "./components/backgrounds";
+@import "./components/borders";
+@import "./components/colors";
+@import "./components/containers";
+@import "./components/icons";
+@import "./components/images";
+@import "./components/layouts";
+@import "./components/margins";
+@import "./components/nav";
+@import "./components/overlays";
+@import "./components/paddings";
+@import "./components/panels";
+
+@import "./components/text";

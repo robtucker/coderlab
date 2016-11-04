@@ -1,25 +1,30 @@
 const webpack = require('webpack');
+const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-let extractCSS = new ExtractTextPlugin('[name].css');
 let extractSASS = new ExtractTextPlugin('[name].css');
 
 module.exports = {
-    context: process.env.NODE_PATH + "/src",
+    context: path.join(process.env.NODE_PATH, "/src"),
     entry: {
-        main: "./main.tsx",
-        vendor: "./vendor.tsx",
-        polyfills: "./polyfills.tsx"
+        main: "./main.jsx",
+        vendor: "./vendor.js",
+        polyfills: "./polyfills.js"
     },
     output: {
-        path: process.env.NODE_PATH + "/dist",
+        path: path.join(process.env.NODE_PATH, "/dist"),
         filename: "scripts/[name].js"
     },
     module:  {
         loaders: [
+            { 
+                test: /\.(js|jsx)$/, 
+                exclude: /node_modules/,
+                loaders: ["babel-loader"]
+            },
             {
                 test: /\.html$/,
                 loader: 'raw-loader'
@@ -28,15 +33,6 @@ module.exports = {
                 test: /\.tsx$/, 
                 exclude: /node_modules/,
                 loaders: ["awesome-typescript-loader"]
-            },
-            { 
-                test: /\.js$/, 
-                exclude: /node_modules/,
-                loaders: ["babel-loader"]
-            },
-            { 
-                test: /\.css$/, 
-                loader: extractCSS.extract(['to-string-loader', 'css']) 
             },
             { 
                 test: /\.scss$/, 
@@ -65,7 +61,6 @@ module.exports = {
             ]
         }),
         
-        extractCSS,
         extractSASS,
 
         new CopyWebpackPlugin([
@@ -74,11 +69,14 @@ module.exports = {
         ]),
 
         new webpack.optimize.CommonsChunkPlugin({
-            name: ['app', 'vendor', 'polyfills']
-        }),
+            name: "commons",
+        })
 
     ],
     resolve: {
-        extensions: ['', '.webpack.js', '.web.js', '.ts', '.tsx', '.js', '.jsx', '.html']
-    }
+        extensions: ['.js', '.jsx'],
+        modules: [
+            'node_modules'
+        ]
+    },
 }
