@@ -10,9 +10,7 @@ let extractSASS = new ExtractTextPlugin('[name].css');
 module.exports = {
     context: path.join(process.env.NODE_PATH, "/src"),
     entry: {
-        main: "./main.jsx",
-        vendor: "./vendor.js",
-        polyfills: "./polyfills.js"
+        main: "./main.jsx"
     },
     output: {
         path: path.join(process.env.NODE_PATH, "/dist"),

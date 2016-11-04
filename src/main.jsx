@@ -1,3 +1,6 @@
+/**
+ * React Core
+ */
 import React from 'react';
 import ReactDOM from "react-dom";
 import { Router, browserHistory } from 'react-router';
@@ -19,11 +22,13 @@ import { Provider } from 'react-redux';
  */
 import { AppRoutes } from "./routes";
 
-import CSS from "./styles/main.scss";
+/**
+ * Custom stylesheet - OOCSS styles
+ */
+import * as CSS from "./styles/main.scss";
 
 /**
- * set the application's material design theme
- * custom styles are defined in the styles folder
+ * customize the material design theme
  */
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
@@ -31,6 +36,17 @@ import muiTheme from "./styles";
 
 const APP_THEME = getMuiTheme(muiTheme);
 
+/**
+ * Material-UI requires injectTapEventPlugin
+ * for touch tap events (which are faster than onclick)
+ */
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
+injectTapEventPlugin();
+
+/**
+ * Application level components
+ */
 const APPLICATION = (
     <MuiThemeProvider muiTheme={APP_THEME}>
         <Provider store={store}>
@@ -39,6 +55,12 @@ const APPLICATION = (
     </MuiThemeProvider>
 );
 
+/**
+ * where to render the app
+ */
 const MOUNT_NODE = document.getElementById('app'); 
 
+/**
+ * Go!
+ */
 ReactDOM.render(APPLICATION, MOUNT_NODE);
