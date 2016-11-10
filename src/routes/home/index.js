@@ -1,1 +1,1 @@
-export * from "./home.container";
+export * from "./containers/home";

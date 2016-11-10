@@ -1,4 +1,5 @@
 {
     "HISTORY_API_FALLBACK": true,
-    "LOG_LEVEL": 100
+    "LOG_LEVEL_CONSOLE": 100,
+    "APP_TITLE": "CoderLab"
 }

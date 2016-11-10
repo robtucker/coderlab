@@ -6,6 +6,15 @@ import ReactDOM from "react-dom";
 import { Router, browserHistory } from 'react-router';
 
 /**
+ * configure the logger
+ */
+import { Logger, ConsoleHandler } from "isolog";
+
+let config = {LOG_LEVEL: process.env.CONFIG.LOG_LEVEL_CONSOLE};
+
+Logger.addHandler(new ConsoleHandler(config));
+
+/**
  *  Redux store - aka the application state tree
  */
 import { store } from "./store";
@@ -31,10 +40,8 @@ import * as CSS from "./styles/main.scss";
  * customize the material design theme
  */
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import muiTheme from "./styles";
 
-const APP_THEME = getMuiTheme(muiTheme);
+import { AppTheme } from "./styles";
 
 /**
  * Material-UI requires injectTapEventPlugin
@@ -48,7 +55,7 @@ injectTapEventPlugin();
  * Application level components
  */
 const APPLICATION = (
-    <MuiThemeProvider muiTheme={APP_THEME}>
+    <MuiThemeProvider muiTheme={AppTheme}>
         <Provider store={store}>
             <Router history={browserHistory} children={AppRoutes} />
         </Provider>

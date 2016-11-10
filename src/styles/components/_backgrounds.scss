@@ -3,6 +3,27 @@
     background-color: #fff;
 }
 
+.bg-hover-white:hover {
+    background-color: #fff;
+    color: $gray-dark;
+}
+
 .bg-black {
     background-color: #000;
+}
+
+.bg-primary {
+    background-color: $primary1Color;
+}
+
+.bg-primary-2 {
+    background-color: $primary2Color;
+}
+
+.bg-primary-3 {
+    background-color: $primary3Color;
+}
+
+.bg-accent {
+    background-color: $accent1Color;
 }

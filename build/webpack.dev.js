@@ -22,9 +22,9 @@ const APP_GLOBALS = helpers.mergeEnvironment({
  * Merge in the development webpack config properties
  */
 const WEBPACK_CONFIG = helpers.mergeWebpackConfig({
-    // plugins: [
-    //     //new webpack.DefinePlugin(helpers.configureAppGlobals(APP_GLOBALS))
-    // ],
+    plugins: [
+        new webpack.DefinePlugin(helpers.configureAppGlobals(APP_GLOBALS))
+    ],
     devServer: {
         //hot: true,
         port: 3000,

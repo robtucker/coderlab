@@ -1,5 +1,5 @@
 {
-    "LOG_LEVEL": 400,
+    "LOG_LEVEL_CONSOLE": 800,
     "CONTACT_EMAIL": "prod@bar.com",
     "CONTACT_PHONE": "+44 7789 457324"
 }

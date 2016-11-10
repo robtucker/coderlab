@@ -1,4 +1,4 @@
-import { About } from "./about.component";
+import { About } from "./components/about";
 
 export const AboutRoutes = {
     path: '/about',

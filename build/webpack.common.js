@@ -32,9 +32,13 @@ module.exports = {
                 exclude: /node_modules/,
                 loaders: ["awesome-typescript-loader"]
             },
+            {
+                test: /\.css$/,
+                loader: 'style!css',
+            },
             { 
                 test: /\.scss$/, 
-                loader: extractSASS.extract(['css','sass']) 
+                loader: ExtractTextPlugin.extract(['css','sass']) 
             },
             {
                 test: /\.(jpg|png|gif)$/,

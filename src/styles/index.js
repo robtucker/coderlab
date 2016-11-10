@@ -1,1 +1,1 @@
-export * from "./mui-theme";
+export * from "./material-ui";

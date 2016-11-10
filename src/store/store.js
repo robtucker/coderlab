@@ -1,9 +1,15 @@
 import { createStore, combineReducers } from 'redux';
 
-import { navbarReducer } from "./layouts/navbar";
+import { navbarReducer } from "../layouts/navbar";
 
+const initialState = process.env.CONFIG;
+
+const configReducer = (state = initialState, action) => {
+    return state;
+}
 
 const appReducers = {
+    config: configReducer,
     navbar: navbarReducer
 };
 

@@ -1,3 +1,42 @@
+// standard grid breakpoints are taken from bootstrap
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+) !default;
+
+// flex-basis percentages to be made available across all screen sizes
+$flex-basis-percentages: (
+  100: 100%,
+  75: 75%,
+  66: 66.66%, 
+  50: 50%,
+  33: 33.33%,
+  25: 25%
+) !default;
+
+// child elements will be n times bigger than their sibling elements
+$flex-grow-factors: 1, 2, 3, 4, 5 !default;
+
+// trim the size of the build by removing responsive versions of some classes
+$enable-flex-grow-responsive:        true !default;
+$enable-flex-wrap-responsive:        true !default;
+$enable-flex-basis-responsive:       false !default; // false by default
+$enable-justify-between-responsive:  true !default;
+$enable-justify-around-responsive:   true !default;
+$enable-align-baseline-responsive:   true !default;
+$enable-align-self-responsive:       true !default;
+
+
+// Material UI color scheme
+$primary1Color: #03a9f4;
+$primary2Color: #0277bd;
+$primary3Color: #81d4fa;
+$accent1Color: #f06292;
+
+// margins
 $margin-xs: 8px;
 $margin-sm: 16px;
 $margin-md: 24px;
@@ -6,6 +45,7 @@ $margin-xl: 56px;
 $margin-xxl: 64px;
 $margin-xxxl: 92px;
 
+// paddings
 $padding-xs:  8px;
 $padding-sm:  16px;
 $padding-md:  24px;
@@ -14,6 +54,7 @@ $padding-xl:  56px;
 $padding-xxl: 64px;
 $padding-xxxl: 92px;
 
+//containers
 $container-x-sm: $padding-md;
 $container-y-sm: $padding-md;
 $container-x-md: $padding-xl;
@@ -21,10 +62,9 @@ $container-y-md: $padding-lg;
 $container-x-lg: $padding-xxxl;
 $container-y-lg: $padding-lg;
 
-$font-size-xs: 8px;
-$font-size-sm: 12px;
-$font-size-md: 18px;
-$font-size-lg: 20px;
-$font-size-xl: 26px;
-$font-size-xxl: 36px;
-$font-size-xxxl: 48px;
+// Fonts
+$font-family: BrandonText-Regular, Geneva, Tahoma, sans-serif;
+
+// images
+$testimonial-img-size: 120px;
+

@@ -1,12 +1,18 @@
-@mixin bg-img ($url, $size: contain, $height: auto){
-    height: $height;
-    width: 100%;
-    background-position: center center;
-    background-size: $size;
-    background-repeat: no-repeat;
-    background-image: $url;
+.img-testimonial-female1 {
+    @include bg-img(url(../assets/img/testimonials/headshot_female_1.jpg), contain, $testimonial-img-size);
+    border-radius: 100%;
+    margin-left: $margin-md;
+    margin-right: $margin-md;
+    width: $testimonial-img-size;
 }
 
-// .img-mobile-web {
-//     @include bg-img(url(../assets/img/mobile-web2.png), contain, $img-panel-height)
-// }
+.img-flask {
+    @include bg-img(url(../assets/img/logos/flask.png), contain, 120px);
+    min-height: 100px;
+    margin-bottom: $margin-sm;
+}
+
+.img-bubbles {
+    @include bg-img(url(../assets/img/backgrounds/bubbles.png), cover, 500px);
+}
+

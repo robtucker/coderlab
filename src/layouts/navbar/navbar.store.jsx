@@ -3,7 +3,6 @@ export const TOGGLE_NAVBAR = "TOGGLE_NAVBAR";
 
 
 let initialState = {
-    title: "CoderLab",
     isVisible: true,
     sidenavOpen: false
 }

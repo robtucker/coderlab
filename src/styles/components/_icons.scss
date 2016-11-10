@@ -1,4 +1,25 @@
 
-.logo {
-    @extend .font-spacing-md;
+.img-teacher {
+    border-radius: 100%;
+    background-color: $primary1Color;
 }
+
+.img-biologist {
+    border-radius: 100%;
+
+}
+
+.img-engineer {
+    border-radius: 100%;
+}
+
+.img-architect {
+    border-radius: 100%;
+}
+
+.icon-ninja {
+    @include bg-img(url(../assets/img/icons/ninja.png), contain, 100px);
+    border-radius: 100%;
+    margin-bottom: $margin-sm;
+}
+

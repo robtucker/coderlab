@@ -1,5 +1,3 @@
-
-
 @font-face {
     font-family: 'BrandonText-Regular';
     src: url('../assets/fonts/brandon/2CFE1B_2_0.eot');
@@ -9,76 +7,39 @@
         url('../assets/fonts/brandon/2CFE1B_2_0.ttf') format('truetype');
 }
 
-.BrandonText-Regular {
-  font-family: BrandonText-Regular;
+.BrandonText-Regular { font-family: BrandonText-Regular; }
+
+html, body {
+    font-family: $font-family;
 }
 
-.roboto {
-    font-family: Roboto, "Helvetica Neue", sans-serif;
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0px;
 }
 
-.html, body, app {
-    font-family: BrandonText-Regular, Geneva, Tahoma, sans-serif;
-}
-
-h1 {
-    font-size: $font-size-xxl;
-}
-h2 {
-    font-size: $font-size-xl;
-}
-
-h3 {
-    font-size: $font-size-lg;
-}
-
-p {
-    font-size: $font-size-md;
-}
+.text-decoration-none { text-decoration: none; }
 
 .font-size-sm {
     font-size: $font-size-sm;
 }
 
 .font-size-md {
-    font-size: $font-size-md;
+    font-size: $font-size-base;
 }
 
 .font-size-lg {
-    font-size: $font-size-lg;
+    font-size: $font-size-lg * 0.9;
 }
 
 
 .font-size-xl {
-    font-size: $font-size-xl;
+    font-size: $font-size-lg * 1.3;
 }
 
 .font-size-xxl {
-    font-size: $font-size-xxl;
+    font-size: $font-size-lg * 1.8;
 }
 
 .font-spacing-md {
     letter-spacing: 1px;
-}
-
-.logo {
-    @extend .roboto;
-}
-
-.lead {
-    //@extend .padding-y-xxl;
-    @extend .font-size-xxl;
-}
-
-.boxed {
-    width: auto;
-    display: block;
-    @extend .padding-y-md;
-    @extend .padding-x-md;
-    border: 3px solid white;
-    //border-radius: 25%;
-}
-
-.text-decoration-none {
-    text-decoration: none;
 }

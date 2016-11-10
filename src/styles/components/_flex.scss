@@ -1,0 +1,261 @@
+//@import "variables";
+
+/* A container is either a row or a column */
+@mixin flex-container() {
+    display: -webkit-flex; 
+    display: flex;
+    width: 100%;
+}
+
+.row {
+    @include flex-container();
+    flex-direction: row;
+}
+
+.col {
+    @include flex-container();
+    flex-direction: column;
+}
+
+.row-reverse {
+    @include flex-container();
+    flex-direction: row-reverse;
+}
+
+.col-reverse {
+    @include flex-container();
+    flex-direction: column-reverse;
+}
+
+// Flex Wrap
+
+.flex-wrap {
+    -webkit-flex-wrap: wrap;
+    flex-wrap:         wrap;
+}
+
+.flex-wrap-reverse {
+    -webkit-flex-wrap: wrap-reverse;
+    flex-wrap:         wrap-reverse;
+}
+
+// flex grow
+@each $growVal in $flex-grow-factors {
+    .flex-#{$growVal} {
+        flex-grow: $growVal;
+    }
+}    
+        
+
+// Justify Content
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.justify-between {
+    justify-content: space-between;
+}        
+
+.justify-around {
+    justify-content: space-around;
+}        
+
+// Align Items
+.align-start {
+    align-items: flex-start;
+    align-content: flex-start;
+}
+
+.align-center {
+    align-items: center;
+    align-content: center;
+}
+
+.align-end {
+    align-items: flex-end;
+    align-content: flex-end;
+}
+
+.align-stretch {
+    align-items: stretch;
+    align-content: stretch;
+}
+
+.align-baseline {
+    align-items: baseline;
+}
+
+// align self
+.align-self-start {
+    align-self: flex-start;
+}
+
+.align-self-center {
+    align-self: center;
+}
+
+.align-self-end {
+    align-self: flex-end;
+}
+
+.align-self-stretch {
+    align-items: stretch;
+}
+
+.align-self-baseline {
+    align-items: baseline;
+}
+
+// flex basis
+.flex-basis-auto {
+    flex-basis: auto;
+}
+
+@each $percKey, $percVal in $flex-basis-percentages {
+    .flex-basis-#{$percKey} {
+        flex-basis: $percVal;
+    }
+}
+
+// RESPONSIVE VERSIONS
+@each $key, $val in $grid-breakpoints {
+    @media screen and (min-width: $val) { 
+
+        // containers
+        .row-#{$key} {
+            @include flex-container();
+            flex-direction: row;
+        }
+
+        .col-#{$key} {
+            @include flex-container();
+            flex-direction: column;
+        }
+
+        .row-reverse-#{$key} {
+            @include flex-container();
+            flex-direction: row-reverse;
+        }
+
+        .col-reverse-#{$key} {
+            @include flex-container();
+            flex-direction: column-reverse;
+        }
+
+
+        // flex wrap    
+        @if $enable-flex-wrap-responsive == true {
+            .flex-wrap-#{$key} {
+                -webkit-flex-wrap: wrap;
+                flex-wrap:         wrap;
+            }
+
+            .flex-wrap-reverse-#{$key} {
+                -webkit-flex-wrap: wrap-reverse;
+                flex-wrap:         wrap-reverse;
+            }
+        }
+
+        // flex grow
+        @if $enable-flex-grow-responsive == true {
+            @each $growVal in $flex-grow-factors {
+                .flex-#{$growVal}-#{$key} {
+                    flex-grow: $growVal;
+                }
+            }    
+        }
+
+        // justify
+        .justify-start-#{$key} {
+            justify-content: flex-start;
+        }
+
+        .justify-center-#{$key} {
+            justify-content: center;
+        }
+
+        .justify-end-#{$key} {
+            justify-content: flex-end;
+        }
+
+        @if $enable-justify-between-responsive == true {
+            .justify-between-#{$key} {
+                justify-content: space-between;
+            }        
+        }
+
+        @if $enable-justify-around-responsive == true {
+            .justify-around-#{$key} {
+                justify-content: space-around;
+            }        
+        }
+
+        // align items
+        .align-start-#{$key} {
+            align-items: flex-start;
+            align-content: flex-start;
+        }
+
+        .align-center-#{$key} {
+            align-items: center;
+            align-content: center;
+        }
+
+        .align-end-#{$key} {
+            align-items: flex-end;
+            align-content: flex-end;
+        }
+
+        .align-stretch-#{$key} {
+            align-items: stretch;
+            align-content: stretch;
+        }
+
+        @if $enable-align-baseline-responsive == true {
+            .align-baseline-#{$key} {
+                align-items: baseline;
+                align-content: baseline;
+            }
+        }
+
+        // align self
+        @if $enable-align-self-responsive == true {
+            .align-self-start-#{$key} {
+                align-self: flex-start;
+            }
+
+            .align-self-center-#{$key} {
+                align-self: center;
+            }
+
+            .align-self-end-#{$key} {
+                align-self: flex-end;
+            }
+
+            .align-self-stretch-#{$key} {
+                align-items: stretch;
+            }
+
+            .align-self-baseline-#{$key} {
+                align-items: baseline;
+            }
+        }
+
+        // flex basis
+        @if $enable-flex-basis-responsive == true {
+            @each $percKey, $percVal in $flex-basis-percentages {
+                .flex-basis-#{$percKey}-#{$key} {
+                    flex-basis: $percVal;
+                }
+            }
+        }
+    }
+}
