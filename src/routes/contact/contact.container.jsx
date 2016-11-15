@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 
-import { About } from "./components/about";
+import { Contact } from "./components/contact";
 
-export class AboutContainer extends Component {
+export class ContactContainer extends Component {
 
     componentWillMount() {
         console.log(this);
     }
 
     render() {
-        return <About />
+        return <Contact />
     }
         
 }

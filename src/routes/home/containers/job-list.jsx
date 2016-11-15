@@ -7,28 +7,28 @@ import { breakpoints } from "../../../styles";
 
 var jobsArray = [
     {
-        id: 2,
-        imgClass: "icon-ninja",
-        label: "Designers"
+        id: 1,
+        imgClass: "icon-architect",
+        label: "Architects"
     },
     {
-        id: 1,
-        imgClass: "icon-ninja",
+        id: 2,
+        imgClass: "icon-marketer",
         label: "Marketers"
     },
     {
         id: 3,
-        imgClass: "icon-ninja",
+        imgClass: "icon-scientist",
         label: "Scientists"
     },
     {
         id: 4,
-        imgClass: "icon-ninja",
-        label: "Architects"
+        imgClass: "icon-designer",
+        label: "Designers"
     },
     {
         id: 5,
-        imgClass: "icon-ninja",
+        imgClass: "icon-investor",
         label: "Bankers"
     },
     {

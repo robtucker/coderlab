@@ -1,25 +1,64 @@
+$icon-md-size: 100px;
 
-.img-teacher {
-    border-radius: 100%;
-    background-color: $primary1Color;
-}
-
-.img-biologist {
-    border-radius: 100%;
-
-}
-
-.img-engineer {
-    border-radius: 100%;
-}
-
-.img-architect {
-    border-radius: 100%;
-}
-
-.icon-ninja {
-    @include bg-img(url(../assets/img/icons/ninja.png), contain, 100px);
+.icon-md {
+    height: $icon-md-size;
+    width: $icon-md-size;
     border-radius: 100%;
     margin-bottom: $margin-sm;
 }
 
+.icon-calendar {
+    @include bg-img(url(../assets/img/icons/calendar.png), contain, $icon-md-size);
+    width: $icon-md-size;
+    background-color: #e0995e;
+}
+
+.icon-pencil {
+    @include bg-img(url(../assets/img/icons/pencil.png), contain, $icon-md-size);
+    width: $icon-md-size;
+    background-color: #e0995e;
+}
+
+.icon-mentor {
+    @include bg-img(url(../assets/img/icons/ninja.png), contain, $icon-md-size);
+    width: $icon-md-size;
+    //background-color: #e0995e;
+    background-color: #c75c5c;
+    //background-color: #4f5d73;
+}
+
+.icon-designer {
+    @include bg-img(url(../assets/img/icons/designer2.png), contain, $icon-md-size);
+    width: $icon-md-size;    
+    background-color: #E57373;
+}
+
+.icon-ninja {
+    @include bg-img(url(../assets/img/icons/ninja.png), contain, $icon-md-size);
+    width: $icon-md-size;
+    background-color: #4FC3F7;
+}
+
+.icon-marketer {
+    @include bg-img(url(../assets/img/icons/businessman.png), contain, $icon-md-size);
+    width: $icon-md-size;
+    background-color: #FFD54F;
+}
+
+.icon-scientist {
+    @include bg-img(url(../assets/img/icons/female-scientist-transparent.png), contain, $icon-md-size);
+    width: $icon-md-size;
+    background-color: #9575CD;
+}
+
+.icon-architect {
+    @include bg-img(url(../assets/img/icons/writer.png), contain, $icon-md-size);
+    width: $icon-md-size;
+    background-color: #81C784;
+}
+
+.icon-investor {
+    @include bg-img(url(../assets/img/icons/investor.png), contain, $icon-md-size);
+    width: $icon-md-size;    
+    background-color: #4DB6AC;
+}

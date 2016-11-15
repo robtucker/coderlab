@@ -1,14 +1,14 @@
 import React, { PropTypes } from "react";
 
-import { JobIcon } from "./job-icon";
+import { Icon } from "../../../layouts";
 
 const JobList = ({data}) => {
     
     return (
-        <div className="row justify-center padding-y-sm">
+        <div className="row justify-center">
             {
                 data.map((job) => {
-                    return <JobIcon key={job.id} imgClass={job.imgClass} label={job.label} />
+                    return <Icon key={job.id} imgClass={job.imgClass} label={job.label} />
                 })
             }
         </div>

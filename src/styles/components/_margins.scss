@@ -24,6 +24,11 @@
     margin-bottom: $margin-xl;
 }
 
+.margin-y-xxl {
+    margin-top: $margin-xxl;
+    margin-bottom: $margin-xxl;
+}
+
 .margin-x-sm {
     margin-left: $margin-sm;
     margin-right: $margin-sm;
@@ -45,3 +50,16 @@
 }
 
 
+
+
+.margin-bottom-sm {
+    margin-bottom: $margin-sm;
+}
+
+.margin-bottom-md {
+    margin-bottom: $margin-md;
+}
+
+.margin-bottom-lg {
+    margin-bottom: $margin-lg;
+}

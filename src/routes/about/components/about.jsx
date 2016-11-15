@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 const About = () => (
     <section>
-        <h1>about</h1>
+        <h1>Our mentors</h1>
     </section>
 )
 

@@ -4,6 +4,10 @@
     background-color: $color;
 }
 
+.overlay-hover:hover {
+    @extend .overlay-20;
+}
+
 .overlay-20 {
     @include overlay(rgba(0, 0, 0, 0.2))
 }

@@ -6,7 +6,7 @@ const Header = ({appTitle}) => (
             <div className="text-xs-center">
                 <div className="img-flask"></div>
                 <h2 className="black">{appTitle}</h2>
-                <h1>Where legends are born...</h1>
+                <h1>where legends are born...</h1>
             </div>
         </div>
     </section>

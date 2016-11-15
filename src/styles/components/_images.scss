@@ -6,13 +6,35 @@
     width: $testimonial-img-size;
 }
 
+.img-testimonial-female2 {
+    @include bg-img(url(../assets/img/testimonials/woman-transparent.png), contain, auto);
+    min-height: 250px;
+}
+
 .img-flask {
     @include bg-img(url(../assets/img/logos/flask.png), contain, 120px);
     min-height: 100px;
     margin-bottom: $margin-sm;
 }
 
-.img-bubbles {
-    @include bg-img(url(../assets/img/backgrounds/bubbles.png), cover, 500px);
+.img-unity-logo {
+    @include bg-img(url(../assets/img/logos/unity-logo-white.png), contain, 75px);
 }
 
+.img-bubbles {
+    @include bg-img(url(../assets/img/backgrounds/bubbles.png), cover, auto);
+}
+
+.img-gaming {
+    @include bg-img(url(../assets/img/backgrounds/fantasy.jpg), cover, auto);
+}
+
+.img-html {
+    @include bg-img(url(../assets/img/backgrounds/html-fade.png), cover, auto);
+    min-height: 306px;
+}
+
+.img-teacher-training {
+    @include bg-img(url(../assets/img/backgrounds/primary-school-computing.jpg), cover, auto);
+    min-height: 306px;
+}

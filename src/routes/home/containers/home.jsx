@@ -8,6 +8,24 @@ let testimonial = {
     author: "Abby, 21, Sussex"
 };
 
+let mentoringIcons = [
+    {
+        id: 1,
+        imgClass: "icon-pencil",
+        label: "Weekly one-on-one lessons"
+    },
+    {
+        id: 2,
+        imgClass: "icon-mentor",
+        label: "Personal coding mentor"
+    },
+    {
+        id: 3,
+        imgClass: "icon-calendar",
+        label: "Learn at your own pace"
+    }
+];
+
 let quote = {
     text: `Computer Science will change the way we do just about everything`,
     author: "Barack Obama, 2013"
@@ -15,6 +33,7 @@ let quote = {
 
 const mapStateToProps = (state) => ({
     appTitle: state.config.APP_TITLE,
+    mentoringIcons: mentoringIcons,
     testimonial: testimonial,
     quote: quote
 });

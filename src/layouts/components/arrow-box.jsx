@@ -1,11 +1,16 @@
 import React,  { PropTypes } from 'react';
 import { Link } from 'react-router';
 
-const ArrowBox = ({text}) => {
+const ArrowBox = ({text, color}) => {
+
+    let hoverClass = color === "white" ? "bg-hover-white" : "";
+    let borderStyle = `2px solid ${color}`;
+
     return (
-        <div className="row justify-center align-center">
-            <Link to="/about" className="text-decoration-none white"> 
-                <div className="text-xs-center padding-y-sm padding-x-md bg-hover-white" style={{border: "2px solid white"}}>
+        <div className="row justify-center align-center" style={{color: color || "white"}}>
+            <Link to="/about" className={`text-decoration-none ${color}`}> 
+                <div className={`text-xs-center padding-y-sm padding-x-md ${hoverClass}`} 
+                    style={{border: borderStyle}}>
                     <div className="row align-center font-size-lg">
                         <span>{text}</span>&nbsp;&nbsp;<i className="material-icons arrow-R">arrow_forward</i>
                     </div>
@@ -19,7 +24,13 @@ const ArrowBox = ({text}) => {
 }
 
 ArrowBox.propTypes = {
-    text: PropTypes.string.isRequired
+    text: PropTypes.string.isRequired,
+    color: PropTypes.string
 }
+
+ArrowBox.defaultProps = { 
+    text: 'Find out more',
+    color: 'white' 
+};
 
 export { ArrowBox }
