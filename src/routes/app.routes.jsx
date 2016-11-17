@@ -5,7 +5,6 @@ import { HomeContainer } from "./home";
 import { ContactRoutes } from "./contact";
 import { MentorsRoutes } from "./mentors";
 import { CoursesRoutes }  from "./courses";
-import { LearnRoutes } from "./learn";
 
 export const AppRoutes = {
     path        : '/',
@@ -14,8 +13,7 @@ export const AppRoutes = {
     childRoutes : [
         // async routes must add their reducers into the store when they are loaded
         CoursesRoutes(store),
-        LearnRoutes(store),
-        MentorsRoutes,
+        MentorsRoutes(store),
         ContactRoutes
     ]
 };

@@ -1,4 +1,5 @@
 export * from "./core-layout";
+export * from "./components/page-container";
 export * from "./components/icon";
 export * from "./components/icon-list";
 export * from "./components/next-page";

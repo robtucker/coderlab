@@ -19,8 +19,14 @@ h1, h2, h3, h4, h5, h6, p {
 
 a {
     text-decoration: none;
+    color: inherit;
     //-webkit-text-decoration: none;
 }
+
+.link-hover:hover {
+    color: $primary2Color;
+}
+
 .text-decoration-none { text-decoration: none; }
 
 .font-size-sm {

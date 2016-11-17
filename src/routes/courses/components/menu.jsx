@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 import chunk from 'lodash/chunk';
 
-import { LinkCard, NextPage } from "../../../layouts";
+import { PageContainer, LinkCard } from "../../../layouts";
 
 
 const Menu = ({courses}) => {
@@ -13,9 +13,7 @@ const Menu = ({courses}) => {
 
     
     return (
-        <div>
-            <div className="container margin-y-lg">
-                <h4 className="margin-bottom-md margin-x-sm text-xs-center">Choose a course...</h4>
+        <PageContainer title="Choose a course" nextPageUrl="courses/web" nextPageLabel="Web">
 
                 {chunks.map((chunk)=>{
                     
@@ -33,12 +31,7 @@ const Menu = ({courses}) => {
                         </div>
                     )
                 })}
-
-            
-
-            </div> 
-            <NextPage to="courses/web" label="Web" />
-        </div>
+        </PageContainer>
     );
 }
 export { Menu };

@@ -1,16 +1,12 @@
-import React, { Component } from 'react';
+import { connect } from "react-redux";
 
 import { Contact } from "./components/contact";
 
-export class ContactContainer extends Component {
+const mapDispatchToProps = (dispatch) => ({
+})
 
-    componentWillMount() {
-        console.log(this);
-    }
+const mapStateToProps = (state) => ({
+    contactEmail: 'foo',
+});
 
-    render() {
-        return <Contact />
-    }
-        
-}
-
+export const ContactContainer = connect(mapStateToProps, mapDispatchToProps)(Contact);

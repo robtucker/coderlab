@@ -1,16 +1,13 @@
-import React, { Component } from 'react';
+import { connect } from "react-redux";
 
 import { Mentors } from "./components/mentors";
 
-export class MentorsContainer extends Component {
+const mapDispatchToProps = (dispatch) => ({
+    
+})
 
-    componentWillMount() {
-        console.log(this);
-    }
+const mapStateToProps = (state) => ({
+    mentors: state.mentors,
+});
 
-    render() {
-        return <Mentors />
-    }
-        
-}
-
+export const MentorsContainer = connect(mapStateToProps, mapDispatchToProps)(Mentors);

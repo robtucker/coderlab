@@ -1,6 +1,18 @@
 import { MentorsContainer } from "./mentors.container";
 
-export const MentorsRoutes = {
+import { injectReducer } from "../../store";
+
+export const MentorsRoutes = (store) => ({
     path: '/mentors',
-    component: MentorsContainer,
-};
+    getComponent(nextState, cb) {
+        require.ensure([],(require) => {
+
+            const MentorsContainer = require('./mentors.container').MentorsContainer;
+            const reducer = require('./mentors.store').mentorsReducer
+
+            injectReducer(store, { key: 'mentors', reducer });
+
+            cb(null, MentorsContainer)
+        })
+    }
+})

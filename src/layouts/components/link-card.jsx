@@ -13,7 +13,7 @@ const LinkCard = ({title, description, iconClass, url}) => (
             <div className={`${iconClass} margin-bottom-sm margin-x-md border-radius-100`}></div>
 
             <div className="max-width-500 text-xs-center text-md-left margin-x-sm">
-                <h4 style={{color: palette.primary1Color}}>{title}</h4>
+                <h4 className="primary1 link-hover">{title}</h4>
                 <p style={{color: typography.textLightBlack}}>{description}</p>
             </div>
         </Paper>
