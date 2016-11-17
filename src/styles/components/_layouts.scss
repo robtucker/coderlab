@@ -1,3 +1,17 @@
+.sidebar {
+    box-shadow: inherit;
+}
+
+// sidebars should only have a max width on xs through md
+@media screen and (min-width: map-get($grid-breakpoints, lg)) { 
+
+    .sidebar {
+        max-width: 300px;
+        margin-left: $margin-md;
+    }
+}
+
+
 .flex-fill {
     flex: 1 1 auto;
 }

@@ -8,7 +8,7 @@ export const courses = [
             Kick start your career as a programmer with this practical hands-on course.`,
         iconClass: "icon-html",
         bannerClass: "img-banner-javascript",
-        outline: [
+        lessons: [
             {
                 id: 1,
                 title: "Getting set up in Unity",
@@ -40,7 +40,7 @@ export const courses = [
                 iconClass: "icon-ninja"
             },
             {
-                id: 5,
+                id: 7,
                 title: "Finishing and releasing games",
                 iconClass: "icon-ninja"
             },
@@ -55,7 +55,7 @@ export const courses = [
             This beginner level course will guide you through the ABCs of game development.`,
         iconClass: "icon-phone",
         bannerClass: "img-banner-javascript",
-        outline: [
+        lessons: [
             {
                 id: 1,
                 title: "Getting set up in Unity",
@@ -87,7 +87,7 @@ export const courses = [
                 iconClass: "icon-ninja"
             },
             {
-                id: 5,
+                id: 7,
                 title: "Finishing and releasing games",
                 iconClass: "icon-ninja"
             },
@@ -102,7 +102,7 @@ export const courses = [
             used by beginners and experts alike.`,
         iconClass: "icon-python",
         bannerClass: "img-banner-javascript",
-        outline: [
+        lessons: [
             {
                 id: 1,
                 title: "Getting set up in Unity",
@@ -134,7 +134,7 @@ export const courses = [
                 iconClass: "icon-ninja"
             },
             {
-                id: 5,
+                id: 7,
                 title: "Finishing and releasing games",
                 iconClass: "icon-ninja"
             },
@@ -149,7 +149,7 @@ export const courses = [
             learn the language of the web with JavaScript.`,
         iconClass: "icon-node",
         bannerClass: "img-banner-javascript",
-        outline: [
+        lessons: [
             {
                 id: 1,
                 title: "Getting set up in Unity",
@@ -181,7 +181,7 @@ export const courses = [
                 iconClass: "icon-ninja"
             },
             {
-                id: 5,
+                id: 7,
                 title: "Finishing and releasing games",
                 iconClass: "icon-ninja"
             },
@@ -196,7 +196,7 @@ export const courses = [
             We'll give you everything you need.`,
         iconClass: "icon-books",
         bannerClass: "img-banner-javascript",
-        outline: [
+        lessons: [
             {
                 id: 1,
                 title: "Getting set up in Unity",
@@ -228,7 +228,7 @@ export const courses = [
                 iconClass: "icon-ninja"
             },
             {
-                id: 5,
+                id: 7,
                 title: "Finishing and releasing games",
                 iconClass: "icon-ninja"
             },
@@ -243,7 +243,7 @@ export const courses = [
             to machine learning, we'll help you push further than ever before`,
         iconClass: "icon-pen",
         bannerClass: "img-banner-javascript",
-        outline: [
+        lessons: [
             {
                 id: 1,
                 title: "Getting set up in Unity",
@@ -275,7 +275,7 @@ export const courses = [
                 iconClass: "icon-ninja"
             },
             {
-                id: 5,
+                id: 7,
                 title: "Finishing and releasing games",
                 iconClass: "icon-ninja"
             },

@@ -19,7 +19,7 @@ const CourseMenu = ({courses}) => {
             {chunks.map((chunk)=>{
                 
                 return (
-                    <div className="col-xs row-lg justify-center align-center-xs align-stretch-lg height-100 margin-y-sm"
+                    <div className="col-xs row-lg justify-center align-center-xs align-stretch-lg height-100"
                         key={chunk[0].id} >
                         {chunk.map((course) => ( 
                             <LinkCard 
