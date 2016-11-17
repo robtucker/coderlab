@@ -21,20 +21,20 @@ const Home = (props) => {
             <ImagePanel imgClass="img-bubbles" className="white overlay-50">
                 <h1 className="margin-bottom-sm">Anyone can learn to code</h1>
                 <h3 className="margin-bottom-lg">Write your first line of code right now!</h3>
-                <ArrowBox />
+                <ArrowBox url="courses/web"/>
             </ImagePanel>
 
             <IconList list={props.mentoringIcons}
                 title="Meet your new personal trainer" 
                 subTitle="One on one training that will push you to your limit">
-                <ArrowBox color={typography.textDarkBlack} text="Find out more" />
+                <ArrowBox color={typography.textDarkBlack} url="mentors" />
             </IconList>
 
             <ImagePanel  imgClass="img-html" bgColor="#051934" reverse={true} className="overlay-50 white">
                 <h1 className="margin-bottom-md">Become a web developer in 12 weeks</h1>
                 <h4 className="margin-bottom-md">This intensive course is designed to prepare you for 
                     your first programming job</h4>
-                <ArrowBox />
+                <ArrowBox url="courses/web"/>
             </ImagePanel>
 
             <SplitPanel  imgClass="img-testimonial-female2" reverse={true}>
@@ -50,7 +50,7 @@ const Home = (props) => {
             <ImagePanel  imgClass="img-gaming" className="overlay-50 white">
                 <h1 className="margin-bottom-md">Make video games in Unity</h1>
                 <div className="img-unity-logo margin-bottom-lg"></div>
-                <ArrowBox />
+                <ArrowBox url="courses/game"/>
             </ImagePanel>
 
             <section className="text-xs-center margin-y-xl">
@@ -65,7 +65,7 @@ const Home = (props) => {
             <ImagePanel  imgClass="img-teacher-training" className="overlay-50 white">
                 <h1 className="margin-bottom-sm">Teacher Training</h1>
                 <h4 className="margin-bottom-lg">Give your students the skills they need for the modern world</h4>
-                <ArrowBox />
+                <ArrowBox url="courses/teacher"/>
             </ImagePanel>
 
 

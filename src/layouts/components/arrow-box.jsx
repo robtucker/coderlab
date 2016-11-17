@@ -1,14 +1,14 @@
 import React,  { PropTypes } from 'react';
 import { Link } from 'react-router';
 
-const ArrowBox = ({text, color}) => {
+const ArrowBox = ({url, text, color}) => {
 
-    let hoverClass = color === "white" ? "bg-hover-white" : "";
+    let hoverClass = color === "white" ? "bg-hover-white" : "hover-invert";
     let borderStyle = `2px solid ${color}`;
 
     return (
         <div className="row justify-center align-center" style={{color: color || "white"}}>
-            <Link to="/about" className={`text-decoration-none ${color}`}> 
+            <Link to={url} className={`text-decoration-none ${color}`}> 
                 <div className={`text-xs-center padding-y-sm padding-x-md ${hoverClass}`} 
                     style={{border: borderStyle}}>
                     <div className="row align-center font-size-lg">
@@ -24,6 +24,7 @@ const ArrowBox = ({text, color}) => {
 }
 
 ArrowBox.propTypes = {
+    url: PropTypes.string.isRequired,
     text: PropTypes.string.isRequired,
     color: PropTypes.string
 }

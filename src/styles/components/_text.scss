@@ -27,6 +27,11 @@ a {
     color: $primary2Color;
 }
 
+.hover-invert:hover {
+    color: white;
+    background-color: $gray-dark;
+}
+
 .text-decoration-none { text-decoration: none; }
 
 .font-size-sm {

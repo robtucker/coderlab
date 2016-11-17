@@ -1,7 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 
-import { Menu } from "./menu";
-
 import { Logger } from "isolog";
 
 class Courses extends Component {

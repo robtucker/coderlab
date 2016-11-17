@@ -21,7 +21,7 @@ export const CoursesRoutes = (store) => ({
         require.ensure([], (require) => {
 
             cb(null, {
-                component: require('./components/menu').Menu,
+                component: require('./components/course-menu').CourseMenu,
             });
         })
     },
@@ -30,28 +30,8 @@ export const CoursesRoutes = (store) => ({
 
             cb(null, [
                 {
-                    path: "web",
-                    component: require('./components/web').Web
-                },
-                {
-                    path: "game",
-                    component: require('./components/game').Game
-                },
-                {
-                    path: "javascript",
-                    component: require('./components/javascript').Javascript
-                },
-                {
-                    path: "python",
-                    component: require('./components/python').Python
-                },
-                {
-                    path: "advanced",
-                    component: require('./components/advanced').Advanced
-                },
-                {
-                    path: "teacher",
-                    component: require('./components/teacher').Teacher
+                    path: ":name",
+                    component: require('./components/course-summary').CourseSummary
                 }
             ])
         })

@@ -5,7 +5,10 @@ import { PageContainer, Quote } from "../../../layouts";
 import { MentorCard } from "./mentor-card";
 
 const Mentors = ({mentors}) => (
-    <PageContainer title="Our Mentors" nextPageLabel="Contact" nextPageUrl="contact">
+    <PageContainer nextPageLabel="Contact" nextPageUrl="contact" center={true}>
+
+        <h3 className="margin-x-sm margin-bottom-md text-xs-center">Meet our mentors...</h3>
+
         <Quote 
             text="Education is the most powerful weapon which you can use to change the world." 
             author="Nelson Mandela" />

@@ -8,12 +8,12 @@ const MentorCard = ({name, subtitle, img, description}) => {
     return (
         <div>
             <Card>
-                <CardMedia> 
+                <CardMedia > 
                     <img src={img} />
                 </CardMedia>
 
+                
                 <CardTitle title={name} subtitle={subtitle} />
-
                 <CardText style={{minHeight: "100px"}}>{description}</CardText>
             </Card>
         

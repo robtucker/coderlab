@@ -3,9 +3,11 @@ export const courses = [
         id: 1,
         slug: "web",
         title: "HTML/CSS",
-        description: `Learn professional web development using HTML, CSS and Javascript. 
+        subtitle: "The fundamentals of web development",
+        description: `Learn professional web development using HTML, CSS and SASS. 
             Kick start your career as a programmer with this practical hands-on course.`,
         iconClass: "icon-html",
+        bannerClass: "img-banner-javascript",
         outline: [
             {
                 id: 1,
@@ -48,9 +50,11 @@ export const courses = [
         id: 2,
         slug: "game",
         title: "Game Development",
-        description: `Make your own video game and get to grips with the Unity ecosystem. 
-        This beginner level course will guide you through the ABCs of game development.`,
+        subtitle: "The fundamentals of game development",
+        description: `Learn the Unity game engine, and make your own video game. 
+            This beginner level course will guide you through the ABCs of game development.`,
         iconClass: "icon-phone",
+        bannerClass: "img-banner-javascript",
         outline: [
             {
                 id: 1,
@@ -93,9 +97,11 @@ export const courses = [
         id: 3,
         slug: "python",
         title: "Python",
-        description: `Python is the most popular programming language of 2017. From simple websites to Artificial Intelligence, 
-            Python is suitable for both beginners and experts.`,
+        subtitle: "An entry to programming",
+        description: `The most popular programming language of our times, Python is readable fast, and 
+            used by beginners and experts alike.`,
         iconClass: "icon-python",
+        bannerClass: "img-banner-javascript",
         outline: [
             {
                 id: 1,
@@ -138,10 +144,11 @@ export const courses = [
         id: 4,
         slug: "javascript",
         title: "Javascript",
-        description: `JavaScript is the language of the web. From user interfaces in jQuery to real time chat applications in Node,
-            JavaScript is probably the most important language of today.
-            `,
+        subtitle: "The language of the web",
+        description: `From interactive user experiences to real-time chat applications, 
+            learn the language of the web with JavaScript.`,
         iconClass: "icon-node",
+        bannerClass: "img-banner-javascript",
         outline: [
             {
                 id: 1,
@@ -184,9 +191,11 @@ export const courses = [
         id: 5,
         slug: "teacher",
         title: "Teacher Training",
-        description: `Learn the basics of we design and development, with HTML. CSS and Javascript. 
-            This beginner level course is designed to give you a thorough grounding in professional we development.`,
+        subtitle: "Get the help you need to teach your students",
+        description: `Our fun but structured courses are guaranteed to make your students fall in love with programming. 
+            We'll give you everything you need.`,
         iconClass: "icon-books",
+        bannerClass: "img-banner-javascript",
         outline: [
             {
                 id: 1,
@@ -227,11 +236,13 @@ export const courses = [
     },
     {
         id: 6,
-        title: "Advanced Programming",
         slug: "advanced",
-        description: `This course is designed for professional programmers. Whether its compiler design, 
-            memory allocation, or algorithms, we'll help you push yourself further than you've ever gone before`,
+        title: "Advanced Programming",
+        subtitle: "Computer Science for professionals",
+        description: `This course is designed for professional programmers. From compiler design, 
+            to machine learning, we'll help you push further than ever before`,
         iconClass: "icon-pen",
+        bannerClass: "img-banner-javascript",
         outline: [
             {
                 id: 1,

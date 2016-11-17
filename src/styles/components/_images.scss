@@ -38,3 +38,9 @@
     @include bg-img(url(../assets/img/backgrounds/primary-school-computing.jpg), cover, auto);
     min-height: 306px;
 }
+
+.img-banner-javascript {
+    @include bg-img(url(../assets/img/courses/banners/javascript.jpg), contain, $img-banner-height);
+    background-position: right;
+    background-color: #f1de5d;
+}

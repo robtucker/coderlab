@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 import { PageContainer } from "../../../layouts";
 
 const Contact = ({contactEmail}) => (
-    <PageContainer title="Get in touch">
+    <PageContainer>
+        <h3 className="margin-bottom-md text-xs-left">Get in touch</h3>
+
         <p>We're always open to being contacted about new ventures and business plans. 
             Don't hesitate to drop us a message if you're interested in what we do.</p>
         <p>E: <a href="mailto:{{ contactEmail }}" target="_top" className="primary">{contactEmail}</a></p>
