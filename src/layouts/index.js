@@ -7,4 +7,4 @@ export * from "./components/image-panel";
 export * from "./components/split-panel";
 export * from "./components/arrow-box";
 export * from "./components/testimonial";
-
+export * from "./components/link-card";

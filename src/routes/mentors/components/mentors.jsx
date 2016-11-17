@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 
-const About = () => (
+const Mentors = () => (
     <section>
         <h1>Our mentors</h1>
     </section>
 )
 
-export { About }
+export { Mentors }
 

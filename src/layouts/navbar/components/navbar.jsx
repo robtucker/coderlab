@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from "react-router";
 
-import { MenuLink } from './menu-link';
+import { MenuLink } from '../../components/menu-link';
 
 import Drawer from "material-ui/Drawer";
 import AppBar from "material-ui/AppBar";
-import MenuItem from "material-ui/MenuItem";
+import {List} from 'material-ui/List';
 import Divider from 'material-ui/Divider';
 
 var headerStyle = {
@@ -13,11 +13,31 @@ var headerStyle = {
     textDecoration: "none"
 };
 
+
 const Navbar = (props) => {
     
     if(!props.isVisible) {
         return null;
     }
+
+    // let getNestedItems = (items) => {
+    //     if(!items) return null;
+
+    //     let res = [];
+
+    //     items.forEach((item) => {
+    //         res.push(
+    //             <MenuLink 
+    //                 key={item.id} 
+    //                 url={item.url} 
+    //                 onClick={props.toggleNavbar} 
+    //                 label={item.label} 
+    //                 nestedItems={getNestedItems(item.nestedItems)}/>
+    //         );
+    //     })
+
+    //     return res;
+    // }
 
     return (
         <section>
@@ -29,11 +49,18 @@ const Navbar = (props) => {
                     <div className="width-100 padding-y-sm font-size-lg" style={headerStyle}>{props.appTitle}</div>
                 </Link>
                 <Divider />
-                {
-                    props.navMenu.map((item) => {
-                        return <MenuLink key={item.id} url={item.url} onClick={props.toggleNavbar} title={item.title} />
-                    })
-                }
+                <List>
+                    {
+                        props.navMenu.map((item) => {
+                            return <MenuLink 
+                                key={item.id} 
+                                url={item.url} 
+                                onClick={props.toggleNavbar} 
+                                label={item.label} />
+                        })
+                    }     
+                </List>
+
 
             </Drawer>
 

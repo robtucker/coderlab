@@ -38,8 +38,8 @@ export const CoursesRoutes = (store) => ({
                     component: require('./components/game').Game
                 },
                 {
-                    path: "node",
-                    component: require('./components/node').Node
+                    path: "javascript",
+                    component: require('./components/javascript').Javascript
                 },
                 {
                     path: "python",

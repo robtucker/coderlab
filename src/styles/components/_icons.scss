@@ -7,6 +7,48 @@ $icon-md-size: 100px;
     margin-bottom: $margin-sm;
 }
 
+.icon-html {
+    @include bg-img(url(../assets/img/courses/html.svg), contain, $icon-md-size);
+    width: $icon-md-size;
+    min-width: $icon-md-size;
+    background-color: #c75c5c;
+}
+
+.icon-python {
+    @include bg-img(url(../assets/img/courses/python.svg), contain, $icon-md-size);
+    width: $icon-md-size;
+    min-width: $icon-md-size;
+    background-color: #c75c5c;
+}
+
+.icon-node {
+    @include bg-img(url(../assets/img/courses/node.svg), contain, $icon-md-size);
+    width: $icon-md-size;
+    min-width: $icon-md-size;
+    background-color: #c75c5c;
+}
+
+.icon-phone {
+    @include bg-img(url(../assets/img/courses/phone.svg), contain, $icon-md-size);
+    width: $icon-md-size;
+    min-width: $icon-md-size;
+    background-color: #c75c5c;
+}
+
+.icon-books {
+    @include bg-img(url(../assets/img/courses/books.svg), contain, $icon-md-size);
+    width: $icon-md-size;
+    min-width: $icon-md-size;
+    background-color: #c75c5c;
+}
+
+.icon-pen {
+    @include bg-img(url(../assets/img/courses/pen.svg), contain, $icon-md-size);
+    width: $icon-md-size;
+    min-width: $icon-md-size;
+    background-color: #c75c5c;
+}
+
 .icon-calendar {
     @include bg-img(url(../assets/img/icons/calendar.png), contain, $icon-md-size);
     width: $icon-md-size;
