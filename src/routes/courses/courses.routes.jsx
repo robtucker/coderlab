@@ -1,3 +1,5 @@
+import React from "react";
+
 import { injectReducer } from "../../store";
 
 export const CoursesRoutes = (store) => ({
@@ -12,6 +14,46 @@ export const CoursesRoutes = (store) => ({
 
             cb(null, CoursesContainer)
 
-        }, 'courses')
+        })
+    },
+    getIndexRoute(partialNextState, cb) {
+
+        require.ensure([], (require) => {
+
+            cb(null, {
+                component: require('./components/menu').Menu,
+            });
+        })
+    },
+    getChildRoutes(partialNextState, cb) {
+        require.ensure([], (require) => {
+
+            cb(null, [
+                {
+                    path: "web",
+                    component: require('./components/web').Web
+                },
+                {
+                    path: "game",
+                    component: require('./components/game').Game
+                },
+                {
+                    path: "node",
+                    component: require('./components/node').Node
+                },
+                {
+                    path: "python",
+                    component: require('./components/python').Python
+                },
+                {
+                    path: "advanced",
+                    component: require('./components/advanced').Advanced
+                },
+                {
+                    path: "teacher",
+                    component: require('./components/teacher').Teacher
+                }
+            ])
+        })
     }
 });

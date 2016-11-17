@@ -6,3 +6,5 @@ export * from "./components/quote";
 export * from "./components/image-panel";
 export * from "./components/split-panel";
 export * from "./components/arrow-box";
+export * from "./components/testimonial";
+

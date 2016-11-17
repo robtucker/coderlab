@@ -3,7 +3,12 @@
  */
 import React from 'react';
 import ReactDOM from "react-dom";
-import { Router, browserHistory } from 'react-router';
+import { Router, browserHistory, applyRouterMiddleware } from 'react-router';
+
+/**
+ * scroll behaviour
+ */
+import { useScroll } from 'react-router-scroll';
 
 /**
  * configure the logger
@@ -57,7 +62,7 @@ injectTapEventPlugin();
 const APPLICATION = (
     <MuiThemeProvider muiTheme={AppTheme}>
         <Provider store={store}>
-            <Router history={browserHistory} children={AppRoutes} />
+            <Router history={browserHistory} children={AppRoutes} render={applyRouterMiddleware(useScroll())} />
         </Provider>
     </MuiThemeProvider>
 );

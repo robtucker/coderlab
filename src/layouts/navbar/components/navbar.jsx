@@ -3,15 +3,14 @@ import { Link } from "react-router";
 
 import { MenuLink } from './menu-link';
 
-import { textColors } from "../../../styles";
-
 import Drawer from "material-ui/Drawer";
 import AppBar from "material-ui/AppBar";
 import MenuItem from "material-ui/MenuItem";
+import Divider from 'material-ui/Divider';
 
 var headerStyle = {
-    paddingLeft: "16px", 
-    borderBottom: `1px solid ${textColors.minBlack}`
+    paddingLeft: "16px",
+    textDecoration: "none"
 };
 
 const Navbar = (props) => {
@@ -26,9 +25,10 @@ const Navbar = (props) => {
                 onRequestChange={props.toggleNavbar} 
                 docked={false}
                 className="width-100"> 
-                <Link className="primary2" onClick={props.toggleNavbar}>
-                    <div className="width-100 padding-y-sm font-size-lg" style={headerStyle}>CoderLab</div>
+                <Link className="primary2" to="/" onClick={props.toggleNavbar}>
+                    <div className="width-100 padding-y-sm font-size-lg" style={headerStyle}>{props.appTitle}</div>
                 </Link>
+                <Divider />
                 {
                     props.navMenu.map((item) => {
                         return <MenuLink key={item.id} url={item.url} onClick={props.toggleNavbar} title={item.title} />

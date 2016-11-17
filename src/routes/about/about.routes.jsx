@@ -1,6 +1,6 @@
-import { About } from "./components/about";
+import { AboutContainer } from "./about.container";
 
 export const AboutRoutes = {
     path: '/about',
-    component: About,
+    component: AboutContainer,
 };

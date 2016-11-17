@@ -55,12 +55,15 @@ $padding-xxl: 64px;
 $padding-xxxl: 92px;
 
 //containers
-$container-x-sm: $padding-md;
-$container-y-sm: $padding-md;
-$container-x-md: $padding-xl;
-$container-y-md: $padding-lg;
-$container-x-lg: $padding-xxxl;
-$container-y-lg: $padding-lg;
+
+$containers: (
+  xs: $padding-sm,
+  sm: $padding-md,
+  md: $padding-xl,
+  lg: $padding-xxl,
+  xl: $padding-xxxl
+);
+
 
 // Fonts
 $font-family: BrandonText-Regular, Geneva, Tahoma, sans-serif;

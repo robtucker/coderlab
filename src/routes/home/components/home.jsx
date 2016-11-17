@@ -3,10 +3,9 @@ import React,  { PropTypes } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 
 import { Header } from "./header";
-import { Testimonial } from "./testimonial";
 import { JobListContainer } from "../containers/job-list";
-import { ImagePanel, SplitPanel, IconList, Quote, ArrowBox, NextPage } from "../../../layouts";
-import { textColors } from "../../../styles";
+import { ImagePanel, SplitPanel, IconList, Quote, ArrowBox, NextPage, Testimonial } from "../../../layouts";
+import { typography } from "../../../styles";
 
 const Home = (props) => {
      
@@ -14,7 +13,10 @@ const Home = (props) => {
         <div>
             <Header appTitle={props.appTitle}/>
 
-            <Testimonial data={props.testimonial}/>
+            <Testimonial 
+                quote={props.testimonial.quote} 
+                author={props.testimonial.author} 
+                imgClass={props.testimonial.imgClass}/>
 
             <ImagePanel imgClass="img-bubbles" className="white overlay-50">
                 <h1 className="margin-bottom-sm">Anyone can learn to code</h1>
@@ -25,13 +27,13 @@ const Home = (props) => {
             <IconList list={props.mentoringIcons}
                 title="Meet your new personal trainer" 
                 subTitle="One on one training that will push you to your limit">
-                <ArrowBox color={textColors.darkBlack} text="Find out more" />
+                <ArrowBox color={typography.textDarkBlack} text="Find out more" />
             </IconList>
 
             <ImagePanel  imgClass="img-html" bgColor="#051934" reverse={true} className="overlay-50 white">
                 <h1 className="margin-bottom-md">Become a web developer in 12 weeks</h1>
                 <h4 className="margin-bottom-md">This intensive course is designed to prepare you for 
-                    your first programming job.</h4>
+                    your first programming job</h4>
                 <ArrowBox />
             </ImagePanel>
 
@@ -62,7 +64,7 @@ const Home = (props) => {
 
             <ImagePanel  imgClass="img-teacher-training" className="overlay-50 white">
                 <h1 className="margin-bottom-sm">Teacher Training</h1>
-                <h4 className="margin-bottom-lg">Give your students the skills they need for the modern world.</h4>
+                <h4 className="margin-bottom-lg">Give your students the skills they need for the modern world</h4>
                 <ArrowBox />
             </ImagePanel>
 

@@ -1,23 +1,9 @@
+@each $key, $val in $grid-breakpoints {
+    @media screen and (min-width: $val) { 
 
-@media screen and (max-width: 544px) { 
-    .container {
-        padding-left: $container-x-sm;
-        padding-right: $container-x-sm;
-    }
- }
-
-// quick hack because the angular materia repo does ot have any useful containers right now
-
-@media screen and (max-width: 1000px) { 
-    .container {
-        padding-left: $container-x-md;
-        padding-right: $container-x-md;
-    }
- }
-
- @media only screen and (min-width: 1000px) { 
-    .container {
-        padding-left: $container-x-lg;
-        padding-right: $container-x-lg;
+        .container {
+            padding-left: map-get($containers, $key);
+            padding-right: map-get($containers, $key);
+        }
     }
  }

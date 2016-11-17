@@ -6,22 +6,17 @@ import configure from "./config";
 
 import blueTheme from "./themes/blue-theme";
 
+import typography from "./typography"
+
+export { typography };
+
 export const AppTheme = getMuiTheme(merge(configure(blueTheme), blueTheme));
 
-import {
-  fullBlack,
-  darkBlack,
-  lightBlack,
-  minBlack,
-  fullWhite,
-  darkWhite,
-  lightWhite,
-} from './colors';
-
-// make some of the variables easier to access for child components
+// make some of the variables easier to access for other components
 
 export const palette = AppTheme.palette;
 
+// if these get changed then remember to update the sass as well
 export const breakpoints = {
     xs: 0,
     sm: 540,
@@ -30,12 +25,3 @@ export const breakpoints = {
     xl: 1140
 };
 
-export const textColors = {
-    fullBlack,
-    darkBlack,
-    lightBlack,
-    minBlack,
-    fullWhite,
-    darkWhite,
-    lightWhite,
-};

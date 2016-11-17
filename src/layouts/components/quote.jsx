@@ -1,8 +1,8 @@
 import React,  { PropTypes } from 'react';
 
-import { textColors } from "../../styles";
+import { typography } from "../../styles";
 
-let authorStyle = {textColor: textColors.lightBlack};
+let authorStyle = {textColor: typography.textLightBlack};
 
 const Quote = ({text, author}) => {
     return (
@@ -10,7 +10,7 @@ const Quote = ({text, author}) => {
             <div className="">
                 <blockquote className="blockquote">
                     <p>{text}</p>
-                    <footer className="blockquote-footer" style={authorStyle}>{author}</footer>
+                    <footer className="blockquote-footer font-size-lg" style={authorStyle}>{author}</footer>
                 </blockquote>
             </div>
         </div>

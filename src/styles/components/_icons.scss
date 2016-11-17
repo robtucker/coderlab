@@ -36,6 +36,9 @@ $icon-md-size: 100px;
 .icon-ninja {
     @include bg-img(url(../assets/img/icons/ninja.png), contain, $icon-md-size);
     width: $icon-md-size;
+    height: $icon-md-size;
+    min-width: $icon-md-size;
+    min-height: $icon-md-size;
     background-color: #4FC3F7;
 }
 
