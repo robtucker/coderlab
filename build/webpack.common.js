@@ -34,19 +34,19 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                loader: 'style!css',
+                loader: 'style-loader!css-loader',
             },
             { 
                 test: /\.scss$/, 
-                loader: ExtractTextPlugin.extract(['css','sass']) 
+                loader: ExtractTextPlugin.extract(['css-loader','sass-loader']) 
             },
             {
                 test: /\.(jpg|png|gif)$/,
-                loader: 'file?name=img/[hash].[ext]'
+                loader: 'file-loader?name=img/[hash].[ext]'
             },
             {
                 test: /\.(eot|svg|ttf|woff|woff2)$/,
-                loader: 'file?name=fonts/[name].[ext]'
+                loader: 'file-loader?name=fonts/[name].[ext]'
             }
         ]
     },

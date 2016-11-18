@@ -1,53 +1,68 @@
-import React, { PropTypes } from 'react';
-import find from "lodash/find";
-import { Logger } from "isolog";
+import React, { PropTypes, Component } from 'react';
 import Drawer from 'material-ui/Drawer';
 import {List, ListItem} from 'material-ui/List';
 
-import { PageContainer, LinkCard, SidebarLayout } from "../../../layouts";
+import { PageContainer, LinkCard, SidebarLayout, MenuLink, Avatar, StarRating} from "../../../layouts";
 import { CourseBanner } from "./course-banner";
 
-const CourseSummary = (props) => {
-    
-    let course = find(props.courses, c =>  c.slug === props.params.name);
 
-    let otherCourses = find(props.courses, c =>  c.slug !== props.params.name);
+const CourseSummary = ({course, nextCourse, relatedCourses}) => {
 
-    console.log(otherCourses);
+    let getSidebar = () => ( 
 
-    let sidebar = (
         <section>
-            <h5>Who's teaching this course</h5>
-            <h5>Other courses</h5>
+            <h6>Course instructor:</h6>
+
+            <div className="margin-bottom-md margin-x-sm">
+                <Avatar 
+                    img={course.teacher.img} 
+                    title={course.teacher.name} 
+                    subtitle={course.teacher.subtitle} />
+            </div>
+
+            <h6>Difficulty:</h6> 
+            <div className="margin-x-sm margin-bottom-md">
+                <StarRating count={course.difficultyRating} />
+            </div>
+
+            <h6>Other courses:</h6>
             <List>
-                <ListItem />
+                {relatedCourses.map((c) => (
+                    <ListItem key={c.id} primaryText={c.title} />
+                ))}
             </List>
         </section>
 
     );
-
+        
     return (
         <div>
-            <CourseBanner bannerClass={course.bannerClass} title={course.title} subtitle={course.subtitle}/>
+            <CourseBanner 
+                img={course.banner.img} 
+                background={course.banner.background}
+                title={course.title} 
+                subtitle={course.subtitle}/>
 
             <div className="container margin-y-lg">
                 <h3 className="margin-x-sm margin-bottom-md">Course Overview</h3>
             </div>
 
-            <SidebarLayout sidebar={sidebar}>
+            <SidebarLayout sidebar={getSidebar()}>
                 <div className="col justify-center align-center">
                     {course.lessons.map((lesson) => (
-                        <LinkCard key={lesson.id} iconClass="icon-ninja" title={lesson.title} description=""/>
+                        <LinkCard 
+                            key={lesson.id} 
+                            icon={lesson.icon.img} 
+                            iconBackground={lesson.icon.background} 
+                            title={lesson.title} 
+                            description={lesson.description}/>
                     ))}
                 </div>
             </SidebarLayout>
         </div>
 
-    )
+    );  
+    
 }
-
-CourseSummary.propTypes = {
-
-};
 
 export { CourseSummary }

@@ -4,11 +4,15 @@ import { Logger } from "isolog";
 
 class Courses extends Component {
     componentWillMount() {
+        Logger.debug('initiating courses root component');
         Logger.debug(this);
     }
 
     render() {
-        return React.cloneElement(this.props.children, { courses: this.props.courses});
+        return React.cloneElement(this.props.children, {
+            courses: this.props.courses, 
+            mentors: this.props.mentors
+        });
     }
 }
 
@@ -18,7 +22,8 @@ Courses.propTypes = {
         slug: PropTypes.string.isRequired,
         title: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
-        iconClass: PropTypes.string.isRequired
+        icon: PropTypes.object.isRequired,
+        banner: PropTypes.object.isRequired,
     }).isRequired).isRequired
 };
 

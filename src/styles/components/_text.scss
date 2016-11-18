@@ -23,6 +23,11 @@ a {
     //-webkit-text-decoration: none;
 }
 
+p a {
+    color: $primary1Color;
+    @extend .link-hover;
+}
+
 .link-hover:hover {
     color: $primary2Color;
 }

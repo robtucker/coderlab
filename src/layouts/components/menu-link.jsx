@@ -5,17 +5,14 @@ import MenuItem from "material-ui/MenuItem";
 import {ListItem} from 'material-ui/List';
 
 
-const MenuLink = ({url, onClick, label}) => {
+const MenuLink = ({url, onClick, label}) => (
 
-    return (
+    <Link to={url} onClick={onClick}>
+        <ListItem primaryText={label} />
+    </Link>
 
-        <Link to={url} onClick={onClick} className="text-decoration-none">
-            <ListItem primaryText={label} />
-        </Link>
+);
 
-    );
-    
-};
 
 MenuLink.propTypes = {
     url: PropTypes.string.isRequired,

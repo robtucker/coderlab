@@ -7,7 +7,7 @@ export const CoursesRoutes = (store) => ({
     getComponent (nextState, cb) {
         require.ensure([], (require) => {
 
-            const CoursesContainer = require('./courses.container').CoursesContainer
+            const CoursesContainer = require('./containers/courses.container').CoursesContainer
             const reducer = require('./courses.store').coursesReducer
 
             injectReducer(store, { key: 'courses', reducer })
@@ -31,7 +31,7 @@ export const CoursesRoutes = (store) => ({
             cb(null, [
                 {
                     path: ":name",
-                    component: require('./components/course-summary').CourseSummary
+                    component: require('./containers/course-summary.container').CourseSummaryContainer
                 }
             ])
         })

@@ -25,7 +25,8 @@ const CourseMenu = ({courses}) => {
                             <LinkCard 
                                 key={course.id} 
                                 title={course.title} 
-                                iconClass={course.iconClass} 
+                                icon={course.icon.img}
+                                iconBackground={course.icon.background}
                                 description={course.description} 
                                 url={`courses/${course.slug}`}/>                
                         ))}
