@@ -4,8 +4,44 @@ import RaisedButton from 'material-ui/RaisedButton';
 
 import { Header } from "./header";
 import { JobListContainer } from "../containers/job-list";
-import { ImagePanel, SplitPanel, IconList, Quote, ArrowBox, NextPage, Testimonial } from "../../../layouts";
+import { ArrowBox, PanelSlider, SplitPanel, IconList, Quote, NextPage, Testimonial } from "../../../layouts";
 import { typography } from "../../../styles";
+
+let unityLogo = <div className="img-unity-logo margin-bottom-lg"></div>;
+
+let sliderPanels = [
+
+    {
+        id: 1,
+        title: "Become a web developer in 12 weeks",
+        subtitle: "This intensive course is designed to prepare you for your first programming job",
+        img: require("../../../assets/img/backgrounds/html-fade.png"),
+        url: "courses/web",
+        bgColor: "#051934" 
+    },
+    {
+        id: 2,
+        title: "Make video games in Unity",
+        subtitle: unityLogo,
+        img: require("../../../assets/img/backgrounds/fantasy.jpg"),
+        url: "courses/game"
+    },
+    {
+        id: 3,
+        title: "Teacher Training",
+        subtitle: "Give your students the skills they need for the modern world",
+        img: require("../../../assets/img/backgrounds/primary-school-computing.jpg"),
+        url: "courses/teacher"
+    },
+    {
+        id: 4,
+        title: "Anyone can learn to code",
+        subtitle: "Write your first line of code right now!",
+        img: require("../../../assets/img/backgrounds/bubbles.png"),
+        url: "courses/web"
+    },
+
+]
 
 const Home = (props) => {
      
@@ -13,16 +49,8 @@ const Home = (props) => {
         <div>
             <Header appTitle={props.appTitle}/>
 
-            <Testimonial 
-                quote={props.testimonial.quote} 
-                author={props.testimonial.author} 
-                imgClass={props.testimonial.imgClass}/>
+            <div><PanelSlider panels={sliderPanels} /></div>
 
-            <ImagePanel imgClass="img-bubbles" className="white overlay-50">
-                <h1 className="margin-bottom-sm">Anyone can learn to code</h1>
-                <h3 className="margin-bottom-lg">Write your first line of code right now!</h3>
-                <ArrowBox url="courses/web"/>
-            </ImagePanel>
 
             <IconList list={props.mentoringIcons}
                 title="Meet your new personal trainer" 
@@ -30,12 +58,11 @@ const Home = (props) => {
                 <ArrowBox color={typography.textDarkBlack} url="mentors" />
             </IconList>
 
-            <ImagePanel  imgClass="img-html" bgColor="#051934" reverse={true} className="overlay-50 white">
-                <h1 className="margin-bottom-md">Become a web developer in 12 weeks</h1>
-                <h4 className="margin-bottom-md">This intensive course is designed to prepare you for 
-                    your first programming job</h4>
-                <ArrowBox url="courses/web"/>
-            </ImagePanel>
+
+            <Testimonial 
+                quote={props.testimonial.quote} 
+                author={props.testimonial.author} 
+                imgClass={props.testimonial.imgClass}/>
 
             <SplitPanel  imgClass="img-testimonial-female2" reverse={true}>
                 <div className="col justify-center align-center-xs align-start-md margin-y-md">
@@ -47,11 +74,7 @@ const Home = (props) => {
                 </div>
             </SplitPanel>
 
-            <ImagePanel  imgClass="img-gaming" className="overlay-50 white">
-                <h1 className="margin-bottom-md">Make video games in Unity</h1>
-                <div className="img-unity-logo margin-bottom-lg"></div>
-                <ArrowBox url="courses/game"/>
-            </ImagePanel>
+
 
             <section className="text-xs-center margin-y-xl">
                 <div className="padding-x-md">
@@ -61,13 +84,6 @@ const Home = (props) => {
 
                 <Quote text={props.quote.text} author={props.quote.author} />
             </section>
-
-            <ImagePanel  imgClass="img-teacher-training" className="overlay-50 white">
-                <h1 className="margin-bottom-sm">Teacher Training</h1>
-                <h4 className="margin-bottom-lg">Give your students the skills they need for the modern world</h4>
-                <ArrowBox url="courses/teacher"/>
-            </ImagePanel>
-
 
             <NextPage to="courses" label="Courses" />
         </div>

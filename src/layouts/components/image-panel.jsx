@@ -1,8 +1,19 @@
 import React,  { PropTypes } from 'react';
 
-const ImagePanel = ({imgClass, children, className, bgColor}) => {
+let getImgStyle = (img)=> {
+    return {
+        backgroundImage: `url(${img})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        height: "500px",
+        width: "100%"
+    }
+}
+
+const ImagePanel = ({img, children, className}) => {
     return (
-        <div className={imgClass} style={{backgroundColor: bgColor || "white"}}>
+        <div style={getImgStyle(img)}>
             <div className={`width-100 height-100 ${className}`}>
                 <div className="row justify-center align-center height-100">
                     <div className="text-xs-center padding-x-sm margin-y-xxl">
@@ -15,7 +26,7 @@ const ImagePanel = ({imgClass, children, className, bgColor}) => {
 }
 
 ImagePanel.propTypes = {
-    imgClass: PropTypes.string.isRequired
+    img: PropTypes.string.isRequired
 }
 
 export { ImagePanel }
