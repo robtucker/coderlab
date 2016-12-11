@@ -1,30 +1,13 @@
 import React from "react";
 
 import { injectReducer } from "../../store";
+import { CoursesContainer } from './containers/courses.container';
+import { CourseIndex } from "./components/course-index";
 
 export const CoursesRoutes = (store) => ({
     path : 'courses',
-    getComponent (nextState, cb) {
-        require.ensure([], (require) => {
-
-            const CoursesContainer = require('./containers/courses.container').CoursesContainer
-            const reducer = require('./courses.store').coursesReducer
-
-            injectReducer(store, { key: 'courses', reducer })
-
-            cb(null, CoursesContainer)
-
-        })
-    },
-    getIndexRoute(partialNextState, cb) {
-
-        require.ensure([], (require) => {
-
-            cb(null, {
-                component: require('./components/course-menu').CourseMenu,
-            });
-        })
-    },
+    component: CoursesContainer,
+    indexRoute: {component: CourseIndex},
     getChildRoutes(partialNextState, cb) {
         require.ensure([], (require) => {
 

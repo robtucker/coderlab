@@ -3,8 +3,9 @@ import React,  { PropTypes } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 
 import { Header } from "./header";
-import { JobListContainer } from "../containers/job-list";
-import { ArrowBox, PanelSlider, SplitPanel, IconList, Quote, NextPage, Testimonial } from "../../../layouts";
+import { ArrowBox, PanelSlider, NextPage, IconList} from "../../../layouts";
+import { CourseIndex } from "../../courses";
+
 import { typography } from "../../../styles";
 
 let unityLogo = <div className="img-unity-logo margin-bottom-lg"></div>;
@@ -51,44 +52,20 @@ const Home = (props) => {
 
             <div><PanelSlider panels={sliderPanels} /></div>
 
+            <CourseIndex courses={props.courses} nextPageUrl={false} nextPageLabel={false}/>
 
             <IconList list={props.mentoringIcons}
-                title="Meet your new personal trainer" 
-                subTitle="One on one training that will push you to your limit">
+                title="Find a coding mentor" 
+                subTitle="We have thousands of programmers across the UK who can help you">
                 <ArrowBox color={typography.textDarkBlack} url="mentors" />
             </IconList>
 
-
-            <Testimonial 
-                quote={props.testimonial.quote} 
-                author={props.testimonial.author} 
-                imgClass={props.testimonial.imgClass}/>
-
-            <SplitPanel  imgClass="img-testimonial-female2" reverse={true}>
-                <div className="col justify-center align-center-xs align-start-md margin-y-md">
-                    <blockquote className="blockquote max-width-400 margin-x-md text-xs-center text-md-left">
-                        <h5 className="margin-bottom-md">Having constant access to my own personal mentor 
-                            made all the difference for me. If I can do it in my 40s then anyone can.</h5>
-                        <footer className="blockquote-footer font-size-lg">Elaine, 42, London</footer>
-                    </blockquote>
-                </div>
-            </SplitPanel>
-
-
-
-            <section className="text-xs-center margin-y-xl">
-                <div className="padding-x-md">
-                    <h2 className="margin-bottom-lg">Everyone needs coding skills...</h2>
-                    <JobListContainer />
-                </div>
-
-                <Quote text={props.quote.text} author={props.quote.author} />
-            </section>
-
-            <NextPage to="courses" label="Courses" />
+            <NextPage to="mentors" label="Mentors" />
         </div>
     );
 }
+
+
 
 Home.propTypes = {
     appTitle: PropTypes.string.isRequired

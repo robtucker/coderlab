@@ -11,21 +11,26 @@ import { Router, browserHistory, applyRouterMiddleware } from 'react-router';
 import { useScroll } from 'react-router-scroll';
 
 /**
+ * import the config
+ */
+import config from "./config";
+
+/**
  * configure the logger
  */
 import { Logger, ConsoleHandler } from "isolog";
 
-let config = {LOG_LEVEL: process.env.CONFIG.LOG_LEVEL_CONSOLE};
+let logConfig = {LOG_LEVEL: config.LOG_LEVEL_CONSOLE};
 
-Logger.addHandler(new ConsoleHandler(config));
+Logger.addHandler(new ConsoleHandler(logConfig));
 
 /**
- *  Redux store - aka the application state tree
+ *  Redux store - the application state tree
  */
 import { store } from "./store";
 
 /**
- * make the store available to all child components
+ * Provider makes the store available to all child components
  * through the react-redux bindings
  */
 import { Provider } from 'react-redux';

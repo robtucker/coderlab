@@ -25,14 +25,6 @@ class CourseSummaryContainer extends Component {
         this.relatedCourses = this.props.courses.filter(c =>  c.slug !== this.props.params.name);
     }
 
-    openLoginDialog() {
-        
-    }
-
-    closeLoginDialog() {
-
-    }
-
     render() {
         // for some reason is still trying to render invalid courses
         // despite the fact it has been instructed to redirect in the mounting phase

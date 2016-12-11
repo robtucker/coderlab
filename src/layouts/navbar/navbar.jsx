@@ -1,44 +1,29 @@
 import React from 'react';
 import { Link } from "react-router";
 
-import { MenuLink } from '../../components/menu-link';
+import { MenuLink } from '../components/menu-link';
 
 import Drawer from "material-ui/Drawer";
 import AppBar from "material-ui/AppBar";
-import {List} from 'material-ui/List';
+import { List } from 'material-ui/List';
 import Divider from 'material-ui/Divider';
+import { UserMenu } from "./user-menu";
+import { LoginButtons } from "./login-buttons";
+import { AuthDialog } from "../components/auth-dialog";
 
 var headerStyle = {
     paddingLeft: "16px",
     textDecoration: "none"
 };
 
-
 const Navbar = (props) => {
+    
+    console.log(props);
     
     if(!props.isVisible) {
         return null;
     }
-
-    // let getNestedItems = (items) => {
-    //     if(!items) return null;
-
-    //     let res = [];
-
-    //     items.forEach((item) => {
-    //         res.push(
-    //             <MenuLink 
-    //                 key={item.id} 
-    //                 url={item.url} 
-    //                 onClick={props.toggleNavbar} 
-    //                 label={item.label} 
-    //                 nestedItems={getNestedItems(item.nestedItems)}/>
-    //         );
-    //     })
-
-    //     return res;
-    // }
-
+    
     return (
         <section>
             <Drawer open={props.sidenavOpen} 
@@ -60,11 +45,23 @@ const Navbar = (props) => {
                         })
                     }     
                 </List>
-
-
             </Drawer>
 
-            <AppBar onLeftIconButtonTouchTap={props.toggleNavbar} style={{boxShadow: 'none'}}/>
+            <div className="row justify-start align-center bg-primary" style={{height: '50px'}}>
+                <div className="padding-x-sm cursor-pointer" onTouchTap={props.toggleNavbar}>
+                    <i className="material-icons menu white">menu</i>
+                </div>
+                <div className="padding-x-sm cursor-pointer" style={{marginLeft: 'auto'}}>
+                    <LoginButtons handleClick={(authType) => { props.setAuthDialogType(authType); props.toggleAuthDialog() }}/>
+                </div>
+            </div>
+            
+            <AuthDialog 
+                dialogType={props.authDialogType}
+                setDialogType={props.setAuthDialogType} 
+                handleClose={props.toggleAuthDialog} 
+                isOpen={props.authDialogOpen} />
+                
         </section>
     )
     

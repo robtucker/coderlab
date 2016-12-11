@@ -36,6 +36,12 @@
 .padding-top-mobile {
     padding-top: $padding-xl;
 }
+
+.padding-x-xs {
+    padding-left: $padding-xs;
+    padding-right: $padding-xs;
+}
+
 .padding-x-sm {
     padding-left: $padding-sm;
     padding-right: $padding-sm;
