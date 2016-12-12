@@ -14,7 +14,7 @@ export const navbar = (state = initialState, action) => {
     case TOGGLE_NAVBAR:
         return Object.assign({}, state, {sidenavOpen: !state.sidenavOpen});
     case SET_NAVBAR_COLOR:
-        return Object.assign({}, state, {backgroundColor: action.color});
+        return Object.assign({}, state, {backgroundColor: action.color || palette.primary1Color});
     default: 
         return state;
     }

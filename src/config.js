@@ -1,4 +1,6 @@
 /**
  * re-export the config from webpack 
  */
-export default process.env.CONFIG;
+const config = process.env.CONFIG;
+
+export default config;

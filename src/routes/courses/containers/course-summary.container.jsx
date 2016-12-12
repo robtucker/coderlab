@@ -1,42 +1,31 @@
 import React, { PropTypes, Component } from 'react';
-import { browserHistory } from 'react-router'
-
+import { connect } from "react-redux";
 import findIndex from "lodash/findIndex";
 import { Logger } from "isolog";
-
 import { CourseSummary } from "../components/course-summary";
+import { setNavbarColor } from "../../../actions";
 
-class CourseSummaryContainer extends Component {
-
-    componentWillMount() {
-
-        Logger.debug('initiating course summary');
-        Logger.debug(this);
-
-        let courseIndex = findIndex(this.props.courses, c =>  c.slug === this.props.params.name); 
-
-        if(courseIndex === -1) {
-            Logger.debug('invalid course detected');
-            return this.props.router.push("abort/404");
-        }
-
-        this.course = this.props.courses[courseIndex];
-        this.nextCourse = this.props.courses[courseIndex + 1];
-        this.relatedCourses = this.props.courses.filter(c =>  c.slug !== this.props.params.name);
+const mapDispatchToProps = (dispatch) => ({
+    setNavbarColor: (color) => {
+        dispatch(setNavbarColor(color));
     }
+})
 
-    render() {
-        // for some reason is still trying to render invalid courses
-        // despite the fact it has been instructed to redirect in the mounting phase
-        if(!this.course) { return null; }
+const mapStateToProps = (state, ownProps) => {
 
-        // 
-        return <CourseSummary 
-            course={this.course} 
-            nextCourse={this.nextCourse} 
-            relatedCourses={this.relatedCourses} />
+    let courses = state.courses;
+    let courseIndex = findIndex(courses, c =>  c.slug === ownProps.params.name); 
+    let course = courses[courseIndex];
+    let nextCourse = courses[courseIndex + 1];
+    let relatedCourses = courses.filter(c =>  c.slug !== ownProps.params.name);
+
+    return {
+        courses,
+        course,
+        nextCourse,
+        relatedCourses
     }
-}
+};
 
+export const CourseSummaryContainer = connect(mapStateToProps, mapDispatchToProps)(CourseSummary);
 
-export { CourseSummaryContainer }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { PageContainer, Quote } from "../../../layouts";
+import { PageContainer, Quote } from "../../../components";
 
 import { MentorCard } from "./mentor-card";
 

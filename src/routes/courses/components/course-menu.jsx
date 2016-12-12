@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 import chunk from 'lodash/chunk';
 
-import { LinkCard } from "../../../layouts";
+import { LinkCard } from "../../../components";
 
 
 const CourseMenu = ({courses}) => {

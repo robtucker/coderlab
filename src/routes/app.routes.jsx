@@ -1,21 +1,31 @@
 import { store } from "../store";
 
-import { CoreLayout } from "../layouts";
-import { HomeContainer } from "./home";
+import { AppLayout } from "../components";
+import { LoginRoute, RegisterRoute } from "./auth";
+import { LandingContainer } from "./landing";
+import { HomeRoutes } from "./home";
 import { ContactRoutes } from "./contact";
 import { MentorsRoutes } from "./mentors";
-import { CoursesRoutes }  from "./courses";
+import { CourseRoutes }  from "./courses";
 import { AbortRoutes } from "./abort";
 
-export const AppRoutes = {
-    path        : '/',
-    component   : CoreLayout,
-    indexRoute  : { component: HomeContainer },
-    childRoutes : [
-        // async routes must add their reducers into the store when they are loaded
-        CoursesRoutes(store),
-        MentorsRoutes(store),
-        ContactRoutes,
-        AbortRoutes
-    ]
-};
+export const AppRoutes = [
+    {
+        path        : '/',
+        component   : AppLayout,
+        indexRoute  : { component: LandingContainer },
+        childRoutes : [
+            // sync routes (should be as few as poss)
+            LoginRoute,
+            RegisterRoute,
+            AbortRoutes,
+
+            // async routes
+            HomeRoutes(store),
+            ...CourseRoutes(store),
+            MentorsRoutes(store),
+            ContactRoutes(store),
+            
+        ]
+    }
+];

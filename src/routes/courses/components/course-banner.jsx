@@ -14,7 +14,7 @@ let imageStyles = (url, background) => ({
 
 const CourseBanner = ({img, background, title, subtitle}) => (
     <div style={imageStyles(img, background)}>        
-        <div className="row justify-start align-end white overlay-20">
+        <div className="row justify-start align-end white">
             <div className="container margin-y-md">
                 <h3 className="margin-bottom-sm">{title}</h3>
                 <h5 className="margin-bottom-sm">{subtitle}</h5>

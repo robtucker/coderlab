@@ -1,5 +1,8 @@
 {
     "LOG_LEVEL_CONSOLE": 800,
     "CONTACT_EMAIL": "prod@bar.com",
-    "CONTACT_PHONE": "+44 7789 457324"
+    "CONTACT_PHONE": "+44 7789 457324",
+    "API_URL": "http://localhost",
+    "API_PORT": 3001,
+    "MOCK_API": false
 }

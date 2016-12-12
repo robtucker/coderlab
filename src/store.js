@@ -1,20 +1,29 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { Logger } from "isolog";
+import thunkMiddleware from 'redux-thunk'
+import createLogger from 'redux-logger'
 
 import * as reducers from "./reducers"
 
-console.log(reducers);
+Logger.debug(reducers);
 
-const store = createStore(combineReducers(reducers));
+const loggerMiddleware = createLogger();
+
+const store = createStore(
+    combineReducers(reducers), 
+    applyMiddleware(
+        loggerMiddleware,
+        thunkMiddleware,
+    )
+);
 
 store.asyncReducers = reducers;
 
-Logger.debug('initialise application store');
-Logger.debug(store.getState());
+export const getStore = () => {
+    return store;
+}
 
-export default store;
-
-export { store };
+export { store }
 
 export const injectReducer = (store, { key, reducer }) => {
     store.asyncReducers[key] = reducer;
