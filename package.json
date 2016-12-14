@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --production",
     "start": "webpack-dev-server --watch",
-    "test": "mocha"
+    "test": "mocha --opts ./mocha.opts"
   },
   "author": "Rob Tucker <rob@coderlab.co.uk>",
   "license": "ISC",
@@ -31,6 +31,7 @@
     "babel-eslint": "^7.0.0",
     "babel-loader": "^6.2.5",
     "babel-plugin-transform-class-properties": "^6.19.0",
+    "babel-polyfill": "^6.20.0",
     "babel-preset-es2015-native-modules": "^6.9.4",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-2": "^6.18.0",
