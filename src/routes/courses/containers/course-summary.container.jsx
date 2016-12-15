@@ -3,11 +3,14 @@ import { connect } from "react-redux";
 import findIndex from "lodash/findIndex";
 import { Logger } from "isolog";
 import { CourseSummary } from "../components/course-summary";
-import { setNavbarColor } from "../../../actions";
+import { setNavbarColor, startCourse } from "../../../actions";
 
 const mapDispatchToProps = (dispatch) => ({
     setNavbarColor: (color) => {
         dispatch(setNavbarColor(color));
+    },
+    startCourse: (course) => {
+        dispatch(startCourse(course));
     }
 })
 
@@ -28,4 +31,3 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 export const CourseSummaryContainer = connect(mapStateToProps, mapDispatchToProps)(CourseSummary);
-

@@ -14,6 +14,10 @@ export * from "./layouts/app-layout";
 export * from "./layouts/page-container";
 export * from "./layouts/sidebar-layout";
 
+// notifications
+export * from "./notifications/notifications";
+export * from "./notifications/snackbars";
+
 // panels
 export * from "./panels/icon-list";
 export * from "./panels/image-panel";

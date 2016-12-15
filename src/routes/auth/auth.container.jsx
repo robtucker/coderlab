@@ -8,8 +8,7 @@ import {
     setAuthLastName,
     setAuthPassword,
     setAuthPasswordConfirmation,
-    login,
-    register
+    postAuth
 } from "../../actions";
 
 const mapStateToProps = (state) => ({
@@ -41,9 +40,7 @@ const mapDispatchToProps = (dispatch) => ({
     setAuthPasswordConfirmation: (passwordConfirmation) => {
         dispatch(setAuthPasswordConfirmation(passwordConfirmation))
     },
-    login: (username, password) => {
-        dispatch(login());
-    }
+    postAuth: postAuth,
 })
 
 export const AuthContainer = connect(mapStateToProps, mapDispatchToProps)(Auth);

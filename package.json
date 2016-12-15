@@ -55,6 +55,7 @@
     "html-webpack-plugin": "^2.22.0",
     "htmllint": "^0.4.0",
     "htmlparser2": "^3.9.2",
+    "idb": "^2.0.0",
     "immutability-helper": "^2.0.0",
     "isolog": "0.0.2",
     "isomorphic-fetch": "^2.2.1",

@@ -49,7 +49,7 @@ const Navbar = (props) => {
                     <i className="material-icons menu white">menu</i>
                 </div>
                 <div className="padding-x-sm cursor-pointer" style={{marginLeft: 'auto'}}>
-                    {props.isLoggedIn ? <UserMenu /> : <LoginButtons /> }
+                    {props.isLoggedIn ? <UserMenu logout={props.logout} /> : <LoginButtons /> }
                 </div>
             </div>
                 

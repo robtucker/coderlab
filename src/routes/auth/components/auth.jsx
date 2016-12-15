@@ -30,6 +30,16 @@ const Auth = (props) => {
     let lastName = null;
     let passwordConfirmation = null;
 
+    const handleSubmit = () => {
+        if(isRegister) {
+            let {username, firstName, lastName, password, passwordConfirmation } = props;
+            return props.postAuth('register', {username, firstName, lastName, password, passwordConfirmation });
+        } else {
+            let {username, password } = props;
+            return props.postAuth('login', {username, password });
+        }
+    }
+
     if(isRegister) {
         firstName = (
             <TextField
@@ -88,7 +98,7 @@ const Auth = (props) => {
                     className="margin-x-xs"
                     label="Submit"
                     primary={true}
-                    onTouchTap={props.login}/>
+                    onTouchTap={handleSubmit()}/>
 
                 <RaisedButton
                     className="margin-x-xs"

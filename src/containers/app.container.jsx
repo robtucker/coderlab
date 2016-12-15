@@ -1,16 +1,13 @@
-import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import { NavbarContainer } from "./navbar.container";
+import { AppLayout } from "../components";
 
-class AppContainer extends Component {
+const mapStateToProps = (state) => ({
 
-    render () {
-        return (         
-            <div style={{ height: '100%'}}>
-                <NavbarContainer />
-                {this.props.children}
-            </div>
-        );
-    }
+});
 
-}
+const mapDispatchToProps = (dispatch) => ({
+
+})
+
+export const NavbarContainer = connect(mapStateToProps, mapDispatchToProps)(AppLayout);

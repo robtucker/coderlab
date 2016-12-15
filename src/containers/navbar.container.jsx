@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 
 import { Navbar } from "../components/navbar/navbar";
 
-import { toggleNavbar } from "../actions";
+import { toggleNavbar, logout } from "../actions";
 
 let navMenu = [
     {
@@ -36,13 +36,15 @@ const mapStateToProps = (state) => ({
     authDialogOpen: state.auth.authDialogOpen,
     authDialogType: state.auth.authDialogType,
     isLoggedIn: state.auth.isLoggedIn,
-    loginInProgress: state.auth.requestInProgress
+    loginInProgress: state.auth.requestInProgress,
+
 });
 
 const mapDispatchToProps = (dispatch) => ({
     toggleNavbar: () => {
         dispatch(toggleNavbar());
-    }
+    },
+    logout: logout
 })
 
 export const NavbarContainer = connect(mapStateToProps, mapDispatchToProps)(Navbar);

@@ -1,3 +1,0 @@
---require babel-register
---watch-extensions js 
-src/**/*.spec.js

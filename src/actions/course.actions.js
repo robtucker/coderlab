@@ -1,4 +1,18 @@
-export const START_COURSE = "START_COURSE";
-export const COMPLETE_CHALLENGE = "COMPLETE_CHALLENGE";
-export const API_GET_COURSES =  "API_CALL_COURSES";
+import { CourseApi } from "../api";
 
+let api = new CourseApi();
+
+// async actions
+export const startCourse = (course) => {
+    return (dispatch) => {
+        
+        let data = { id: course.id };
+
+        let req = api.put('course', null, );
+
+        req.then((res => { 
+            browserHistory.push('/home')
+        }));
+        
+    }
+};

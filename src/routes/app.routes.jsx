@@ -1,5 +1,7 @@
 import { store } from "../store";
 
+import { guestMiddleware } from "../middleware";
+
 import { AppLayout } from "../components";
 import { LoginRoute, RegisterRoute } from "./auth";
 import { LandingContainer } from "./landing";
@@ -13,7 +15,7 @@ export const AppRoutes = [
     {
         path        : '/',
         component   : AppLayout,
-        indexRoute  : { component: LandingContainer },
+        indexRoute  : { component: LandingContainer, onEnter: guestMiddleware()},
         childRoutes : [
             // sync routes (should be as few as poss)
             LoginRoute,
