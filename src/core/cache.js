@@ -15,8 +15,8 @@ export class Cache extends Dispatcher {
         return this._cache.setItem(key, val);
     }
 
-    delete(key) {
-        return this._cache.removeItem(key, val);
+    del(key) {
+        return this._cache.removeItem(key);
     }
 }
 

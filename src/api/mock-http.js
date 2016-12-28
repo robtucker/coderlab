@@ -1,7 +1,7 @@
 import config from "../config";
 import { merge } from "lodash";
 import * as Faker from "faker";
-import {timestamp} from "../core";
+import { utils } from "../core";
 
 // mock response object
 // mimics the Response class of the fetch api
@@ -16,7 +16,8 @@ MockResponse.prototype.json = function() {
 
 // HELPER FUNCTIONS - for mocking data
 // take a request and mock the response data using the request body
-const requestToResponse = function(optionsObject, desiredStatus, extraFields) {
+const requestToResponse = function(optionsObject, desiredStatus, extraFields = {}) {
+    //console.log(optionsObject);
     return {
         status: desiredStatus,
         data: merge(JSON.parse(optionsObject.body), extraFields)
@@ -28,8 +29,18 @@ const getAuthFields = () => {
     return {
         token: Faker.random.uuid(), 
         id: Faker.random.uuid(),
-        expiry: timestamp() + 86400
+        expiry: utils.timestamp() + 86400
     }
+}
+
+// get some json data from the mocks folder
+// the file path is built up from the endpoint
+const getFileFromEndpointArray = (endpointArray, options) => {
+    let path = endpointArray.join('/');
+    //console.log(path);
+    let data = require( './mocks/' + path);
+    //console.log(data.default);
+    return {status: 200, data: data.default};
 }
 
 // A list of endpoints, where each endpoint
@@ -40,18 +51,34 @@ const getAuthFields = () => {
 // or use the faker library to generate fake data
 const responseProviders = {
 
+    GET: {
+        course: (endpointArray, options) => {
+            return getFileFromEndpointArray(endpointArray, options)
+        }
+    },
     POST: {
-        'auth/login': (url, options) => {
+        auth: {
+            login: (endpointArray, options) => {
 
-            return requestToResponse(options, 200, getAuthFields());
-        },
+                let data = requestToResponse(options, 200, getAuthFields());
+                return merge(data, {
+                    firstName: Faker.name.firstName(),
+                    lastName: Faker.name.lastName()
+                })
+            },
 
-        'auth/logout': (url, options) => {
-            return requestToResponse(options, 200);
-        },
+            logout: (endpointArray, options) => {
+                return requestToResponse(options, 200);
+            },
 
-        'auth/register': (url, options) => {
-            return requestToResponse(options, 201, getAuthFields());
+            register: (endpointArray, options) => {
+                return requestToResponse(options, 201, getAuthFields());
+            }
+        }
+    },
+    PUT: {
+        user: {
+            me: (endpointArray, options) => requestToResponse(options, 200)
         }
     }
 
@@ -63,17 +90,29 @@ module.exports = function mockHttp (url, options) {
 
         // annoyingly need to get the endpoint back out of the url
         let parts = url.split(config.API_PORT);
-        let endpoint = parts[1];
-        if(endpoint.charAt(0) === '/') endpoint = endpoint.substr(1);
+        //console.log(parts);
+        let slug = parts[1];
+        let endpointParts = slug.split('/');
+        let endpointArray = endpointParts.filter(e => e !== "");
+        //console.log('endpointParts', endpointArray);
 
         // each endpoint has a corresponding function which knows how to mock the response
-        let provider = responseProviders[options.method][endpoint];
+        //let provider = responseProviders[options.method][endpoint];
+        var provider = responseProviders[options.method];
+        //console.log(provider);
 
-        if(!provider) {
+        endpointArray.forEach((endpoint) => {
+            //console.log(endpoint, typeof endpoint, provider[endpoint]);
+            if(endpoint.length && provider[endpoint]) {
+                provider = provider[endpoint];
+            }
+        });
+
+        if(typeof provider === 'Function') {
             throw new Error(`Failed to mock the ${endpoint} endpoint`);
         }
-
-        let data = provider(url, options);
+        //console.log(provider);
+        let data = provider(endpointArray, options);
 
         if(data.status && data.data) {
             let response = new MockResponse(data);

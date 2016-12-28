@@ -1,4 +1,21 @@
+$icon-xs-size: 25px;
+$icon-sm-size: 50px;
 $icon-md-size: 100px;
+
+.icon-xs {
+    height: $icon-xs-size;
+    width: $icon-xs-size;
+    border-radius: 100%;
+    display: inline-block;
+    margin: $margin-sm $margin-xs;
+}
+
+.icon-sm {
+    height: $icon-sm-size;
+    width: $icon-sm-size;
+    border-radius: 100%;
+    margin-bottom: $margin-sm;
+}
 
 .icon-md {
     height: $icon-md-size;

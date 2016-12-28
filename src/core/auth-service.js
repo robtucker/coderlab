@@ -1,5 +1,7 @@
 import { cache } from "./cache";
+import { getAppStore } from "../store";
 import { base64Encode, base64Decode, timestamp } from "./utils";
+import { LOGIN, LOGOUT } from "../actions";
 import config from "../config";
 
 
@@ -9,14 +11,15 @@ import config from "../config";
 export class AuthService {
 
     _user;
+    _authKey = config.LOCAL_STORAGE_AUTH_KEY;
 
     check() {
         let user = this._user || this._getUserFromCache()
 
-        if(user && user.token && user.expiry) {
-            let currentTimestamp = timestamp();
-            console.log('checking auth user expiry', user.expiry, currentTimestamp, user.expiry > currentTimestamp);
-            return user.expiry > currentTimestamp;
+        if(user && user.token && user.expiry && user.expiry > timestamp()) {
+            console.log('logged in user detected');
+            console.log(this._user);
+            return this._user;
         }
         return false;
     }
@@ -25,18 +28,28 @@ export class AuthService {
         return this._user;
     }
 
-    save(user) {
-        cache.set(config.LOCAL_STORAGE_AUTH_KEY, base64Encode(JSON.stringify(user)));
+    login(user) {
+        cache.set(this._authKey, base64Encode(JSON.stringify(user)));
+        this._dispatch({type: LOGIN, user});
         return this._user = user;
     }
 
-    _getUserFromCache () {
-        let data = cache.get(config.LOCAL_STORAGE_AUTH_KEY);
+    logout() {
+        cache.del(this._authKey);
+        this._dispatch({type: LOGOUT});
+    }
 
-        console.log('retrieved auth user data', JSON.parse(base64Decode(data)));
+    _getUserFromCache () {
+        let data = cache.get(this._authKey);
+
+        //console.log('retrieved auth user data', JSON.parse(base64Decode(data)));
 
         return data ? this._user = JSON.parse(base64Decode(data)) : false;
     }
+
+    _dispatch(action) {
+        return getAppStore().dispatch(action);
+    }   
 
 }
 

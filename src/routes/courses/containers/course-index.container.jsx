@@ -7,7 +7,7 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 const mapStateToProps = (state) => ({
-    courses: state.courses
+    courses: state.courses.index
 });
 
 export const CourseIndexContainer = connect(mapStateToProps, mapDispatchToProps)(CourseIndex);

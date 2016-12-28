@@ -21,4 +21,18 @@ export const dbConfig = {
         indexes: [{indexName: "name", unique: false }]
     }
 
+};
+
+export const errorMessages = {
+    REQUIRED: 'Required',
+    EMAIL_INVALID: 'Invalid email address',
+    PASSWORD_CONFIRMATION_INVALID: "Must match the password field"
+
 }
+
+
+export const formConstants = {
+    USERNAME_MIN_LENGTH: 5,
+    PASSWORD_MIN_LENGTH: 6,
+
+};

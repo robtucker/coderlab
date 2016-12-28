@@ -24,7 +24,7 @@ export default {
         img: require('../../../assets/img/mentors/ashley-banks.jpg'),
         tags: ["javascript", "python"]
     },
-    lessons: [
+    levels: [
         {
             id: 1,
             title: "Getting set up in Unity",

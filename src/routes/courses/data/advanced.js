@@ -23,7 +23,7 @@ export default {
         img: require('../../../assets/img/mentors/aylin-cakiroglu.jpg'),
         tags: ["javascript", "python"]
     },
-    lessons: [
+    levels: [
         {
             id: 1,
             title: "Getting set up in Unity",

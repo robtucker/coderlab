@@ -2,9 +2,9 @@ import React, { PropTypes, Component } from 'react';
 import Drawer from 'material-ui/Drawer';
 import {List, ListItem} from 'material-ui/List';
 
-import { PageContainer, LinkCard, SidebarLayout, MenuLink, Avatar, StarRating} from "../../../components";
+import { PageContainer, LinkCard, SidebarLayout, MenuLink, Avatar, StarRating } from "../../../components";
 import { CourseBanner } from "./course-banner";
-
+import { EnrolDialog } from "../components/enrol-dialog";
 
 export class CourseSummary extends Component {
 
@@ -14,8 +14,12 @@ export class CourseSummary extends Component {
     }
 
     componentWillUnmount() {
-        console.log(this.props);
+        //console.log(this.props);
         this.props.setNavbarColor(false);
+    }
+
+    propTypes: {
+        enrolDialogOpen: PropTypes.string.isRequired
     }
 
     getSidebar () {
@@ -53,7 +57,8 @@ export class CourseSummary extends Component {
                     img={this.props.course.banner.img} 
                     background={this.props.course.banner.background}
                     title={this.props.course.title} 
-                    subtitle={this.props.course.subtitle}/>
+                    subtitle={this.props.course.subtitle}
+                    toggleDialog={this.props.toggleEnrolDialog}/>
 
                 <div className="container margin-y-lg">
                     <h3 className="margin-x-sm margin-bottom-md">Course Overview</h3>
@@ -61,16 +66,24 @@ export class CourseSummary extends Component {
 
                 <SidebarLayout sidebar={this.getSidebar()}>
                     <div className="col justify-center align-center">
-                        {this.props.course.lessons.map((lesson) => (
+                        {this.props.course.levels.map((level) => (
                             <LinkCard 
-                                key={lesson.id} 
-                                icon={lesson.icon.img} 
-                                iconBackground={lesson.icon.background} 
-                                title={lesson.title} 
-                                description={lesson.description}/>
+                                key={level.id} 
+                                icon={level.icon.img} 
+                                iconBackground={level.icon.background} 
+                                title={level.title} 
+                                description={level.description}
+                                disabled={true}/>
                         ))}
                     </div>
                 </SidebarLayout>
+
+                <EnrolDialog 
+                    open={this.props.enrolDialogOpen} 
+                    toggle={this.props.toggleEnrolDialog} 
+                    isLoggedIn={this.props.isLoggedIn}
+                    startCourse={this.props.startCourse}
+                    course={this.props.course} />
             </div>
 
         );  

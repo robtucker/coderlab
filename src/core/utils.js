@@ -23,3 +23,11 @@ export const base64Decode = (str) => {
 export const timestamp = () => {
     return Math.floor(+new Date() / 1000)
 }
+
+export const utils = {
+    s4,
+    guid,
+    base64Encode,
+    base64Decode,
+    timestamp
+}

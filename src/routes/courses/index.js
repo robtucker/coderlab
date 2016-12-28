@@ -13,23 +13,6 @@ import advanced from "./data/advanced";
 
 export const coursesData = [web, game, javascript, python, teacher, advanced];
 
-export const CourseIndexRoute = (store) => (
-    {
-        path : 'courses',
-        component: CourseIndexContainer,
-    }
-);
-
-export const CourseSummaryRoute = (store) => ({    
-    path: "/courses/:name",
-    getComponent(nextState, cb) {
-        require.ensure([], (require) => {
-            let CourseSummaryContainer = require('./containers/course-summary.container').CourseSummaryContainer
-            cb(null, CourseSummaryContainer);
-        })
-    }
-})
-
 export const CourseRoutes = (store) => ([
     {
         path : 'courses',
@@ -41,6 +24,15 @@ export const CourseRoutes = (store) => ([
             require.ensure([], (require) => {
                 let CourseSummaryContainer = require('./containers/course-summary.container').CourseSummaryContainer
                 cb(null, CourseSummaryContainer);
+            })
+        }
+    },
+    {
+        path: 'courses/:courseName/level/:levelId/:challengeId',
+        getComponent(nextState, cb) {
+            require.ensure([], (require) => {
+                let ChallengeContainer = require('./containers/challenge.container').ChallengeContainer
+                cb(null, ChallengeContainer);
             })
         }
     }

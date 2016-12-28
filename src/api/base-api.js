@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch'
 import config from "../config";
-import { UrlParameterError } from "../exceptions";
+import { UrlParameterError } from "../core";
 import {format} from "url";
 import { getAppStore } from "../store";
 
@@ -23,7 +23,7 @@ export class BaseApi {
     }
 
     get(endpoint, params, query) {
-        return this._request('GET', endpoint, params, body, query);
+        return this._request('GET', endpoint, params, null, query);
     }
 
     put(endpoint, params, body) {
@@ -67,31 +67,33 @@ export class BaseApi {
         let actionType = this._createActionType(method, endpoint);
         let url = this._createUrl(endpoint, params, query);
 
-        this._dispatch({url, method, body, query, type: `${actionType}_REQUEST`});
+        this._dispatch({url, params, method, body, query, type: `${actionType}_REQUEST`});
 
         let request = this._http(url, options);
+    
+        request.then((response) => {
+            //console.log('request success', response);
 
-        request.then((response) => this._handleResponse(actionType, response, cacheResponse));
+            if(!this.isSuccess(response)) {
+                this._dispatch({url, params, method, type: `${actionType}_ERROR`, response});
+            } else {
+
+                let data = response.json();
+
+                this._dispatch({url, params, method, type: `${actionType}_SUCCESS`, data, status: response.status})
+
+                if(cacheResponse) this._cache(data);
+            }
+        });
 
         request.catch((error) => {
+            //console.log('request error', error);
             this._dispatch({type: `${actionType}_ERROR`, error});
             //throw the error again to give the client a chance to handle it on its own
-            throw error;
+            //throw error;
         })
 
         return request;
-    }
-
-    _handleResponse(actionType, response, cacheResponse = false) {
-        if(!this.isSuccess(response)) {
-            this._dispatch({type: `${actionType}_ERROR`, response});
-        } else {
-            let data = response.json();
-
-            this._dispatch({type: `${actionType}_SUCCESS`, data, status: response.status})
-
-            if(cacheResponse) this._cache(data);
-        }
     }
 
     _cache(data) {
@@ -118,13 +120,17 @@ export class BaseApi {
     }
 
     _createUrl(endpoint, params, query) {
-
+        //console.log('creating url', endpoint, params)
         let endpointWithParams = endpoint.replace(/:([^:\/]+)/g, (match) => {
-            if(params[match]) {
-                throw new UrlParameterError(`The ${match} parameter was not supplied`)
+            let i = match.substr(1);
+            //console.log('matched url param',  i);
+            if(!params[i]) {
+                throw new UrlParameterError(`The ${i} parameter was not supplied`)
             }
-            return params[match];
+            return params[i];
         });
+
+        //console.log(endpointWithParams);
 
         if(endpointWithParams.charAt(0) !== "/") {
             endpointWithParams = '/' + endpointWithParams;
@@ -135,26 +141,27 @@ export class BaseApi {
         if(query) {
             url += format({ query: query });
         }
-
-        console.log('created url', url)
-
+        //console.log('created url', url)
         return url;
     }
 
     _createActionType(method, endpoint) {
         let parts = endpoint.split('/');
         let action = `API_${method}_${this._entity}`;
-
+        //console.log('creating action type');
         parts.map((fragment, index) => {
-            if(fragment.charAt(0) === ':') {
-                fragment = fragment.substr(1);
-            }   
-
-            if(fragment !== parts[index -1]) {
-                action += `_${fragment}`;
+            if(fragment && fragment.length) {   
+                //console.log('fragment has been found', fragment, fragment.length);         
+                if(fragment.charAt(0) === ':') {
+                    fragment = fragment.substr(1);
+                }
+                //console.log(fragment, index, parts[index -1]);
+                if(fragment !== this._entity && fragment !== parts[index -1]) {
+                //console.log(fragment, index);
+                    action += `_${fragment}`;
+                }
             }
         });
-
         return action.toUpperCase();
     }
 

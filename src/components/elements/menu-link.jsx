@@ -5,9 +5,9 @@ import MenuItem from "material-ui/MenuItem";
 import {ListItem} from 'material-ui/List';
 
 
-const MenuLink = ({url, onClick, label}) => (
+const MenuLink = ({url, onTouchTap, label}) => (
 
-    <Link to={url} onClick={onClick}>
+    <Link to={url} onTouchTap={onTouchTap}>
         <ListItem primaryText={label} />
     </Link>
 

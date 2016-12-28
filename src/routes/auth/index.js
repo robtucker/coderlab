@@ -1,15 +1,16 @@
-import { AuthContainer } from "./auth.container";
+import { LoginContainer } from "./login.container";
+import { RegisterContainer } from "./register.container";
 import { guestMiddleware } from "../../middleware";
 
 
 export const LoginRoute = {
     path: '/login',
-    component: AuthContainer,
+    component: LoginContainer,
     onEnter: guestMiddleware()
 };
 
 export const RegisterRoute = {
     path: '/register',
-    component: AuthContainer,
+    component: RegisterContainer,
     onEnter: guestMiddleware()
 };

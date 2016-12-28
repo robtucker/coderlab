@@ -22,8 +22,8 @@ export class Db  {
     }
 
     _init() {
-        console.log('indexed db has been initialized');
-        console.log(db);
+        // console.log('indexed db has been initialized');
+        // console.log(db);
     }
 
     _getDb() {

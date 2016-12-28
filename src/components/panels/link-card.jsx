@@ -25,18 +25,29 @@ let iconStyles = (icon, background, size) =>({
     minWidth: sizes[size]
 })
 
-const LinkCard = ({title, description, icon, iconBackground, size, url}) => (
-    <Link to={url} className="width-100 height-100 margin-x-sm margin-bottom-md">
-        <Paper className="col-xs row-md justify-start align-center padding-y-sm height-100 ">
-            <div style={iconStyles(icon, iconBackground, size)} className="margin-bottom-sm margin-x-md"></div>
+const LinkCard = ({title, description, icon, iconBackground, size, url, disabled}) => {
 
-            <div className="text-xs-center text-md-left margin-x-sm">
-                <h4 className="primary1 link-hover">{title}</h4>
-                <p style={{color: typography.textLightBlack}}>{description}</p>
-            </div>
-        </Paper>
-    </Link>
-);
+    let containerClasses = 'width-100 height-100 margin-x-sm margin-bottom-md';
+    let titleClasses = "primary1"
+    if(!disabled) {
+        containerClasses += ' cursor-pointer';
+        titleClasses += " link-hover";
+    }
+
+    return (
+
+        <Link to={url} className={containerClasses}>
+            <Paper className="col-xs row-md justify-start align-center padding-y-sm height-100">
+                <div style={iconStyles(icon, iconBackground, size)} className="margin-bottom-sm margin-x-md"></div>
+
+                <div className="text-xs-center text-md-left margin-x-sm">
+                    <h4 className={titleClasses}>{title}</h4>
+                    <p style={{color: typography.textLightBlack}}>{description}</p>
+                </div>
+            </Paper>
+        </Link>
+    )
+}
 
 LinkCard.propTypes = {
     title: PropTypes.string.isRequired,

@@ -37,7 +37,7 @@ const Navbar = (props) => {
                             return <MenuLink 
                                 key={item.id} 
                                 url={item.url} 
-                                onClick={props.toggleNavbar} 
+                                onTouchTap={props.toggleNavbar} 
                                 label={item.label} />
                         })
                     }     

@@ -1,11 +1,13 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-//import { Logger } from "isolog";
+
+// middleware
 import thunkMiddleware from 'redux-thunk'
 import createLogger from 'redux-logger'
 
+//reducers
 import * as reducers from "./reducers"
-
-//Logger.debug(reducers);
+import { reducer as formReducer } from 'redux-form'
+reducers.form = formReducer;
 
 const loggerMiddleware = createLogger();
 
@@ -23,7 +25,7 @@ export const getAppStore = () => {
     return store;
 }
 
-console.log(store.getState());
+//console.log(store.getState());
 export { store }
 
 export const injectReducer = (store, { key, reducer }) => {

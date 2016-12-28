@@ -20,7 +20,7 @@ export default {
     },
 
     create(duration, property, delay, easeFunction) {
-        duration = duration || '450ms';
+        duration = duration || '300ms';
         property = property || 'all';
         delay = delay || '0ms';
         easeFunction = easeFunction || 'linear';

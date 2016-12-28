@@ -24,7 +24,7 @@ export default {
         tags: ["javascript", "php", "databases"]
     },
     tags: ["game", "unity", "video"],
-    lessons: [
+    levels: [
         {
             id: 1,
             title: "Getting set up in Unity",

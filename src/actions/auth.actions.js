@@ -4,51 +4,44 @@ import { authService } from "../core";
 
 let api = new AuthApi();
 
-export const INVALIDATE_AUTH_USER = "INVALIDATE_AUTH_USER";
+export const LOGIN = "LOGIN";
+export const LOGOUT = "LOGOUT";
+export const SET_AUTH_REDIRECT = "SET_AUTH_REDIRECT";
 
-export const SET_AUTH_USERNAME = "SET_AUTH_USERNAME";
-export const SET_AUTH_FIRST_NAME = "SET_AUTH_FIRST_NAME";
-export const SET_AUTH_LAST_NAME = "SET_AUTH_LAST_NAME";
-export const SET_AUTH_PASSWORD = "SET_AUTH_PASSWORD";
-export const SET_AUTH_PASSWORD_CONFIRMATION = "SET_AUTH_PASSWORD_CONFIRMATION";
-
-// AUTH FORMS
-export const setAuthUsername = (value) => ({
-    value, type: SET_AUTH_USERNAME
-});
-
-export const setAuthFirstName = (value) => ({
-    value, type: SET_AUTH_FIRST_NAME
-});
-
-export const setAuthLastName = (value) => ({
-    value, type: SET_AUTH_LAST_NAME
-});
-
-export const setAuthPassword = (value) => ({
-    value, type: SET_AUTH_PASSWORD
-});
-
-export const setAuthPasswordConfirmation = (value) => ({
-    value, type: SET_AUTH_PASSWORD_CONFIRMATION
-});
-
-// async actions
-export const postAuth = (authType, data) => {
-    return (dispatch) => {
-        let req = api.post(authType, null, data);
-
-        req.then(res => { 
-            let data = res.json();
-            console.log('setting user in db', data);
-            authService.save(data);
-            browserHistory.push('/home')
-        });
-    }
-};
+// sync
+export const login = (data, redirect = false) => {
+    let location = redirect || '/home';
+    authService.login(data);
+    browserHistory.push(location);
+}
 
 export const logout = () => {
-    return (dispatch) => {
-        let req = api.post('logout');
-    }
+    authService.logout();
+    browserHistory.push('/');
 }
+
+export const setAuthRedirect = (location) => ({location, type: SET_AUTH_REDIRECT});
+
+// async
+const postAuth = (authType, data, redirect = false) => { 
+    let req = api.post(authType, null, data);
+
+    req.then(res => { 
+        let data = res.json();
+        return login(data);
+    });
+};
+
+export const postLogin = data => postAuth('login', data);
+
+export const postRegister = data => postAuth('register', data);
+
+export const postLogout = () => {
+
+    // we don't really care what happens to the post request here
+    // as long as we delete the cache then we're all good
+    let req = api.post('logout');
+    
+    return logout();
+}
+

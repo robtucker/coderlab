@@ -5,6 +5,36 @@ npm install
 npm start
 ```
 
+
+### Course Configuration Objects
+
+A course consists of a series of configuration objects each representing a single level:
+
+- - level
+- - - challenge
+- - - - task
+- - - - task
+- - - challenge
+- - - - task
+- - - - task
+
+The challenge is the basic unit of activity for self-leaning. A challenge must be configured with an object such as:
+
+```
+title.
+description.
+files: [],
+tasks: []
+```
+
+The files are the seed files that the user must operate on. The tasks array is list of specific instructions 
+directing the user what to do next. Each task contains a parser that is run against the file inputs to determine 
+if the task was successfully completed or not. 
+
+###Code editor
+
+The code editor is built on top of [CodeMirror](https://codemirror.net)
+
 ### API Usage
 
 Each api class must deifne an _entity property such as 'user', which will be used to prefix the url.
@@ -56,3 +86,10 @@ Thus `api.get('/username/:username')` will will result in `API_GET_USER_USERNAME
 
 This system allows the redux action types to be predicatable without munderds of constants.
 The action type is also used as the key for saving to local storage as well.
+
+
+
+
+
+
+

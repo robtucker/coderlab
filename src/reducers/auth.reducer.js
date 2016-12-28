@@ -2,12 +2,9 @@ import { authService } from "../core";
 import config from "../config";
 
 import { 
-    INVALIDATE_AUTH_USER,
-    SET_AUTH_USERNAME, 
-    SET_AUTH_FIRST_NAME, 
-    SET_AUTH_LAST_NAME,
-    SET_AUTH_PASSWORD,
-    SET_AUTH_PASSWORD_CONFIRMATION 
+    LOGIN,
+    LOGOUT,
+    SET_AUTH_REDIRECT
 } from "../actions";
 
 let initialState = {
@@ -31,37 +28,30 @@ if(authService.check()) {
 export const auth = (state = initialState, action) => {
     switch (action.type) {
 
-    case "API_POST_AUTH_LOGIN_REQUEST":
-    case "API_POST_AUTH_REGISTER_REQUEST":
-        return Object.assign({}, state, {requestInProgress: true});
-
-    case "API_POST_AUTH_LOGIN_SUCCESS":
-    case "API_POST_AUTH_REGISTER_SUCCESS":
+    case LOGIN:
         return Object.assign({}, state, {
-            user: action.data, 
+            user: action.user, 
             isLoggedIn: true,
             requestInProgress: false
         });
 
+    case LOGOUT:
+        return Object.assign({}, state, {
+            user: null, 
+            isLoggedIn: false,
+        });
+
+    case SET_AUTH_REDIRECT:
+        return Object.assign({}, state, {authRedirect: action.location});
+
+
+    case "API_POST_AUTH_LOGIN_REQUEST":
+    case "API_POST_AUTH_REGISTER_REQUEST":
+        return Object.assign({}, state, {requestInProgress: true});
+
     case "API_POST_AUTH_LOGIN_ERROR":
     case "API_POST_AUTH_REGISTER_ERROR":
         return Object.assign({}, state, {requestInProgress: false});
-
-    case SET_AUTH_USERNAME:
-        console.log(action);
-        return Object.assign({}, state, {username: action.value});
-
-    case SET_AUTH_FIRST_NAME:
-        return Object.assign({}, state, {firstName: action.value});
-
-    case SET_AUTH_LAST_NAME:
-        return Object.assign({}, state, {lastName: action.value});
-
-    case SET_AUTH_PASSWORD:
-        return Object.assign({}, state, {password: action.value});
-
-    case SET_AUTH_PASSWORD_CONFIRMATION:
-        return Object.assign({}, state, {passwordConfirmation: action.value});
 
     default:
         return state;

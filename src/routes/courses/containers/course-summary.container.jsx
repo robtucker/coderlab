@@ -3,20 +3,21 @@ import { connect } from "react-redux";
 import findIndex from "lodash/findIndex";
 import { Logger } from "isolog";
 import { CourseSummary } from "../components/course-summary";
-import { setNavbarColor, startCourse } from "../../../actions";
+import { setNavbarColor, toggleEnrolDialog, setAuthRedirect, startCourse } from "../../../actions";
 
 const mapDispatchToProps = (dispatch) => ({
     setNavbarColor: (color) => {
         dispatch(setNavbarColor(color));
     },
-    startCourse: (course) => {
-        dispatch(startCourse(course));
-    }
-})
+    toggleEnrolDialog: () => {
+        dispatch(toggleEnrolDialog());
+    },
+    startCourse: startCourse
+});
 
 const mapStateToProps = (state, ownProps) => {
 
-    let courses = state.courses;
+    let courses = state.courses.index;
     let courseIndex = findIndex(courses, c =>  c.slug === ownProps.params.name); 
     let course = courses[courseIndex];
     let nextCourse = courses[courseIndex + 1];
@@ -26,7 +27,10 @@ const mapStateToProps = (state, ownProps) => {
         courses,
         course,
         nextCourse,
-        relatedCourses
+        relatedCourses,
+        enrolDialogOpen: state.courses.enrolDialogOpen,
+        isLoggedIn: state.auth.isLoggedIn,
+
     }
 };
 

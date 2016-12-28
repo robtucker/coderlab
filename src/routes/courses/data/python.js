@@ -23,7 +23,7 @@ export default {
         img: require('../../../assets/img/mentors/rob-tucker.jpg'),
         tags: ["javascript", "python"]
     },
-    lessons: [
+    levels: [
         {
             id: 1,
             title: "Getting set up in Unity",

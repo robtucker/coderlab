@@ -23,7 +23,7 @@ export default {
         tags: ["javascript", "web", "html", "css"]
     },
     tags: ["javascript", "node"],
-    lessons: [
+    levels: [
         {
             id: 1,
             title: "Getting set up in Unity",

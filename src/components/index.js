@@ -8,6 +8,8 @@ export * from "./elements/icon";
 export * from "./elements/menu-link";
 export * from "./elements/star-rating";
 
+// forms
+export * from "./forms/material-form";
 
 // layouts
 export * from "./layouts/app-layout";
