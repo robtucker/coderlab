@@ -11,18 +11,19 @@ export default [
                 mode: 'htmlmixed',
                 label: "index.html",
                 contents: 
-`
-<!DOCTYPE html>
+`<!DOCTYPE html>
 <html>
     <head>
-
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     </head>
-    <body>
-        <h1>Welcom to the Amazing World of Web Design</h1>
+    <body id="img-container">
+        <div class="flex-container overlay">
+            <h1 id="lead" class="margin-bottom-md">Welcome...</h1>
 
-        <h2>Together we're going to learn how to design and build web pages</h2>
+            <h2 class="margin-bottom-md">to the amazing world of web design</h2>
 
-        <button>Continue</button>
+            <button>Continue</button>
+        </div>
     </body>
 </html>
 `
@@ -32,14 +33,53 @@ export default [
                 mode: 'css',
                 label: "styles.css",
                 contents:
-`
-html {
-    background-image: url('https://unsplash.com/?photo=yLI-7XX5F-4') 
+`html, body, #img-container {
+    height: 100%;
+    color: white;
+    text-align: center;
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
 }
 
-.header {
-    backgroun
+h1 {
+    margin-top: 0px;
 }
+
+.margin-bottom-md {
+    margin-top: 0px;
+    margin-bottom: 24px;
+}
+
+#img-container {
+    background-image: url("https://s3.amazonaws.com/s3.imagefinder.co/uploads/2016/01/05005508/unsplash-com-photo-1439853885754-b0fc182c360f.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.flex-container {
+    display: -webkit-flex; /* Safari */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.overlay {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+button {
+    color: white;
+    background-color: #2196f3;
+  	border: none;
+  	padding: 10px 25px;
+  	font-size: 14px;
+    cursor: pointer;
+}
+
 `
             },
             scripts: {
@@ -47,55 +87,10 @@ html {
                 mode: 'javascript',
                 label: "scripts.js",
                 contents:
-`
-import React, { Component } from 'react';
-import { merge } from "lodash";
-import { CodeEditor } from "./code-editor";
-import RaisedButton from 'material-ui/RaisedButton';
-
-export class Editor extends Component {
-
-    constructor(props) {
-        super(props);
-        //this.state = this.initFileContents();
-    }
-
-    componentWillMount() {
-        console.log('mounting code editor');
-        console.log(this.props);
-    }
-
-    showHeader() {
-        let res = [];
-
-        for (var f in this.props.files) {
-            res.push('foo');
-        }
-        
-        return res;
-    }
-
-    showVisibleFile() {
-        let name = this.props.visibleFile;
-
-        //console.log('finding visible file', this.props.visibleFile);
-        if(!this.props.files || !this.props.files[name]) {
-            return null;
-        }
-
-        let file = this.props.files[name];
-        //console.log('file has been found', file)
-
-        if(!file.mode) {
-            throw new Error('A file must specify a valid mode');
-        }
-        return file;
-    }
-    
-    render() {
-        return "yo";
-    }
-};
+`document.addEventListener('DOMContentLoaded', () => {
+    let lead = document.getElementById('lead');
+    lead.innerHTML = lead.innerHTML.toUpperCase()
+});
 `
             },
         },

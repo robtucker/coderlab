@@ -1,3 +1,4 @@
+export * from "./app.actions";
 export * from "./auth.actions";
 export * from "./course.actions";
 export * from "./challenge.actions";

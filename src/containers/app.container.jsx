@@ -1,13 +1,18 @@
 import { connect } from "react-redux";
-
+import { screenResize } from "../actions";
 import { AppLayout } from "../components";
 
 const mapStateToProps = (state) => ({
-    
+    appHeight: state.app.height
 });
+
 
 const mapDispatchToProps = (dispatch) => ({
 
+    handleScreenResize: () => {
+        dispatch(screenResize(window.innerWidth, window.innerHeight))
+    }
+    
 })
 
-export const NavbarContainer = connect(mapStateToProps, mapDispatchToProps)(AppLayout);
+export const AppContainer = connect(mapStateToProps, mapDispatchToProps)(AppLayout);

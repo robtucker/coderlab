@@ -1,3 +1,4 @@
+export * from "./app.reducer";
 export * from "./auth.reducer";
 export * from "./challenge.reducer";
 export * from "./config.reducer";

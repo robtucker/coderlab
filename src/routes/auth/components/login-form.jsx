@@ -27,7 +27,7 @@ const Form = (props) => {
     let { handleSubmit, pristine, reset, submitting } = props;
 
     return (
-        <form onSubmit={handleSubmit(props.doSubmit)} className="col justify-center align-center margin-y-xxl height-100">
+        <form onSubmit={handleSubmit(props.doSubmit)} className="col justify-center align-center height-100">
 
             <h2 className="margin-bottom-lg">Login</h2>
 

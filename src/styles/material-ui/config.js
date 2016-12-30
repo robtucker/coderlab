@@ -8,12 +8,20 @@ import { darkWhite, lightBlack, lightWhite, transparent, white, black,
     red500 
 } from "./colors";
 
+const margins = {
+
+}
+
+const paddings = {
+
+};
+
 // overide material-ui defaults
 export default ({palette}) => ({
     appBar: {
         color: palette.primary1Color,
         textColor: palette.alternateTextColor,
-        height: spacing.desktopKeylineIncrement,
+        height: 56,
         titleFontWeight: typography.fontWeightNormal,
         padding: spacing.desktopGutter,
     }

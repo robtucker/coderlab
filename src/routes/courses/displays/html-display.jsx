@@ -1,19 +1,29 @@
 import React, { PropTypes, Component } from 'react';
+import { findDOMNode } from "react-dom";
 
 export class HtmlDisplay extends Component {
 
-    getFiles() {
-        var iframe = document.getElementById('foo'),
-        iframedoc = iframe.contentDocument || iframe.contentWindow.document;
+    componentDidMount() {
+        // console.log('html display window mounted');
+        // console.log(this.props);
+        let iframedoc = this.iframe.contentDocument || this.iframe.contentWindow.document;
+
+        //console.log(this.iframedoc)
+    }
+    updateBody() {
+        let iframedoc = this.iframe.contentDocument || this.iframe.contentWindow.document;
 
         iframedoc.body.innerHTML = 'Hello world';
     }
-    
+
     render() {
         return (
-            <section className="margin-x-xs margin-y-xs border-light width-100 height-100 flex-1 bg-white">
-                {this.props.display}
-            </section>
+            <iframe 
+                width="100%"
+                height={this.props.height}
+                frameBorder="0"
+                ref={(i) => { this.iframe = i; }}  
+                srcDoc={this.props.contents} />
         )
     }
 }

@@ -6,21 +6,27 @@ import * as js from "codemirror/mode/javascript/javascript";
 
 export class CodeEditor extends Component {
 
-    componentWillMount() {
-        console.log('mounting code editor');
-        console.log(this.props)
-    }
+    minLineCount = 10;
 
+    componentWillMount() {
+        // console.log('mounting code editor');
+        // console.log(this.props)
+    }
 
     componentDidMount () {
 
         let options = {
             lineNumbers: true,
+            //htmlMode: true,
+            //matchClosing: true, 
+            //indentWithTabs: false,
+            lineWrapping: true,
+            //viewportMargin: 50,
             mode: this.props.file.mode,
             theme: 'dracula'
         };
 
-        console.log('options', options);
+        //console.log('options', options);
 
         const textareaNode = findDOMNode(this.refs.textarea);
         this.instance = CodeMirror.fromTextArea(textareaNode, options);
@@ -32,19 +38,24 @@ export class CodeEditor extends Component {
         // this.codeMirror.on('blur', this.focusChanged.bind(this, false));
         // this.codeMirror.on('scroll', this.scrollChanged);
 
-        this.instance.setValue(this.props.file.contents);
+        let contents = this.props.file.contents || "";
+        let lineCount = contents.split(/\r\n|\r|\n/).length;
+        console.log(`File ${this.props.file.mode} has line count of ${lineCount}`);
+        if(lineCount < this.minLineCount) {
+            for(var i = lineCount; i < this.minLineCount; i++) {
+                contents += '\n';
+            }
+        }
+        this.instance.setValue(contents);
     }
 
     render () {
-        // const editorClassName = className(
-        //     'ReactCodeMirror',
-        //     this.state.isFocused ? 'ReactCodeMirror--focused' : null,
-        //     this.props.className
-        // );
-        let editorClassName = "bg-black";
-
+        if(this.instance) {
+            console.log('setting size', this.props.height);
+            this.instance.setSize('auto', this.props.height);
+        }
         return (
-            <div>
+            <div id="code-editor-container">
                 <textarea ref="textarea" />
             </div>
         );

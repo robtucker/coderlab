@@ -37,12 +37,21 @@
 @import "./components/layouts";
 @import "./components/margins";
 @import "./components/nav";
+@import "./components/overflow";
 @import "./components/overlays";
 @import "./components/paddings";
 @import "./components/panels";
 @import "./components/text";
 @import "./components/widths";
 
+
+$codemirror-height: 300px;
+$codemirror-width: 100%;
+$codemirror-line-height: 24px;
+$codemirror-max-width: 100%;
+$codemirror-max-height: 500px;
+$codemirror-min-height: 500px;
+$codemirror-font-family: Monaco,monospace;
 
 @import "./codemirror/codemirror";
 @import "./codemirror/theme/dracula";

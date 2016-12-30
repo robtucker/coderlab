@@ -3,7 +3,6 @@ import React, { Component } from "react";
 
 import { JobList } from "../components/job-list";
 
-import { breakpoints } from "../../../styles";
 
 var jobsArray = [
     {
@@ -44,47 +43,8 @@ export class JobListContainer extends Component {
 
     constructor(props, context) {
         super(props, context);
-        this.breakpoints = breakpoints;
-        // need these keys to obey specific order 
-        // iterating over objects doesn't guarantee that
-        this.breakpointKeys = ['xl', 'lg', 'md', 'sm', 'xs'];
-
         this.state = {
-            breakpoint: this.getBreakpoint(),
             jobComponents: []
-        }
-    }
-
-    componentDidMount () {
-        Logger.debug("component did mount");
-        Logger.debug(this);
-        this.setState({
-            jobComponents : this.getJobListData(this.state.breakpoint)
-        });
-
-        window.addEventListener("resize", ()=>{
-            console.log('container has received resize event');
-            this.handleResize();
-        });
-    }
-
-    getBreakpoint() {        
-        for(var i = 0; i < this.breakpointKeys.length; i++) {
-            if(window.innerWidth > breakpoints[this.breakpointKeys[i]]) {
-                return this.breakpoints[this.breakpointKeys[i]];
-            }
-        }
-    }
-    
-    handleResize () {
-        let newBp = this.getBreakpoint();
-
-        if(newBp !== this.state.breakpoint) {
-            Logger.debug(`new breakpoint has been found ${newBp}`);
-            this.setState({
-                breakpoint: newBp,
-                jobComponents: this.getJobListData(newBp)
-            })
         }
     }
 

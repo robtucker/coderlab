@@ -1,5 +1,9 @@
 export const editorThemes = {
+    common: {
+        minHeight: 500 //the entire editor panel including the display
+    },
     dracula: {
+        cream: '#FAFAFA',
         orange: '#c98d75',
         yellow: '#d7ba7d',
         lightBlue: '#9cdcfe',

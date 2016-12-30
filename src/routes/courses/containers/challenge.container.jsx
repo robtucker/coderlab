@@ -42,12 +42,16 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
 const mapStateToProps = (state, ownProps) => {
 
     let props = {
+        editorTheme: state.challenge.editorTheme,
+        appHeight: state.app.height,
+        appWidth: state.app.width,
         course: state.courses[ownProps.params.courseName],
         challenge: state.challenge.current,
         visibleFile: state.challenge.visibleFile,
         hint: state.challenge.hint,
         showVideo: state.challenge.showVideo,
         currentTask: state.challenge.currentTask,
+        display: state.challenge.display
     }
 
     if(state.challenge.current) {

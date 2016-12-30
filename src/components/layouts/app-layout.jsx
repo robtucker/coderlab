@@ -4,11 +4,26 @@ import { NavbarContainer } from "../../containers/navbar.container";
 import { SnackbarContainer } from "../../containers/snackbar.container";
 import { NotificationContainer } from "../../containers/notification.container";
 
-export const AppLayout = ({children}) => (
-    <div style={{ height: '100%'}}>
-        <NavbarContainer />
-        <NotificationContainer />
-        <SnackbarContainer />
-        {children}
-    </div>
-)
+export class AppLayout extends Component{
+
+    componentDidMount() {
+        // console.log("app component did mount");
+        // console.log(this.props);
+
+        window.addEventListener("resize", ()=>{
+            //console.log('app container has received resize event');
+            this.props.handleScreenResize(window.innerWidth, window.innerHeight);
+        });
+    }
+
+    render() {
+        return (
+            <div style={{ height: '100%'}}>
+                <NavbarContainer />
+                <NotificationContainer />
+                <SnackbarContainer />
+                {this.props.children}
+            </div>
+        );
+    }
+}

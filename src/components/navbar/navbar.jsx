@@ -1,14 +1,13 @@
 import React from 'react';
 import { Link } from "react-router";
-
 import { MenuLink } from '../elements/menu-link';
-
 import Drawer from "material-ui/Drawer";
 import AppBar from "material-ui/AppBar";
 import { List } from 'material-ui/List';
 import Divider from 'material-ui/Divider';
 import { UserMenu } from "./user-menu";
 import { LoginButtons } from "./login-buttons";
+import { AppTheme } from "../../styles";
 
 var headerStyle = {
     paddingLeft: "16px",
@@ -17,9 +16,15 @@ var headerStyle = {
 
 const Navbar = (props) => {
         
+    
     if(!props.isVisible) {
         return null;
     }
+    
+    let navbarStyles = {
+        height: AppTheme.appBar.height, 
+        backgroundColor: props.backgroundColor
+    };
     
     return (
         <section>
@@ -44,7 +49,8 @@ const Navbar = (props) => {
                 </List>
             </Drawer>
 
-            <div className="row justify-start align-center" style={{height: '56px', backgroundColor: props.backgroundColor}}>
+
+            <div className="row justify-start align-center" style={navbarStyles}>
                 <div className="padding-x-sm cursor-pointer" onTouchTap={props.toggleNavbar}>
                     <i className="material-icons menu white">menu</i>
                 </div>
@@ -52,7 +58,6 @@ const Navbar = (props) => {
                     {props.isLoggedIn ? <UserMenu logout={props.logout} /> : <LoginButtons /> }
                 </div>
             </div>
-                
         </section>
     )
     

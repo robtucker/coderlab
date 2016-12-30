@@ -6,7 +6,7 @@ import { typography, palette } from "../../styles";
 const SidebarLayout = ({width, sidebar, children}) => {
 
     let sidebarStyles = {
-        backgroundColor: palette.accent2Color,
+        // backgroundColor: palette.accent2Color,
         // maxWidth: "300px",
         // marginLeft: "32px"
     }
@@ -18,8 +18,7 @@ const SidebarLayout = ({width, sidebar, children}) => {
                 <Paper className="width-100 sidebar padding-x-sm padding-y-lg" style={sidebarStyles}>{sidebar}</Paper>
             </div>
         </div>
-    )
-
+    );
 }
 
 SidebarLayout.propTypes = {
