@@ -47,6 +47,13 @@ import { AppRoutes } from "./routes";
 import * as CSS from "./styles/main.scss";
 
 /**
+ * get material design icons for development
+ */
+if(!config.IS_PROD) {
+    require("material-design-icons/iconfont/material-icons.css");
+}
+
+/**
  * customize the material design theme
  */
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';

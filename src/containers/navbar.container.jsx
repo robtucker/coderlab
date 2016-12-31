@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-
+import {breakpoints} from "../styles";
 import { Navbar } from "../components/navbar/navbar";
 
 import { toggleNavbar, toggleSidebar, logout } from "../actions";
@@ -40,6 +40,7 @@ let navMenu = [
 const mapStateToProps = (state) => ({
     appTitle: state.config.APP_TITLE,
     navMenu: navMenu,
+    isMobile: state.app.width < breakpoints.md,
     navbarVisible: state.navbar.navbarVisible,
     sidebarVisible: state.navbar.sidebarVisible,
     backgroundColor: state.navbar.backgroundColor,

@@ -1,7 +1,9 @@
+import {find} from "lodash";
 import { coursesData } from "../routes/courses";
-import { TOGGLE_ENROL_DIALOG, TOGGLE_VIDEO } from "../actions";
+import { SET_CURRENT_COURSE, TOGGLE_ENROL_DIALOG, TOGGLE_VIDEO } from "../actions";
 
 let initialState = {
+    current: null,
     enrolDialogOpen: false,
     index: coursesData,
 };
@@ -9,7 +11,8 @@ let initialState = {
 export const courses = (state = initialState, action) => {
 
     switch (action.type) {
-
+    case SET_CURRENT_COURSE:
+        return Object.assign({}, state, {current: action.course})
     case "API_GET_COURSE_LEVEL_SUCCESS":
         return Object.assign({}, state, {[action.params.course]: {[action.params.level]: action.data}});
     case TOGGLE_ENROL_DIALOG:

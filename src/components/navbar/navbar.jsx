@@ -21,32 +21,59 @@ export class Navbar extends Component {
         console.log(this.props);
     }
     
-    getSidedrawer() {
+    getMinimizedNavbar() {
+        let minimizedStyles = {
+            height: '5px',
+            backgroundColor: this.props.backgroundColor,
+        }
+
+        // the maenu bar has a margin top of 8 + the minimixed navbar of 5 which comes to 13
+        let toggleButton = {
+            position: 'absolute',
+            padding: '5px 3px 3px 3px',
+            top: '0px',
+            left: '60px',
+            borderRadius: '3px',
+            backgroundColor: this.props.backgroundColor,
+        }
+
         return (
-            <Drawer open={this.props.sidebarVisible} 
-                onRequestChange={this.props.toggleSidebar} 
-                docked={false}
-                className="width-100"> 
-                <Link className="primary2" to="/" onClick={this.props.toggleSidebar}>
-                    <div className="width-100 padding-y-sm font-size-lg" style={drawerHeaderStyles}>
-                        {this.props.appTitle}
-                    </div>
-                </Link>
-                <Divider />
-                <List>
-                    {
-                        this.props.navMenu.map((item) => {
-                            return <MenuLink 
-                                key={item.id} 
-                                url={item.url} 
-                                onTouchTap={this.props.toggleSidebar} 
-                                label={item.label} />
-                        })
-                    }     
-                </List>
-            </Drawer>
-        );
+            <div style={minimizedStyles}>
+                <i onTouchTap={this.props.toggleNavbar} 
+                    style={toggleButton}
+                    className="material-icons white">
+                    arrow_downward
+                </i>
+            </div>
+        )
     }
+
+    // getSidedrawer() {
+    //     return (
+    //         <Drawer open={this.props.sidebarVisible} 
+    //             onRequestChange={this.props.toggleSidebar} 
+    //             docked={false}
+    //             className="width-100"> 
+    //             <Link className="primary2" to="/" onClick={this.props.toggleSidebar}>
+    //                 <div className="width-100 padding-y-sm font-size-lg" style={drawerHeaderStyles}>
+    //                     {this.props.appTitle}
+    //                 </div>
+    //             </Link>
+    //             <Divider />
+    //             <List>
+    //                 {
+    //                     this.props.navMenu.map((item) => {
+    //                         return <MenuLink 
+    //                             key={item.id} 
+    //                             url={item.url} 
+    //                             onTouchTap={this.props.toggleSidebar} 
+    //                             label={item.label} />
+    //                     })
+    //                 }     
+    //             </List>
+    //         </Drawer>
+    //     );
+    // }
 
     getHamburger() {
         return <i onTouchTap={this.props.toggleSidebar} className="material-icons white hidden-md-up">menu</i>
@@ -54,19 +81,18 @@ export class Navbar extends Component {
 
     render() {
         if(!this.props.navbarVisible) {
-            return null;
+            return this.getMinimizedNavbar();
         }
         
         let navbarStyles = {
             height: AppTheme.appBar.height, 
             backgroundColor: this.props.backgroundColor,
-            height: '100%'
         };
         
         return (
             <section>
                 <section className="padding-x-lg" style={navbarStyles}>
-                    <div className="row justify-start align-center white">
+                    <div className="row justify-start align-center white height-100">
                         {
                             this.props.navMenu.map((item) => {
                                 return <Link 

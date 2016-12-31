@@ -34,7 +34,7 @@ export class Challenge extends Component {
         let {courseName, levelId, challengeId} = this.props.params
 
         this.props.getCourseLevel(courseName, parseInt(levelId), parseInt(challengeId));
-        //this.props.hideNavbar();
+        this.props.hideNavbar();
     }
 
     getSidebar() {
@@ -106,12 +106,13 @@ export class Challenge extends Component {
             height: this.props.isMobile ? '100%' : height
         }
 
+        let menuButtonStyles = this.props.navbarVisible ? {marginTop: '8px'} : {marginTop: '2px'};
+
         return (
             <section className="" style={instructionStyles}>
-                <div className="padding-x-md padding-y-md">
-                    <div className="row align-center">
+                <div className="padding-x-md" style={menuButtonStyles}>
+                    <div className="row align-center margin-bottom-md">
                         <i className="material-icons margin-right-xs" onTouchTap={this.props.toggleSidebar}>menu</i>
-                        <span className="font-size-lg">Level {this.props.challenge.level.id}</span>
                     </div>
 
                     <div className="margin-bottom-md">
@@ -137,11 +138,15 @@ export class Challenge extends Component {
     }
 
     render() {
+        console.log('render chall', this.props)
         // we might be waiting for the api to return the course level
         if(!this.props.challenge || !this.props.task) return <LoadingScreen />;
         
         let height = this.props.appHeight;
-        if(this.props.navbarVisible) height -= AppTheme.appBar.height;
+        if(this.props.navbarVisible) {
+            console.log('navbar is not visible')
+            height = height - AppTheme.appBar.height;
+        }
         if(height < editorThemes.common.minHeight) height = editorThemes.common.minHeight;
 
         let containerStyles = {
