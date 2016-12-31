@@ -30,28 +30,27 @@ export class CodeEditor extends Component {
 
         const textareaNode = findDOMNode(this.refs.textarea);
         this.instance = CodeMirror.fromTextArea(textareaNode, options);
-        this.instance.on('change', this.props.onChange);
+        //console.log('code mirror instance', this.instance);
 
-        console.log('code mirror instance');
-        console.log(this.instance);
-        // this.codeMirror.on('focus', this.focusChanged.bind(this, true));
-        // this.codeMirror.on('blur', this.focusChanged.bind(this, false));
-        // this.codeMirror.on('scroll', this.scrollChanged);
+        this.instance.on('change', this.props.onChange);
 
         let contents = this.props.file.contents || "";
         let lineCount = contents.split(/\r\n|\r|\n/).length;
-        console.log(`File ${this.props.file.mode} has line count of ${lineCount}`);
+        //console.log(`File ${this.props.file.mode} has line count of ${lineCount}`);
+        
         if(lineCount < this.minLineCount) {
             for(var i = lineCount; i < this.minLineCount; i++) {
                 contents += '\n';
             }
         }
+        //todo - because the value is updated automatically if you edit undo enough times
+        // it will delete the original text. instead this should be initialized in the options
         this.instance.setValue(contents);
     }
 
     render () {
         if(this.instance) {
-            console.log('setting size', this.props.height);
+            //console.log('setting size', this.props.height);
             this.instance.setSize('auto', this.props.height);
         }
         return (

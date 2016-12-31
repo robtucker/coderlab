@@ -9,7 +9,7 @@ const UserMenu = ({logout}) => {
     return (
         <IconMenu
             iconStyle={{color: 'white'}}
-            iconButtonElement={<IconButton><MoreVertIcon /></IconButton>}
+            iconButtonElement={<IconButton style={{padding: '0px', width: '16px'}} ><MoreVertIcon /></IconButton>}
             targetOrigin={{horizontal: 'right', vertical: 'top'}}
             anchorOrigin={{horizontal: 'right', vertical: 'top'}}>
             <MenuItem primaryText="Sign out" onTouchTap={logout} />

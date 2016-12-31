@@ -3,7 +3,7 @@ import { merge } from "lodash";
 import { CodeEditor } from "./code-editor";
 import RaisedButton from 'material-ui/RaisedButton';
 import {Tabs, Tab} from 'material-ui/Tabs';
-import { editorThemes } from "../styles"; 
+import { editorThemes } from "../../styles"; 
 
 let theme = editorThemes.dracula;
 
@@ -19,13 +19,20 @@ let tabStyles = {
 
 export class Editor extends Component {
 
+    // this is a magic number that represents the height of the editor's margins, 
+    // i.e. the submit button and the selectable tabs
+    // this number saves a bunch of other ugly hacks that would be required to put the 
+    // editor inside a scrollable container. The simplest solution is to explicitly 
+    // set the height of the editor and then minus the height of the margins 
+    editorMargin = 86;
+
     constructor(props) {
         super(props);
     }
 
     componentWillMount() {
-        console.log('mounting editor container');
-        console.log(this.props);
+        //console.log('mounting editor container');
+        //console.log(this.props);
     }
     
     render() {
@@ -36,8 +43,8 @@ export class Editor extends Component {
                     style={containerStyles}
                     value={this.props.visibleFile}
                     onChange={this.props.setVisibleFile}>
-                    {Object.keys(this.props.files).map((name) => {
-                        let file = this.props.files[name];
+                    {Object.keys(this.props.challenge.files).map((name) => {
+                        let file = this.props.challenge.files[name];
                         //console.log('creating tab ' + name, file);
 
                         return (
@@ -48,10 +55,11 @@ export class Editor extends Component {
                                 value={name}>
 
                                 <CodeEditor 
-                                    height={this.props.height - 86}
+                                    height={this.props.height - this.editorMargin}
                                     file={file}
                                     onChange={(doc, change) => {
-                                        this.props.onChange(name, doc.getValue(), change)
+                                        //console.log('update file', doc, change);
+                                        this.props.onChange(name, doc)
                                     }} /> 
                             </Tab>
                         );
@@ -60,7 +68,7 @@ export class Editor extends Component {
                 <div className="text-xs-right">
                     <RaisedButton 
                         label="Submit"
-                        onTouchTap={() => this.props.onSubmit(this.props.challenge, this.props.files)} 
+                        onTouchTap={() => this.props.onSubmit(this.props.challenge)} 
                         primary={true} />
                 </div>
             </form>

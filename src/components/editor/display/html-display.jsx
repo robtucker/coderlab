@@ -4,16 +4,11 @@ import { findDOMNode } from "react-dom";
 export class HtmlDisplay extends Component {
 
     componentDidMount() {
-        // console.log('html display window mounted');
-        // console.log(this.props);
-        let iframedoc = this.iframe.contentDocument || this.iframe.contentWindow.document;
+        console.log('html display window mounted');
+        console.log(this.props);
+        //let iframedoc = this.iframe.contentDocument || this.iframe.contentWindow.document;
 
         //console.log(this.iframedoc)
-    }
-    updateBody() {
-        let iframedoc = this.iframe.contentDocument || this.iframe.contentWindow.document;
-
-        iframedoc.body.innerHTML = 'Hello world';
     }
 
     render() {

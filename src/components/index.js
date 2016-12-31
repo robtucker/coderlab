@@ -1,6 +1,12 @@
 // dialogs
 export * from "./dialogs/confirm-dialog";
 
+// editor
+export * from "./editor/editor";
+export * from "./editor/code-editor";
+export * from "./editor/display/console-display";
+export * from "./editor/display/html-display";
+
 // elements
 export * from "./elements/arrow-box";
 export * from "./elements/avatar";
@@ -13,6 +19,7 @@ export * from "./forms/material-form";
 
 // layouts
 export * from "./layouts/app-layout";
+export * from "./layouts/loading-screen";
 export * from "./layouts/page-container";
 export * from "./layouts/sidebar-layout";
 

@@ -100,18 +100,18 @@ button {
                 title: "Create an html tag",
                 description: `To begin writing in html, first of all we need to create an HTML tag. 
                     We've opened the html tag for you. On the next line close the HTML tag.`,
-                parser: function (data) {
-                    console.log('parsing data', data);
-                }
+                parser: 
+`console.log('parsing data', input);
+`
             },
             {
                 id: 2,
                 title: "Create an html tag",
                 description: `To begin writing in html, first of all we need to create an HTML tag. 
                     We've opened the html tag for you. On the next line close the HTML tag.`,
-                parser: function (data) {
-                    console.log('parsing data', data);
-                }
+                parser: 
+`console.log('parsing data', input);
+`
             }
         ]
     },
@@ -135,18 +135,18 @@ button {
                 title: "Create an html tag",
                 description: `To begin writing in html, first of all we need to create an HTML tag. 
                     We've opened the html tag for you. On the next line close the HTML tag.`,
-                parser: function (data) {
-                    console.log('parsing data', data);
-                }
+                parser: 
+`console.log('parsing data', input);
+`
             },
             {
                 id: 2,
                 title: "Create an html tag",
                 description: `To begin writing in html, first of all we need to create an HTML tag. 
                     We've opened the html tag for you. On the next line close the HTML tag.`,
-                parser: function (data) {
-                    console.log('parsing data', data);
-                }
+                parser: 
+`console.log('parsing data', input);
+`
             }
         ]
     },

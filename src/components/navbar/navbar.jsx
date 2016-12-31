@@ -1,66 +1,88 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { Link } from "react-router";
-import { MenuLink } from '../elements/menu-link';
-import Drawer from "material-ui/Drawer";
-import AppBar from "material-ui/AppBar";
-import { List } from 'material-ui/List';
 import Divider from 'material-ui/Divider';
+import Drawer from "material-ui/Drawer";
+import { List } from 'material-ui/List';
+import { MenuLink } from '../elements/menu-link';
+import AppBar from "material-ui/AppBar";
 import { UserMenu } from "./user-menu";
 import { LoginButtons } from "./login-buttons";
 import { AppTheme } from "../../styles";
 
-var headerStyle = {
+let drawerHeaderStyles = {
     paddingLeft: "16px",
     textDecoration: "none"
 };
 
-const Navbar = (props) => {
-        
+export class Navbar extends Component {
     
-    if(!props.isVisible) {
-        return null;
+    componentWillMount() {
+        console.log('mounting navbar');
+        console.log(this.props);
     }
     
-    let navbarStyles = {
-        height: AppTheme.appBar.height, 
-        backgroundColor: props.backgroundColor
-    };
-    
-    return (
-        <section>
-            <Drawer open={props.sidenavOpen} 
-                onRequestChange={props.toggleNavbar} 
+    getSidedrawer() {
+        return (
+            <Drawer open={this.props.sidebarVisible} 
+                onRequestChange={this.props.toggleSidebar} 
                 docked={false}
                 className="width-100"> 
-                <Link className="primary2" to="/" onClick={props.toggleNavbar}>
-                    <div className="width-100 padding-y-sm font-size-lg" style={headerStyle}>{props.appTitle}</div>
+                <Link className="primary2" to="/" onClick={this.props.toggleSidebar}>
+                    <div className="width-100 padding-y-sm font-size-lg" style={drawerHeaderStyles}>
+                        {this.props.appTitle}
+                    </div>
                 </Link>
                 <Divider />
                 <List>
                     {
-                        props.navMenu.map((item) => {
+                        this.props.navMenu.map((item) => {
                             return <MenuLink 
                                 key={item.id} 
                                 url={item.url} 
-                                onTouchTap={props.toggleNavbar} 
+                                onTouchTap={this.props.toggleSidebar} 
                                 label={item.label} />
                         })
                     }     
                 </List>
             </Drawer>
+        );
+    }
 
+    getHamburger() {
+        return <i onTouchTap={this.props.toggleSidebar} className="material-icons white hidden-md-up">menu</i>
+    }
 
-            <div className="row justify-start align-center" style={navbarStyles}>
-                <div className="padding-x-sm cursor-pointer" onTouchTap={props.toggleNavbar}>
-                    <i className="material-icons menu white">menu</i>
-                </div>
-                <div className="padding-x-sm cursor-pointer" style={{marginLeft: 'auto'}}>
-                    {props.isLoggedIn ? <UserMenu logout={props.logout} /> : <LoginButtons /> }
-                </div>
-            </div>
-        </section>
-    )
+    render() {
+        if(!this.props.navbarVisible) {
+            return null;
+        }
+        
+        let navbarStyles = {
+            height: AppTheme.appBar.height, 
+            backgroundColor: this.props.backgroundColor,
+            height: '100%'
+        };
+        
+        return (
+            <section>
+                <section className="padding-x-lg" style={navbarStyles}>
+                    <div className="row justify-start align-center white">
+                        {
+                            this.props.navMenu.map((item) => {
+                                return <Link 
+                                    className={`margin-right-md cursor-pointer ${item.className}`}
+                                    key={item.id} 
+                                    to={item.url}>{item.label}</Link>
+                            })
+                        }   
+                        <div className="cursor-pointer" style={{marginLeft: 'auto'}}>
+                            {this.props.isLoggedIn ? <UserMenu logout={this.props.logout} /> : <LoginButtons /> }
+                        </div>
+                    </div>
+                </section>
+            </section>
+        )
+    }
     
 };
 
-export { Navbar }

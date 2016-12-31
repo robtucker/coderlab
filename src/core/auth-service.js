@@ -17,8 +17,8 @@ export class AuthService {
         let user = this._user || this._getUserFromCache()
 
         if(user && user.token && user.expiry && user.expiry > timestamp()) {
-            console.log('logged in user detected');
-            console.log(this._user);
+            // console.log('logged in user detected');
+            // console.log(this._user);
             return this._user;
         }
         return false;

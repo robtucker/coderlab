@@ -16,6 +16,7 @@ const paddings = {
 
 };
 
+
 // overide material-ui defaults
 export default ({palette}) => ({
     appBar: {

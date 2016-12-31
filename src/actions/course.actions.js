@@ -18,6 +18,7 @@ export const getCourseLevel = (courseName, levelId, challengeId = false) => {
         if(challengeId) {
             let data = res.json();
             let challenge = find(data, c => c.id === challengeId);
+            challenge.level = data;
             //console.log('initializing challenge', challenge);
             let store = getAppStore();
             store.dispatch(startChallenge(challenge));

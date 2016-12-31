@@ -2,37 +2,49 @@ import { connect } from "react-redux";
 
 import { Navbar } from "../components/navbar/navbar";
 
-import { toggleNavbar, logout } from "../actions";
+import { toggleNavbar, toggleSidebar, logout } from "../actions";
 
 let navMenu = [
     {
         id: 1,
-        label: "Home",
-        url: "/"
+        label: "",
+        url: "/",
+        className: "width-auto min-width-25 img-logo-xs"
     },
-    {
-        id: 2,
-        label: "Mentors",
-        url: "/mentors"
-    },
+    // {
+    //     id: 2,
+    //     label: "CoderLab",
+    //     url: "/",
+    //     className: "font-size-xl"
+    // },
     {
         id: 3,
-        label: "Courses",
-        url: "/courses",
+        label: "Mentors",
+        url: "/mentors",
+        className: ""
     },
     {
         id: 4,
+        label: "Courses",
+        url: "/courses",
+        className: ""
+    },
+    {
+        id: 5,
         label: "Contact",
-        url: "/contact"
+        url: "/contact",
+        className: ""
     }
 ];
 
 const mapStateToProps = (state) => ({
     appTitle: state.config.APP_TITLE,
     navMenu: navMenu,
-    isVisible: state.navbar.isVisible,
+    navbarVisible: state.navbar.navbarVisible,
+    sidebarVisible: state.navbar.sidebarVisible,
     backgroundColor: state.navbar.backgroundColor,
-    sidenavOpen: state.navbar.sidenavOpen,
+    sidebarVisible: state.navbar.sidebarVisible,
+    navbarVisible: state.navbar.navbarVisible,
     authDialogOpen: state.auth.authDialogOpen,
     authDialogType: state.auth.authDialogType,
     isLoggedIn: state.auth.isLoggedIn,
@@ -41,6 +53,9 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
+    toggleSidebar: () => {
+        dispatch(toggleSidebar());
+    },
     toggleNavbar: () => {
         dispatch(toggleNavbar());
     },

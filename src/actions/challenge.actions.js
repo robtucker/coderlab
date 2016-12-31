@@ -1,5 +1,8 @@
+import { map, property } from "lodash";
+
 export const START_CHALLENGE = "START_CHALLENGE";
 export const TOGGLE_VIDEO = "TOGGLE_VIDEO";
+export const TOGGLE_CHALLENGE_SIDEBAR = "TOGGLE_SIDEBAR";
 export const UPDATE_CHALLENGE_FILE = "UPDATE_CHALLENGE_FILE";
 export const SET_VISIBLE_FILE = "SET_VISIBLE_FILE";
 export const SUBMIT_CHALLENGE = "SUBMIT_CHALLENGE";
@@ -13,15 +16,20 @@ export const toggleVideo = () => {
     return {type: TOGGLE_VIDEO}
 };
 
+export const toggleChallengeSidebar = () => ({type: TOGGLE_CHALLENGE_SIDEBAR});
+
 export const startChallenge = (challenge) => {
     return {challenge, type: START_CHALLENGE};
 }
 
-export const updateChallengeFile = (name, contents) => ({name, contents, type: UPDATE_CHALLENGE_FILE})
+export const updateChallengeFile = (name, doc) => ({name, doc, type: UPDATE_CHALLENGE_FILE})
 
 export const setVisibleFile = (value) => ({value, type: SET_VISIBLE_FILE});
 
-export const submitChallenge = (challenge, input) => ({challenge, input, type: SUBMIT_CHALLENGE})
+export const submitChallenge = (challenge) => {
+
+    return {challenge, type: SUBMIT_CHALLENGE}
+}
 
 export const setChallengeDisplay = (value) => ({value, type: SET_CHALLENGE_DISPLAY});
 

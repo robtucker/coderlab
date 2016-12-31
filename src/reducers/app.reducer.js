@@ -24,6 +24,7 @@ export const app = (state = initialState, action) => {
     switch (action.type) {
 
     case SCREEN_RESIZE: 
+    
         //console.log('reducer receive screen resize event', action);
         return Object.assign({}, state, {
             width: action.width, 
