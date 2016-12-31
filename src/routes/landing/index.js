@@ -1,1 +1,1 @@
-export * from "./containers/landing";
+export * from "./containers/landing.container";

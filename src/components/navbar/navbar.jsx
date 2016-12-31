@@ -17,8 +17,8 @@ let drawerHeaderStyles = {
 export class Navbar extends Component {
     
     componentWillMount() {
-        console.log('mounting navbar');
-        console.log(this.props);
+        // console.log('mounting navbar');
+        // console.log(this.props);
     }
     
     getMinimizedNavbar() {

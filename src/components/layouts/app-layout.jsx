@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { NavbarContainer } from "../../containers/navbar.container";
 import { SnackbarContainer } from "../../containers/snackbar.container";
 import { NotificationContainer } from "../../containers/notification.container";
+import {Footer} from "./footer";
 
 export class AppLayout extends Component{
 
@@ -23,6 +24,7 @@ export class AppLayout extends Component{
                 <NotificationContainer />
                 <SnackbarContainer />
                 {this.props.children}
+                <Footer isVisible={this.props.footerVisible}/>
             </div>
         );
     }

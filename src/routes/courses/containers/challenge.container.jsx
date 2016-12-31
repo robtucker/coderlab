@@ -4,6 +4,8 @@ import { Challenge } from "../components/challenge";
 import { breakpoints } from "../../../styles";
 import { 
     toggleVideo, 
+    hideFooter,
+    showFooter,
     toggleNavbar,
     hideNavbar,
     toggleChallengeSidebar,
@@ -34,6 +36,12 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     },
     hideNavbar: () => {
         dispatch(hideNavbar());
+    },
+    showFooter: () => {
+        dispatch(showFooter());
+    },
+    hideFooter: () => {
+        dispatch(hideFooter());
     },
     startChallenge: (challenge) => {
         dispatch(startChallenge(challenge));

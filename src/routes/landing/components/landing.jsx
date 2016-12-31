@@ -45,7 +45,6 @@ let sliderPanels = [
 ]
 
 const Landing = (props) => {
-     
     return (
         <div>
             <Header appTitle={props.appTitle}/>

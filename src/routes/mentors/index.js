@@ -1,5 +1,3 @@
-import { MentorsContainer } from "./mentors.container";
-
 import { injectReducer } from "../../store";
 
 export const MentorsRoutes = (store) => ({

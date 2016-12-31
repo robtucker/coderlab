@@ -3,7 +3,8 @@ import { screenResize } from "../actions";
 import { AppLayout } from "../components";
 
 const mapStateToProps = (state) => ({
-    appHeight: state.app.height
+    appHeight: state.app.height,
+    footerVisible: state.app.footerVisible
 });
 
 

@@ -1,4 +1,4 @@
-export default {
+export const javascript = {
     id: 4,
     slug: "javascript",
     title: "Javascript",

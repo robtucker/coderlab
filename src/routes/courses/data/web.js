@@ -1,4 +1,4 @@
-export default {
+export const web = {
     id: 1,
     slug: "web",
     title: "HTML/CSS",

@@ -1,4 +1,4 @@
-export default {
+export const teacher = {
     id: 5,
     slug: "teacher",
     title: "Teacher Training",

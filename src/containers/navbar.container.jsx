@@ -29,12 +29,12 @@ let navMenu = [
         url: "/courses",
         className: ""
     },
-    {
-        id: 5,
-        label: "Contact",
-        url: "/contact",
-        className: ""
-    }
+    // {
+    //     id: 5,
+    //     label: "Contact",
+    //     url: "/contact",
+    //     className: ""
+    // }
 ];
 
 const mapStateToProps = (state) => ({

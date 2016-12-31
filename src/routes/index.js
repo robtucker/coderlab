@@ -10,6 +10,7 @@ import { ContactRoutes } from "./contact";
 import { MentorsRoutes } from "./mentors";
 import { CourseRoutes }  from "./courses";
 import { AbortRoutes } from "./abort";
+import { SettingsRoutes } from "./settings";
 
 export const AppRoutes = [
     {
@@ -27,6 +28,7 @@ export const AppRoutes = [
             ...CourseRoutes(store),
             MentorsRoutes(store),
             ContactRoutes(store),
+            SettingsRoutes(store),
             
         ]
     }

@@ -1,4 +1,4 @@
-export default {
+export const game = {
     id: 2,
     slug: "game",
     title: "Game Development",

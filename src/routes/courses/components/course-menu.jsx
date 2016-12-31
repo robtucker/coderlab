@@ -33,3 +33,43 @@ const CourseMenu = ({courses}) => {
     )
 }
 export { CourseMenu };
+
+
+// import React, { PropTypes } from 'react';
+// import { Link } from "react-router";
+
+// import chunk from 'lodash/chunk';
+
+// import { LinkCard } from "../../../components";
+
+
+// const CourseMenu = ({courses}) => {
+
+//     let courseList = Object.keys(courses);
+//     //todo - use some kind of popularity rating on these
+//     console.log('course list is', courseList);
+//     // split the list into groups of 2
+//     let chunks = chunk(courseList, 2);
+
+//     return (
+//         <section>
+//             {chunks.map((chunk) => {
+//                 return (
+//                     <div className="col-xs row-lg justify-center align-center-xs align-stretch-lg height-100"
+//                         key={courses[chunk[0]].id} >
+//                         {chunk.map((courseName) => ( 
+//                             <LinkCard 
+//                                 key={courses[courseName].id} 
+//                                 title={courses[courseName].title} 
+//                                 icon={courses[courseName].icon.img}
+//                                 iconBackground={courses[courseName].icon.background}
+//                                 description={courses[courseName].description} 
+//                                 url={`courses/${course.slug}`}/>                
+//                         ))}
+//                     </div>
+//                 )
+//             })}
+//         </section>
+//     )
+// }
+// export { CourseMenu };

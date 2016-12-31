@@ -12,7 +12,7 @@ const CourseIndex = ({courses, title, subtitle, nextPageUrl, nextPageLabel}) => 
                 <h2 className="margin-bottom-md">{title}</h2>
                 <h5 className="margin-bottom-md max-width-600">{subtitle}</h5>
             </div>
-            <CourseMenu courses={courses} />
+            <CourseMenu courses={Object.values(courses)} />
         </PageContainer>
     );
 }

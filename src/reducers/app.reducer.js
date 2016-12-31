@@ -17,7 +17,8 @@ const getBreakpoint = (width) => {
 let initialState = {
     width: window.innerWidth,
     height: window.innerHeight,
-    breakpoint: getBreakpoint(window.innerWidth)
+    breakpoint: getBreakpoint(window.innerWidth),
+    footerVisible: true,
 }
 
 export const app = (state = initialState, action) => {

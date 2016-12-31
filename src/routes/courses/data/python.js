@@ -1,4 +1,4 @@
-export default {
+export const python = {
     id: 3,
     slug: "python",
     title: "Python",

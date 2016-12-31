@@ -27,7 +27,7 @@ const Form = (props) => {
     return (
         <form onSubmit={handleSubmit(props.doSubmit)} className="col justify-center align-center margin-y-xxl height-100">
 
-            <h2 className="margin-bottom-lg">Create an account</h2>
+            <h2 className="margin-bottom-lg">{props.title || 'Create an account'}</h2>
 
             <div>
                 <Field name="firstName" component={renderTextField} label="First Name"/>

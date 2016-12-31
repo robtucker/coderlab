@@ -1,11 +1,11 @@
 import {find} from "lodash";
-import { coursesData } from "../routes/courses";
+import * as courseData from "../routes/courses/data"; //seed data
 import { SET_CURRENT_COURSE, TOGGLE_ENROL_DIALOG, TOGGLE_VIDEO } from "../actions";
 
 let initialState = {
     current: null,
     enrolDialogOpen: false,
-    index: coursesData,
+    byName: courseData, 
 };
 
 export const courses = (state = initialState, action) => {

@@ -35,7 +35,7 @@ const mapStateToProps = (state) => ({
     appTitle: state.config.APP_TITLE,
     mentoringIcons: mentoringIcons,
     testimonial: testimonial,
-    courses: state.courses.index,
+    courses: state.courses.byName,
     quote: quote
 });
 

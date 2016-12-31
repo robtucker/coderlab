@@ -17,7 +17,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 const mapStateToProps = (state, ownProps) => {
 
-    let courses = state.courses.index;
+    let courses = Object.values(state.courses.byName);
     let courseIndex = findIndex(courses, c =>  c.slug === ownProps.params.name); 
     let course = courses[courseIndex];
     let nextCourse = courses[courseIndex + 1];

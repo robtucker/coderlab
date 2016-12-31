@@ -1,4 +1,4 @@
-export default {
+export const advanced = {
     id: 6,
     slug: "advanced",
     title: "Advanced Programming",
