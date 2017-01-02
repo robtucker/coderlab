@@ -3,13 +3,16 @@ import React, { Component } from "react";
 import { NavbarContainer } from "../../containers/navbar.container";
 import { SnackbarContainer } from "../../containers/snackbar.container";
 import { NotificationContainer } from "../../containers/notification.container";
-import {Footer} from "./footer";
+
+//import {Footer} from "./footer";
 
 export class AppLayout extends Component{
 
+    componentWillMount() {
+        console.log("mounting app component");
+        console.log(this.props);
+    }
     componentDidMount() {
-        // console.log("app component did mount");
-        // console.log(this.props);
 
         window.addEventListener("resize", ()=>{
             //console.log('app container has received resize event');
@@ -24,7 +27,6 @@ export class AppLayout extends Component{
                 <NotificationContainer />
                 <SnackbarContainer />
                 {this.props.children}
-                <Footer isVisible={this.props.footerVisible}/>
             </div>
         );
     }

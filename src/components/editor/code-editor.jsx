@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import { findDOMNode } from "react-dom";
 import CodeMirror from "codemirror";
+import RunMode from "codemirror/addon/runmode/runmode";
 import * as xml from "codemirror/mode/htmlmixed/htmlmixed";
 import * as js from "codemirror/mode/javascript/javascript";
 

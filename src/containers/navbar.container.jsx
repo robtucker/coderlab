@@ -19,16 +19,17 @@ let navMenu = [
     // },
     {
         id: 3,
-        label: "Mentors",
-        url: "/mentors",
-        className: ""
-    },
-    {
-        id: 4,
         label: "Courses",
         url: "/courses",
         className: ""
     },
+    {
+        id: 4,
+        label: "Mentors",
+        url: "/mentors",
+        className: ""
+    },
+
     // {
     //     id: 5,
     //     label: "Contact",

@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import { findIndex, find } from "lodash";
 import { Challenge } from "../components/challenge";
+import { CodeParser } from "../../../core";
 import { breakpoints } from "../../../styles";
 import { 
     toggleVideo, 
@@ -15,13 +16,16 @@ import {
     setVisibleFile,
     submitChallenge, 
     setChallengeDisplay, 
-    showTaskHint
+    showChallengeErrors
 } from "../../../actions";
 
 const getAst = (doc) => {
     let tokens = [];
     return "foo";
 }
+
+let parser;
+let fileToParse;
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
     toggleVideo: () => {
@@ -53,19 +57,30 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     // this way you can see which task has been completed and thus set the currentTask index
     // if the tasks are all complete then fire the action for completing the challenge
     submitChallenge: (challenge) => {
-
+        let errors = [];
+        console.log('submit challenge', challenge);
+        // each challenge has multiple tasks
         challenge.tasks.forEach((task) => {
-            //console.log('parsing task', task);
-            let func = Function('input', task.parser);
-            //console.log('created parser', func);
-            let res = func(challenge.files);
+            // each task has multiple parsers
+            task.parsers.forEach((parser) => {
+                // each parser function operates on a specific file
+                fileToParse = challenge.files[parser.file];
+                console.log('parsing file', fileToParse);
+                parser = new CodeParser(fileToParse, parser);
+                console.log('parser', parser);
 
-            if(res.errors.length) {
 
-            }
+                if(parser.errors.length) {
+                    console.log('found parser errors', parser.errors);
+                    errors.push(parser.errors);
+                }
+            });
+        });
 
-
-        })
+        if(errors.length) {
+            dispatch(showChallengeErrors(parser.errors));
+        }
+        
         //dispatch(submitChallenge(challenge))
     },
     setVisibleFile: (value) => {

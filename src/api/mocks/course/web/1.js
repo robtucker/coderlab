@@ -100,57 +100,28 @@ button {
                 title: "Create an html tag",
                 description: `To begin writing in html, first of all we need to create an HTML tag. 
                     We've opened the html tag for you. On the next line close the HTML tag.`,
-                parser: 
-`console.log('parsing data', input);
-`
+                parsers: [
+                    {
+                        file: 'index',
+                        func: `console.log('parsing data', input);`
+                    }
+                ] 
+
             },
             {
                 id: 2,
                 title: "Create an html tag",
                 description: `To begin writing in html, first of all we need to create an HTML tag. 
                     We've opened the html tag for you. On the next line close the HTML tag.`,
-                parser: 
-`console.log('parsing data', input);
-`
+                parsers: [
+                    {
+                        file: 'index',
+                        func: `console.log('parsing data', input);`
+                    }
+                ] 
             }
         ]
-    },
-    {
-        id: 2,
-        video: "https://www.youtube.com/embed/v4oN4DuR7YU",
-        title: "Welcome to HTML!",
-        description: `You've been hired to create a webpage for top chef, Jean-Claude Frites. 
-            Jean-Claude has sent us a word doc with some text in it. It's time to turn this text into dazzling html. `,
-        files: {
-            index: {
-                id: 1,
-                mode: 'htmlmixed',
-                label: "index.html",
-                contents: "foo bar baz"
-            },
-        },
-        tasks: [
-            {
-                id: 1,
-                title: "Create an html tag",
-                description: `To begin writing in html, first of all we need to create an HTML tag. 
-                    We've opened the html tag for you. On the next line close the HTML tag.`,
-                parser: 
-`console.log('parsing data', input);
-`
-            },
-            {
-                id: 2,
-                title: "Create an html tag",
-                description: `To begin writing in html, first of all we need to create an HTML tag. 
-                    We've opened the html tag for you. On the next line close the HTML tag.`,
-                parser: 
-`console.log('parsing data', input);
-`
-            }
-        ]
-    },
-    
+    }
 ]
 
 

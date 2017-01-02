@@ -7,9 +7,10 @@ export const UPDATE_CHALLENGE_FILE = "UPDATE_CHALLENGE_FILE";
 export const SET_VISIBLE_FILE = "SET_VISIBLE_FILE";
 export const SUBMIT_CHALLENGE = "SUBMIT_CHALLENGE";
 export const SET_CHALLENGE_DISPLAY = "SET_CHALLENGE_DISPLAY";
+export const SHOW_CHALLENGE_ERRORS = "SHOW_CHALLENGE_ERRORS";
 export const COMPLETE_CHALLENGE = "COMPLETE_CHALLENGE";
-export const SHOW_TASK_HINT = "SHOW_TASK_HINT";
-export const HIDE_TASK_HINT = "SHOW_TASK_HINT";
+// export const SHOW_TASK_HINT = "SHOW_TASK_HINT";
+// export const HIDE_TASK_HINT = "SHOW_TASK_HINT";
 
 export const toggleVideo = () => {
     //console.log('toggling video');
@@ -33,8 +34,10 @@ export const submitChallenge = (challenge) => {
 
 export const setChallengeDisplay = (value) => ({value, type: SET_CHALLENGE_DISPLAY});
 
+export const showChallengeErrors = (errors) => ({errors, type: SHOW_CHALLENGE_ERRORS});
+
 export const completeChallenge = (challenge) => ({challenge, type: COMPLETE_CHALLENGE});
 
-export const showTaskHint = (hint) => ({hint, type: SHOW_TASK_HINT});
+// export const showTaskHint = (hint) => ({hint, type: SHOW_TASK_HINT});
 
-export const hideTaskHint = (task, hint) => ({hint, type: HIDE_TASK_HINT});
+// export const hideTaskHint = (task, hint) => ({hint, type: HIDE_TASK_HINT});
