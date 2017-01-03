@@ -16,7 +16,7 @@ export class AppLayout extends Component{
 
         window.addEventListener("resize", ()=>{
             //console.log('app container has received resize event');
-            this.props.handleScreenResize(window.innerWidth, window.innerHeight);
+            this.props.handleScreenResize();
         });
     }
 

@@ -1,12 +1,14 @@
 import React, { Component, PropTypes } from "react";
 import { Link } from "react-router";
 import { List } from 'material-ui/List';
-import { Editor, HtmlDisplay, MenuLink, LoadingScreen } from '../../../components';
+import { HtmlDisplay, MenuLink, LoadingScreen } from '../../../components';
+import {EditorContainer} from "../../../editor";
 import Divider from 'material-ui/Divider';
 import Drawer from "material-ui/Drawer";
 import FlatButton from 'material-ui/FlatButton';
 import { editorThemes, breakpoints } from "../../../styles";
 import { ChallengeVideo } from "./level-video";
+import {ChallengeInstructions} from "./challenge-instructions";
 import Paper from 'material-ui/Paper';
 import { CourseConfigurationError } from "../../../core";
 import { AppTheme } from "../../../styles";
@@ -23,7 +25,7 @@ export class Challenge extends Component {
     }
 
     propTypes: {
-        height: PropTypes.number.isRequired,
+        contentHeight: PropTypes.number.isRequired,
         width: PropTypes.number.isRequired,
     }
 
@@ -36,6 +38,7 @@ export class Challenge extends Component {
         this.props.getCourseLevel(courseName, parseInt(levelId), parseInt(challengeId));
         this.props.hideNavbar();
     }
+
 
     getSidebar() {
         return (
@@ -72,38 +75,11 @@ export class Challenge extends Component {
         );
     }
 
-    getEditor(height) {
-
-        let halfHeight = height / 2;
-
-        let editorStyles = {
-            width: this.props.isMobile ? '95%' : '60%',
-            overflow: this.props.isMobile ? 'visible' : 'hidden',
-            height: this.props.isMobile ? '100%' : height
-        }
-
-        return (            
-            <section style={editorStyles}>
-                <Editor
-                    challenge={this.props.challenge}
-                    height={halfHeight}
-                    setVisibleFile={this.props.setVisibleFile}
-                    visibleFile={this.props.visibleFile}
-                    onChange={this.props.updateFile} 
-                    onSubmit={this.props.submitChallenge}/>
-
-                <HtmlDisplay 
-                    height={halfHeight}
-                    contents={this.props.display}/>
-            </section>
-        );
-    }
-
-    getInstructions(height) {
+    getInstructions() {
         let instructionStyles = {
             width: this.props.isMobile ? '100%' : '40%',
-            overflow: this.props.isMobile ? 'visible' : 'scroll',
-            height: this.props.isMobile ? '100%' : height
+            overflowY: this.props.isMobile ? 'visible' : 'scroll',
+            height: this.props.isMobile ? '100%' : this.props.contentHeight
         }
 
         let menuButtonStyles = this.props.navbarVisible ? {marginTop: '8px'} : {marginTop: '2px'};
@@ -113,6 +89,11 @@ export class Challenge extends Component {
                 <div className="padding-x-md" style={menuButtonStyles}>
                     <div className="row align-center margin-bottom-md">
                         <i className="material-icons margin-right-xs" onTouchTap={this.props.toggleSidebar}>menu</i>
+                        {
+                            this.props.navbarVisible ? <i onTouchTap={this.props.toggleNavbar} 
+                                style={{borderRadius: '3px', padding: '3px'}}
+                                className="material-icons">arrow_upward</i> : null
+                        }
                     </div>
 
                     <div className="margin-bottom-md">
@@ -141,13 +122,7 @@ export class Challenge extends Component {
         console.log('render chall', this.props)
         // we might be waiting for the api to return the course level
         if(!this.props.challenge || !this.props.task) return <LoadingScreen />;
-        
-        let height = this.props.appHeight;
-        if(this.props.navbarVisible) {
-            console.log('navbar is not visible')
-            height = height - AppTheme.appBar.height;
-        }
-        if(height < editorThemes.common.minHeight) height = editorThemes.common.minHeight;
+
 
         let containerStyles = {
             backgroundColor: editorThemes[this.props.editorTheme].cream,
@@ -156,10 +131,10 @@ export class Challenge extends Component {
         return (
             <div>
                 {this.getSidebar()}
-                <div className="col-xs row-lg justify-center-xs justify-start-lg align-center-xs align-start-lg" 
+                <div className="col-xs row-lg justify-center-xs justify-start-lg align-center-xs align-start-lg height-100" 
                     style={containerStyles}>  
-                    {this.getInstructions(height)}
-                    {this.getEditor(height)}
+                    {this.getInstructions()}
+                    <EditorContainer />
                 </div>
             </div>
         )

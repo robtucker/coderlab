@@ -1,12 +1,6 @@
 // dialogs
 export * from "./dialogs/confirm-dialog";
 
-// editor
-export * from "./editor/editor";
-export * from "./editor/code-editor";
-export * from "./editor/display/console-display";
-export * from "./editor/display/html-display";
-
 // elements
 export * from "./elements/arrow-box";
 export * from "./elements/avatar";

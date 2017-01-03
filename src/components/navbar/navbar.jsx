@@ -23,11 +23,10 @@ export class Navbar extends Component {
     
     getMinimizedNavbar() {
         let minimizedStyles = {
-            height: '5px',
+            height: `${AppTheme.appBar.minimizedHeight}px`,
             backgroundColor: this.props.backgroundColor,
         }
 
-        // the maenu bar has a margin top of 8 + the minimixed navbar of 5 which comes to 13
         let toggleButton = {
             position: 'absolute',
             padding: '5px 3px 3px 3px',

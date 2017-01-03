@@ -10,8 +10,8 @@ export class CodeEditor extends Component {
     minLineCount = 10;
 
     componentWillMount() {
-        // console.log('mounting code editor');
-        // console.log(this.props)
+        console.log('mounting code editor');
+        console.log(this.props)
     }
 
     componentDidMount () {
@@ -47,6 +47,7 @@ export class CodeEditor extends Component {
         //todo - because the value is updated automatically if you edit undo enough times
         // it will delete the original text. instead this should be initialized in the options
         this.instance.setValue(contents);
+        this.props.updateDisplay();
     }
 
     render () {

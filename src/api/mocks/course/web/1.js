@@ -1,8 +1,10 @@
 export default [
     {
         id: 1,
+        type: "web",
         video: "https://www.youtube.com/embed/v4oN4DuR7YU",
         title: "Welcome to HTML!",
+        autosubmit: false,
         description: `You've been hired to create a webpage for top chef, Jean-Claude Frites. 
             Jean-Claude has sent us a word doc with some text in it. It's time to turn this text into dazzling html. `,
         files: {
@@ -80,6 +82,10 @@ button {
     cursor: pointer;
 }
 
+button:hover {
+  background-color: #42a5f5;
+}
+
 `
             },
             scripts: {
@@ -103,22 +109,14 @@ button {
                 parsers: [
                     {
                         file: 'index',
-                        func: `console.log('parsing data', input);`
+                        method: {
+                            type: 'hasTag',
+                            args: 'foo'  
+                        },
+                        hint: "The file should contain an html tag"
                     }
                 ] 
 
-            },
-            {
-                id: 2,
-                title: "Create an html tag",
-                description: `To begin writing in html, first of all we need to create an HTML tag. 
-                    We've opened the html tag for you. On the next line close the HTML tag.`,
-                parsers: [
-                    {
-                        file: 'index',
-                        func: `console.log('parsing data', input);`
-                    }
-                ] 
             }
         ]
     }

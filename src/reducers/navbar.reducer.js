@@ -14,7 +14,7 @@ export const navbar = (state = initialState, action) => {
     case TOGGLE_SIDEBAR:
         return Object.assign({}, state, {sidebarVisible: !state.sidebarVisible});       
     case TOGGLE_NAVBAR:
-        return Object.assign({}, state, {navbarVisible: !state.navbarVisible});    
+        return Object.assign({}, state, {navbarVisible: action.value});    
     case HIDE_NAVBAR:
         return Object.assign({}, state, {navbarVisible: false});
     case SET_NAVBAR_COLOR:

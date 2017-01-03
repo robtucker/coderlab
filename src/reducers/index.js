@@ -3,6 +3,7 @@ export * from "./auth.reducer";
 export * from "./challenge.reducer";
 export * from "./config.reducer";
 export * from "./courses.reducer";
+export * from "./editor.reducer";
 export * from "./navbar.reducer";
 export * from "./notifications.reducer";
 export * from "./snackbars.reducer";

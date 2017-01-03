@@ -6,7 +6,7 @@ export const TOGGLE_CHALLENGE_SIDEBAR = "TOGGLE_SIDEBAR";
 export const UPDATE_CHALLENGE_FILE = "UPDATE_CHALLENGE_FILE";
 export const SET_VISIBLE_FILE = "SET_VISIBLE_FILE";
 export const SUBMIT_CHALLENGE = "SUBMIT_CHALLENGE";
-export const SET_CHALLENGE_DISPLAY = "SET_CHALLENGE_DISPLAY";
+export const UPDATE_CHALLENGE_DISPLAY = "UPDATE_CHALLENGE_DISPLAY";
 export const SHOW_CHALLENGE_ERRORS = "SHOW_CHALLENGE_ERRORS";
 export const COMPLETE_CHALLENGE = "COMPLETE_CHALLENGE";
 // export const SHOW_TASK_HINT = "SHOW_TASK_HINT";
@@ -25,14 +25,14 @@ export const startChallenge = (challenge) => {
 
 export const updateChallengeFile = (name, doc) => ({name, doc, type: UPDATE_CHALLENGE_FILE})
 
-export const setVisibleFile = (value) => ({value, type: SET_VISIBLE_FILE});
+export const updateChallengeDisplay = (value) => ({value, type: UPDATE_CHALLENGE_DISPLAY});
 
 export const submitChallenge = (challenge) => {
 
     return {challenge, type: SUBMIT_CHALLENGE}
 }
 
-export const setChallengeDisplay = (value) => ({value, type: SET_CHALLENGE_DISPLAY});
+export const setVisibleFile = (value) => ({value, type: SET_VISIBLE_FILE});
 
 export const showChallengeErrors = (errors) => ({errors, type: SHOW_CHALLENGE_ERRORS});
 

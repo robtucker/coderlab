@@ -25,5 +25,6 @@ export default ({palette}) => ({
         height: 56,
         titleFontWeight: typography.fontWeightNormal,
         padding: spacing.desktopGutter,
+        minimizedHeight: 5
     }
 });

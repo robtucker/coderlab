@@ -13,10 +13,6 @@ A course consists of a series of configuration objects each representing a singl
 - - level
 - - - challenge
 - - - - task
-- - - - task
-- - - challenge
-- - - - task
-- - - - task
 
 The challenge is the basic unit of activity for self-leaning. A challenge must be configured with an object such as:
 
