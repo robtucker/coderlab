@@ -1,23 +1,24 @@
 // see https://github.com/fb55/htmlparser2
 import htmlparser from "htmlparser2";
-// domutils come with htmlparser2 - https://github.com/fb55/domutils
+// domutils come with htmlparser2 
+// https://github.com/fb55/domutils
 import {find} from "domutils";
-import BaseParser from "./base-parser";
+import TextParser from "./text-parser";
 
-console.log('find', find);
 class Handler extends htmlparser.DomHandler {
 
 };
 
-export default class HtmlParser extends BaseParser {
+export default class HtmlParser extends TextParser {
 
     parser = null;
     handler = null;
     ast = null;
 
-    constructor(file, method) {
-        super(file, method);
+    constructor(file, methods) {
+        super(file, methods);
         this.setAst();
+        console.log('initialized parser', this)
     }
 
     setAst() {
@@ -42,12 +43,40 @@ export default class HtmlParser extends BaseParser {
         return this.ast = this.handler.dom;
     }
 
-    hasTag (tagName) {
-        let tags = find(e => e.name === tagName, this.ast, true);
-        console.log(tags);
-        if(!tags || !tags.length) {
-            return `The ${tagName} could not be found`;
+    /**
+     * expects a query object such as:
+     * {
+     *     name: 'h1'                  // the tag name
+     *     text: 'text node value',    // text node value
+     *     href: 'http;//example.com'  // href attribute
+     *     foo: 'bar'                  // any custom attribute
+     * }
+     */
+    hasTag (query) {
+        let nonAttrKeys = ['name', 'text'];
+        let queryAttrs = Object.keys(query).filter(k => nonAttrKeys.indexOf(k) === -1);
+        console.log('queryAttrs', queryAttrs)
+        let cb = (ele) => {
+            if(query.name && ele.name !== query.name) return false;
+            if(query.text && ele.type === 'text' && ele.data !== query.text) return false;
+            if(queryAttrs && queryAttrs.length) {
+                let elementAttrs = Object.keys(ele.attribs);
+                console.log('elementAttrs', elementAttrs)
+                queryAttrs.forEach((attr) => {
+                    if(elementAttrs.indexOf(attr) === -1) return false;
+                });
+            }
+            return true;
         }
+        
+        let tags = find(cb, this.ast, true);
+
+        console.log('tags', tags);
+
+        if(!tags || !tags.length) {
+            return "Tag could not be found"
+        }
+        return false;
     }
 
 

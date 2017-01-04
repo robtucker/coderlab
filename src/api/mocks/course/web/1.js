@@ -106,20 +106,20 @@ button:hover {
                 title: "Create an html tag",
                 description: `To begin writing in html, first of all we need to create an HTML tag. 
                     We've opened the html tag for you. On the next line close the HTML tag.`,
-                parsers: [
+                rules: [
                     {
-                        file: 'index',
-                        method: {
-                            type: 'hasTag',
-                            args: 'foo'  
+                        fileName: 'index',
+                        method: 'hasTag',
+                        args: {
+                            name: 'foo'
                         },
-                        hint: "The file should contain an html tag"
-                    }
-                ] 
+                        hint: "The file must have a valid html tag"
+                    },
 
+                ] 
             }
         ]
     }
-]
+];
 
 

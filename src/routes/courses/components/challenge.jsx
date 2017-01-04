@@ -7,9 +7,8 @@ import Divider from 'material-ui/Divider';
 import Drawer from "material-ui/Drawer";
 import FlatButton from 'material-ui/FlatButton';
 import { editorThemes, breakpoints } from "../../../styles";
-import { ChallengeVideo } from "./level-video";
+import { ChallengeVideo } from "./challenge-video";
 import {ChallengeInstructions} from "./challenge-instructions";
-import Paper from 'material-ui/Paper';
 import { CourseConfigurationError } from "../../../core";
 import { AppTheme } from "../../../styles";
 
@@ -71,7 +70,9 @@ export class Challenge extends Component {
             <ChallengeVideo     
                 url={this.props.challenge.video} 
                 show={this.props.showVideo} 
-                close={this.props.toggleVideo}/>
+                close={this.props.toggleVideo}
+                contentHeight={this.props.contentHeight}
+                contentWidth={this.props.contentWidth}/>
         );
     }
 
@@ -96,40 +97,31 @@ export class Challenge extends Component {
                         }
                     </div>
 
-                    <div className="margin-bottom-md">
-                        <h3>{this.props.challenge.title}</h3>
-                        <p>{this.props.challenge.description}</p>
-                    </div>
-
-                    <div className="margin-bottom-md">
-                        <p>YOUR TASK</p>
-                        <Paper className="padding-y-md padding-x-sm" >
-                            {this.props.challenge.tasks.map(e => {
-                                return <div key={e.id} className="icon-xs bg-primary"></div>
-                            })}
-                            <h5>{this.props.task.title}</h5>
-                            <p>{this.props.task.description}</p>
-                            <p>Stuck? <span className="primary1 cursor-pointer" 
-                                onTouchTap={this.props.toggleVideo}> Watch the video</span> again</p>
-                        </Paper>
-                    </div>
+                    <ChallengeInstructions
+                        challenge={this.props.challenge}
+                        task={this.props.task}
+                        toggleVideo={this.props.toggleVideo}
+                        hint={this.props.hint} />
                 </div>
             </section>
         );
     }
 
     render() {
-        console.log('render chall', this.props)
         // we might be waiting for the api to return the course level
         if(!this.props.challenge || !this.props.task) return <LoadingScreen />;
 
+        // show the video 
+        if(this.props.showVideo) return this.getVideo();
 
+        // show the challenge
         let containerStyles = {
             backgroundColor: editorThemes[this.props.editorTheme].cream,
         };
         
         return (
             <div>
+                {this.getVideo()}
                 {this.getSidebar()}
                 <div className="col-xs row-lg justify-center-xs justify-start-lg align-center-xs align-start-lg height-100" 
                     style={containerStyles}>  

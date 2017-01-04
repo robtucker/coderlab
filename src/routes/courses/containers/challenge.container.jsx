@@ -32,9 +32,6 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     startChallenge: (challenge) => {
         dispatch(startChallenge(challenge));
     },
-    showTaskHint: (hint) => {
-        dispath(showTaskHint(hint))
-    }
 })
 
 const mapStateToProps = (state, ownProps) => {
@@ -42,6 +39,7 @@ const mapStateToProps = (state, ownProps) => {
         sidebarVisible: state.challenge.sidebarVisible,
         navbarVisible: state.navbar.navbarVisible,
         editorTheme: state.editor.theme,
+        contentWidth: state.app.width,
         contentHeight: state.app.contentHeight,
         isMobile: state.app.width < breakpoints.lg,
         course: state.courses[ownProps.params.courseName],

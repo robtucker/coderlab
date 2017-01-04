@@ -8,14 +8,11 @@ export const SET_VISIBLE_FILE = "SET_VISIBLE_FILE";
 export const SUBMIT_CHALLENGE = "SUBMIT_CHALLENGE";
 export const UPDATE_CHALLENGE_DISPLAY = "UPDATE_CHALLENGE_DISPLAY";
 export const SHOW_CHALLENGE_ERRORS = "SHOW_CHALLENGE_ERRORS";
-export const COMPLETE_CHALLENGE = "COMPLETE_CHALLENGE";
+export const NEXT_CHALLENGE = "NEXT_CHALLENGE";
 // export const SHOW_TASK_HINT = "SHOW_TASK_HINT";
 // export const HIDE_TASK_HINT = "SHOW_TASK_HINT";
 
-export const toggleVideo = () => {
-    //console.log('toggling video');
-    return {type: TOGGLE_VIDEO}
-};
+export const toggleVideo = () => ({type: TOGGLE_VIDEO});
 
 export const toggleChallengeSidebar = () => ({type: TOGGLE_CHALLENGE_SIDEBAR});
 
@@ -36,8 +33,5 @@ export const setVisibleFile = (value) => ({value, type: SET_VISIBLE_FILE});
 
 export const showChallengeErrors = (errors) => ({errors, type: SHOW_CHALLENGE_ERRORS});
 
-export const completeChallenge = (challenge) => ({challenge, type: COMPLETE_CHALLENGE});
+export const nextChallenge = (challenge) => ({challenge, type: COMPLETE_CHALLENGE});
 
-// export const showTaskHint = (hint) => ({hint, type: SHOW_TASK_HINT});
-
-// export const hideTaskHint = (task, hint) => ({hint, type: HIDE_TASK_HINT});

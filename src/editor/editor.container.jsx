@@ -5,8 +5,9 @@ import { breakpoints } from "../styles";
 import { 
     updateChallengeFile,
     updateChallengeDisplay, 
-    submitChallenge, 
     setVisibleFile,
+    submitChallenge, 
+    nextChallenge,
     showChallengeErrors
 } from "../actions";
 
@@ -30,18 +31,19 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
         dispatch(updateChallengeDisplay(res));
     },
     handleSubmit: (challenge) => {
-        console.log('submit challenge', challenge);
-
-        let result = new Examiner(challenge);
+        //console.log('submit challenge', challenge);
+        let examiner = new Examiner();
+        examiner.examineAllTasks(challenge);
+        //console.log('examiner', examiner);
 
         // if there are errors show them to the user
-        if(result.errors.length) {
-            dispatch(showChallengeErrors(result.errors));
+        if(examiner.errors && examiner.errors.length) {
+            dispatch(showChallengeErrors(examiner.errors));
+        } else {
+            //otherwise the challenge is complete
+            //dispatch(nextChallenge(challenge))
         }
-
-        //otherwise the challenge is complete
-        //dispatch(submitChallenge(challenge))
-    },
+    }
 });
 
 const mapStateToProps = (state, ownProps) => ({

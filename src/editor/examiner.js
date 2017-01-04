@@ -1,4 +1,4 @@
-import { Parser } from "./parser";
+import {groupBy} from "lodash";
 
 /**
  * A top level compenent that performs macro 
@@ -8,31 +8,51 @@ export class Examiner {
 
     errors = [];
 
-    constructor(challenge) {
+    examineAllTasks(challenge) {
+        for(var i = 0; i < challenge.tasks.length; i++) {
+            this.examineNthTask(challenge, i);
+        };
+    }
 
-        let fileToParse;
-        let parser;
+    examineNthTask(challenge, n) {
+        // group the rules by fileName
+        let rules = groupBy(challenge.tasks[n].rules, 'fileName');
+        //console.log('rules', rules);
 
-        // each challenge has multiple tasks
-        challenge.tasks.forEach((task) => {
-            // each task has multiple parsers
-            task.parsers.forEach((parser) => {
-                // each parser function operates on a specific file
-                fileToParse = challenge.files[parser.file];
-                console.log('parsing file', fileToParse);
-                // the Parser constructor takes the file input and a method object
-                // the method object describes how to parse the file
-                parser = new Parser(fileToParse, parser.method);
+        // each task has multiple parsers
+        Object.keys(rules).forEach((fileName) => {
 
-                // if it returns errors then add them to the list
-                if(parser.errors && parser.errors.length) {
-                    console.log('found parser errors', parser.errors);
-                    this.errors.push(parser.errors);
+            // each parser function operates on a specific file
+            let fileToParse = challenge.files[fileName];
+            //console.log('fileToParse', fileToParse);
+
+            // retireve the correct parser for this file type
+            let parser = this.getParser(fileToParse);
+            
+            rules[fileName].forEach((rule) => {
+                let method = parser[rule.method].bind(parser);
+                //console.log('preparing to run parser method', method);
+
+                if(typeof method !== 'function') {
+                    throw new Error(`Method not be found: ${rule.method}`);
                 }
 
-                //otherwise it means the user has completed the task
-                console.log('parser returned empty', parser);
+                // any truthy return value is considered to be an error message
+                let res = method(rule.args);
+                console.log('res', res);
+                if(res) {
+                    this.errors.push(Object.assign({}, rule, {error: res}));
+                }
             });
         });
     }
+
+    /**
+     * Each file type has a custom parser with unique methods
+     */
+    getParser(file) {
+        let Strategy = require('./parsers/' + file.mode + '-parser').default;
+        return new Strategy(file);
+    }
+
 }

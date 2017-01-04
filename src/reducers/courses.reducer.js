@@ -1,6 +1,6 @@
 import {find} from "lodash";
 import * as courseData from "../routes/courses/data"; //seed data
-import { SET_CURRENT_COURSE, TOGGLE_ENROL_DIALOG, TOGGLE_VIDEO } from "../actions";
+import { SET_CURRENT_COURSE, TOGGLE_ENROL_DIALOG,  } from "../actions";
 
 let initialState = {
     current: null,
@@ -17,9 +17,6 @@ export const courses = (state = initialState, action) => {
         return Object.assign({}, state, {[action.params.course]: {[action.params.level]: action.data}});
     case TOGGLE_ENROL_DIALOG:
         return Object.assign({}, state, {enrolDialogOpen: !state.enrolDialogOpen});
-    case TOGGLE_VIDEO:
-        return Object.assign({}, state, {showVideo: !state.showVideo});
-
     default:
         return state;
     }

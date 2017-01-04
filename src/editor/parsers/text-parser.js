@@ -1,12 +1,10 @@
-export default class BaseParser {
+export default class TextParser {
 
-    constructor(file, method) {
+    constructor(file) {
         this.file = file;
-        this.method = method;
     }
 
     custom() {
-        console.log('BaseParser is ', this);
         let customFunc = Function(this.method.body).bind(this);
         return customFunc();
     }
