@@ -1,7 +1,7 @@
 import { injectReducer } from "../../store";
 
 export const CreatorRoutes = (store) => ({
-    path: '/create/:id',
+    path: '/create/:courseName',
     getComponent(nextState, cb) {
         require.ensure([],(require) => {
 

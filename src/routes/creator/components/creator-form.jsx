@@ -5,7 +5,7 @@ import { Field, reduxForm } from 'redux-form'
 import { renderTextField, renderPasswordField, renderSubmitButtons } from '../../../components'
 import { FormValidator } from "../../../core"
 import { formConstants } from "../../../config";
-import {palette} from "../../../styles";
+import { palette } from "../../../styles";
 
 const asyncValidate = () => {
     return true;

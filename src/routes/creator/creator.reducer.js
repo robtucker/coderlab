@@ -1,4 +1,6 @@
-let initialState = {};
+let initialState = {
+    
+};
 
 export const creatorReducer = (state = initialState, action) => {
 
@@ -6,5 +8,5 @@ export const creatorReducer = (state = initialState, action) => {
     default:
         return state;
     }
-
+    
 };
