@@ -32,12 +32,21 @@ export class HtmlErrors {
      * basic error reporting - just describe what's missing
      */
     elemNotFound(query) {
+        console.log('elemNotFound', query);
         let location = this._getLocationDesc(query);
         let tagLabel = query.tagName ? `${utils.getTagNameArticle(query.tagName)} <${query.tagName}> tag` : false;
         let errText;
 
         if(tagLabel && query.textNode) {
             errText = `There should be ${tagLabel} for the ${this._getElemLabel(query.tagName)} ${location}`;
+        } else if(tagLabel && query.prevSibling && query.prevSibling.textNode) {
+            let prev = this._getATagDesc(query.prevSibling.tagName)
+            return `The next element after the ${prev} should be ${tagLabel}`;
+        } else if(tagLabel && query.nextSibling && query.nextSibling.textNode) {
+            let next = this._getATagDesc(query.nextSibling.tagName)
+            return `The element before ${next} should be ${$tagLabel}`
+        } else if(tagLabel && query.parent && query.parent.tagName) {
+            return `The ${parent} should contain ${tagLabel}`;
         } else if(query.attrs) {
             let attrErrs = Object.keys(attrs).map((attrKey) => {
                 return `${utils.addIndefiniteArticle(attrKey)} attribute of ${attrs[attrKey]} ${location}`;
@@ -48,22 +57,54 @@ export class HtmlErrors {
             this._getTextNodeDesc(query.textNode)
             errText = `Could not find a matching tag with the text ${this._getTextNodeDesc(query.textNode)}`
         } else if (tagLabel) {
-            errText = `There should be a ${tagLabel}`;
+            errText = `There should be ${tagLabel}`;
         } else {
             errText = `You are missing an element`
         }
-        
         return errText;
     }
 
+    elemInWrongPlace(query, existingElems) {
+        console.log('elemInWrongPlace', existingElems.length, existingElems);
+        let desiredRelative;
+        let desiredTag = `${this._getATagDesc(query.tagName)}`;
+
+        // only bother doing this if we have tagNames to work with
+        if(!query.tagName){
+            return this.elemNotFound(query);
+        } else if(query.parent && query.parent.tagName) {
+            desiredRelative = `as a child of the ${this._getTagDescWithLoc(query.parent)}`;
+        } else if (query.prevSibling && query.prevSibling.tagName) {
+            desiredRelative = `after the ${this._getTagDescWithLoc(query.prevSibling)}`;
+        } else if (query.nextSibling && query.nextSibling.tagName) {
+            desiredRelative = `before the ${this._getTagDescWithLoc(query.nextSibling)}`;
+        } else {
+            return this.elemNotFound(query);
+        }
+
+
+        let existingDesc = existingElems.length === 1 && existingElems[0].name ? 
+            `is ${this._getAnElemDescWithLoc(existingElems[0])}`: `are multiple <${query.tagName}> tags`;
+
+        return `There ${existingDesc}, but what we're looking for is ${desiredTag} ${desiredRelative}`;
+
+    }
     /**
      * 
      */
     parentOfChildNotFound(query) {
         console.log('parentOfChildNotFound', query);
         // describe the first child that should have existed
-        let desc = this._getChildDesc(query.children);
-        return `I'm looking for ${this._getTagDesc(query.tagName) || 'an element'} that contains ${desc}`
+        let container = this._getATagDesc(query.tagName) || 'an element';
+        let child = this._getChildDesc(query.children);
+
+        if(query.prevSibling && query.prevSibling.tagName && query.prevSibling.textNode) {
+            let prev = `the <${query.prevSibling.tagName}> tag ${this._getLocationDesc(query.prevSibling)}`;
+
+            return `The next element after ${prev} should be ${container} that contains ${child}`
+        }
+
+        return `I'm looking for ${container} that contains ${child}`
     }
 
     childIsOutsideParent(parent, childArray, childQuery) {
@@ -81,11 +122,11 @@ export class HtmlErrors {
     childOfParentDoesNotExist(parent, childQuery) {
         //describe the error in terms of the child
         // if(childQuery.tagName && childQuery.textNode) {
-        //     return `Create ${this._getTagDesc(childQuery.tagName)} for the text ${this._getTextNodeDesc(childQuery.textNode)} on ${this._getLocationDesc(childQuery)}`
+        //     return `Create ${this._getATagDesc(childQuery.tagName)} for the text ${this._getTextNodeDesc(childQuery.textNode)} on ${this._getLocationDesc(childQuery)}`
         // }
 
         let parentDesc = this._getElemDescWithLoc(parent);
-        let childDesc = childQuery.tagName ? this._getTagDesc(childQuery.tagName) : 'the correct child element';
+        let childDesc = childQuery.tagName ? this._getATagDesc(childQuery.tagName) : 'the correct child element';
         let desc = `The ${parentDesc} should contain ${childDesc}`;
         if(childQuery.textNode) desc += ` with the text ${this._getTextNodeDesc(childQuery.textNode)}`
         console.log('childOfParentNotFound', desc);
@@ -110,12 +151,15 @@ export class HtmlErrors {
         }
 
         if(query.tagName) {
-            return `I'm looking for ${this._getTagDesc(query.tagName)} that contains ${desc}`
+            return `I'm looking for ${this._getATagDesc(query.tagName)} that contains ${desc}`
         }
     }
 
     /**
+     * Turn an array of query objects into a string description
      * 
+     * @param {array} childArray
+     * @returns {string}
      */
     _getChildDesc(childArray) {
         let desc = '';
@@ -142,6 +186,8 @@ export class HtmlErrors {
 
     /**
      * Get the line number for any text
+     * 
+     * @param {string} searchText
      */
     _getLineNumber(searchText) {
         return utils.getLineNumber(this.file.contents, searchText);
@@ -154,24 +200,46 @@ export class HtmlErrors {
         return query.textNode ? `on line ${this._getLineNumber(query.textNode)} of ${this.file.label}` : false;
     }
 
+    _getTagDescWithLoc(query) {
+        let res = `<${query.tagName}> tag`;
+        if(query.textNode) res += ` ${this._getLocationDesc(query.textNode)}`;
+        return res;
+    }
+
     /**
-     * Get the nice description of an element
+     * @param {string} tagName
      */
-    _getElemLabel(tagName) {
-        return elemLabels[tagName];
-    }
-
-    _getElemDescWithLoc(elem) {
-        return `<${elem.name}> tag on line ${elem.lineNumber}`
-    }
-
-    _getTagDesc(tagName) {
+    _getATagDesc(tagName) {
         return tagName ? `${utils.getTagNameArticle(tagName)} <${tagName}> tag` : false;
     }
 
+    /**
+     * @param {string} textNode
+     */
     _getTextNodeDesc(textNode) {
         // if the text node is longer than 3 words then we will shorten it
         let strArr = utils.strToArray(textNode);
         return strArr.length > 3 ? `"${strArr.slice(0, 3).join(' ')}..."` : `"${textNode}"`;
     }
+
+    /**
+     * Get the nice description of an element
+     * 
+     * @param {string} tagName
+     */
+    _getElemLabel(tagName) {
+        return elemLabels[tagName];
+    }
+
+    /**
+     * @param {HtmlElement}
+     */
+    _getElemDescWithLoc(elem) {
+        return `<${elem.name}> tag on line ${elem.lineNumber}`
+    }
+
+    _getAnElemDescWithLoc(elem) {
+        return `${utils.getTagNameArticle(elem.name)} ${this._getElemDescWithLoc(elem)}`
+    }
+
 }

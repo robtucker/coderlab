@@ -39,7 +39,7 @@ export default class HtmlParser extends TextParser {
      * 
      */
     hasElem(query) {
-        
+        console.log('hasElem', query);
         let baseElems = this._findElems(query, this.ast)
 
         if(query.children) {
@@ -51,13 +51,19 @@ export default class HtmlParser extends TextParser {
             // copy the base elems because we are planinng to modify them?
             return this._findChildren([...baseElems], query);
         
-        // maybe the element does exist but it's just not where it should be
-        } else if(query.nextSibling || query.prevSibling) {
-            let newQuery = omit(query, ['nextSibling', 'prevSibling']);
-            // todo - new error for this 
         }
 
         if(!baseElems || !baseElems.length) {
+            // maybe the element does exist but it's just not where it should be
+            if(query.nextSibling || query.prevSibling || query.parent) {
+                let newQuery = omit(query, ['nextSibling', 'prevSibling', 'parent']);
+                let existingElems = this._findElems(newQuery, this.ast);
+                //console.log('existingElems', newQuery, existingElems.length);
+                if(existingElems && existingElems.length) {
+                    return this.msgs.elemInWrongPlace(query, existingElems);
+                }
+            }
+
             // return a normal elem not found error
             return this.msgs.elemNotFound(query);
         }
@@ -70,22 +76,25 @@ export default class HtmlParser extends TextParser {
      * the basic search function accepts the folowing query params
      * {
      *     tagName: 'h1',                     // the name of the element
-     *     textNode: 'foo',                   // the element's child text node partially matches this text
+     *     textNode: 'foo',                   // the element's child text node matches this text (using 'indexOf')
+     *     // UNSUPPORTED textNode: ['!=', 'foo'],           // optionally provide a different query operator with the text node 
      *     attrs: [                           // attributes must be an array of query arrays
      *         ['href', '===', 'foo']         // a query array takes the form of [attr, operator, value]
-     *         ['class', 'contains', 'foo']   // e.g. use 'contains' operator to see if the foo class exists
-     *     ],                                 // (see utils.evalQueryOperator() for complete list of operators)
+     *         ['class', 'contains', 'foo']   // e.g. use 'contains' operator to see if the foo class is present
+     *         ['id', 'exists', '']           // you can check for the existance of an attr with the 'exists' operator
+     *     ],                                 // (see utils.evalQueryOperator() for complete list of query operators)
      *     nextSibling: {tagName: 'h1'},      // a recursive query object representing the next sibling element                          
      *     prevSibling: {tagName: 'h1'},      // a recursive query object representing the previous sibling element        
-     *     type: 'tag'                        // type is either tag or text
-     *     data: 'foo'                        // the data property is used in text nodes                  
+     *     parent: {tagName: 'h1'},           // a recursive query object representing the parent element        
+     *     type: 'tag'                        // type is either tag, text or directive (e.g. doctype is a directive)
+     *     data: 'foo'                        // the data property is used by text nodes and directives              
      * }
      * 
      * @param {object} query
      * @param {array} elems
      */
     _findElems(query, elems, recurse = true) {
-        //console.log('_findElems', query, recurse);
+        console.log('_findElems', query, elems, recurse);
         // most commonly used query params should go first
         let cb = (elem) => {
             if(query.tagName && elem.name !== query.tagName) return false;
@@ -102,13 +111,20 @@ export default class HtmlParser extends TextParser {
             }
 
             if(query.nextSibling) {
+                if(!elem.next) return false;
                 let hasNext = this._findElems(query.nextSibling, [elem.next], false);
                 if(!hasNext || !hasNext.length) return false;
             }
             if(query.prevSibling) {
                 //console.log('search prevSibling', elem.prev.children);
+                if(!elem.prev) return false;
                 let hasPrev = this._findElems(query.prevSibling, [elem.prev], false);
                 if(!hasPrev || !hasPrev.length) return false;
+            }
+            if(query.parent) {
+                if(!elem.parent) return false;
+                let hasParent = this._findElems(query.parent, [elem.parent], false);
+                if(!hasParent || !hasParent.length) return false;
             }
 
             if(query.type && elem.type !== query.type) return false;
@@ -233,7 +249,7 @@ export default class HtmlParser extends TextParser {
         this.parser.write(this.file.doc.getValue());
         this.parser.end();
         
-        console.log('_parse', this);
+        //console.log('_parse', this);
 
         if(!this.ast || !this.ast.length) {
             throw new Error("The HTML parser does not have a valid ast");

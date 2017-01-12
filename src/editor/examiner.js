@@ -80,7 +80,7 @@ export class Examiner {
             // now check the rules specific to this task
             rules[fileId].forEach((rule) => {
 
-                console.log('create parser method', rule);
+                //console.log('create parser method', rule);
                 let method = parser[rule.method].bind(parser);
                 //console.log('preparing to run parser method', method);
 

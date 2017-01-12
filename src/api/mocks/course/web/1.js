@@ -146,7 +146,7 @@ button:hover {
 
 Allow Jean-Claude to take you on a gastronomic journey that defies all logic
 
-Jean-Claude started his first restaurant at the age of 6, serving toasted noodle sandwiches to his classmates. At the age of 16 his father bought him a food truck and he proceeded to make a reputation for himself serving spicy cornflakes in a bun. Today he has 3 michelin stars and commands the respect of the culinary world.
+Jean-Claude started his first restaurant at the age of 6, serving toasted noodle sandwiches to his classmates. By the age of 21 he'd saved up enough money to buy a food truck where he served spicy cornflakes in a bun. Today he has 3 michelin stars and commands the respect of the culinary world.
 
 Bookings
 
@@ -245,27 +245,22 @@ To book a table please email bookings@jeanclaudefrites.com. The waiting time is 
                 mode: 'htmlmixed',
                 label: "index.html",
                 contents: 
-`<h2>Menu</h2>
-<h3>Starters</h3>
-<ul>
-<li>Grilled lettuce with popcorn</li>
-<li>Pan fried biscuits with mashed apple cores</li>
-<li>Boiled orange juice with cloves</li>
-</ul>
+`Menu
 
-<h3>Main Courses</h3>
+Starters
 
+Grilled lettuce with popcorn
+Pan fried biscuits with mashed apple
+Boiled orange juice with cloves
 
-<ul>
-  <li>Sauteed dumplings, plucked fennel, and jus de fromage</li>
-  <li>Bay leaves cooked in red wine with a steak puree</li>
-  Grated avocado with spaghetti cake
-</ul>
+Main Courses
 
+Sauteed dumplings, plucked fennel, and jus de cabbage
+Bay leaves cooked in red wine with a steak puree
+Grated avocado with spaghetti cake
 
+Deserts
 
-
-<h3>Deserts</h3>
 Chocolate risotto with candied mushrooms
 A bed of meringue garnished with sliced ginger
 Clotted cream with bolognase sauce
@@ -342,7 +337,7 @@ Clotted cream with bolognase sauce
                                 },
                                 {
                                     tagName: 'li',
-                                    textNode: "Pan fried biscuits with mashed apple cores"
+                                    textNode: "Pan fried biscuits with mashed apple"
                                 },
                                 {
                                     tagName: 'li',
@@ -370,7 +365,7 @@ Clotted cream with bolognase sauce
                             children: [
                                 {
                                     tagName: 'li',
-                                    textNode: "Sauteed dumplings, plucked fennel, and jus de fromage"
+                                    textNode: "Sauteed dumplings, plucked fennel, and jus de cabbage"
                                 },
                                 {
                                     tagName: 'li',
@@ -425,7 +420,7 @@ Clotted cream with bolognase sauce
         video: "https://www.youtube.com/embed/v4oN4DuR7YU",
         title: "Ordered lists",
         label: "Ordered Lists",
-        description: `<p>Jean-Claude has sent over a list of dishes he wants on the menu, and a list of opening times. Time to mark them up!</p> `,
+        description: `<p>Jean-Claude has sent over a list of opening times. We need to put them into a list but obviously order is going to matter here.</p> `,
         files: [
             {
                 id: 'p5otks8w',
@@ -433,6 +428,7 @@ Clotted cream with bolognase sauce
                 label: "index.html",
                 contents: 
 `Opening Times
+
 Mon - 5pm to 10pm
 Tues - 5pm to 10pm
 Weds - 5pm to 10pm
@@ -446,7 +442,7 @@ Sun - 10am to 10pm
         tasks: [
             {
                 id: 1,
-                description: `The menu subtitle (<%location%>) is the same as the other subtitles so lets put it inside an h2 tag`,
+                description: `To start off lets add an <h2> tag for the "Opening Times" subtitle (<%location%>)`,
                 rules: [
                     {
                         id: 1,
@@ -455,6 +451,245 @@ Sun - 10am to 10pm
                         args: {
                             tagName: 'h2',
                             textNode: 'Opening Times'
+                        },
+                    },
+                ] 
+            },
+            {
+                id: 2,
+                description: `Now put the opening times into an ordered list`,
+                rules: [
+                    {
+                        id: 1,
+                        fileId: 'p5otks8w',
+                        method: 'hasElem',
+                        args: {
+                            prevSibling: {
+                                tagName: 'h2',
+                                textNode: 'Opening Times'
+                            },
+                            tagName: 'ol',
+                            children: [
+                                {
+                                    tagName: 'li',
+                                    textNode: 'Mon - 5pm to 10pm'
+                                },
+                                {
+                                    tagName: 'li',
+                                    textNode: 'Tues - 5pm to 10pm'
+                                },
+                                {
+                                    tagName: 'li',
+                                    textNode: 'Weds - 5pm to 10pm'
+                                },
+                                {
+                                    tagName: 'li',
+                                    textNode: 'Thurs - 5pm to 12pm'
+                                },
+                                {
+                                    tagName: 'li',
+                                    textNode: 'Fri - 5pm to 12pm'
+                                },
+                                {
+                                    tagName: 'li',
+                                    textNode: 'Sat - 10am to 12pm'
+                                },
+                                {
+                                    tagName: 'li',
+                                    textNode: 'Sun - 10am to 10pm'
+                                },
+                            ]
+                        },
+                    },
+                ] 
+            },
+        ]
+    },
+    {
+        id: 5,
+        type: "web",
+        video: "https://www.youtube.com/embed/v4oN4DuR7YU",
+        title: "The HTML Tag",
+        label: "Ordered Lists",
+        description: `<p>You're taking a last look over your HTML before we send it off to Jean-Claude.</p>
+        <p>Suddenly you notice that you forgot to add in the all-important html and body tags. That wouldn't be very professional at all. Time to fix it.</p> `,
+        files: [
+            {
+                id: 'LPaSDa17',
+                mode: 'htmlmixed',
+                label: "index.html",
+                contents: 
+`
+<!DOCTYPE html>
+<h1>The Incredible World of Jean-Claude Frites</h1>
+<html></html>
+<h2>Allow Jean-Claude to take you on a gastronomic journey that defies all logic</h2>
+
+<p>Jean-Claude started his first restaurant at the age of 6, serving toasted noodle sandwiches to his classmates. By the age of 21 he'd saved up enough money to buy a food truck where he served spicy cornflakes in a bun. Today he has 3 michelin stars and commands the respect of the culinary world.</p>
+
+<h2>Menu</h2>
+
+<h3>Starters</h3>
+
+<ul>
+    <li>Grilled lettuce with popcorn</li>
+    <li>Pan fried biscuits with mashed apple</li>
+    <li>Boiled orange juice with cloves</li>
+</ul>
+
+<h3>Main Courses</h3>
+
+<ul>
+    <li>Sauteed dumplings, plucked fennel, and jus de cabbage</li>
+    <li>Bay leaves cooked in red wine with a steak puree</li>
+    <li>Grated avocado with spaghetti cake</li>
+</ul>
+
+<h3>Deserts</h3>
+
+<ul>
+    <li>Chocolate risotto with candied mushrooms</li>
+    <li>A bed of meringue garnished with sliced ginger</li>
+    <li>Clotted cream with bolognase sauce</li>
+</ul>
+
+<h2>Opening Times</h2>
+
+<ol>
+    <li>Mon - 5pm to 10pm</li>
+    <li>Tues - 5pm to 10pm</li>
+    <li>Weds - 5pm to 10pm</li>
+    <li>Thurs - 5pm to 12pm</li>
+    <li>Fri - 5pm to 12pm</li>
+    <li>Sat - 10am to 12pm</li>
+    <li>Sun - 10am to 10pm</li>
+</ol>
+
+<h2>Bookings</h2>
+
+<p>To book a table please email bookings@jeanclaudefrites.com. The waiting time is usually 3 months.</p>
+`
+            },          
+        ],
+        tasks: [
+            {
+                id: 1,
+                description: `At the top of the page add a <!DOCTYPE html> tag to specify that this file is html`,
+                rules: [
+                    {
+                        id: 1,
+                        fileId: 'LPaSDa17',
+                        method: 'hasElem',
+                        args: {
+                            type: 'directive',
+                            data: '!DOCTYPE html',
+                            tagName: '!doctype'
+                        },
+                    },
+                ] 
+            },
+            {
+                id: 2,
+                description: `Undernetah the doctype, wrap the entire page in side an html tag`,
+                rules: [
+                    {
+                        id: 1,
+                        fileId: 'LPaSDa17',
+                        method: 'hasElem',
+                        args: {
+                            prevSibling: {
+                                type: 'directive',
+                                data: '!DOCTYPE html',
+                                tagName: '!doctype'
+                            },
+                            tagName: 'html',
+                        },
+                    },
+                ] 
+            },
+            {
+                id: 3,
+                description: `Wrap the contents of the page in a body tag. The body tag should go inside the html tag`,
+                rules: [
+                    {
+                        id: 1,
+                        fileId: 'LPaSDa17',
+                        method: 'hasElem',
+                        args: {
+                            parent: {
+                                tagName: 'html'
+                            },
+                            tagName: 'body',
+                        },
+                    },
+                ] 
+            },
+        ]
+    },
+    {
+        id: 6,
+        type: "web",
+        video: "https://www.youtube.com/embed/v4oN4DuR7YU",
+        title: "The HTML Tag",
+        label: "Ordered Lists",
+        description: `<p>Below we've provided three links for you. They don't look very nice though and when you click on them nothing happens!</p>`,
+        files: [
+            {
+                id: 'b4RD8sk1',
+                mode: 'htmlmixed',
+                label: "index.html",
+                contents: 
+`
+http://google.com
+
+https://developer.mozilla.org/en-US/docs/Web/HTML
+
+https://developer.mozilla.org/en-US/docs/Web/HTML
+
+`
+            },          
+        ],
+        tasks: [
+            {
+                id: 1,
+                description: `At the top of the page add a <!DOCTYPE html> tag to specify that this file is html`,
+                rules: [
+                    {
+                        id: 1,
+                        fileId: 'b4RD8sk1',
+                        method: 'hasElem',
+                        args: {
+                            type: 'directive',
+                            data: '<!DOCTYPE html>',
+                            tagName: '!doctype'
+                        },
+                    },
+                ] 
+            },
+            {
+                id: 2,
+                description: `Undernetah the doctype, wrap the entire page in side an html tag`,
+                rules: [
+                    {
+                        id: 1,
+                        fileId: 'b4RD8sk1',
+                        method: 'hasElem',
+                        args: {
+                            tagName: 'html',
+                        },
+                    },
+                ] 
+            },
+            {
+                id: 3,
+                description: `Wrap the contents of the page in a body tag. The body tag should go inside the html tag`,
+                rules: [
+                    {
+                        id: 1,
+                        fileId: 'p5otks8w',
+                        method: 'hasElem',
+                        args: {
+                            tagName: 'html',
                         },
                     },
                 ] 
