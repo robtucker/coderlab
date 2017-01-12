@@ -27,57 +27,14 @@ export default class HtmlParser extends TextParser {
     }
 
     /**
-     * A more complex version of hasElem that looks at child elements
+     * Search the AST for required elements. 
      * 
-     * {
-     *     children: [{...}]  // an array of query objects
-     * }
-     * 
-     * Each of these accepts a query object as defined for the hasElem method
-     * 
-     * @param {object} query
-     * 
-     */
-    hasElem(query) {
-        console.log('hasElem', query);
-        let baseElems = this._findElems(query, this.ast)
-
-        if(query.children) {
-            // first lets check to see if at least one matching baseElem exists
-            if(!baseElems || !baseElems.length) {
-                // do some special error messaging magic here
-                return this.msgs.parentOfChildNotFound(query);
-            }
-            // copy the base elems because we are planinng to modify them?
-            return this._findChildren([...baseElems], query);
-        
-        }
-
-        if(!baseElems || !baseElems.length) {
-            // maybe the element does exist but it's just not where it should be
-            if(query.nextSibling || query.prevSibling || query.parent) {
-                let newQuery = omit(query, ['nextSibling', 'prevSibling', 'parent']);
-                let existingElems = this._findElems(newQuery, this.ast);
-                //console.log('existingElems', newQuery, existingElems.length);
-                if(existingElems && existingElems.length) {
-                    return this.msgs.elemInWrongPlace(query, existingElems);
-                }
-            }
-
-            // return a normal elem not found error
-            return this.msgs.elemNotFound(query);
-        }
-
-        return false;
-
-    }
-
-    /**
-     * the basic search function accepts the folowing query params
      * {
      *     tagName: 'h1',                     // the name of the element
-     *     textNode: 'foo',                   // the element's child text node matches this text (using 'indexOf')
-     *     // UNSUPPORTED textNode: ['!=', 'foo'],           // optionally provide a different query operator with the text node 
+     *     textNode: {                        // an array of query operator and text node value
+     *         opr: '===',
+     *         val: 'foo'
+     *     },           
      *     attrs: [                           // attributes must be an array of query arrays
      *         ['href', '===', 'foo']         // a query array takes the form of [attr, operator, value]
      *         ['class', 'contains', 'foo']   // e.g. use 'contains' operator to see if the foo class is present
@@ -88,7 +45,69 @@ export default class HtmlParser extends TextParser {
      *     parent: {tagName: 'h1'},           // a recursive query object representing the parent element        
      *     type: 'tag'                        // type is either tag, text or directive (e.g. doctype is a directive)
      *     data: 'foo'                        // the data property is used by text nodes and directives              
+     *     children: [{...}]                  // an array of query objects which will be called rcursively
      * }
+     * 
+     * Each of these accepts a query object as defined for the hasElem method
+     * 
+     * @param {object} query
+     * @returns {false|string}
+     * 
+     */
+    hasElem(query) {
+        console.log('hasElem', query);
+        let baseElems = this._findElems(query, this.ast)
+
+        // if children were specified in the query then we're not done yet
+        // we need to handle the recursive call to children separately
+        if(query.children) {
+            // first lets check to see if at least one matching baseElem exists
+            if(!baseElems || !baseElems.length) {
+                // do some special error messaging magic here
+                return this.msgs.parentOfChildNotFound(query);
+            }
+            // now search the baseElems for matching children
+            return this._findChildren([...baseElems], query);
+        }
+
+        // success! return a 0 exit status
+        if(baseElems && baseElems.length) return false;
+
+        // now let's get to down to the error messaging logic
+        // maybe the element does exist but it's just not where it should be
+        if(query.nextSibling || query.prevSibling || query.parent) {
+            let withoutRelatives = omit(query, ['nextSibling', 'prevSibling', 'parent']);
+            let elemsNoRelatives = this._findElems(withoutRelatives, this.ast);
+            //console.log('existingElems', newQuery, elemsNoRelatives);
+            if(elemsNoRelatives && elemsNoRelatives.length) {
+                return this.msgs.elemInWrongPlace(query, elemsNoRelatives);
+            }
+        }
+
+        // maybe the element exists but it just doesn't have the right attr
+        if(query.attrs) {
+            let withoutAttrs = omit(query, ['attrs']);
+            let elemsNoAttrs = this._findElems(withoutAttrs, this.ast);
+            if(elemsNoAttrs && elemsNoAttrs.length) {
+                return this.msgs.elemMayNotHaveAttrs(query, elemsNoAttrs);
+            }
+        }
+
+        // in scenarios where there are funky operators on the textNode
+        // then we should also check to make sure the elem simply doesn't have the right text
+        if(query.textNode && query.textNode.opr) {
+            let withoutText = omit(query, ['textNode']);
+            let elemsNoText= this._findElems(withoutText, this.ast);
+            if(elemsNoText && elemsNoText.length) {
+                return this.msgs.elemMayNotHaveText(query, elemsNoText);
+            }
+        }
+
+        // return a normal elem not found error
+        return this.msgs.elemNotFound(query);
+    }
+
+    /**
      * 
      * @param {object} query
      * @param {array} elems
@@ -99,15 +118,21 @@ export default class HtmlParser extends TextParser {
         let cb = (elem) => {
             if(query.tagName && elem.name !== query.tagName) return false;
             if(query.textNode) {
-                let textNode = findElement(e => e.type === 'text' && e.data.indexOf(query.textNode) !== -1, elem.children, false);
+                // use indexOf as the default comparison operator
+                let opr = query.textNode.opr || 'indexOf';
+                let tCB = (e) => e.type === 'text' && utils.evalQueryOperator(e.data, opr, query.textNode.val);
+                let textNode = findElement(tCB, elem.children, false);
                 //console.log('search textNode', textNode);
                 if(!textNode || !textNode.length) return false;
             }
             if(query.attrs) {
+                if(!elem.attribs) return false;
+                let res = true;
                 query.attrs.forEach((attr) => {
                     let val = elem.attribs[attr[0]];
-                    if(!val || !utils.evalQueryOperator(val, attr[1], attr[2])) return false;
+                    if(!val || !utils.evalQueryOperator(val, attr[1], attr[2])) res = false;
                 });
+                if(!res) return res;
             }
 
             if(query.nextSibling) {
@@ -115,6 +140,7 @@ export default class HtmlParser extends TextParser {
                 let hasNext = this._findElems(query.nextSibling, [elem.next], false);
                 if(!hasNext || !hasNext.length) return false;
             }
+
             if(query.prevSibling) {
                 //console.log('search prevSibling', elem.prev.children);
                 if(!elem.prev) return false;
@@ -177,25 +203,27 @@ export default class HtmlParser extends TextParser {
         console.log('partialSuccess', partialSuccess);
         // if we're sure we know which parent is in play
         if(partialSuccess.length === 1) {
+            let parent = partialSuccess[0];
             // then get the first child that failed the test
-            let childQuery = find(partialSuccess[0].childQueries, q => q.resultCount === 0);
-
+            let childQuery = find(parent.childQueries, q => q.resultCount === 0);
+            
             // maybe the child does exist but it is simply outside the parent
             let childExistsOutsideParent = this._findElems(childQuery, this.ast);
             
             if(childExistsOutsideParent.length) {
                 //console.log('childExistsOutsideParent', childQuery, childExistsOutsideParent);
-                return this.msgs.childIsOutsideParent(partialSuccess[0], childExistsOutsideParent, childQuery)
+                return this.msgs.childIsOutsideParent(parent, childExistsOutsideParent, childQuery)
             }
+            // we're in a pretty good scenario here - we have the parent and we know which child is failing
             //console.log('childQuery', childQuery, errText);
-            return this.msgs.childOfParentDoesNotExist(partialSuccess[0], childQuery);
+            return this.msgs.childOfParentDoesNotExist(parent, childQuery);
         }
 
-        // if it coudl be one or more parent
+        // if it could be one or more parent
         if(partialSuccess.length > 1) {
             console.log('multiple partial successes - this is bad news', partialSuccess);
             // the most likely parent would be the elem with the highest number of required children
-            let parent = orderBy(partialSuccess, 'countRequiredChildren')[0];
+            //let parent = orderBy(partialSuccess, 'countRequiredChildren')[0];
             return this.msgs.childOfUnknownParentNotFound(query);
         }
 
@@ -206,7 +234,6 @@ export default class HtmlParser extends TextParser {
         return this.msgs.parentOfChildNotFound(query);
     }
 
-    
     /**
      * parse the contents of the html file
      * returns either a valid ast or a bunch of errors

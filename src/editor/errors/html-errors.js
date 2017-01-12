@@ -6,6 +6,7 @@ const elemLabels = {
     body: 'body',
     meta: 'meta attribute',
     title: 'title',
+    a: 'anchor',
     h1: 'header',
     h2: 'header',
     h3: 'header',
@@ -38,7 +39,12 @@ export class HtmlErrors {
         let errText;
 
         if(tagLabel && query.textNode) {
-            errText = `There should be ${tagLabel} for the ${this._getElemLabel(query.tagName)} ${location}`;
+            // represents a list of text node operators that affect the error messaging (currently just 'exists')
+            if(!query.textNode.opr || ['exists'].indexOf(query.textNode.opr) === -1) {
+                errText = `There should be ${tagLabel} for ${this._getTextNodeDesc(query.textNode)} ${location}`;
+            } else {
+                errText = `There should be ${tagLabel} for the ${this._getElemLabel(query.tagName)} ${location}`;
+            }
         } else if(tagLabel && query.prevSibling && query.prevSibling.textNode) {
             let prev = this._getATagDesc(query.prevSibling.tagName)
             return `The next element after the ${prev} should be ${tagLabel}`;
@@ -48,14 +54,10 @@ export class HtmlErrors {
         } else if(tagLabel && query.parent && query.parent.tagName) {
             return `The ${parent} should contain ${tagLabel}`;
         } else if(query.attrs) {
-            let attrErrs = Object.keys(attrs).map((attrKey) => {
-                return `${utils.addIndefiniteArticle(attrKey)} attribute of ${attrs[attrKey]} ${location}`;
-            });
-
-            errText = `Could not find ${tagLabel || 'an element'} with ${attrErrs.join(' and ')}${location}`
+            errText = `Could not find ${tagLabel || 'an element'} with ${this._getAttrsDesc(query)}`
         } else if(query.textNode){
             this._getTextNodeDesc(query.textNode)
-            errText = `Could not find a matching tag with the text ${this._getTextNodeDesc(query.textNode)}`
+            errText = `Could not find a matching tag with ${this._getTextNodeDesc(query.textNode)}`
         } else if (tagLabel) {
             errText = `There should be ${tagLabel}`;
         } else {
@@ -89,6 +91,27 @@ export class HtmlErrors {
         return `There ${existingDesc}, but what we're looking for is ${desiredTag} ${desiredRelative}`;
 
     }
+
+    elemMayNotHaveAttrs(query, existingElems) {
+        console.log('elemMayNotHaveAttrs', query, existingElems);
+        let desiredAttrs = this._getAttrsDesc(query);
+        let desiredTag = `${this._getATagDesc(query.tagName)}`;
+        // let existingDesc = existingElems.length === 1 && existingElems[0].name ? 
+        //     `is ${this._getAnElemDescWithLoc(existingElems[0])}`: `are multiple <${query.tagName}> tags`;
+        // return `There ${existingDesc}, but we're looking for ${desiredTag} with ${desiredAttrs}`;
+        return `We're looking for ${desiredTag} with ${desiredAttrs}`;
+
+    }
+
+    elemMayNotHaveText(query, existingElems) {
+        console.log('elemMayNotHaveText', query, existingElems);
+        let desiredText = this._getTextNodeDesc(query.textNode);
+        let desiredTag = `${this._getATagDesc(query.tagName)}`;
+        let existingDesc = existingElems.length === 1 && existingElems[0].name ? 
+            `is ${this._getAnElemDescWithLoc(existingElems[0])}`: `are multiple <${query.tagName}> tags`;
+        return `There ${existingDesc}, but we're looking ${desiredTag} that contains ${desiredText}`;
+    }
+
     /**
      * 
      */
@@ -122,13 +145,13 @@ export class HtmlErrors {
     childOfParentDoesNotExist(parent, childQuery) {
         //describe the error in terms of the child
         // if(childQuery.tagName && childQuery.textNode) {
-        //     return `Create ${this._getATagDesc(childQuery.tagName)} for the text ${this._getTextNodeDesc(childQuery.textNode)} on ${this._getLocationDesc(childQuery)}`
+        //     return `Create ${this._getATagDesc(childQuery.tagName)} for ${this._getTextNodeDesc(childQuery.textNode)} on ${this._getLocationDesc(childQuery)}`
         // }
 
         let parentDesc = this._getElemDescWithLoc(parent);
         let childDesc = childQuery.tagName ? this._getATagDesc(childQuery.tagName) : 'the correct child element';
         let desc = `The ${parentDesc} should contain ${childDesc}`;
-        if(childQuery.textNode) desc += ` with the text ${this._getTextNodeDesc(childQuery.textNode)}`
+        if(childQuery.textNode) desc += ` with ${this._getTextNodeDesc(childQuery.textNode)}`
         console.log('childOfParentNotFound', desc);
         return desc;
     }
@@ -166,7 +189,7 @@ export class HtmlErrors {
         if(childArray.length === 1) {
             let tagName = query.childArray[0].tagName;
             let desc = tagName ?  `${utils.getTagNameArticle(tagName)} <${tagName}> tag` : 'a child element';
-            if(query.children[0].textNode) desc += ` with the text ${this._getTextNodeDesc(query.children[0].textNode)}`
+            if(query.children[0].textNode) desc += ` with ${this._getTextNodeDesc(query.children[0].textNode)}`
             return desc;
         } else {
             let grouped = groupBy(childArray, 'tagName');
@@ -197,7 +220,7 @@ export class HtmlErrors {
      * Turn the line number into a pretty string
      */
     _getLocationDesc(query) {
-        return query.textNode ? `on line ${this._getLineNumber(query.textNode)} of ${this.file.label}` : false;
+        return query.textNode ? `on line ${this._getLineNumber(query.textNode.val)} of ${this.file.label}` : false;
     }
 
     _getTagDescWithLoc(query) {
@@ -214,12 +237,27 @@ export class HtmlErrors {
     }
 
     /**
+     * @param {query}
+     */
+    _getAttrsDesc(query) {
+        //let location = this._getLocationDesc(query);
+        let attrErrs = query.attrs.map((attr) => {
+            return `${utils.addIndefiniteArticle(attr[0])} attribute of ${attr[2]}`;
+        });
+        return attrErrs.join(' and ');
+    }
+
+    /**
      * @param {string} textNode
      */
     _getTextNodeDesc(textNode) {
+        // if the text node is just supposed to exist then we can't describe it well
+        if(textNode.opr === 'exists') return 'any text of your choosing';
+
         // if the text node is longer than 3 words then we will shorten it
-        let strArr = utils.strToArray(textNode);
-        return strArr.length > 3 ? `"${strArr.slice(0, 3).join(' ')}..."` : `"${textNode}"`;
+        let strArr = utils.strToArray(textNode.val);
+        let shortened = strArr.length > 3 ? `"${strArr.slice(0, 3).join(' ')}..."` : `"${textNode.val}"`;
+        return 'the text ' + shortened;
     }
 
     /**

@@ -13,6 +13,7 @@ export class HtmlDisplay extends Component {
             <iframe 
                 width="100%"
                 height="100%"
+                //sandbox="allow-same-origin allow-scripts"
                 frameBorder="0"
                 ref={(i) => { this.iframe = i; }}  
                 srcDoc={this.props.contents} />

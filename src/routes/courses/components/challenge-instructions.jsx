@@ -115,7 +115,7 @@ export class ChallengeInstructions extends Component {
             // find the location based on the text node
             if(r.args.textNode) {
                 let file = find(this.props.challenge.files, f => f.id === r.fileId);
-                let lineNumber = utils.getLineNumber(file.contents, r.args.textNode);
+                let lineNumber = utils.getLineNumber(file.contents, r.args.textNode.val);
 
                 if(lineNumber === -1) {
                     console.log('getRuleLocations', lineNumber, r.args.textNode, file.contents)

@@ -116,7 +116,7 @@ button:hover {
                         method: 'hasElem',
                         args: {
                             tagName: 'h1',
-                            textNode: 'Hello'
+                            textNode: {val: 'Hello'}
                         },
                         hint: `Go to the index.html file and change the word "Welcome" to "Hello".`
                     },
@@ -165,7 +165,7 @@ To book a table please email bookings@jeanclaudefrites.com. The waiting time is 
                         method: 'hasElem',
                         args: {
                             tagName: 'h1',
-                            textNode: "The Incredible World of Jean-Claude Frites",
+                            textNode: {val: "The Incredible World of Jean-Claude Frites"},
                         },
                     }
                 ] 
@@ -180,7 +180,7 @@ To book a table please email bookings@jeanclaudefrites.com. The waiting time is 
                         method: 'hasElem',
                         args: {
                             tagName: 'h2',
-                            textNode: "Allow Jean-Claude to take you on a gastronomic journey"
+                            textNode: {val: "Allow Jean-Claude to take you on a gastronomic journey"}
                         },
                     }
                 ] 
@@ -195,7 +195,7 @@ To book a table please email bookings@jeanclaudefrites.com. The waiting time is 
                         method: 'hasElem',
                         args: {
                             tagName: 'p',
-                            textNode: "Jean-Claude started his first"
+                            textNode: {val: "Jean-Claude started his first"}
                         },
                     }
 
@@ -211,7 +211,7 @@ To book a table please email bookings@jeanclaudefrites.com. The waiting time is 
                         method: 'hasElem',
                         args: {
                             tagName: 'h2',
-                            textNode: "Bookings"
+                            textNode: {val: "Bookings"}
                         }
                     }
                 ] 
@@ -226,7 +226,7 @@ To book a table please email bookings@jeanclaudefrites.com. The waiting time is 
                         method: 'hasElem',
                         args: {
                             tagName: 'p',
-                            textNode: "To book a table please"
+                            textNode: {val: "To book a table please"}
                         }
                     }
                 ] 
@@ -238,7 +238,7 @@ To book a table please email bookings@jeanclaudefrites.com. The waiting time is 
         type: "web",
         video: "https://www.youtube.com/embed/v4oN4DuR7YU",
         title: "Lists, lists, lists",
-        description: `<p>Jean-Claude has sent over a list of dishes he wants on the menu, and a list of opening times. Time to mark them up!</p> `,
+        description: `<p>Jean-Claude has sent over a list of dishes he wants on the menu. Time to mark them up!</p> `,
         files: [
             {
                 id: 'j93mf8fh2',
@@ -278,7 +278,7 @@ Clotted cream with bolognase sauce
                         method: 'hasElem',
                         args: {
                             tagName: 'h2',
-                            textNode: 'Menu'
+                            textNode: {val: 'Menu'}
                         },
                     },
                 ] 
@@ -293,7 +293,7 @@ Clotted cream with bolognase sauce
                         method: 'hasElem',
                         args: {
                             tagName: 'h3',
-                            textNode: 'Starters'
+                            textNode: {val: 'Starters'}
                         },
                     },
                     {
@@ -302,7 +302,7 @@ Clotted cream with bolognase sauce
                         method: 'hasElem',
                         args: {
                             tagName: 'h3',
-                            textNode: 'Main Courses'
+                            textNode: {val: 'Main Courses'}
                         },
                     },
                     {
@@ -311,7 +311,7 @@ Clotted cream with bolognase sauce
                         method: 'hasElem',
                         args: {
                             tagName: 'h3',
-                            textNode: 'Deserts'
+                            textNode: {val: 'Deserts'}
                         },
                     },
                 ]
@@ -328,20 +328,20 @@ Clotted cream with bolognase sauce
                             tagName: 'ul',
                             prevSibling: {
                                 tagName: 'h3',
-                                textNode: 'Starters'
+                                textNode: {val: 'Starters'}
                             },
                             children: [
                                 {
                                     tagName: 'li',
-                                    textNode: "Grilled lettuce with popcorn"
+                                    textNode: {val: "Grilled lettuce with popcorn"}
                                 },
                                 {
                                     tagName: 'li',
-                                    textNode: "Pan fried biscuits with mashed apple"
+                                    textNode: {val: "Pan fried biscuits with mashed apple"}
                                 },
                                 {
                                     tagName: 'li',
-                                    textNode: "Boiled orange juice with cloves"
+                                    textNode: {val: "Boiled orange juice with cloves"}
                                 }
                             ]
                         },
@@ -360,20 +360,20 @@ Clotted cream with bolognase sauce
                             tagName: 'ul',
                             prevSibling: {
                                 tagName: 'h3',
-                                textNode: 'Main Courses'
+                                textNode: {val: 'Main Courses'}
                             },
                             children: [
                                 {
                                     tagName: 'li',
-                                    textNode: "Sauteed dumplings, plucked fennel, and jus de cabbage"
+                                    textNode: {val: "Sauteed dumplings, plucked fennel, and jus de cabbage"}
                                 },
                                 {
                                     tagName: 'li',
-                                    textNode: "Bay leaves cooked in red wine with a steak puree"
+                                    textNode: {val: "Bay leaves cooked in red wine with a steak puree"}
                                 },
                                 {
                                     tagName: 'li',
-                                    textNode: "Grated avocado with spaghetti cake"
+                                    textNode: {val: "Grated avocado with spaghetti cake"}
                                 }
                             ]
                         },
@@ -392,20 +392,20 @@ Clotted cream with bolognase sauce
                             tagName: 'ul',
                             prevSibling: {
                                 tagName: 'h3',
-                                textNode: 'Deserts'
+                                textNode: {val: 'Deserts'}
                             },
                             children: [
                                 {
                                     tagName: 'li',
-                                    textNode: "Chocolate risotto with candied mushrooms"
+                                    textNode: {val: "Chocolate risotto with candied mushrooms"}
                                 },
                                 {
                                     tagName: 'li',
-                                    textNode: "A bed of meringue garnished with sliced ginger"
+                                    textNode: {val: "A bed of meringue garnished with sliced ginger"}
                                 },
                                 {
                                     tagName: 'li',
-                                    textNode: "Clotted cream with bolognase sauce"
+                                    textNode: {val: "Clotted cream with bolognase sauce"}
                                 }
                             ]
                         },
@@ -450,7 +450,7 @@ Sun - 10am to 10pm
                         method: 'hasElem',
                         args: {
                             tagName: 'h2',
-                            textNode: 'Opening Times'
+                            textNode: {val: 'Opening Times'}
                         },
                     },
                 ] 
@@ -466,37 +466,37 @@ Sun - 10am to 10pm
                         args: {
                             prevSibling: {
                                 tagName: 'h2',
-                                textNode: 'Opening Times'
+                                textNode: {val: 'Opening Times'}
                             },
                             tagName: 'ol',
                             children: [
                                 {
                                     tagName: 'li',
-                                    textNode: 'Mon - 5pm to 10pm'
+                                    textNode: {val: 'Mon'}
                                 },
                                 {
                                     tagName: 'li',
-                                    textNode: 'Tues - 5pm to 10pm'
+                                    textNode: {val: 'Tues'}
                                 },
                                 {
                                     tagName: 'li',
-                                    textNode: 'Weds - 5pm to 10pm'
+                                    textNode: {val: 'Weds'}
                                 },
                                 {
                                     tagName: 'li',
-                                    textNode: 'Thurs - 5pm to 12pm'
+                                    textNode: {val: 'Thurs'}
                                 },
                                 {
                                     tagName: 'li',
-                                    textNode: 'Fri - 5pm to 12pm'
+                                    textNode: {val: 'Fri'}
                                 },
                                 {
                                     tagName: 'li',
-                                    textNode: 'Sat - 10am to 12pm'
+                                    textNode: {val: 'Sat'}
                                 },
                                 {
                                     tagName: 'li',
-                                    textNode: 'Sun - 10am to 10pm'
+                                    textNode: {val: 'Sun'}
                                 },
                             ]
                         },
@@ -509,8 +509,176 @@ Sun - 10am to 10pm
         id: 5,
         type: "web",
         video: "https://www.youtube.com/embed/v4oN4DuR7YU",
-        title: "The HTML Tag",
-        label: "Ordered Lists",
+        title: "Hypertext References",
+        label: "Hypertext References",
+        description: `<p>Below we've provided three links for you. They don't look very nice though and when you click on them nothing happens!</p>`,
+        files: [
+            {
+                id: 'b4RD8sk1',
+                mode: 'htmlmixed',
+                label: "index.html",
+                contents: 
+`
+<h3>A list of links you might find useful now you're a programmer</h3>
+
+<ul>
+    <li>
+        http://google.com
+    </li>
+
+    <li>
+        http://stackoverflow.com/
+    </li>
+
+    <li>
+        https://developer.mozilla.org/en-US/docs/Web/HTML
+    </li>
+</ul>
+`
+            },          
+        ],
+        tasks: [
+            {
+                id: 1,
+                description: `Wrap the first link in an anchor tag. The url should be used as the href. Give the tag some text, such as "Google"`,
+                rules: [
+                    {
+                        id: 1,
+                        fileId: 'b4RD8sk1',
+                        method: 'hasElem',
+                        args: {
+                            tagName: 'a',
+                            attrs: [['href', '===', 'http://google.com']],
+                            textNode: {opr: 'exists'}
+                        },
+                    },
+                ] 
+            },
+            {
+                id: 2,
+                description: `Great! The next link is a link to stackoverflow. It's a great place to get advice about programming. Put it inside an anchor tag and give it some text`,
+                rules: [
+                    {
+                        id: 1,
+                        fileId: 'b4RD8sk1',
+                        method: 'hasElem',
+                        args: {
+                            tagName: 'a',
+                            attrs: [['href', '===', 'http://stackoverflow.com/']],
+                            textNode: {opr: 'exists'}
+                        },
+                    },
+                ] 
+            },
+            {
+                id: 3,
+                description: `The final link is to the Mozilla Developer Network, who write programming manuals. Even professional programmers consult manuals when they write code! You know what to do...`,
+                rules: [
+                    {
+                        id: 1,
+                        fileId: 'b4RD8sk1',
+                        method: 'hasElem',
+                        args: {
+                            tagName: 'a',
+                            attrs: [['href', '===', 'https://developer.mozilla.org/en-US/docs/Web/HTML']],
+                            textNode: {opr: 'exists'}
+                        },
+                    },
+                ] 
+            }
+        ]
+    },
+    {
+        id: 6,
+        type: "web",
+        video: "https://www.youtube.com/embed/v4oN4DuR7YU",
+        title: "Relative links",
+        label: "Relative links",
+        description: `<p>Jean Claude has asked us to add a footer to the site. He's given us a list of other pages that the user might want to visit.</p>
+        <p>When the user clicks on the text we want to redirect them to the other page using <i>relative</i> links</p>`,
+        files: [
+            {
+                id: 'KoPU857f',
+                mode: 'htmlmixed',
+                label: "index.html",
+                contents: 
+`
+<h3>Footer</h3>
+
+<ul>
+    <li>
+        About
+    </li>
+
+    <li>
+        Contact
+    </li>
+
+    <li>
+        Events
+    </li>
+</ul>
+
+`
+            },          
+        ],
+        tasks: [
+            {
+                id: 1,
+                description: `Add an anchor tag to make the "About" link work. When the user clicks on it they should be redirected to the '/about' url.`,
+                rules: [
+                    {
+                        id: 1,
+                        fileId: 'KoPU857f',
+                        method: 'hasElem',
+                        args: {
+                            tagName: 'a',
+                            attrs: [['href', '===', '/about']],
+                            textNode: {val: 'About'}
+                        },
+                    },
+                ] 
+            },
+            {
+                id: 3,
+                description: `Great! Next let's do the "Contact" link. It should link to the '/contact' page.`,
+                rules: [
+                    {
+                        id: 1,
+                        fileId: 'KoPU857f',
+                        method: 'hasElem',
+                        args: {
+                            tagName: 'a',
+                            attrs: [['href', '===', '/contact']],
+                            textNode: {val: 'Contact'}
+                        },
+                    },
+                ] 
+            },
+            {
+                id: 2,
+                description: `And finally let's make the word "Events" link to the '/events' page.`,
+                rules: [
+                    {
+                        id: 1,
+                        fileId: 'KoPU857f',
+                        method: 'hasElem',
+                        args: {
+                            tagName: 'a',
+                            attrs: [['href', '===', '/events']],
+                            textNode: {val: 'Events'}
+                        },
+                    },
+                ] 
+            },
+        ]
+    },
+    {
+        id: 7,
+        type: "web",
+        video: "https://www.youtube.com/embed/v4oN4DuR7YU",
+        title: "Wrapping it up",
+        label: "Doctypes",
         description: `<p>You're taking a last look over your HTML before we send it off to Jean-Claude.</p>
         <p>Suddenly you notice that you forgot to add in the all-important html and body tags. That wouldn't be very professional at all. Time to fix it.</p> `,
         files: [
@@ -520,9 +688,8 @@ Sun - 10am to 10pm
                 label: "index.html",
                 contents: 
 `
-<!DOCTYPE html>
 <h1>The Incredible World of Jean-Claude Frites</h1>
-<html></html>
+
 <h2>Allow Jean-Claude to take you on a gastronomic journey that defies all logic</h2>
 
 <p>Jean-Claude started his first restaurant at the age of 6, serving toasted noodle sandwiches to his classmates. By the age of 21 he'd saved up enough money to buy a food truck where he served spicy cornflakes in a bun. Today he has 3 michelin stars and commands the respect of the culinary world.</p>
@@ -532,42 +699,58 @@ Sun - 10am to 10pm
 <h3>Starters</h3>
 
 <ul>
-    <li>Grilled lettuce with popcorn</li>
-    <li>Pan fried biscuits with mashed apple</li>
-    <li>Boiled orange juice with cloves</li>
+  <li>Grilled lettuce with popcorn</li>
+  <li>Pan fried biscuits with mashed apple</li>
+  <li>Boiled orange juice with cloves</li>
 </ul>
 
 <h3>Main Courses</h3>
 
 <ul>
-    <li>Sauteed dumplings, plucked fennel, and jus de cabbage</li>
-    <li>Bay leaves cooked in red wine with a steak puree</li>
-    <li>Grated avocado with spaghetti cake</li>
+  <li>Sauteed dumplings, plucked fennel, and jus de cabbage</li>
+  <li>Bay leaves cooked in red wine with a steak puree</li>
+  <li>Grated avocado with spaghetti cake</li>
 </ul>
 
 <h3>Deserts</h3>
 
 <ul>
-    <li>Chocolate risotto with candied mushrooms</li>
-    <li>A bed of meringue garnished with sliced ginger</li>
-    <li>Clotted cream with bolognase sauce</li>
+  <li>Chocolate risotto with candied mushrooms</li>
+  <li>A bed of meringue garnished with sliced ginger</li>
+  <li>Clotted cream with bolognase sauce</li>
 </ul>
 
 <h2>Opening Times</h2>
 
 <ol>
-    <li>Mon - 5pm to 10pm</li>
-    <li>Tues - 5pm to 10pm</li>
-    <li>Weds - 5pm to 10pm</li>
-    <li>Thurs - 5pm to 12pm</li>
-    <li>Fri - 5pm to 12pm</li>
-    <li>Sat - 10am to 12pm</li>
-    <li>Sun - 10am to 10pm</li>
+  <li>Mon - 5pm to 10pm</li>
+  <li>Tues - 5pm to 10pm</li>
+  <li>Weds - 5pm to 10pm</li>
+  <li>Thurs - 5pm to 12pm</li>
+  <li>Fri - 5pm to 12pm</li>
+  <li>Sat - 10am to 12pm</li>
+  <li>Sun - 10am to 10pm</li>
 </ol>
 
 <h2>Bookings</h2>
 
 <p>To book a table please email bookings@jeanclaudefrites.com. The waiting time is usually 3 months.</p>
+
+<h3>Footer</h3>
+
+<ul>
+  <li>
+    <a href="/about">About</a>
+  </li>
+
+  <li>
+    <a href="/contact">Contact</a>
+  </li>
+
+  <li>
+    <a href="/events">Events</a>
+  </li>
+</ul>
 `
             },          
         ],
@@ -590,7 +773,7 @@ Sun - 10am to 10pm
             },
             {
                 id: 2,
-                description: `Undernetah the doctype, wrap the entire page in side an html tag`,
+                description: `Underneath the doctype, wrap the entire page in side an html tag`,
                 rules: [
                     {
                         id: 1,
@@ -602,6 +785,7 @@ Sun - 10am to 10pm
                                 data: '!DOCTYPE html',
                                 tagName: '!doctype'
                             },
+                            //todo - children: []
                             tagName: 'html',
                         },
                     },
@@ -619,6 +803,7 @@ Sun - 10am to 10pm
                             parent: {
                                 tagName: 'html'
                             },
+                            //todo - children: []
                             tagName: 'body',
                         },
                     },
@@ -626,76 +811,7 @@ Sun - 10am to 10pm
             },
         ]
     },
-    {
-        id: 6,
-        type: "web",
-        video: "https://www.youtube.com/embed/v4oN4DuR7YU",
-        title: "The HTML Tag",
-        label: "Ordered Lists",
-        description: `<p>Below we've provided three links for you. They don't look very nice though and when you click on them nothing happens!</p>`,
-        files: [
-            {
-                id: 'b4RD8sk1',
-                mode: 'htmlmixed',
-                label: "index.html",
-                contents: 
-`
-http://google.com
-
-https://developer.mozilla.org/en-US/docs/Web/HTML
-
-https://developer.mozilla.org/en-US/docs/Web/HTML
-
-`
-            },          
-        ],
-        tasks: [
-            {
-                id: 1,
-                description: `At the top of the page add a <!DOCTYPE html> tag to specify that this file is html`,
-                rules: [
-                    {
-                        id: 1,
-                        fileId: 'b4RD8sk1',
-                        method: 'hasElem',
-                        args: {
-                            type: 'directive',
-                            data: '<!DOCTYPE html>',
-                            tagName: '!doctype'
-                        },
-                    },
-                ] 
-            },
-            {
-                id: 2,
-                description: `Undernetah the doctype, wrap the entire page in side an html tag`,
-                rules: [
-                    {
-                        id: 1,
-                        fileId: 'b4RD8sk1',
-                        method: 'hasElem',
-                        args: {
-                            tagName: 'html',
-                        },
-                    },
-                ] 
-            },
-            {
-                id: 3,
-                description: `Wrap the contents of the page in a body tag. The body tag should go inside the html tag`,
-                rules: [
-                    {
-                        id: 1,
-                        fileId: 'p5otks8w',
-                        method: 'hasElem',
-                        args: {
-                            tagName: 'html',
-                        },
-                    },
-                ] 
-            },
-        ]
-    },
+    
 ];
 
 

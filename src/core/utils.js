@@ -33,7 +33,7 @@ export const getLineNumber = (haystack, needle) => {
 };
 
 export const evalQueryOperator = (subj, operator, val) => {
-
+    //console.log('evalQueryOperator', subj.indexOf(val))
     switch(operator) {
     case '=':
     case '==':
@@ -42,7 +42,7 @@ export const evalQueryOperator = (subj, operator, val) => {
         return subj === val;
     case 'indexOf':
     case 'contains':
-        return subj.indexOf(val);
+        return subj.indexOf(val) !== -1;
     case 'exists':
         return subj ? true : false;
     case '>':
