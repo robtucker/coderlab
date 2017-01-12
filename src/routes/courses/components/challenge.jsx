@@ -1,21 +1,16 @@
 import React, { Component, PropTypes } from "react";
-import { Link } from "react-router";
-import { List } from 'material-ui/List';
-import { HtmlDisplay, MenuLink, LoadingScreen } from '../../../components';
-import {EditorContainer} from "../../../editor";
-import Divider from 'material-ui/Divider';
-import Drawer from "material-ui/Drawer";
+import { Link, browserHistory } from "react-router";
+import {find, flatten} from "lodash";
+import Paper from 'material-ui/Paper';
+import { LoadingScreen } from '../../../components';
+import {EditorContainer, Examiner} from "../../../editor";
 import FlatButton from 'material-ui/FlatButton';
 import { editorThemes, breakpoints } from "../../../styles";
 import { ChallengeVideo } from "./challenge-video";
 import {ChallengeInstructions} from "./challenge-instructions";
+import {ChallengeNavigation} from "./challenge-navigation";
 import { CourseConfigurationError } from "../../../core";
 import { AppTheme } from "../../../styles";
-
-let drawerHeaderStyles = {
-    paddingLeft: "16px",
-    textDecoration: "none"
-};
 
 export class Challenge extends Component {
 
@@ -29,8 +24,8 @@ export class Challenge extends Component {
     }
 
     componentWillMount() {
-        console.log('mounting challenge');
-        console.log(this.props);
+        // console.log('mounting challenge');
+        // console.log(this.props);
         
         let {courseName, levelId, challengeId} = this.props.params
 
@@ -38,30 +33,71 @@ export class Challenge extends Component {
         this.props.hideNavbar();
     }
 
+    nextChallenge() {
+        let {courseName, levelId, challengeId} = this.props.params;
+        let countChallenges = this.props.course[this.props.params.levelId].length;
 
-    getSidebar() {
+        //console.log('next challenge', levelId, challengeId, countChallenges, parseInt(challengeId) < countChallenges);
+
+        if(parseInt(challengeId) < countChallenges) {
+            let nextChallenge = parseInt(challengeId) + 1;
+            let newChallenge = find(this.props.course[levelId], c => c.id === nextChallenge);
+            //console.log('newChallenge', nextChallenge, newChallenge);
+            this.props.startChallenge(newChallenge);
+            // update the url too
+            browserHistory.push(`courses/${courseName}/level/${levelId}/${nextChallenge}`);
+        } else {
+            // need to be starting a new level here
+            this.props.getCourseLevel(courseName, parseInt(levelId) + 1, 1);
+        }
+    }
+
+    handleSubmit() {
+        let examiner = new Examiner(this.props.challenge);
+
+        console.log('examiner', examiner);
+        
+        if(examiner.parserErrors.length) {
+            this.props.showErrors(examiner.parserErrors);
+
+        } else {
+            examiner.examineAllTasks();
+
+            // Time to line up the next task. Rather than simply incrementing the counter by one,
+            // instead check outstanding errors and explicitly set the correct value on the state tree
+            // Thus, if the user has gone ahead then they can skip over tasks they have already completed
+            // and if the user has undone some of their work we can ensure they move back and redo the task
+            let nextTask = examiner.getNextTask();
+
+            console.log('nextTask', nextTask, this.props.currentTask, this.props.challenge.tasks.length);
+
+            // if the challenge is complete
+            if(nextTask >= this.props.challenge.tasks.length) {
+                // todo - save this to the db
+                //this.props.saveProgress()
+                return this.props.completeChallenge();
+            }
+
+            // don't show errors if they have just finished a task
+            // i.e. only show them errors if they are on the same task or lower
+            if(nextTask <= this.props.currentTask) {
+                let showableErrors = flatten(examiner.taskErrors.slice(0, nextTask + 1))
+                console.log('showableErrors', examiner.taskErrors.slice(0, nextTask), showableErrors);
+                this.props.showErrors(showableErrors);
+            }
+
+            // regardless of what happens always set the current task
+            this.props.setCurrentTask(nextTask);
+        }
+
+    }
+
+    getNavigationDrawer() {
         return (
-            <Drawer open={this.props.sidebarVisible} 
-                onRequestChange={this.props.toggleSidebar} 
-                docked={false}
-                className="width-100"> 
-                <Link className="primary2" to="/" onClick={this.props.toggleSidebar}>
-                    <div className="width-100 padding-y-sm font-size-lg" style={drawerHeaderStyles}>
-                        {this.props.params.courseName}
-                    </div>
-                </Link>
-                <Divider />
-                <List>
-                    {
-                        // this.props.course.levels.map((item) => {
-                        //     return <MenuLink 
-                        //         key={item.id} 
-                        //         onTouchTap={props.toggleSidebar} 
-                        //         label={item.title} />
-                        // })
-                    }     
-                </List>
-            </Drawer>
+            <ChallengeNavigation
+                sidebarVisible={this.props.sidebarVisible} 
+                toggleNavigationDrawer={this.props.toggleNavigationDrawer} 
+                course={this.props.course}/>
         );
     }
 
@@ -77,39 +113,42 @@ export class Challenge extends Component {
     }
 
     getInstructions() {
-        let instructionStyles = {
-            width: this.props.isMobile ? '100%' : '40%',
-            overflowY: this.props.isMobile ? 'visible' : 'scroll',
-            height: this.props.isMobile ? '100%' : this.props.contentHeight
-        }
-
-        let menuButtonStyles = this.props.navbarVisible ? {marginTop: '8px'} : {marginTop: '2px'};
-
         return (
-            <section className="" style={instructionStyles}>
-                <div className="padding-x-md" style={menuButtonStyles}>
-                    <div className="row align-center margin-bottom-md">
-                        <i className="material-icons margin-right-xs" onTouchTap={this.props.toggleSidebar}>menu</i>
-                        {
-                            this.props.navbarVisible ? <i onTouchTap={this.props.toggleNavbar} 
-                                style={{borderRadius: '3px', padding: '3px'}}
-                                className="material-icons">arrow_upward</i> : null
-                        }
-                    </div>
+            <ChallengeInstructions
+                currentTask={this.props.currentTask}
+                challenge={this.props.challenge}
+                task={this.props.task}
+                toggleVideo={this.props.toggleVideo}
+                errors={this.props.errors} 
+                toggleNavigationDrawer={this.props.toggleNavigationDrawer}
+                isMobile={this.props.isMobile}
+                contentHeight={this.props.contentHeight}
+                closeCompletionModal={this.props.closeCompletionModal}
+                showCompletionModal={this.props.showCompletionModal}
+                navbarVisible={this.props.navbarVisible} />
+        );
+    }
 
-                    <ChallengeInstructions
-                        challenge={this.props.challenge}
-                        task={this.props.task}
-                        toggleVideo={this.props.toggleVideo}
-                        hint={this.props.hint} />
-                </div>
-            </section>
+    getEditor() {
+        return (
+            <EditorContainer 
+                handleSubmit={this.handleSubmit.bind(this)}
+                nextChallenge={this.nextChallenge.bind(this)}
+                contentHeight={this.props.contentHeight}
+                isMobile={this.props.isMobile}
+                challenge={this.props.challenge}
+                visibleFile={this.props.visibleFile}
+                editorTheme={this.props.editorTheme}
+                display={this.props.display}
+                errors={this.props.errors}
+                challengeCompleted={this.props.challengeCompleted}
+                resetErrors={this.props.resetErrors}/>
         );
     }
 
     render() {
         // we might be waiting for the api to return the course level
-        if(!this.props.challenge || !this.props.task) return <LoadingScreen />;
+        if(!this.props.challenge) return <LoadingScreen />;
 
         // show the video 
         if(this.props.showVideo) return this.getVideo();
@@ -122,13 +161,13 @@ export class Challenge extends Component {
         return (
             <div>
                 {this.getVideo()}
-                {this.getSidebar()}
+                {this.getNavigationDrawer()}
                 <div className="col-xs row-lg justify-center-xs justify-start-lg align-center-xs align-start-lg height-100" 
                     style={containerStyles}>  
                     {this.getInstructions()}
-                    <EditorContainer />
+                    {this.getEditor()}
                 </div>
             </div>
-        )
+        );
     }
 }

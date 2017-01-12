@@ -7,13 +7,13 @@ import { toggleNavbar, toggleSidebar, logout } from "../actions";
 let navMenu = [
     {
         id: 1,
-        label: "",
+        label: "Home",
         url: "/",
-        className: "width-auto min-width-25 img-logo-xs"
+        className: "width-auto min-width-25"
     },
     // {
     //     id: 2,
-    //     label: "CoderLab",
+    //     label: "Bloom",
     //     url: "/",
     //     className: "font-size-xl"
     // },

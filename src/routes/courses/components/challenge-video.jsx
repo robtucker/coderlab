@@ -6,8 +6,7 @@ const ChallengeVideo = ({url, close, show, contentWidth, contentHeight}) => {
     let height = contentHeight * 0.8;
     let width = height * 1.8;
 
-
-    console.log('video', url, close, show)
+    //console.log('video', url, close, show)
     if(!show) return null;
     
     

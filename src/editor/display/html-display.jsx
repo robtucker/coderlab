@@ -4,8 +4,8 @@ import { findDOMNode } from "react-dom";
 export class HtmlDisplay extends Component {
 
     componentDidMount() {
-        console.log('html display window mounted');
-        console.log(this.props);
+        // console.log('html display window mounted');
+        // console.log(this.props);
     }
 
     render() {

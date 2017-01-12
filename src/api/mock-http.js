@@ -116,7 +116,10 @@ module.exports = function mockHttp (url, options) {
 
         if(data.status && data.data) {
             let response = new MockResponse(data);
-            resolve(response);
+            // let's make this bad boy async
+            setTimeout(function() {
+                resolve(response);
+            }, 500);
         } else {
             reject(data);
         }

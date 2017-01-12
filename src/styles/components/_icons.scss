@@ -1,4 +1,4 @@
-$icon-xs-size: 25px;
+$icon-xs-size: 22px;
 $icon-sm-size: 50px;
 $icon-md-size: 100px;
 
@@ -7,7 +7,7 @@ $icon-md-size: 100px;
     width: $icon-xs-size;
     border-radius: 100%;
     display: inline-block;
-    margin: $margin-sm $margin-xs;
+    margin: 0px 4px;
 }
 
 .icon-sm {

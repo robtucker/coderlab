@@ -2,7 +2,7 @@
     "HISTORY_API_FALLBACK": true,
     "LOG_LEVEL_CONSOLE": 100,
     "APP_KEY": "abcdefg1234567",
-    "APP_TITLE": "CoderLab",
+    "APP_TITLE": "Bloom",
     "API_URL": "http://localhost",
     "API_PORT": 80,
     "MOCK_API": false,

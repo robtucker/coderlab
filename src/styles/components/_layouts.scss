@@ -11,6 +11,14 @@ html, body, #app {
     position: relative;
 }
 
+.inline {
+    display: inline;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
 .sidebar {
     box-shadow: inherit;
 }

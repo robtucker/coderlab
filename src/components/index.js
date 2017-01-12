@@ -11,6 +11,9 @@ export * from "./elements/star-rating";
 // forms
 export * from "./forms/material-form";
 
+// icons
+export * from "./icons/action-icons";
+
 // layouts
 export * from "./layouts/app-layout";
 export * from "./layouts/loading-screen";

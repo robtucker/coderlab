@@ -10,6 +10,10 @@ import {
     toggleChallengeSidebar,
     getCourseLevel,
     startChallenge, 
+    showChallengeErrors,
+    completeChallenge,
+    setCurrentTask,
+    closeCompletionModal,
 } from "../../../actions";
 
 let parser;
@@ -23,7 +27,7 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     toggleNavbar: () => {
         dispatch(toggleNavbar());
     },
-    toggleSidebar: () => {
+    toggleNavigationDrawer: () => {
         dispatch(toggleChallengeSidebar());
     },
     hideNavbar: () => {
@@ -32,6 +36,21 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     startChallenge: (challenge) => {
         dispatch(startChallenge(challenge));
     },
+    setCurrentTask: (value) => {
+        dispatch(setCurrentTask(value));
+    },
+    showErrors: (errors) => {
+        dispatch(showChallengeErrors(errors));
+    },
+    resetErrors: () => {
+        dispatch(showChallengeErrors([]));
+    },
+    completeChallenge: () => {
+        dispatch(completeChallenge());
+    },
+    closeCompletionModal: () => {
+        dispatch(closeCompletionModal());
+    }
 })
 
 const mapStateToProps = (state, ownProps) => {
@@ -44,10 +63,12 @@ const mapStateToProps = (state, ownProps) => {
         isMobile: state.app.width < breakpoints.lg,
         course: state.courses[ownProps.params.courseName],
         challenge: state.challenge.current,
-        hint: state.challenge.hint,
+        errors: state.challenge.errors,
         showVideo: state.challenge.showVideo,
         currentTask: state.challenge.currentTask,
-        display: state.challenge.display
+        display: state.challenge.display,
+        challengeCompleted: state.challenge.isComplete,
+        showCompletionModal: state.challenge.showCompletionModal,
     }
 
     if(state.challenge.current) {

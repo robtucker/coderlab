@@ -11,14 +11,14 @@
     min-height: 250px;
 }
 
-.img-logo-xs {
-    @include bg-img(url(../assets/img/logos/flask-white-sm.png), contain, 25px);
-    min-height: 25px;
-    color: white;
-}
+// .img-logo-xs {
+//     @include bg-img(url(../assets/img/logos/flower-xs.png), contain, 25px);
+//     min-height: 25px;
+//     color: white;
+// }
 
-.img-flask {
-    @include bg-img(url(../assets/img/logos/flask.png), contain, 120px);
+.img-logo {
+    @include bg-img(url(../assets/img/logos/flower.png), contain, 120px);
     min-height: 100px;
     margin-bottom: $margin-sm;
 }

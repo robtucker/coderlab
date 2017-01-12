@@ -27,24 +27,26 @@ export class Navbar extends Component {
             backgroundColor: this.props.backgroundColor,
         }
 
-        let toggleButton = {
-            position: 'absolute',
-            padding: '5px 3px 3px 3px',
-            top: '0px',
-            left: '60px',
-            borderRadius: '3px',
-            backgroundColor: this.props.backgroundColor,
-        }
+        // let toggleButton = {
+        //     position: 'absolute',
+        //     zIndex: 100,
+        //     padding: '5px 3px 3px 3px',
+        //     top: '0px',
+        //     left: '60px',
+        //     borderRadius: '3px',
+        //     backgroundColor: this.props.backgroundColor,
+        // }
 
-        return (
-            <div style={minimizedStyles}>
-                <i onTouchTap={this.props.toggleNavbar} 
-                    style={toggleButton}
-                    className="material-icons white">
-                    arrow_downward
-                </i>
-            </div>
-        )
+        // return (
+        //     <div style={minimizedStyles}>
+        //         <i  
+        //             style={toggleButton}
+        //             className="material-icons white">
+        //             arrow_downward
+        //         </i>
+        //     </div>
+        // )
+        return <div style={minimizedStyles} onTouchTap={this.props.toggleNavbar}/>
     }
 
     // getSidedrawer() {

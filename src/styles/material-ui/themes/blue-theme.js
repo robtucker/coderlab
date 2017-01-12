@@ -3,10 +3,20 @@ import { fade } from 'material-ui/utils/colorManipulator';
 
 
 import {
-    lightBlue500, lightBlue800, lightBlue200, 
+    lightBlue500, 
+    lightBlue800, 
+    lightBlue200, 
     pink300, 
-    grey100, grey300, grey400, grey500, 
-    white, darkBlack, fullBlack
+    grey100, 
+    grey300, 
+    grey400, 
+    grey500, 
+    white, 
+    darkBlack, 
+    fullBlack,
+    green600,
+    yellow600,
+    red600
 } from '../colors';
 
 export default {
@@ -27,6 +37,9 @@ export default {
         pickerHeaderColor: lightBlue500,
         clockCircleColor: fade(darkBlack, 0.07),
         shadowColor: fullBlack,
+        success: green600,
+        warning: yellow600,
+        danger: red600
     }
 };
 

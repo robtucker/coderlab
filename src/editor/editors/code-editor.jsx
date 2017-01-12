@@ -15,6 +15,11 @@ export class CodeEditor extends Component {
     }
 
     componentDidMount () {
+        this.init();
+    }
+
+    init () {
+        //console.log('initalize file', this.props.file);
 
         let options = {
             lineNumbers: true,
@@ -33,7 +38,16 @@ export class CodeEditor extends Component {
         this.instance = CodeMirror.fromTextArea(textareaNode, options);
         //console.log('code mirror instance', this.instance);
 
+        let contents = this.getContents();
         this.instance.on('change', this.props.onChange);
+
+        //todo - because the value is updated automatically if you edit undo enough times
+        // it will delete the original text. instead this should be initialized in the options
+        this.instance.setValue(contents);
+        this.props.updateDisplay();
+    }
+
+    getContents() {
 
         let contents = this.props.file.contents || "";
         let lineCount = contents.split(/\r\n|\r|\n/).length;
@@ -44,10 +58,7 @@ export class CodeEditor extends Component {
                 contents += '\n';
             }
         }
-        //todo - because the value is updated automatically if you edit undo enough times
-        // it will delete the original text. instead this should be initialized in the options
-        this.instance.setValue(contents);
-        this.props.updateDisplay();
+        return contents;
     }
 
     render () {
@@ -57,7 +68,7 @@ export class CodeEditor extends Component {
         }
         return (
             <div id="code-editor-container">
-                <textarea ref="textarea" />
+                <textarea ref="textarea" key={this.props.file.id} value={this.getContents()} onChange={this.props.onChange}/>
             </div>
         );
     }
