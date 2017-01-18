@@ -4,7 +4,7 @@ import { Quote } from "../../../components";
 import { JobListContainer } from "../containers/job-list";
 
 const CodingCareers = () => (
-    <section className="text-xs-center margin-y-xl">
+    <section className="text-center margin-y-xl">
         <div className="padding-x-md">
             <h2 className="margin-bottom-lg">Everyone needs coding skills...</h2>
             <JobListContainer />

@@ -9,7 +9,7 @@ const ArrowBox = ({url, text, color}) => {
     return (
         <div className="row justify-center align-center" style={{color: color || "white"}}>
             <Link to={url} className={`text-decoration-none ${color}`}> 
-                <div className={`text-xs-center padding-y-sm padding-x-md ${hoverClass}`} 
+                <div className={`text-center padding-y-sm padding-x-md ${hoverClass}`} 
                     style={{border: borderStyle}}>
                     <div className="row align-center font-size-lg">
                         <span>{text}</span>&nbsp;&nbsp;<i className="material-icons arrow-R">arrow_forward</i>

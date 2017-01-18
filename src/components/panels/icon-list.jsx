@@ -17,7 +17,7 @@ const IconList = ({title, subTitle, list, children}) => {
     }
 
     return (
-        <section className="container text-xs-center margin-y-xl">
+        <section className="container text-center margin-y-xl">
             {getTitle()}
             <div className="col-xs row-md">
                 {

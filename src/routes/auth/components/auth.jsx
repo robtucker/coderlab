@@ -71,7 +71,7 @@ const Auth = (props) => {
 
 
     return (
-        <section className="col align-center justify-center text-xs-center margin-y-xl">
+        <section className="col align-center justify-center text-center margin-y-xl">
 
             <h2 className="margin-bottom-lg">{titles[authType]}</h2>
 

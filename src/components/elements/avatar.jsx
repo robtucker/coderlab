@@ -27,7 +27,7 @@ const Avatar = ({img, title, subtitle}) => (
 
         <div className={`margin-y-sm`} style={avatarStyle(img)}></div>
 
-        <div className="max-width-400 margin-y-sm text-xs-center text-md-left">
+        <div className="max-width-400 margin-y-sm text-center text-md-left">
             <div style={titleStyle}>{title}</div>
             {subtitle && <div style={subtitleStyle}>{subtitle}</div>}
         </div>

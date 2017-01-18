@@ -4,7 +4,7 @@ import { PageContainer } from "../../../components";
 
 const Contact = ({contactEmail}) => (
     <PageContainer>
-        <h3 className="margin-bottom-md text-xs-left">Get in touch</h3>
+        <h3 className="margin-bottom-md text-left">Get in touch</h3>
 
         <p>We're always open to being contacted about new ventures and business plans. 
             Don't hesitate to drop us a message if you're interested in what we do.</p>

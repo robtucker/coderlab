@@ -68,7 +68,7 @@ export class ChallengeInstructions extends Component {
                             onTouchTap={this.props.closeCompletionModal}>
                             <CloseIcon />
                         </div>
-                        <div className="padding-x-lg text-xs-center margin-bottom-xs">
+                        <div className="padding-x-lg text-center margin-bottom-xs">
                             <SuccessIcon fontSize="64px" padding="6px" borderWidth="3px"/>
                             <h2 className="margin-y-sm">Challenge complete!</h2>
                             <p className="marginless">+250 points</p>

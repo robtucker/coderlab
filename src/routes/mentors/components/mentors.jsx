@@ -7,7 +7,7 @@ import { MentorCard } from "./mentor-card";
 const Mentors = ({mentors}) => (
     <PageContainer nextPageLabel="Contact" nextPageUrl="contact" center={true}>
 
-        <h3 className="margin-x-sm margin-bottom-md text-xs-center">Meet our mentors...</h3>
+        <h3 className="margin-x-sm margin-bottom-md text-center">Meet our mentors...</h3>
 
         <Quote 
             text="Education is the most powerful weapon which you can use to change the world." 

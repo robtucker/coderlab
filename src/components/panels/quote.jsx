@@ -6,7 +6,7 @@ let authorStyle = {textColor: typography.textLightBlack};
 
 const Quote = ({text, author}) => {
     return (
-        <div className="row justify-center text-xs-left">
+        <div className="row justify-center text-left">
             <div className="">
                 <blockquote className="blockquote">
                     <p>{text}</p>

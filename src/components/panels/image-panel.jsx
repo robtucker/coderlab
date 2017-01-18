@@ -17,7 +17,7 @@ const ImagePanel = ({img, children, className, bgColor}) => {
         <div style={getImgStyle(img, bgColor)}>
             <div className={`width-100 height-100 ${className}`}>
                 <div className="row justify-center align-center height-100">
-                    <div className="text-xs-center padding-x-sm margin-y-xxl">
+                    <div className="text-center padding-x-sm margin-y-xxl">
                         {children}
                     </div>
                 </div>

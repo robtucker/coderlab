@@ -19,7 +19,7 @@ const Testimonial = ({author, quote, imgClass}) => (
     
         <div className={`${imgClass} margin-y-sm`}></div>
 
-        <div className="max-width-400 margin-y-sm text-xs-center text-md-left">
+        <div className="max-width-400 margin-y-sm text-center text-md-left">
             <div style={quoteStyle}>{quote}</div>
             <footer className="blockquote-footer" style={authorStyle}>{author}</footer>
         </div>
