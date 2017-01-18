@@ -11,8 +11,8 @@ export const summary = {
         background: "#c75c5c",
     },
     banner: {
-        img: require('../../../../assets/img/courses/javascript/banners/blocks.jpg'),
-        background: "#f1de5d"
+        img: require('../../../../assets/img/courses/javascript/banners/blocks2.jpg'),
+        background: "#facb00"
     },
 
     teacher: {

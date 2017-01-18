@@ -54,6 +54,7 @@ export class CourseSummary extends Component {
         return (
             <div>
                 <CourseBanner 
+                    isMobile={this.props.isMobile}
                     img={this.props.course.banner.img} 
                     background={this.props.course.banner.background}
                     title={this.props.course.title} 

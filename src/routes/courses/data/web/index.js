@@ -12,7 +12,7 @@ export const summary = {
     },
     banner: {
         img: require('../../../../assets/img/courses/web/banners/design.jpg'),
-        background: "#68c4b5"
+        background: "#539c90"
     },
     teacher: {
         name: "Simon Van Blerk",

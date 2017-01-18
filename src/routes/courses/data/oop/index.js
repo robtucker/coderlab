@@ -7,12 +7,12 @@ export const summary = {
         This course teaches the ability to think about programming at a higher level`,
     difficultyRating: 1,
     icon: {
-        img: require('../../../../assets/img/courses/python/icons/python.svg'),
+        img: require('../../../../assets/img/courses/teacher/icons/books.svg'),
         background: "#c75c5c",
     },
     banner: {
-        img: require('../../../../assets/img/courses/python/banners/python.png'),
-        background: "#41475d"
+        img: require('../../../../assets/img/courses/teacher/banners/kids.png'),
+        background: "#E53463"
     },
     teacher: {
         id: 1,

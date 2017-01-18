@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from "react-redux";
 import findIndex from "lodash/findIndex";
+import { breakpoints } from "../../../styles";
 import { Logger } from "isolog";
 import { CourseSummary } from "../components/course-summary";
 import { setNavbarColor, toggleEnrolDialog, setAuthRedirect, startCourse } from "../../../actions";
@@ -30,7 +31,7 @@ const mapStateToProps = (state, ownProps) => {
         relatedCourses,
         enrolDialogOpen: state.courses.enrolDialogOpen,
         isLoggedIn: state.auth.isLoggedIn,
-
+        isMobile: state.app.width < breakpoints.md,
     }
 };
 

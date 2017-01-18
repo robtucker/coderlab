@@ -12,7 +12,7 @@ export const summary = {
     },
     banner: {
         img: require('../../../../assets/img/courses/teacher/banners/kids.png'),
-        background: "#f06292"
+        background: "#E53463"
     },
     teacher: {
         id: 1,
