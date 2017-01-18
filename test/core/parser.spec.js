@@ -1,58 +1,23 @@
 import { expect } from "chai";
 
-// import htmllint from "htmllint";
-
-// describe('linter', function(){
-
-//     it("should accept html string", function() {
-//         var html = "<html><div><h1>foo<h1></div><br></html>";
-//         var opts = {};
-
-//         var myLinter = new htmllint.Linter();
-        
-//         console.log('linter is:');
-//         console.log(Object.keys(myLinter));
-
-//         var output = myLinter.lint(html, opts)
-//             .then(function(res) {
-//                 console.log('res is');
-//                 console.log(typeof res);
-//                 expect(res).to.be.a('Array');
-//             })
-        
-//         console.log('output is:');
-//         console.log(Object.keys(output));
-
-//     })
-    
-// })
-
 import htmlparser from "htmlparser2";
 
-var rawHtml = "<html><body><div><h1>foo</h1></div></body></html>";
+describe('Html Parser', function() {
+    it('should parse html into ast', function() {
+        var rawHtml = "<html><body><div><h1>foo</h1></div></body></html>";
 
 
-var handler = new htmlparser.DomHandler(function (error, dom) {
-    if (error) {
-        console.error('error received')
-        console.error(error);
-    } else {
-        console.log('success');
-        console.log(dom);
-    }
-});
+        var handler = new htmlparser.DomHandler(function (error, dom) {
+            if (error) throw err;
+            expect(dom[0].name).to.equal('html')
+        });
 
-console.log(Object.keys(handler));
+        //console.log(Object.keys(handler));
 
-var parser = new htmlparser.Parser(handler);
+        var parser = new htmlparser.Parser(handler);
 
-parser.write(rawHtml);
-parser.done();
-
-// import parse5 from 'parse5';
-
-// // var document     = parse5.parse('<!DOCTYPE html><html><body>Hi there!</body></html>');
-// var fragment = parse5.parseFragment('<td>Yo!<td>');
-
-// console.log(fragment);
+        parser.write(rawHtml);
+        parser.done();
+    })
+})
 

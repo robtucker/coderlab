@@ -1,14 +1,14 @@
 import { connect } from "react-redux";
-import { findIndex, find } from "lodash";
 import { Challenge } from "../components/challenge";
-import { CodeParser } from "../../../core";
 import { breakpoints } from "../../../styles";
 import { 
     toggleVideo, 
     toggleNavbar,
     hideNavbar,
     toggleChallengeSidebar,
-    getCourseLevel,
+    startCourse,
+    startCourseLevel,
+    courseNotFound,
     startChallenge, 
     showChallengeErrors,
     completeChallenge,
@@ -16,41 +16,20 @@ import {
     closeCompletionModal,
 } from "../../../actions";
 
-let parser;
-let fileToParse;
-
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    toggleVideo: () => {
-        dispatch(toggleVideo());
-    },
-    getCourseLevel,
-    toggleNavbar: () => {
-        dispatch(toggleNavbar());
-    },
-    toggleNavigationDrawer: () => {
-        dispatch(toggleChallengeSidebar());
-    },
-    hideNavbar: () => {
-        dispatch(hideNavbar());
-    },
-    startChallenge: (challenge) => {
-        dispatch(startChallenge(challenge));
-    },
-    setCurrentTask: (value) => {
-        dispatch(setCurrentTask(value));
-    },
-    showErrors: (errors) => {
-        dispatch(showChallengeErrors(errors));
-    },
-    resetErrors: () => {
-        dispatch(showChallengeErrors([]));
-    },
-    completeChallenge: () => {
-        dispatch(completeChallenge());
-    },
-    closeCompletionModal: () => {
-        dispatch(closeCompletionModal());
-    }
+    startCourse: (name, data) => dispatch(startCourse(name, data)),
+    startCourseLevel: (courseName, levelId, levelData) => dispatch(startCourseLevel(courseName, levelId, levelData)),
+    courseNotFound: () => dispatch(courseNotFound()),
+    toggleVideo: () => dispatch(toggleVideo()),
+    toggleNavbar: () => dispatch(toggleNavbar()),
+    toggleNavigationDrawer: () => dispatch(toggleChallengeSidebar()),
+    hideNavbar: () => dispatch(hideNavbar()),
+    startChallenge: (challenge) => dispatch(startChallenge(challenge)),
+    setCurrentTask: (value) => dispatch(setCurrentTask(value)),
+    showErrors: (errors) => dispatch(showChallengeErrors(errors)),
+    resetErrors: () => dispatch(showChallengeErrors([])),
+    completeChallenge: () => dispatch(completeChallenge()),
+    closeCompletionModal: () => dispatch(closeCompletionModal())
 })
 
 const mapStateToProps = (state, ownProps) => {
@@ -61,7 +40,7 @@ const mapStateToProps = (state, ownProps) => {
         contentWidth: state.app.width,
         contentHeight: state.app.contentHeight,
         isMobile: state.app.width < breakpoints.lg,
-        course: state.courses[ownProps.params.courseName],
+        course: state.courses.byName[ownProps.params.courseName],
         challenge: state.challenge.current,
         errors: state.challenge.errors,
         showVideo: state.challenge.showVideo,
@@ -75,6 +54,10 @@ const mapStateToProps = (state, ownProps) => {
         props.task = state.challenge.current.tasks[state.challenge.currentTask];
     }
 
+    if(state.courses.byName[ownProps.params.courseName].levels) {
+        props.level = find(state.courses.byName[ownProps.params.courseName].levels, l => l.id === ownProps.params.levelId)
+
+    }
     return props;
 };
 

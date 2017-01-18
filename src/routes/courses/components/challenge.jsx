@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from "react";
 import { Link, browserHistory } from "react-router";
-import {find, flatten} from "lodash";
 import Paper from 'material-ui/Paper';
 import { LoadingScreen } from '../../../components';
 import {EditorContainer, Examiner} from "../../../editor";
@@ -11,6 +10,8 @@ import {ChallengeInstructions} from "./challenge-instructions";
 import {ChallengeNavigation} from "./challenge-navigation";
 import { CourseConfigurationError } from "../../../core";
 import { AppTheme } from "../../../styles";
+import { findIndex, find, flatten } from "lodash";
+import { getCourseLevel } from "../data";
 
 export class Challenge extends Component {
 
@@ -26,33 +27,52 @@ export class Challenge extends Component {
     componentWillMount() {
         // console.log('mounting challenge');
         // console.log(this.props);
-        
         let {courseName, levelId, challengeId} = this.props.params
 
-        this.props.getCourseLevel(courseName, parseInt(levelId), parseInt(challengeId));
+        this.getChallenge(courseName, parseInt(levelId), parseInt(challengeId));
         this.props.hideNavbar();
     }
 
+    getChallenge(courseName, levelId, challengeId) {
+        console.log('getChallenge', courseName, levelId, challengeId) 
+
+        let courseLevel = getCourseLevel(courseName, levelId);
+
+        courseLevel.then((level) => {
+            let challenge = find(level.challenges, c => c.id === challengeId);
+            console.log('courseLevel', level, challenge) 
+            if(level && challenge) {
+                this.props.startCourseLevel(courseName, levelId, level);
+                this.props.startChallenge(challenge);
+            } else {
+                this.props.courseNotFound(courseName, LevelId);
+            }
+        });
+
+        courseLevel.catch((err) => {
+            console.log('courseLevel error', err);
+            this.props.courseNotFound(courseName, LevelId);
+        })
+    }
+    
     nextChallenge() {
+
         let {courseName, levelId, challengeId} = this.props.params;
-        let countChallenges = this.props.course[this.props.params.levelId].length;
+        let challengeCount = this.props.course.levels[parseInt(levelId - 1)].challenges.length;
+        let levelComplete = parseInt(challengeId) >= challengeCount;
 
-        //console.log('next challenge', levelId, challengeId, countChallenges, parseInt(challengeId) < countChallenges);
+        console.log('next challenge', challengeCount, levelComplete);
 
-        if(parseInt(challengeId) < countChallenges) {
-            let nextChallenge = parseInt(challengeId) + 1;
-            let newChallenge = find(this.props.course[levelId], c => c.id === nextChallenge);
-            //console.log('newChallenge', nextChallenge, newChallenge);
-            this.props.startChallenge(newChallenge);
-            // update the url too
-            browserHistory.push(`courses/${courseName}/level/${levelId}/${nextChallenge}`);
-        } else {
-            // need to be starting a new level here
-            this.props.getCourseLevel(courseName, parseInt(levelId) + 1, 1);
-        }
+        let nextChallenge =  levelComplete ? 1 : parseInt(challengeId) + 1;
+        let nextLevel = levelComplete ? parseInt(levelId) + 1 : parseInt(levelId);
+
+        //console.log('next challenge', challengeCount, challengeComplete, nextLevel, nextChallenge);
+
+        this.getChallenge(courseName, nextLevel, nextChallenge);
+        browserHistory.push(`courses/${courseName}/level/${nextLevel}/${nextChallenge}`);
     }
 
-    handleSubmit() {
+    handleSubmit () {
         let examiner = new Examiner(this.props.challenge);
 
         console.log('examiner', examiner);
@@ -89,7 +109,6 @@ export class Challenge extends Component {
             // regardless of what happens always set the current task
             this.props.setCurrentTask(nextTask);
         }
-
     }
 
     getNavigationDrawer() {
@@ -147,8 +166,9 @@ export class Challenge extends Component {
     }
 
     render() {
+        //console.log('render challenge', this.props.course, this.props.challenge);
         // we might be waiting for the api to return the course level
-        if(!this.props.challenge) return <LoadingScreen />;
+        if(!this.props.course || !this.props.challenge) return <LoadingScreen />;
 
         // show the video 
         if(this.props.showVideo) return this.getVideo();

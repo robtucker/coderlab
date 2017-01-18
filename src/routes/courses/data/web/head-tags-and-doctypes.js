@@ -1,18 +1,17 @@
+
+
 /*
-html style attribute
-rgba colors
-Hex colors
-text color
-background color 
-div attribute
+DOCTYPES and head tags
+Separating CSS into a different file
+link attribute
 */
 export default [{
-    id: 1,
+    id: 5,
     type: "web",
     video: "https://www.youtube.com/embed/v4oN4DuR7YU",
-    title: "Do it with style",
-    label: "Styles",
-    description: `<p>The designers have come back to us with a new color scheme. Lets spruce up this page a bit.</p>`,
+    title: "Wrapping it up",
+    label: "Doctypes",
+    description: `<p>You're taking a last look over your HTML before we send it off to Jean-Claude.</p>`,
     files: [
         {
             id: 'nE45iRup',

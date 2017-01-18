@@ -1,4 +1,4 @@
-export const web = {
+export const summary = {
     id: 1,
     slug: "web",
     title: "HTML/CSS",
@@ -7,11 +7,11 @@ export const web = {
         Kick start your career as a programmer with this practical hands-on course.`,
     difficultyRating: 1,
     icon: {
-        img: require('../../../assets/img/courses/web/icons/html.svg'),
+        img: require('../../../../assets/img/courses/web/icons/html.svg'),
         background: "#c75c5c",
     },
     banner: {
-        img: require('../../../assets/img/courses/web/banners/design.jpg'),
+        img: require('../../../../assets/img/courses/web/banners/design.jpg'),
         background: "#68c4b5"
     },
     teacher: {
@@ -19,28 +19,28 @@ export const web = {
         subtitle: "Web Developer",
         description: `Simon is a web developer with a focus on user-interfaces and design. 
             He's run various teams over the years and loves agile methodology.`,
-        img: require('../../../assets/img/mentors/simon-van-blerk.jpg'),
+        img: require('../../../../assets/img/mentors/simon-van-blerk.jpg'),
         tags: ["javascript", "web", "html", "css"]
     },
     tags: ["javascript", "node"],
     levels: [
         {
             id: 1,
-            title: "Getting set up in Unity",
-            description:  `Learn professional web development using HTML, CSS and SASS. 
-                Kick start your career as a programmer with this practical hands-on course.`,
+            title: "Intro to HTML",
+            description:  `Ever wondered how the internet actually works. Well... wonder no more. 
+                In this first level, we'll give you a crash course in what HTML is and how it works.`,
             icon: {
-                img: require('../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
             },
         },
         {
             id: 2,
-            title: "Game objects",
-            description:  `Learn professional web development using HTML, CSS and SASS. 
-                Kick start your career as a programmer with this practical hands-on course.`,
+            title: "Style it up",
+            description:  `HTML on its own can be a little boring. Introduce a bit of color with CSS. 
+                We'll show you how to customize the look of your website, and what style is really all about`,
             icon: {
-                img: require('../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
             },
         },
@@ -50,7 +50,7 @@ export const web = {
             description:  `Learn professional web development using HTML, CSS and SASS. 
                 Kick start your career as a programmer with this practical hands-on course.`,
             icon: {
-                img: require('../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
             },
         },
@@ -60,7 +60,7 @@ export const web = {
             description:  `Learn professional web development using HTML, CSS and SASS. 
                 Kick start your career as a programmer with this practical hands-on course.`,
             icon: {
-                img: require('../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
             },
         },
@@ -70,7 +70,7 @@ export const web = {
             description:  `Learn professional web development using HTML, CSS and SASS. 
                 Kick start your career as a programmer with this practical hands-on course.`,
             icon: {
-                img: require('../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
             },
         },
@@ -80,7 +80,7 @@ export const web = {
             description:  `Learn professional web development using HTML, CSS and SASS. 
                 Kick start your career as a programmer with this practical hands-on course.`,
             icon: {
-                img: require('../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
             },
         },
@@ -90,9 +90,34 @@ export const web = {
             description:  `Learn professional web development using HTML, CSS and SASS. 
                 Kick start your career as a programmer with this practical hands-on course.`,
             icon: {
-                img: require('../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
             }
         },
     ]
 };
+
+// map out the courses into levels, the level id is simply the index 
+export const courseMap = [
+    'headers-and-list-tags',
+    'style-tags-and-color',
+    'anchors-and-links',
+    'box-model',
+    'head-tags-and-doctypes',
+    'class-and-id-selectors',
+    'images',
+    'fonts',
+    'forms-and-input',
+    'display-and-position'
+
+];  
+
+// export const getLevel = (levelId) => {
+    
+//     return require.ensure([], (require) => {
+//         console.log('getLevel', levelId)
+//         let level = require('./' + courseMap[parseInt(levelId) + 1]);
+
+//         if (level && level.default && level.default.length) return level.default
+//     });
+// }

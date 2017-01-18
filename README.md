@@ -1,3 +1,11 @@
+CoderLab is an open source project to allow anyone to learn programming for free. 
+Each course consists of both videos and challenges, with an emphasis on challenges.
+
+CoderLab are actively seeking developers to create course content.
+
+If you wish to create a course you just need to have some videos prepared and put a bit of time into 
+configuring the rules for the challenges.
+
 ###Installation
 
 ```
@@ -10,16 +18,15 @@ npm start
 The code editor is built on top of [CodeMirror](https://codemirror.net)
 
 ### Course configuration
-
 A course consists of a series of levels. Each level is an array of challenges. The format is:
 
-level
-  challenge
-    task
-      rules
+course => level => challenge => task => rules
 
+The rules are assertions that are made against the Abstract Syntax Tree of the code, such as
+cheking for the presence of a variable or an html tag, or ensuring the output contains x or y.
 
-A single challenge would look as follows:
+Each challenge is a React component, so you could create a custom challenge format if you want to do something new.  
+Currently only web challenges (html/css/javascript) are offered. Each challenge takes a cofiguration object such as: 
 
 ```
 {
@@ -38,15 +45,15 @@ A single challenge would look as follows:
             contents: `<h1>some file contents</h1>` // initialize the file with some contents
         }
     ],
-    tasks: [ // each task should a self-contained entity containing one action for the student to do next
+    tasks: [ // each task should involve a single action for the student to do next
         {
-            id: 1, // order is determined by array index not this id
+            id: 1, // order is determined by id
             description: `Find the <h1> tag on <%location%> and change it to foo`, // certain embedded functions such as location can be used to augment the description
             rules: [ // the rules determine whether the student has done the task correctly
                 {
                     id: 1,
                     fileId: '1dfu7sh3', // a parser will be generated for this file type
-                    method: 'hasTag', // this method must exist on the parser class - can also be 'custom'
+                    method: 'hasTag', // this method must exist on the parser class - can also be custom function
                     args: { // the args property will be passed to the method
                         tagName: 'h1', //
                         text: "foo",
@@ -59,11 +66,9 @@ A single challenge would look as follows:
 },
 ```
 
-Notice that the task description uses <%locaition%> to specify the location of the task.
-This is because the user might move stuff around, therefore all line numbers are changeable and need to be calculated on the fly.
+Notice that the task description uses <%location%> to specify the location of the task.
+This is because the user might move code around, therefore all line numbers are changeable and need to be calculated on the fly.
 For this reason it is also better to use the default hints which have line numbers built in, rather than providing a custom hint.
-
-
 
 
 ### API Usage

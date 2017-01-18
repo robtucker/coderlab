@@ -1,27 +1,26 @@
-export const javascript = {
-    id: 4,
-    slug: "javascript",
-    title: "Javascript",
-    subtitle: "The language of the web",
-    description: `From interactive user experiences to real-time chat applications, 
-        learn the language of the web with JavaScript.`,
+export const summary = {
+    id: 3,
+    slug: "python",
+    title: "Python",
+    subtitle: "An entry to programming",
+    description: `The most popular programming language of our times, Python is readable fast, and 
+        used by beginners and experts alike.`,
     difficultyRating: 1,
     icon: {
-        img: require('../../../assets/img/courses/javascript/icons/node.svg'),
+        img: require('../../../../assets/img/courses/python/icons/python.svg'),
         background: "#c75c5c",
     },
     banner: {
-        img: require('../../../assets/img/courses/javascript/banners/blocks.jpg'),
-        background: "#f1de5d"
+        img: require('../../../../assets/img/courses/python/banners/python.png'),
+        background: "#41475d"
     },
-
     teacher: {
-        id: 2,
-        name: "Ashley Banks",
-        subtitle: "Javascript Developer",
-        description: `Ashley is a veteran Javascript programmer with years of experience building 
-            web applications using React, Angular and NodeJS.`,
-        img: require('../../../assets/img/mentors/ashley-banks.jpg'),
+        id: 1,
+        name: "Rob Tucker",
+        subtitle: "Python Developer",
+        description: `Rob is a Python developer with a love for natural language processing, linguistics 
+            and compiler design. He also plays piano and has a dog named Izzy.`,
+        img: require('../../../../assets/img/mentors/rob-tucker.jpg'),
         tags: ["javascript", "python"]
     },
     levels: [
@@ -31,7 +30,7 @@ export const javascript = {
             description:  `Learn professional web development using HTML, CSS and SASS. 
                 Kick start your career as a programmer with this practical hands-on course.`,
             icon: {
-                img: require('../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
             },
         },
@@ -41,7 +40,7 @@ export const javascript = {
             description:  `Learn professional web development using HTML, CSS and SASS. 
                 Kick start your career as a programmer with this practical hands-on course.`,
             icon: {
-                img: require('../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
             },
         },
@@ -51,7 +50,7 @@ export const javascript = {
             description:  `Learn professional web development using HTML, CSS and SASS. 
                 Kick start your career as a programmer with this practical hands-on course.`,
             icon: {
-                img: require('../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
             },
         },
@@ -61,7 +60,7 @@ export const javascript = {
             description:  `Learn professional web development using HTML, CSS and SASS. 
                 Kick start your career as a programmer with this practical hands-on course.`,
             icon: {
-                img: require('../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
             },
         },
@@ -71,7 +70,7 @@ export const javascript = {
             description:  `Learn professional web development using HTML, CSS and SASS. 
                 Kick start your career as a programmer with this practical hands-on course.`,
             icon: {
-                img: require('../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
             },
         },
@@ -81,7 +80,7 @@ export const javascript = {
             description:  `Learn professional web development using HTML, CSS and SASS. 
                 Kick start your career as a programmer with this practical hands-on course.`,
             icon: {
-                img: require('../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
             },
         },
@@ -91,7 +90,7 @@ export const javascript = {
             description:  `Learn professional web development using HTML, CSS and SASS. 
                 Kick start your career as a programmer with this practical hands-on course.`,
             icon: {
-                img: require('../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
             }
         },

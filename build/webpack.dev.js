@@ -15,7 +15,9 @@ const PORT = process.env.PORT = 3000;
 
 const APP_GLOBALS = helpers.mergeEnvironment({
     ENV: ENV,
-    HOST: HOST
+    HOST: HOST,
+    // todo - this is just a temp hack to fix the courses/data/index problem
+    APP_PATH: __dirname.replace(/build/, '')
 });
 
 /**

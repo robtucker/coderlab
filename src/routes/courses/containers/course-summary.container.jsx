@@ -12,7 +12,7 @@ const mapDispatchToProps = (dispatch) => ({
     toggleEnrolDialog: () => {
         dispatch(toggleEnrolDialog());
     },
-    startCourse: startCourse
+    startCourse
 });
 
 const mapStateToProps = (state, ownProps) => {

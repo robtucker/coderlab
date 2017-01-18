@@ -1,29 +1,29 @@
-export const game = {
-    id: 2,
-    slug: "game",
-    title: "Game Development",
-    subtitle: "The fundamentals of game development",
-    description: `Learn the Unity game engine, and make your own video game. 
-        This beginner level course will guide you through the ABCs of game development.`,
+export const summary = {
+    id: 4,
+    slug: "javascript",
+    title: "Javascript",
+    subtitle: "The language of the web",
+    description: `From interactive user experiences to real-time chat applications, 
+        learn the language of the web with JavaScript.`,
     difficultyRating: 1,
     icon: {
-        img: require('../../../assets/img/courses/game/icons/phone.svg'),
+        img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
         background: "#c75c5c",
     },
     banner: {
-        img: require('../../../assets/img/courses/game/banners/frog.png'),
-        background: "#c75c5c"
+        img: require('../../../../assets/img/courses/javascript/banners/blocks.jpg'),
+        background: "#f1de5d"
     },
+
     teacher: {
-        id: 5,
-        name: "Roberto Nygaard",
-        subtitle: "PHP Developer",
-        description: `Roberto is a CTO with years of experience in PHP, Java and Database Design. 
-            He's currently building a platform where developers can find jobs at Snap.hr`,
-        img: require('../../../assets/img/mentors/roberto-nygaard.jpg'),
-        tags: ["javascript", "php", "databases"]
+        id: 2,
+        name: "Ashley Banks",
+        subtitle: "Javascript Developer",
+        description: `Ashley is a veteran Javascript programmer with years of experience building 
+            web applications using React, Angular and NodeJS.`,
+        img: require('../../../../assets/img/mentors/ashley-banks.jpg'),
+        tags: ["javascript", "python"]
     },
-    tags: ["game", "unity", "video"],
     levels: [
         {
             id: 1,
@@ -31,7 +31,7 @@ export const game = {
             description:  `Learn professional web development using HTML, CSS and SASS. 
                 Kick start your career as a programmer with this practical hands-on course.`,
             icon: {
-                img: require('../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
             },
         },
@@ -41,7 +41,7 @@ export const game = {
             description:  `Learn professional web development using HTML, CSS and SASS. 
                 Kick start your career as a programmer with this practical hands-on course.`,
             icon: {
-                img: require('../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
             },
         },
@@ -51,7 +51,7 @@ export const game = {
             description:  `Learn professional web development using HTML, CSS and SASS. 
                 Kick start your career as a programmer with this practical hands-on course.`,
             icon: {
-                img: require('../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
             },
         },
@@ -61,7 +61,7 @@ export const game = {
             description:  `Learn professional web development using HTML, CSS and SASS. 
                 Kick start your career as a programmer with this practical hands-on course.`,
             icon: {
-                img: require('../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
             },
         },
@@ -71,7 +71,7 @@ export const game = {
             description:  `Learn professional web development using HTML, CSS and SASS. 
                 Kick start your career as a programmer with this practical hands-on course.`,
             icon: {
-                img: require('../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
             },
         },
@@ -81,7 +81,7 @@ export const game = {
             description:  `Learn professional web development using HTML, CSS and SASS. 
                 Kick start your career as a programmer with this practical hands-on course.`,
             icon: {
-                img: require('../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
             },
         },
@@ -91,7 +91,7 @@ export const game = {
             description:  `Learn professional web development using HTML, CSS and SASS. 
                 Kick start your career as a programmer with this practical hands-on course.`,
             icon: {
-                img: require('../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
             }
         },

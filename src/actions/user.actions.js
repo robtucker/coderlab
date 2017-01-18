@@ -20,18 +20,21 @@ export const putMe = (data) => {
 
 }
 
-// async actions
-export const startCourse = (course) => {
+// also defined in course.actions
+// export const START_COURSE = "START_COURSE";
+// export const startCourse = (course) => {
     
-    let data = {[course.id]: {
-        dateStarted: utils.timestamp(),
-        challenges: []
-    }}
+//     let data = {[course.id]: {
+//         dateStarted: utils.timestamp(),
+//         challenges: []
+//     }}
 
-    let req = api.put('me', null, {courses: data});
+//     let req = api.put('me', null, {courses: data});
 
-    req.then((res => { 
-        browserHistory.push(`courses/${course.slug}/level/1/1`);
-    }));
-    
-};
+//     req.then((res => { 
+//         browserHistory.push(`courses/${course.slug}/level/1/1`);
+//     }));
+
+//     return {type: START_COURSE}  
+// };
+

@@ -41,7 +41,7 @@ export const challenge = (state = initialState, action) => {
         return Object.assign({}, state, {
             current: action.challenge,
             errors: [],
-            showVideo: false,
+            showVideo: true,
             currentTask: 0,
             isComplete: false,
             showCompletionModal: false,
