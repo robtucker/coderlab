@@ -1,8 +1,8 @@
-{
+module.exports = {
     "HISTORY_API_FALLBACK": true,
     "LOG_LEVEL_CONSOLE": 100,
     "APP_KEY": "abcdefg1234567",
-    "APP_TITLE": "Bloom",
+    "APP_TITLE": "CoderLab",
     "API_URL": "http://localhost",
     "API_PORT": 80,
     "MOCK_API": false,
@@ -14,4 +14,4 @@
     "INDEX_DB_EXPIRY": 86400,
     "LOCAL_STORAGE_AUTH_KEY": "cl.auth"
     
-}   
+}

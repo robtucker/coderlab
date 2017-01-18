@@ -13,7 +13,7 @@ let navMenu = [
     },
     // {
     //     id: 2,
-    //     label: "Bloom",
+    //     label: "CoderLab",
     //     url: "/",
     //     className: "font-size-xl"
     // },

@@ -56,7 +56,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'Bloom',
+            title: 'CoderLab',
             template: 'index.ejs', 
             favicon: '../src/assets/img/favicon.png',
             metas: [

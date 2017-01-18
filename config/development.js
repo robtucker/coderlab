@@ -1,4 +1,4 @@
-{
+module.exports = {
     "LOG_LEVEL_CONSOLE": 100,
     "CONTACT_EMAIL": "foo@bar.com",
     "CONTACT_PHONE": "+44 7789 457324",

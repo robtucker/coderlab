@@ -21,8 +21,8 @@ exports.mergeEnvironment = function(environment) {
     console.log(`Merging environment variables for: ${environment.ENV}`.green);
 
     let isProd = (environment.ENV === 'production') || (environment.ENV === 'prod');
-    let commonGlobals = require(`../config/common.json`);
-    let environmentGlobals = require(`../config/${environment.ENV}.json`);
+    let commonGlobals = require(`../config/common.js`);
+    let environmentGlobals = require(`../config/${environment.ENV}.js`);
     console.log(environmentGlobals);
 
 

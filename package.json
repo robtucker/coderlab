@@ -1,10 +1,10 @@
 {
   "name": "CoderLab",
   "version": "1.0.0",
-  "description": "Bloom website",
+  "description": "CoderLab website",
   "main": "index.ts",
   "scripts": {
-    "build": "webpack --production",
+    "build": "NODE_ENV=production webpack",
     "start": "webpack-dev-server --watch",
     "test": "mocha --opts ./mocha.opts"
   },
