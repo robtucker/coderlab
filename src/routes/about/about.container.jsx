@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 
-import { Mentors } from "./components/mentors";
+import { About } from "./components/about";
 
 const mapDispatchToProps = (dispatch) => ({
     
@@ -10,4 +10,4 @@ const mapStateToProps = (state) => ({
     mentors: state.mentors,
 });
 
-export const MentorsContainer = connect(mapStateToProps, mapDispatchToProps)(Mentors);
+export const AboutContainer = connect(mapStateToProps, mapDispatchToProps)(About);

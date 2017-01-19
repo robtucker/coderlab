@@ -7,11 +7,11 @@ import { LoginRoute, RegisterRoute } from "./auth";
 import { LandingContainer } from "./landing";
 
 import { AbortRoutes } from "./abort";
-import { ContactRoutes } from "./contact";
+//import { ContactRoutes } from "./contact";
 import { CourseRoutes }  from "./courses";
 import { CreatorRoutes }  from "./creator";
 import { HomeRoutes } from "./home";
-import { MentorsRoutes } from "./mentors";
+import { AboutRoutes } from "./about";
 import { SettingsRoutes } from "./settings";
 
 
@@ -28,11 +28,11 @@ export const AppRoutes = [
             AbortRoutes,
 
             // async routes
-            ContactRoutes(store),
+            //ContactRoutes(store),
             ...CourseRoutes(store), // an array of routes
             CreatorRoutes(store),
             HomeRoutes(store),
-            MentorsRoutes(store),
+            AboutRoutes(store),
             SettingsRoutes(store),
             
         ]

@@ -5,7 +5,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import { Header } from "./header";
 import { ArrowBox} from "../../../components/arrow-box";
 import { PanelSlider} from "../../../components/panel-slider";
-import { NextPage} from "../../../components/next-page";
+//import { NextPage} from "../../../components/next-page";
 //import { IconList} from "../../../components/icon-list";
 
 import { CourseIndex } from "../../courses/components/course-index";
@@ -56,16 +56,6 @@ const Landing = (props) => {
             <div><PanelSlider panels={sliderPanels} /></div>
 
             <CourseIndex courses={props.courses} nextPageUrl={false} nextPageLabel={false}/>
-            {
-            // temporarily removed this
-            // <IconList list={props.mentoringIcons}
-            //     title="Find a coding mentor" 
-            //     subTitle="We have thousands of programmers across the UK who can help you">
-            //     <ArrowBox color={typography.textDarkBlack} url="mentors" />
-            // </IconList>
-            
-            }
-            <NextPage to="mentors" label="Mentors" />
 
         </div>
     );
@@ -78,3 +68,12 @@ Landing.propTypes = {
 }
 
 export { Landing }
+
+            
+            // temporarily removed this
+            // <IconList list={props.mentoringIcons}
+            //     title="Find a coding mentor" 
+            //     subTitle="We have thousands of programmers across the UK who can help you">
+            //     <ArrowBox color={typography.textDarkBlack} url="mentors" />
+            // </IconList>
+            // <NextPage to="mentors" label="Mentors" />

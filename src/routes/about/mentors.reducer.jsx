@@ -17,15 +17,15 @@ let mentors = [
         img: require('../../assets/img/mentors/ashley-banks.jpg'),
         tags: ["javascript", "python"]
     },
-    {
-        id: 3,
-        name: "Aylin Cakiroglu",
-        subtitle: "Machine Learning Specialist",
-        description: `Aylin is a machine learning specialist who works on DNA sequencing. 
-            She works for Cancer Research and is busy bringing Computer Science to Biology`,
-        img: require('../../assets/img/mentors/aylin-cakiroglu.jpg'),
-        tags: ["javascript", "python"]
-    },
+    // {
+    //     id: 3,
+    //     name: "Aylin Cakiroglu",
+    //     subtitle: "Machine Learning Specialist",
+    //     description: `Aylin is a machine learning specialist who works on DNA sequencing. 
+    //         She works for Cancer Research and is busy bringing Computer Science to Biology`,
+    //     img: require('../../assets/img/mentors/aylin-cakiroglu.jpg'),
+    //     tags: ["javascript", "python"]
+    // },
     {
         id: 4,
         name: "Simon Van Blerk",
@@ -35,15 +35,15 @@ let mentors = [
         img: require('../../assets/img/mentors/simon-van-blerk.jpg'),
         tags: ["javascript", "python"]
     },
-    {
-        id: 5,
-        name: "Roberto Nygaard",
-        subtitle: "PHP Developer",
-        description: `Roberto is a CTO with years of experience in PHP, Java and Database Design. 
-            He's currently building a platform where developers can find jobs at Snap.hr`,
-        img: require('../../assets/img/mentors/roberto-nygaard.jpg'),
-        tags: ["javascript", "python"]
-    }
+    // {
+    //     id: 5,
+    //     name: "Roberto Nygaard",
+    //     subtitle: "PHP Developer",
+    //     description: `Roberto is a CTO with years of experience in PHP, Java and Database Design. 
+    //         He's currently building a platform where developers can find jobs at Snap.hr`,
+    //     img: require('../../assets/img/mentors/roberto-nygaard.jpg'),
+    //     tags: ["javascript", "python"]
+    // }
 ]
 
 export const mentorsReducer = (state = mentors, action) => {

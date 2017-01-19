@@ -25,8 +25,8 @@ let navMenu = [
     },
     {
         id: 4,
-        label: "Mentors",
-        url: "/mentors",
+        label: "About",
+        url: "/about",
         className: ""
     },
 
