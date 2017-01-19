@@ -32,6 +32,14 @@ p a {
     color: $primary2Color;
 }
 
+.grey-link {
+    color: $accent3Color;
+}
+
+.grey-link:hover {
+    color: #616161; //grey700
+}
+
 .hover-invert:hover {
     color: white;
     background-color: $gray-dark;

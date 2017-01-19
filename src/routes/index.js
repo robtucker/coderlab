@@ -7,7 +7,7 @@ import { LoginRoute, RegisterRoute } from "./auth";
 import { LandingContainer } from "./landing";
 
 import { AbortRoutes } from "./abort";
-//import { ContactRoutes } from "./contact";
+import { ContactRoutes } from "./contact";
 import { CourseRoutes }  from "./courses";
 import { CreatorRoutes }  from "./creator";
 import { HomeRoutes } from "./home";
@@ -28,7 +28,7 @@ export const AppRoutes = [
             AbortRoutes,
 
             // async routes
-            //ContactRoutes(store),
+            ContactRoutes(store),
             ...CourseRoutes(store), // an array of routes
             CreatorRoutes(store),
             HomeRoutes(store),

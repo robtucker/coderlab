@@ -14,14 +14,13 @@ const About = ({mentors, email}) => (
 
         <div className="col justify-center align-center margin-y-lg" >
             <div style={{maxWidth: '800px'}}>
-                <p>CoderLab is a group of Software Engineers who are passionate about life-long learning and the new wave of "open-source education". 
-                We aim to help programmers of all levels, whether it's by teaching one on one, or volunteering at local clubs and schools.</p>
+                <p>CoderLab is a group of Software Engineers who are passionate about open-source education and life-long learning.</p>
+                <p>The open-source movement is founded on the belief that if you benefit from free access to information,
+                    then you also have a responsibility to give back and contribute to the open distribution of knowledge.</p>
                 <p>We are currently seeking like-minded developers to help us create a series of free online courses. 
-                If you're interested in contributing then check out the source code <a href="https:github.com/robtucker/coderlap">here</a></p>
+                If you're interested in contributing then check out the source code <a target="_blank" href="https:github.com/robtucker/coderlab">here</a></p>
             </div>
         </div>
-
-        
 
         <div>
             <h3 className="margin-x-sm margin-bottom-md text-center">Meet our mentors...</h3>

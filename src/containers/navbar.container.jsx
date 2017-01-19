@@ -9,7 +9,7 @@ let navMenu = [
         id: 1,
         label: "Home",
         url: "/",
-        className: "width-auto min-width-25"
+        className: ""
     },
     // {
     //     id: 2,
