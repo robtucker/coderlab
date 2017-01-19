@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
-import { PageContainer, Quote } from "../../../components";
+import { PageContainer } from "../../../components/page-container";
+//import { Quote } from "../../../components/quote";
 
 import { MentorCard } from "./mentor-card";
 
@@ -8,10 +9,6 @@ const Mentors = ({mentors}) => (
     <PageContainer nextPageLabel="Contact" nextPageUrl="contact" center={true}>
 
         <h3 className="margin-x-sm margin-bottom-md text-center">Meet our mentors...</h3>
-
-        <Quote 
-            text="Education is the most powerful weapon which you can use to change the world." 
-            author="Nelson Mandela" />
 
         <div className="row flex-wrap align-stretch justify-center">
             {
@@ -31,3 +28,6 @@ const Mentors = ({mentors}) => (
 
 export { Mentors }
 
+// <Quote 
+//     text="Education is the most powerful weapon which you can use to change the world." 
+//     author="Nelson Mandela" />

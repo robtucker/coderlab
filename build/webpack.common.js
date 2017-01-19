@@ -10,7 +10,18 @@ let extractSASS = new ExtractTextPlugin('[name].css');
 module.exports = {
     context: path.join(process.env.NODE_PATH, "/src"),
     entry: {
-        main: "./main.jsx"
+        vendor: [
+            "redux", 
+            "react-redux", 
+            'redux-thunk',
+            'redux-logger',
+            'redux-form',
+            'react-tap-event-plugin',
+            'react-slick',
+            'react-router-scroll',
+            'isolog'
+        ],
+        main: "./main.jsx",
     },
     output: {
         path: path.join(process.env.NODE_PATH, "/dist"),
@@ -59,6 +70,7 @@ module.exports = {
             title: 'CoderLab',
             template: 'index.ejs', 
             favicon: '../src/assets/img/favicon.png',
+            cdns: [],
             metas: [
                 {"charset": "utf-8"},
                 {"name": "author"},
@@ -74,9 +86,7 @@ module.exports = {
             {from: 'src/assets/humans.txt'}
         ]),
 
-        new webpack.optimize.CommonsChunkPlugin({
-            name: "commons",
-        })
+        new webpack.optimize.CommonsChunkPlugin({name: "vendor"})
 
     ],
     resolve: {

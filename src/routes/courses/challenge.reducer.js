@@ -10,7 +10,7 @@ import {
     SET_CURRENT_TASK,
     SHOW_CHALLENGE_ERRORS,
     COMPLETE_CHALLENGE,
-    CLOSE_COMPLETION_MODAL} from "../actions";
+    CLOSE_COMPLETION_MODAL} from "../../actions";
 
 let initialState = {
     sidebarVisible: false,
@@ -30,7 +30,7 @@ const normalizeLineEndings = (str) => {
     return str.replace(/\r\n|\r/g, '\n');
 }
 
-export const challenge = (state = initialState, action) => {
+export const reducer = (state = initialState, action) => {
     switch (action.type) {
     case TOGGLE_CHALLENGE_SIDEBAR:
         return Object.assign({}, state, {sidebarVisible: !state.sidebarVisible}); 

@@ -1,7 +1,7 @@
 import React,  { PropTypes } from 'react';
 import { Link } from 'react-router';
 
-import { typography } from "../../styles";
+import { typography } from "../styles";
 
 const NextPage = ({to, label, bgColor}) => {
     return (

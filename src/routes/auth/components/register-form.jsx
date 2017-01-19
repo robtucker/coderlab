@@ -2,8 +2,8 @@ import React from 'react'
 import { Link, browserHistory } from 'react-router';
 
 import { Field, reduxForm } from 'redux-form'
-import { renderTextField, renderPasswordField, renderSubmitButtons } from '../../../components'
-import { FormValidator } from "../../../core"
+import { renderTextField, renderPasswordField, renderSubmitButtons } from '../../../components/form-fields'
+import { FormValidator } from "../../../core/validators"
 import { formConstants } from "../../../config";
 import {palette} from "../../../styles";
 

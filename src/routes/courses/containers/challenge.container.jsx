@@ -2,13 +2,12 @@ import { connect } from "react-redux";
 import { Challenge } from "../components/challenge";
 import { breakpoints } from "../../../styles";
 import { 
-    toggleVideo, 
-    toggleNavbar,
+    toggleNavbar, 
     hideNavbar,
-    toggleChallengeSidebar,
-    startCourse,
-    startCourseLevel,
+    startCourseLevel, 
     courseNotFound,
+    toggleVideo, 
+    toggleChallengeSidebar,
     startChallenge, 
     showChallengeErrors,
     completeChallenge,
@@ -17,7 +16,6 @@ import {
 } from "../../../actions";
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    startCourse: (name, data) => dispatch(startCourse(name, data)),
     startCourseLevel: (courseName, levelId, levelData) => dispatch(startCourseLevel(courseName, levelId, levelData)),
     courseNotFound: () => dispatch(courseNotFound()),
     toggleVideo: () => dispatch(toggleVideo()),

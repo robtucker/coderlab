@@ -1,7 +1,7 @@
 import React,  { PropTypes } from 'react';
 import {Link} from "react-router";
 
-import { PageContainer } from "../../../components";
+import { PageContainer } from "../../../components/page-container";
 import { CourseMenu } from "../../courses/components/course-menu";
 
 const Home = ({user}) => {

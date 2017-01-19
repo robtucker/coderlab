@@ -1,4 +1,4 @@
-import {utils} from "../../core";
+import {utils} from "../../core/utils";
 import {find, groupBy} from "lodash";
 
 const elemLabels = {

@@ -1,8 +1,14 @@
 import React, { PropTypes, Component } from 'react';
+import {browserHistory} from"react-router";
 import Drawer from 'material-ui/Drawer';
 import {List, ListItem} from 'material-ui/List';
 
-import { PageContainer, LinkCard, SidebarLayout, MenuLink, Avatar, StarRating } from "../../../components";
+import { PageContainer} from "../../../components/page-container";
+import { LinkCard } from "../../../components/link-card";
+import { SidebarLayout } from "../../../components/sidebar-layout";
+import { MenuLink } from "../../../components/menu-link";
+import { Avatar } from "../../../components/avatar";
+import { StarRating } from "../../../components/star-rating";
 import { CourseBanner } from "./course-banner";
 import { EnrolDialog } from "../components/enrol-dialog";
 
@@ -11,6 +17,13 @@ export class CourseSummary extends Component {
     componentWillMount() {
         console.log(this.props);
         this.props.setNavbarColor(this.props.course.banner.background);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        //console.log(this.props);
+        if(nextProps.course.banner.background !== this.props.course.banner.background) {
+            this.props.setNavbarColor(nextProps.course.banner.background);
+        } 
     }
 
     componentWillUnmount() {
@@ -42,7 +55,8 @@ export class CourseSummary extends Component {
                 <h6>Other courses:</h6>
                 <List>
                     {this.props.relatedCourses.map((c) => (
-                        <ListItem key={c.id} primaryText={c.title} />
+                        <ListItem key={c.id} primaryText={c.title} 
+                            onTouchTap={() => {browserHistory.push(`/courses/${c.slug}`)}} />
                     ))}
                 </List>
             </section>

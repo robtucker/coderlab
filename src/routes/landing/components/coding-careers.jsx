@@ -1,6 +1,6 @@
 import React, { PropTypes } from "react";
 
-import { Quote } from "../../../components";
+import { Quote } from "../../../components/quote";
 import { JobListContainer } from "../containers/job-list";
 
 const CodingCareers = () => (

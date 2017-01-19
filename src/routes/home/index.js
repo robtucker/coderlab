@@ -1,7 +1,7 @@
 // remove the dedicated homepage for now 
 //import { HomeContainer } from "./home.container";
 import {LandingContainer} from "../landing/containers/landing.container";
-import { authMiddleware } from "../../middleware";
+import { authMiddleware } from "../../middleware/auth.middleware";
 import { injectReducer } from "../../store";
 
 export const HomeRoutes = (store) => ({

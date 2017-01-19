@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { screenResize } from "../actions";
-import { AppLayout } from "../components";
+import { AppLayout } from "../components/app-layout";
 
 const mapStateToProps = (state) => ({
     appHeight: state.app.height,

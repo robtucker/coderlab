@@ -4,7 +4,7 @@ import { Link } from "react-router";
 
 import Paper from 'material-ui/Paper';
 
-import { typography, palette} from "../../styles";
+import { typography, palette} from "../styles";
 
 let sizes = {
     sm: "50px",

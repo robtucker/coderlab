@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 
-import {Snackbars} from "../components/notifications/snackbars";
+import {Snackbars} from "../components/snackbars";
 
 
 const mapStateToProps = (state) => ({

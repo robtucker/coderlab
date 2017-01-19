@@ -1,6 +1,6 @@
 import React,  { PropTypes } from 'react';
 
-import { NextPage } from "../panels/next-page";
+import { NextPage } from "./next-page";
 
 const PageContainer = ({title, children, nextPageUrl, nextPageLabel}) => (
     <div>

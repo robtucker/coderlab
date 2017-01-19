@@ -19,9 +19,9 @@ let initialState = {
 export const courses = (state = initialState, action) => {
 
     switch (action.type) {
-    //case START_COURSE: 
-        // let courses = Object.assign({}, state.byName, {[action.courseName]: action.course});
-        // return Object.assign({}, state, {byName: courses});
+    case START_COURSE: 
+        let courses = Object.assign({}, state.byName, {[action.courseName]: action.course});
+        return Object.assign({}, state, {byName: courses});
     // case "API_GET_COURSE_LEVEL_SUCCESS":
     //     return Object.assign({}, state, {[action.params.course]: {[action.params.level]: action.data}});
     case START_COURSE_LEVEL:

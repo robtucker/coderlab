@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 
 const helpers = require('./helpers');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const ENV = process.env.ENV = process.env.NODE_ENV = 'production';
 
@@ -12,19 +13,49 @@ const PRODUCTION_GLOBALS = helpers.mergeEnvironment({
     LOG_LEVEL: 300
 });
 
-let externals = [
-    'react',
-    'react-dom',
-    'react-router',
-    'redux',
-    'lodash',
-];
-
 /**
  * Merge in the development webpack config properties
  */
 module.exports = helpers.mergeWebpackConfig({
+    externals: {
+        // Use external version of React
+        "react": "React",
+        "react-dom": "ReactDOM",
+        lodash : {
+            commonjs: "lodash",
+            amd: "lodash",
+            root: "_" // indicates global variable
+        }
+    },
     plugins: [
-        new webpack.DefinePlugin(helpers.configureAppGlobals(PRODUCTION_GLOBALS))
+        new HtmlWebpackPlugin({
+            title: 'CoderLab',
+            template: 'index.ejs', 
+            favicon: '../src/assets/img/favicon.png',
+            cdns: [
+                {src: "https://unpkg.com/react@15/dist/react.min.js"},
+                {src: "https://unpkg.com/react-dom@15/dist/react-dom.min.js"},
+                {src: "https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"}
+            ],
+            metas: [
+                {"charset": "utf-8"},
+                {"name": "author"},
+                {"http-equiv": "x-ua-compatible", "content": "ie=edge"},
+                {"name": "viewport", "content": "width=device-width, initial-scale=1"}
+            ]
+        }),
+        new webpack.DefinePlugin(helpers.configureAppGlobals(ENV, PRODUCTION_GLOBALS)),
+        new webpack.DefinePlugin({
+            'process.env':{
+                'NODE_ENV': JSON.stringify('production')
+            }
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: true
+            }
+        }),
+        new webpack.optimize.AggressiveMergingPlugin(),
+        
     ]
 });

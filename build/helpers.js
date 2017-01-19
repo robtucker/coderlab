@@ -32,8 +32,11 @@ exports.mergeEnvironment = function(environment) {
 /**
  * format the app globals for the DefinePlugin
  */
-exports.configureAppGlobals = function(globals) {
+exports.configureAppGlobals = function(env, globals) {
     return {
-        'process.env.CONFIG': JSON.stringify(globals)
+        'process.env': { 
+            'NODE_ENV': JSON.stringify(env),
+            'CONFIG' :  JSON.stringify(globals)
+        }
     }
 };

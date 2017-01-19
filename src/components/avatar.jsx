@@ -1,5 +1,5 @@
 import React, { PropTypes } from "react";
-import { typography } from "../../styles";
+import { typography } from "../styles";
 
 let avatarStyle = (url) => ({
     backgroundImage:`url(${url})`,

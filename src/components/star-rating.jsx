@@ -1,6 +1,6 @@
 import React,  { PropTypes } from 'react';
 import FontIcon from 'material-ui/FontIcon';
-import { typography } from "../../styles";
+import { typography } from "../styles";
 import {yellow600, grey500} from 'material-ui/styles/colors';
 
 const yellow = {

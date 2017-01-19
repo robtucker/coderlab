@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
-import { NavbarContainer } from "../../containers/navbar.container";
-import { SnackbarContainer } from "../../containers/snackbar.container";
-import { NotificationContainer } from "../../containers/notification.container";
+import { NavbarContainer } from "../containers/navbar.container";
+//import { SnackbarContainer } from "../../containers/snackbar.container";
+//import { NotificationContainer } from "../../containers/notification.container";
 
 //import {Footer} from "./footer";
 
@@ -24,10 +24,10 @@ export class AppLayout extends Component{
         return (
             <div style={{ height: '100%'}}>
                 <NavbarContainer />
-                <NotificationContainer />
-                <SnackbarContainer />
                 {this.props.children}
             </div>
         );
     }
 }
+// <NotificationContainer />
+// <SnackbarContainer />

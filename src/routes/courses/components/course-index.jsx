@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 
 import { CourseMenu } from "./course-menu";
-import { PageContainer } from "../../../components";
+import { PageContainer } from "../../../components/page-container";
 
 const CourseIndex = ({courses, title, subtitle, nextPageUrl, nextPageLabel}) => {
 

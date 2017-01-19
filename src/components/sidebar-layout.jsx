@@ -1,7 +1,7 @@
 import React,  { PropTypes } from 'react';
 import Paper from 'material-ui/Paper';
 
-import { typography, palette } from "../../styles";
+import { typography, palette } from "../styles";
 
 const SidebarLayout = ({width, sidebar, children}) => {
 

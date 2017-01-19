@@ -1,5 +1,5 @@
 import React from "react";
-import {palette} from "../../styles";
+import {palette} from "../styles";
 
 export const ErrorIcon = ({color, fontSize, padding, borderWidth}) => {
 

@@ -5,7 +5,7 @@ import {Tabs, Tab} from 'material-ui/Tabs';
 import { CodeEditor } from "./editors/code-editor";
 import {HtmlDisplay} from "./display/html-display";
 import { editorThemes, palette } from "../styles"; 
-import {ErrorIcon, SuccessIcon} from "../components";
+import {ErrorIcon, SuccessIcon} from "../components/action-icons";
 
 let theme = editorThemes.dracula;
 

@@ -8,7 +8,7 @@ import {find as findElement} from "domutils";
 import {merge, find, omit, orderBy} from "lodash";
 import {Handler} from "./handlers/dom-handler";
 import TextParser from "./text-parser";
-import {utils} from "../../core";
+import {utils} from "../../core/utils";
 import {HtmlErrors} from "../errors/html-errors";
 
 export default class HtmlParser extends TextParser {

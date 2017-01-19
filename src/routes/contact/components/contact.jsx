@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { PageContainer } from "../../../components";
+import { PageContainer } from "../../../components/page-container";
 
 const Contact = ({contactEmail}) => (
     <PageContainer>

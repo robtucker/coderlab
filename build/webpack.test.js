@@ -19,6 +19,6 @@ const APP_GLOBALS = helpers.mergeEnvironment({
  */
 module.exports = helpers.mergeWebpackConfig({
     plugins: [
-        new webpack.DefinePlugin(helpers.configureAppGlobals(APP_GLOBALS))
+        new webpack.DefinePlugin(helpers.configureAppGlobals(ENV, APP_GLOBALS))
     ]
 });

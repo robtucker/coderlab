@@ -1,14 +1,15 @@
 import React, { Component, PropTypes } from "react";
 import { Link, browserHistory } from "react-router";
 import Paper from 'material-ui/Paper';
-import { LoadingScreen } from '../../../components';
-import {EditorContainer, Examiner} from "../../../editor";
+import { LoadingScreen } from '../../../components/loading-screen';
+import {EditorContainer} from "../../../editor/editor.container";
+import {Examiner} from "../../../editor/examiner";
 import FlatButton from 'material-ui/FlatButton';
 import { editorThemes, breakpoints } from "../../../styles";
 import { ChallengeVideo } from "./challenge-video";
 import {ChallengeInstructions} from "./challenge-instructions";
 import {ChallengeNavigation} from "./challenge-navigation";
-import { CourseConfigurationError } from "../../../core";
+import { CourseConfigurationError } from "../../../core/exceptions";
 import { AppTheme } from "../../../styles";
 import { findIndex, find, flatten } from "lodash";
 import { getCourseLevel } from "../data";

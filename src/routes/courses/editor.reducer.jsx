@@ -1,10 +1,10 @@
-import {SET_EDITOR_THEME} from "../actions";
+import {SET_EDITOR_THEME} from "../../actions";
 
 let initialState = {
     theme: 'dracula'
 }
 
-export const editor = (state = initialState, action) => {
+export const reducer = (state = initialState, action) => {
     switch (action.type) {
 
     case SET_EDITOR_THEME: 

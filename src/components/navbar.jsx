@@ -3,11 +3,11 @@ import { Link } from "react-router";
 import Divider from 'material-ui/Divider';
 import Drawer from "material-ui/Drawer";
 import { List } from 'material-ui/List';
-import { MenuLink } from '../elements/menu-link';
+import { MenuLink } from './menu-link';
 import AppBar from "material-ui/AppBar";
 import { UserMenu } from "./user-menu";
 import { LoginButtons } from "./login-buttons";
-import { AppTheme } from "../../styles";
+import { AppTheme } from "../styles";
 
 let drawerHeaderStyles = {
     paddingLeft: "16px",

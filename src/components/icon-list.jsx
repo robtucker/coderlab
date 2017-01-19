@@ -1,6 +1,6 @@
 import React, { PropTypes } from "react";
 
-import { Icon } from "../elements/icon";
+import { Icon } from "./icon";
 
 const IconList = ({title, subTitle, list, children}) => {
     

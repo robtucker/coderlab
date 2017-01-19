@@ -1,6 +1,6 @@
 import React, { PropTypes } from "react";
 
-import { SplitPanel } from "../../../components";
+import { SplitPanel } from "../../../components/split-panel";
 
 const Testimonials = () => (
     <section className="container">

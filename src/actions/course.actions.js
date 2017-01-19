@@ -1,22 +1,18 @@
-import { CourseApi } from "../api";
+//import { CourseApi } from "../api/course-api";
 import { startChallenge } from "./challenge.actions";
 import { getAppStore } from "../store";
 import { find } from "lodash"
 
-let api = new CourseApi();
+//let api = new CourseApi();
 
 export const TOGGLE_ENROL_DIALOG = "TOGGLE_ENROL_DIALOG";
 export const COURSE_NOT_FOUND = "COURSE_NOT_FOUND";
-export const START_COURSE = "START_COURSE";
 export const START_COURSE_LEVEL = "START_COURSE_LEVEL";
 
 export const toggleEnrolDialog = () => ({type: TOGGLE_ENROL_DIALOG});
 
-// this is also defined in user.actions ??
-export const startCourse = (courseName, courseData) => ({courseName, course: courseData, type: START_COURSE});
-
-
 export const startCourseLevel = (courseName, levelId, levelData) => {
+
     return {courseName, levelId, levelData, type: START_COURSE_LEVEL}  
 
 }

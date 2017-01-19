@@ -1,6 +1,6 @@
 import htmlparser from "htmlparser2";
 import {find} from "lodash";
-import {utils} from "../../../core";
+import {utils} from "../../../core/utils";
 import {HtmlElement} from "../elements/html-element";
 
 // aka self-closing elements

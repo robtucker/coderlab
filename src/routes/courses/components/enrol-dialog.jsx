@@ -6,7 +6,7 @@ import TextField from 'material-ui/TextField';
 import { browserHistory } from "react-router";
 
 const EnrolDialog = (props) => {
-
+    console.log('EnrolDialog', props);
     const actions = (
         <div className="margin-y-lg">
 
@@ -24,7 +24,8 @@ const EnrolDialog = (props) => {
                     if(!props.isLoggedIn) {
                         return browserHistory.push('/register');
                     } else {
-                        return props.startCourse(props.course);
+                        props.startCourse(props.course);
+                        return browserHistory.push(`courses/${props.course.slug}/level/1/1`);
                     }
                 }}/>
         </div>

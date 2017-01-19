@@ -18,7 +18,7 @@
 // }
 
 .img-logo {
-    @include bg-img(url(../assets/img/logos/flower.png), contain, 120px);
+    @include bg-img(url(../assets/img/logos/flask.png), contain, 120px);
     min-height: 100px;
     margin-bottom: $margin-sm;
 }

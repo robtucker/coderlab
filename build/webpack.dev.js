@@ -25,7 +25,7 @@ const APP_GLOBALS = helpers.mergeEnvironment({
  */
 const WEBPACK_CONFIG = helpers.mergeWebpackConfig({
     plugins: [
-        new webpack.DefinePlugin(helpers.configureAppGlobals(APP_GLOBALS))
+        new webpack.DefinePlugin(helpers.configureAppGlobals(ENV, APP_GLOBALS))
     ],
     devServer: {
         //hot: true,

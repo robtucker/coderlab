@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
 import { ImagePanel } from "./image-panel";
-import { ArrowBox } from "../elements/arrow-box";
+import { ArrowBox } from "./arrow-box";
 
 import slick from "slick-carousel/slick/slick.scss";
 import slickTheme from "slick-carousel/slick/slick-theme.scss";

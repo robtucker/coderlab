@@ -1,6 +1,6 @@
 import React, { PropTypes } from "react";
 
-import { Icon } from "../../../components";
+import { Icon } from "../../../components/icon";
 
 const JobList = ({data}) => {
     

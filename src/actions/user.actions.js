@@ -1,8 +1,10 @@
 import { browserHistory } from "react-router";
-import { UserApi } from "../api";
-import { utils } from "../core";
+import { UserApi } from "../api/user-api";
+import { utils } from "../core/utils";
 
 let api = new UserApi();
+
+export const USER_START_COURSE = "START_COURSE";
 
 export const getMe = (data) => {
 
@@ -20,21 +22,15 @@ export const putMe = (data) => {
 
 }
 
-// also defined in course.actions
-// export const START_COURSE = "START_COURSE";
-// export const startCourse = (course) => {
+export const userStartCourse = (course) => {
     
-//     let data = {[course.id]: {
-//         dateStarted: utils.timestamp(),
-//         challenges: []
-//     }}
+    let data = {[course.id]: {
+        dateStarted: utils.timestamp(),
+        challenges: []
+    }}
 
-//     let req = api.put('me', null, {courses: data});
+    let req = api.put('me', null, {courses: data});
 
-//     req.then((res => { 
-//         browserHistory.push(`courses/${course.slug}/level/1/1`);
-//     }));
-
-//     return {type: START_COURSE}  
-// };
+    return {course, type: USER_START_COURSE}  
+};
 

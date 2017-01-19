@@ -4,5 +4,5 @@ module.exports = {
     "CONTACT_PHONE": "+44 7789 457324",
     "API_URL": "http://api.coderlab.co.uk",
     "API_PORT": 80,
-    "MOCK_API": false
+    "MOCK_API": true
 }

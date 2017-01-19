@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch'
 import config from "../config";
-import { UrlParameterError } from "../core";
+import { UrlParameterError } from "../core/exceptions";
 import {format} from "url";
 import { getAppStore } from "../store";
 

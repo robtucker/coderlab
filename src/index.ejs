@@ -12,6 +12,10 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <title><%= htmlWebpackPlugin.options.title %></title>
+
+    <% _.each(htmlWebpackPlugin.options.cdns, function(cdn) { %>
+    <script src=${ cdn.src }></script>
+    <% }); %>
     
 </head>
 <body class="marginless">

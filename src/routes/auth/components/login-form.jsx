@@ -4,9 +4,9 @@ import { Link, browserHistory } from 'react-router';
 import { Field, reduxForm } from 'redux-form'
 import config, { formConstants } from "../../../config";
 
-import { renderTextField, renderPasswordField, renderSubmitButtons } from '../../../components'
+import { renderTextField, renderPasswordField, renderSubmitButtons } from '../../../components/form-fields'
 import RaisedButton from 'material-ui/RaisedButton';
-import { FormValidator } from "../../../core"
+import { FormValidator } from "../../../core/validators"
 import {palette} from "../../../styles";
 
 const asyncValidate = () => {

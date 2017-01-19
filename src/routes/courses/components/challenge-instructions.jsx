@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from "react";
 import Paper from 'material-ui/Paper';
 import {palette} from "../../../styles";
-import { ErrorIcon, SuccessIcon, CloseIcon } from '../../../components';
-import {utils} from "../../../core";
+import { ErrorIcon, SuccessIcon, CloseIcon } from '../../../components/action-icons';
+import {utils} from "../../../core/utils";
 import {find, groupBy} from "lodash";
 
 let unfulfilledIconStyle = {
