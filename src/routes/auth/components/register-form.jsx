@@ -32,6 +32,10 @@ const Form = (props) => {
             <h2 className="margin-bottom-lg">{props.title || 'Create an account'}</h2>
 
             <div>
+                <Field name="username" component={renderTextField} label="username"/>
+            </div>
+
+            <div>
                 <Field name="firstName" component={renderTextField} label="First Name"/>
             </div>
             <div>

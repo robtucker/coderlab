@@ -74,23 +74,32 @@ export class BaseApi {
         request.then((response) => {
             //console.log('request success', response);
 
-            if(!this.isSuccess(response)) {
-                this._dispatch({url, params, method, type: `${actionType}_ERROR`, response});
-            } else {
+            let e = {url, endpoint, params, method, status: response.status};
+            let s = this.isSuccess(response);
 
-                let data = response.json();
+            response.json()
+                .then((body) => {
+                    if(s) {
+                        this._dispatch(Object.assign({}, e, {type: `API_SUCCESS`, body}));
+                        this._dispatch(Object.assign({}, e, {type: `${actionType}_SUCCESS`, body}));
+                    } else {
+                        this._dispatch(Object.assign({}, e, {type: `API_ERROR`, body}));
+                        this._dispatch(Object.assign({}, e, {type: `${actionType}_ERROR`, body}));
+                    }
+                })
+                .catch((err) => {
+                    this._dispatch(Object.assign({}, e, {type: `API_PARSE_ERROR`, body: null}));
+                });
 
-                this._dispatch({url, params, method, type: `${actionType}_SUCCESS`, data, status: response.status})
-
-                if(cacheResponse) this._cache(data);
-            }
+            if(cacheResponse && this.isSuccess(response)) this._cache(data);
         });
 
+        // this isn't a 401 or a 404 - this is a serious error
         request.catch((error) => {
             //console.log('request error', error);
             this._dispatch({type: `${actionType}_ERROR`, error});
             //throw the error again to give the client a chance to handle it on its own
-            //throw error;
+            throw error;
         })
 
         return request;

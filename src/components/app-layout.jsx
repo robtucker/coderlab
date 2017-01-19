@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import { NavbarContainer } from "../containers/navbar.container";
-//import { SnackbarContainer } from "../../containers/snackbar.container";
+import { SnackbarContainer } from "../containers/snackbar.container";
 //import { NotificationContainer } from "../../containers/notification.container";
 
 //import {Footer} from "./footer";
@@ -23,6 +23,7 @@ export class AppLayout extends Component{
     render() {
         return (
             <div style={{ height: '100%'}}>
+                <SnackbarContainer />
                 <NavbarContainer />
                 {this.props.children}
             </div>
@@ -30,4 +31,3 @@ export class AppLayout extends Component{
     }
 }
 // <NotificationContainer />
-// <SnackbarContainer />

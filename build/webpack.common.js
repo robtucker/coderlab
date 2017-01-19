@@ -16,6 +16,7 @@ module.exports = {
             'redux-thunk',
             'redux-logger',
             'redux-form',
+            'isomorphic-fetch',
             'react-tap-event-plugin',
             'react-slick',
             'react-router-scroll',

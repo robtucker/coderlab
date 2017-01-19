@@ -27,9 +27,20 @@ const postAuth = (authType, data, redirect = false) => {
     let req = api.post(authType, null, data);
 
     req.then(res => { 
-        let data = res.json();
-        return login(data);
+        console.log('recieved api response');
+        if(api.isSuccess(res)) {
+            console.log('recieved successful api response');
+            let data = res.json();
+            return login(data);
+        } else {
+            console.log('api response not successful');
+        }
     });
+
+    req.catch((res) => {
+        console.log('caught failed api response', res);
+        
+    })
 };
 
 export const postLogin = data => postAuth('login', data);

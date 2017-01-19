@@ -4,5 +4,5 @@ module.exports = {
     "CONTACT_PHONE": "+44 7789 457324",
     "API_URL": "http://localhost",
     "API_PORT": 3001,
-    "MOCK_API": true
+    "MOCK_API": false
 }
