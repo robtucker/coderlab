@@ -4,7 +4,7 @@ export const summary = {
     title: "Object-Oriented Programming",
     subtitle: "A map of programming design patterns",
     description: `Object Oriented design patterns are at the heart of programming. 
-        This course teaches the ability to think about programming at a higher level`,
+        Learn how to think about programming at a higher level`,
     difficultyRating: 1,
     icon: {
         img: require('../../../../assets/img/courses/teacher/icons/books.svg'),
