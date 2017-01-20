@@ -13,11 +13,6 @@ let initialState = {
     isLoggedIn: false,
     requestInProgress: false,
     user: null,
-    username: '',
-    password: '',
-    passwordConfirmation: '',
-    firstName: '',
-    lastName: ''
 };
 
 if(authService.check()) {
@@ -51,7 +46,7 @@ export const auth = (state = initialState, action) => {
 
     case "API_POST_AUTH_LOGIN_ERROR":
     case "API_POST_AUTH_REGISTER_ERROR":
-        return Object.assign({}, state, {requestInProgress: false});
+        return Object.assign({}, state, {requestInProgress: false});  
 
     default:
         return state;

@@ -35,7 +35,7 @@ export const getCourse = (courseName) => {
 export const getCourseLevel = (courseName, levelId) => {
     let course = require("./" + courseName + "/index.js");
     let courseMap = course.courseMap;
-    console.log('getCourseLevel', courseName, levelId, courseMap);
+    // console.log('getCourseLevel', courseName, levelId, courseMap);
     return require.ensure([], (require) => {
         //console.log('level index', courseMap[parseInt(levelId) - 1])
         let level = require('./' + courseName + "/" + courseMap[parseInt(levelId) - 1]);

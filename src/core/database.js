@@ -32,7 +32,7 @@ export class Db  {
 
             for(var store in stores) {
                 let config = this._dbConfig[store]
-                console.log('creating store', store, config.options);
+                // console.log('creating store', store, config.options);
                 upgradeDb.createObjectStore(store, config.options)
 
                 // todo
@@ -47,7 +47,7 @@ export class Db  {
         let stores = this._dbConfig;
         for(var store in stores) {
 
-            console.log('creating database');
+            // console.log('creating database');
 
             db.createObjectStore(store, config.options)
 
@@ -70,7 +70,7 @@ export class Db  {
         return this._db.then(db => {
 
             const tx = db.transaction(table, 'readwrite');
-            console.log('insert db record', data);
+            // console.log('insert db record', data);
             tx.objectStore(table).put(data);
 
             return tx.complete;

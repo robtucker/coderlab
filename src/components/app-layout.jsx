@@ -9,8 +9,8 @@ import { SnackbarContainer } from "../containers/snackbar.container";
 export class AppLayout extends Component{
 
     componentWillMount() {
-        console.log("mounting app component");
-        console.log(this.props);
+        // console.log("mounting app component");
+        // console.log(this.props);
     }
     componentDidMount() {
 

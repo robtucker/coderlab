@@ -39,7 +39,7 @@ export const app = (state = initialState, action) => {
     case TOGGLE_NAVBAR:
         return Object.assign({}, state, {contentHeight: getContentHeight(window.innerHeight, action.value)});
     case SCREEN_RESIZE: 
-        console.log('screen resize', state, action);
+        // console.log('screen resize', state, action);
         let height = window.innerHeight;
         let width = window.innerWidth;
 

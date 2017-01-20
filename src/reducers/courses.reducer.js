@@ -26,7 +26,7 @@ export const courses = (state = initialState, action) => {
     //     return Object.assign({}, state, {[action.params.course]: {[action.params.level]: action.data}});
     case START_COURSE_LEVEL:
         let newState = Object.assign({}, state);
-        console.log('START_COURSE_LEVEL', action.levelData);
+        // console.log('START_COURSE_LEVEL', action.levelData);
         newState.byName[action.courseName].levels[parseInt(action.levelId) - 1] = action.levelData;
         return newState;
     case TOGGLE_ENROL_DIALOG:

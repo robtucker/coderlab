@@ -10,8 +10,8 @@ export class CodeEditor extends Component {
     minLineCount = 10;
 
     componentWillMount() {
-        console.log('mounting code editor');
-        console.log(this.props)
+        // console.log('mounting code editor');
+        // console.log(this.props)
     }
 
     componentDidMount () {

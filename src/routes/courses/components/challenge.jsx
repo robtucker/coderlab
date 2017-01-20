@@ -35,13 +35,13 @@ export class Challenge extends Component {
     }
 
     getChallenge(courseName, levelId, challengeId) {
-        console.log('getChallenge', courseName, levelId, challengeId) 
+        // console.log('getChallenge', courseName, levelId, challengeId) 
 
         let courseLevel = getCourseLevel(courseName, levelId);
 
         courseLevel.then((level) => {
             let challenge = find(level.challenges, c => c.id === challengeId);
-            console.log('courseLevel', level, challenge) 
+            //console.log('courseLevel', level, challenge) 
             if(level && challenge) {
                 this.props.startCourseLevel(courseName, levelId, level);
                 this.props.startChallenge(challenge);
@@ -51,7 +51,7 @@ export class Challenge extends Component {
         });
 
         courseLevel.catch((err) => {
-            console.log('courseLevel error', err);
+            //console.log('courseLevel error', err);
             this.props.courseNotFound(courseName, LevelId);
         })
     }
@@ -62,7 +62,7 @@ export class Challenge extends Component {
         let challengeCount = this.props.course.levels[parseInt(levelId - 1)].challenges.length;
         let levelComplete = parseInt(challengeId) >= challengeCount;
 
-        console.log('next challenge', challengeCount, levelComplete);
+        // console.log('next challenge', challengeCount, levelComplete);
 
         let nextChallenge =  levelComplete ? 1 : parseInt(challengeId) + 1;
         let nextLevel = levelComplete ? parseInt(levelId) + 1 : parseInt(levelId);
@@ -76,7 +76,7 @@ export class Challenge extends Component {
     handleSubmit () {
         let examiner = new Examiner(this.props.challenge);
 
-        console.log('examiner', examiner);
+        // console.log('examiner', examiner);
         
         if(examiner.parserErrors.length) {
             this.props.showErrors(examiner.parserErrors);
@@ -90,7 +90,7 @@ export class Challenge extends Component {
             // and if the user has undone some of their work we can ensure they move back and redo the task
             let nextTask = examiner.getNextTask();
 
-            console.log('nextTask', nextTask, this.props.currentTask, this.props.challenge.tasks.length);
+            // console.log('nextTask', nextTask, this.props.currentTask, this.props.challenge.tasks.length);
 
             // if the challenge is complete
             if(nextTask >= this.props.challenge.tasks.length) {
@@ -103,7 +103,7 @@ export class Challenge extends Component {
             // i.e. only show them errors if they are on the same task or lower
             if(nextTask <= this.props.currentTask) {
                 let showableErrors = flatten(examiner.taskErrors.slice(0, nextTask + 1))
-                console.log('showableErrors', examiner.taskErrors.slice(0, nextTask), showableErrors);
+                // console.log('showableErrors', examiner.taskErrors.slice(0, nextTask), showableErrors);
                 this.props.showErrors(showableErrors);
             }
 

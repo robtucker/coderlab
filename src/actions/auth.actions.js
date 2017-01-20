@@ -26,21 +26,10 @@ export const setAuthRedirect = (location) => ({location, type: SET_AUTH_REDIRECT
 const postAuth = (authType, data, redirect = false) => { 
     let req = api.post(authType, null, data);
 
-    req.then(res => { 
-        console.log('recieved api response');
-        if(api.isSuccess(res)) {
-            console.log('recieved successful api response');
-            let data = res.json();
-            return login(data);
-        } else {
-            console.log('api response not successful');
-        }
+    req.then(user => { 
+        //console.log('recieved auth response', user);
+        login(user);
     });
-
-    req.catch((res) => {
-        console.log('caught failed api response', res);
-        
-    })
 };
 
 export const postLogin = data => postAuth('login', data);

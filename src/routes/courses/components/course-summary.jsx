@@ -15,7 +15,7 @@ import { EnrolDialog } from "../components/enrol-dialog";
 export class CourseSummary extends Component {
 
     componentWillMount() {
-        console.log(this.props);
+        // console.log(this.props);
         this.props.setNavbarColor(this.props.course.banner.background);
     }
 

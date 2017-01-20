@@ -23,7 +23,7 @@ const validate = values => {
 
 
 const Form = (props) => {
-    console.log(props);
+    //console.log(props);
     let { handleSubmit, pristine, reset, submitting } = props;
 
     return (

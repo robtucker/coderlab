@@ -6,7 +6,7 @@ import TextField from 'material-ui/TextField';
 import { browserHistory } from "react-router";
 
 const EnrolDialog = (props) => {
-    console.log('EnrolDialog', props);
+    // console.log('EnrolDialog', props);
     const actions = (
         <div className="margin-y-lg">
 

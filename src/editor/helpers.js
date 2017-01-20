@@ -9,7 +9,7 @@ export const findWithRegex = (regex, contentBlock, callback, removeStrings = fal
         //console.log('replacing string', match, res);
         return res
     });
-    console.log('new string', str);
+    // console.log('new string', str);
     let matchArr, start;
     while ((matchArr = regex.exec(str)) !== null) {
         start = matchArr.index;

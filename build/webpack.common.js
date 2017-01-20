@@ -11,6 +11,7 @@ module.exports = {
     context: path.join(process.env.NODE_PATH, "/src"),
     entry: {
         vendor: [
+            "babel-polyfill",
             "redux", 
             "react-redux", 
             'redux-thunk',

@@ -118,7 +118,7 @@ export class ChallengeInstructions extends Component {
                 let lineNumber = utils.getLineNumber(file.contents, r.args.textNode.val);
 
                 if(lineNumber === -1) {
-                    console.log('getRuleLocations', lineNumber, r.args.textNode, file.contents)
+                    // console.log('getRuleLocations', lineNumber, r.args.textNode, file.contents)
                     throw new Error("The rule location does not have a valid line number")
                 }
 

@@ -1,6 +1,6 @@
 import {utils} from "../core/utils";
 import {without} from "lodash"
-import {SHOW_SNACKBAR, HIDE_SNACKBAR} from "../actions";
+import {SHOW_SNACKBAR, HIDE_SNACKBAR, USER_SETTINGS_UPDATED} from "../actions";
 
 
 const defaultSnackbar = (message) => ({
@@ -22,9 +22,19 @@ export const snackbars = (state = [], action) => {
         return [...n];
     // case "API_POST_AUTH_REGISTER_ERROR":
     //     return [...state, defaultSnackbar("There was a problem registering your account")];
+    case USER_SETTINGS_UPDATED:
+        return [...state, defaultSnackbar("Your settings have been updated")]
     case "API_ERROR":
         let s =[...state];
-        action.body.errors.forEach(e => s.push(defaultSnackbar(e.message)));
+        if(action.body && Array.isArray(action.body.errors)) {
+            action.body.errors.forEach(e => {
+                if(e.message) s.push(defaultSnackbar(e.message))
+            });
+        } else if (Array.isArray(action.errors)) {
+            action.errors.forEach(e => {
+                if(e.message) s.push(defaultSnackbar(e.message))
+            });
+        }
         return s;
     default: 
         return state;

@@ -23,7 +23,7 @@ export default class HtmlParser extends TextParser {
         super(file);
         this._parse();        
         this.msgs = new HtmlErrors(this.file);
-        console.log('initialized parser', this);
+        // console.log('initialized parser', this);
     }
 
     /**
@@ -55,7 +55,7 @@ export default class HtmlParser extends TextParser {
      * 
      */
     hasElem(query) {
-        console.log('hasElem', query);
+        // console.log('hasElem', query);
         let baseElems = this._findElems(query, this.ast)
 
         // if children were specified in the query then we're not done yet
@@ -113,7 +113,7 @@ export default class HtmlParser extends TextParser {
      * @param {array} elems
      */
     _findElems(query, elems, recurse = true) {
-        console.log('_findElems', query, elems, recurse);
+        // console.log('_findElems', query, elems, recurse);
         // most commonly used query params should go first
         let cb = (elem) => {
             if(query.tagName && elem.name !== query.tagName) return false;
@@ -186,7 +186,7 @@ export default class HtmlParser extends TextParser {
         });
 
         let success = baseElems.filter(e => e.countRequiredChildren === e.childQueries.length);
-        console.log('_findChildren', baseElems, success);
+        // console.log('_findChildren', baseElems, success);
 
         // 1 perfect match. Return a 0 exit status with no errors
         if(success.length === 1) return false;
@@ -200,7 +200,7 @@ export default class HtmlParser extends TextParser {
 
         // first lets find if one of baseElems has at least one required children
         let partialSuccess = baseElems.filter(e => e.countRequiredChildren > 0);
-        console.log('partialSuccess', partialSuccess);
+        // console.log('partialSuccess', partialSuccess);
         // if we're sure we know which parent is in play
         if(partialSuccess.length === 1) {
             let parent = partialSuccess[0];
@@ -221,7 +221,7 @@ export default class HtmlParser extends TextParser {
 
         // if it could be one or more parent
         if(partialSuccess.length > 1) {
-            console.log('multiple partial successes - this is bad news', partialSuccess);
+            // console.log('multiple partial successes - this is bad news', partialSuccess);
             // the most likely parent would be the elem with the highest number of required children
             //let parent = orderBy(partialSuccess, 'countRequiredChildren')[0];
             return this.msgs.childOfUnknownParentNotFound(query);
@@ -230,7 +230,7 @@ export default class HtmlParser extends TextParser {
 
         // no matching children at all... 
         // we will treat this as if the parent is missing
-        console.log('no matching children', baseElems);
+        // console.log('no matching children', baseElems);
         return this.msgs.parentOfChildNotFound(query);
     }
 

@@ -3,7 +3,7 @@ import Snackbar from 'material-ui/Snackbar';
 import RaisedButton from 'material-ui/RaisedButton';
 
 const Snackbars = ({snackbars, close}) => {
-    console.log('snackbars', snackbars);
+    //console.log('snackbars', snackbars);
     return (
         <section>
             {snackbars.map((snackbar) => {

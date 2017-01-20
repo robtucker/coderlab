@@ -43,66 +43,70 @@ export class BaseApi {
     }
 
     _request(method, endpoint, params, body, query, cacheResponse = false) {
+        return new Promise((resolve, reject) => {
+            
+            let state = this._state();
 
-        let state = this._state();
+            var options = {
+                method: method,
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                mode: config.FETCH_HTTP_MODE || 'cors',
+                cache: this._httpCache
+            };
 
-        var options = {
-            method: method,
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            mode: config.FETCH_HTTP_MODE || 'cors',
-            cache: this._httpCache
-        };
+            if(body) {
+                options.body = JSON.stringify(body);
+            }
 
-        if(body) {
-            options.body = JSON.stringify(body);
-        }
+            if(state.auth.isLoggedIn) {
+                options.headers['x-access-token'] = state.auth.user.token;
+            }
+            
+            let actionType = this._createActionType(method, endpoint);
+            let url = this._createUrl(endpoint, params, query);
 
-        if(state.auth.isLoggedIn) {
-            options.headers['x-access-token'] = state.auth.user.token;
-        }
+            this._dispatch({url, params, method, body, query, type: `${actionType}_REQUEST`});
+
+            let request = this._http(url, options);
         
-        let actionType = this._createActionType(method, endpoint);
-        let url = this._createUrl(endpoint, params, query);
+            request.then((response) => {
+                //console.log('request success', response);
 
-        this._dispatch({url, params, method, body, query, type: `${actionType}_REQUEST`});
+                let e = {url, endpoint, params, method, status: response.status};
+                let s = this.isSuccess(response);
 
-        let request = this._http(url, options);
-    
-        request.then((response) => {
-            //console.log('request success', response);
+                response.json()
+                    .then((body) => {
+                        if(s) {
+                            this._dispatch(Object.assign({}, e, {type: `API_SUCCESS`, body}));
+                            this._dispatch(Object.assign({}, e, {type: `${actionType}_SUCCESS`, body}));
+                        } else {
+                            this._dispatch(Object.assign({}, e, {type: `API_ERROR`, body}));
+                            this._dispatch(Object.assign({}, e, {type: `${actionType}_ERROR`, body}));
+                        }
+                        resolve(body);
+                    })
+                    .catch((err) => {
+                        this._dispatch(Object.assign({}, e, {type: `API_PARSE_ERROR`, body: null}));
+                        reject(err)
+                    });
 
-            let e = {url, endpoint, params, method, status: response.status};
-            let s = this.isSuccess(response);
+                if(cacheResponse && this.isSuccess(response)) this._cache(data);
+            });
 
-            response.json()
-                .then((body) => {
-                    if(s) {
-                        this._dispatch(Object.assign({}, e, {type: `API_SUCCESS`, body}));
-                        this._dispatch(Object.assign({}, e, {type: `${actionType}_SUCCESS`, body}));
-                    } else {
-                        this._dispatch(Object.assign({}, e, {type: `API_ERROR`, body}));
-                        this._dispatch(Object.assign({}, e, {type: `${actionType}_ERROR`, body}));
-                    }
-                })
-                .catch((err) => {
-                    this._dispatch(Object.assign({}, e, {type: `API_PARSE_ERROR`, body: null}));
-                });
+            // There was a problem connecting to the api
+            request.catch((error) => {
+                //console.log('request error', error);
+                this._dispatch({type: `API_ERROR`, errors: [{message: "There was a problem connecting to the server", error}]});
+                this._dispatch({type: `${actionType}_ERROR`, errors: [error]});
+                //throw the error again to give the client a chance to handle it on its own
+                reject(error);
+            })
 
-            if(cacheResponse && this.isSuccess(response)) this._cache(data);
-        });
-
-        // this isn't a 401 or a 404 - this is a serious error
-        request.catch((error) => {
-            //console.log('request error', error);
-            this._dispatch({type: `${actionType}_ERROR`, error});
-            //throw the error again to give the client a chance to handle it on its own
-            throw error;
         })
-
-        return request;
     }
 
     _cache(data) {

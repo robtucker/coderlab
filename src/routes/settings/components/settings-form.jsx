@@ -16,7 +16,7 @@ const asyncValidate = () => {
 
 const validate = values => {
     return new FormValidator(values)
-        .required([ 'firstName', 'lastName', 'email', 'password', 'passwordConfirmation' ])
+        .required([])
         .email()
         .min('username', formConstants.USERNAME_MIN_LENGTH)
         .min('password', formConstants.PASSWORD_MIN_LENGTH)
@@ -32,6 +32,9 @@ const Form = (props) => {
 
             <h2 className="margin-bottom-lg">{props.title || 'Settings'}</h2>
 
+            <div>
+                <Field name="username" component={renderTextField} label="First Name"/>
+            </div>
             <div>
                 <Field name="firstName" component={renderTextField} label="First Name"/>
             </div>

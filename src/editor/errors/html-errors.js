@@ -33,7 +33,7 @@ export class HtmlErrors {
      * basic error reporting - just describe what's missing
      */
     elemNotFound(query) {
-        console.log('elemNotFound', query);
+        // console.log('elemNotFound', query);
         let location = this._getLocationDesc(query);
         let tagLabel = query.tagName ? `${utils.getTagNameArticle(query.tagName)} <${query.tagName}> tag` : false;
         let errText;
@@ -67,7 +67,7 @@ export class HtmlErrors {
     }
 
     elemInWrongPlace(query, existingElems) {
-        console.log('elemInWrongPlace', existingElems.length, existingElems);
+        // console.log('elemInWrongPlace', existingElems.length, existingElems);
         let desiredRelative;
         let desiredTag = `${this._getATagDesc(query.tagName)}`;
 
@@ -93,7 +93,7 @@ export class HtmlErrors {
     }
 
     elemMayNotHaveAttrs(query, existingElems) {
-        console.log('elemMayNotHaveAttrs', query, existingElems);
+        // console.log('elemMayNotHaveAttrs', query, existingElems);
         let desiredAttrs = this._getAttrsDesc(query);
         let desiredTag = `${this._getATagDesc(query.tagName)}`;
         // let existingDesc = existingElems.length === 1 && existingElems[0].name ? 
@@ -104,7 +104,7 @@ export class HtmlErrors {
     }
 
     elemMayNotHaveText(query, existingElems) {
-        console.log('elemMayNotHaveText', query, existingElems);
+        // console.log('elemMayNotHaveText', query, existingElems);
         let desiredText = this._getTextNodeDesc(query.textNode);
         let desiredTag = `${this._getATagDesc(query.tagName)}`;
         let existingDesc = existingElems.length === 1 && existingElems[0].name ? 
@@ -116,7 +116,7 @@ export class HtmlErrors {
      * 
      */
     parentOfChildNotFound(query) {
-        console.log('parentOfChildNotFound', query);
+        // console.log('parentOfChildNotFound', query);
         // describe the first child that should have existed
         let container = this._getATagDesc(query.tagName) || 'an element';
         let child = this._getChildDesc(query.children);
@@ -131,7 +131,7 @@ export class HtmlErrors {
     }
 
     childIsOutsideParent(parent, childArray, childQuery) {
-        console.log('childIsOutsideParent', parent, childArray, childQuery)
+        // console.log('childIsOutsideParent', parent, childArray, childQuery)
         if(childArray.length === 1) {
             let childDesc = this._getElemDescWithLoc(childArray[0]);
             let parentDesc =this._getElemDescWithLoc(parent)
@@ -152,7 +152,7 @@ export class HtmlErrors {
         let childDesc = childQuery.tagName ? this._getATagDesc(childQuery.tagName) : 'the correct child element';
         let desc = `The ${parentDesc} should contain ${childDesc}`;
         if(childQuery.textNode) desc += ` with ${this._getTextNodeDesc(childQuery.textNode)}`
-        console.log('childOfParentNotFound', desc);
+        // console.log('childOfParentNotFound', desc);
         return desc;
     }
 
@@ -160,7 +160,7 @@ export class HtmlErrors {
      * in this scenario try to include a next and prev element to make things easier
      */
     childOfUnknownParentNotFound(query) {
-        console.log('childOfUnknownParentNotFound', query)
+        // console.log('childOfUnknownParentNotFound', query)
         let desc = this._getChildDesc(query.children);
 
         if(query.prevSibling && query.prevSibling.tagName && query.prevSibling.textNode) {
@@ -194,7 +194,7 @@ export class HtmlErrors {
         } else {
             let grouped = groupBy(childArray, 'tagName');
             let groupedKeys = Object.keys(grouped);
-            console.log('groupedKeys', grouped, groupedKeys)
+            // console.log('groupedKeys', grouped, groupedKeys)
             if(groupedKeys.indexOf('undefined') !== -1) {
                 throw new Error('Describing multiple children with unnamed tags is not currently supported');
             }
