@@ -1,5 +1,5 @@
 export const summary = {
-    id: 1,
+    id: '6254df79',
     slug: "web",
     title: "HTML/CSS",
     subtitle: "The fundamentals of web development",
@@ -25,7 +25,7 @@ export const summary = {
     tags: ["javascript", "node"],
     levels: [
         {
-            id: 1,
+            id: 'a1258ac0',
             title: "Intro to HTML",
             description:  `Ever wondered how the internet actually works. Well... wonder no more. 
                 In this first level, we'll give you a crash course in what HTML is and how it works.`,
@@ -35,8 +35,8 @@ export const summary = {
             },
         },
         {
-            id: 2,
-            title: "Style it up",
+            id: 'd2dce5f5',
+            title: "Style it up!",
             description:  `HTML on its own can be a little boring. Introduce a bit of color with CSS. 
                 We'll show you how to customize the look of your website, and what style is really all about`,
             icon: {
@@ -45,55 +45,85 @@ export const summary = {
             },
         },
         {
-            id: 3,
-            title: "Cameras and lighting",
-            description:  `Learn professional web development using HTML, CSS and SASS. 
-                Kick start your career as a programmer with this practical hands-on course.`,
+            id: 'c468be84',
+            title: "Hypertext References",
+            description:  `In this level we'll discuss how information flows around the web and what the word HTTP really means.
+                You'll get a solid understanding of how requests work, and how to create links to other pages.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
             },
         },
         {
-            id: 4,
-            title: "Movement",
-            description:  `Learn professional web development using HTML, CSS and SASS. 
-                Kick start your career as a programmer with this practical hands-on course.`,
+            id: '3928123f',
+            title: "The Box Model",
+            description:  `The Box Model is an essential part of how content is designed and layed out on HTML pages.
+                In this level you'll up your design skills by learning all about paddings, margins and borders.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
             },
         },
         {
-            id: 5,
-            title: "Boundaries and hazards",
-            description:  `Learn professional web development using HTML, CSS and SASS. 
-                Kick start your career as a programmer with this practical hands-on course.`,
+            id: 'a2abb898',
+            title: "Loading CSS Files",
+            description: `Learning how to keep your code neat and tidy is crucial as your website grows. In this chapter
+                we'll discuss using separate files, and how different files are loaded in HTML.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
             },
         },
         {
-            id: 6,
-            title: "Game logic and scoring",
-            description:  `Learn professional web development using HTML, CSS and SASS. 
-                Kick start your career as a programmer with this practical hands-on course.`,
+            id: 'ea551171',
+            title: "Selectors for the win",
+            description:  `Learn how to style HTML like a pro. We'll discuss the secrets of applying different 
+                styles to different elements using classes and ids, and what CSS is really all about.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
             },
         },
         {
-            id: 7,
-            title: "Finishing and releasing games",
-            description:  `Learn professional web development using HTML, CSS and SASS. 
-                Kick start your career as a programmer with this practical hands-on course.`,
+            id: 'a1d49d88',
+            title: "Images and graphics",
+            description:  `It's hard to make a website look good without pictures. In this level we'll show you the secret 
+                art of sizing and positioning images to make your websites look good on any device.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
             }
         },
+        {
+            id: '94fa67ca',
+            title: "Fonts",
+            description:  `With CSS loading different fonts is a piece of cake. We'll discuss the different types of 
+                font and give you some guidelines on choosing a good font`,
+            icon: {
+                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
+                background: "#c75c5c",
+            }
+        },
+        {
+            id: '8910e38c',
+            title: "Forms and Input",
+            description:  `A website wouldn't be very good if you couldn't input data! In this level we'll discuss 
+                form inputs and how you send data back to the server`,
+            icon: {
+                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
+                background: "#c75c5c",
+            }
+        },
+        {
+            id: '1de473a0',
+            title: "Advanced Layouts",
+            description:  `The final cherry on our CSS cake is the subject of layouts. With layouts and positioning 
+                under your belt you're going be styling up websites like a boss!`,
+            icon: {
+                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
+                background: "#c75c5c",
+            }
+        }
     ]
 };
 
@@ -112,12 +142,3 @@ export const courseMap = [
 
 ];  
 
-// export const getLevel = (levelId) => {
-    
-//     return require.ensure([], (require) => {
-//         console.log('getLevel', levelId)
-//         let level = require('./' + courseMap[parseInt(levelId) + 1]);
-
-//         if (level && level.default && level.default.length) return level.default
-//     });
-// }

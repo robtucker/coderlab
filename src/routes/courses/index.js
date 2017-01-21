@@ -29,7 +29,7 @@ export const CourseRoutes = (store) => {
             }
         },
         {
-            path: 'courses/:courseName/level/:levelId/:challengeId',
+            path: 'courses/:courseName/level/:levelIndex/:challengeIndex',
             getComponent(nextState, cb) {
                 require.ensure([], (require) => {
                     let ChallengeContainer = require('./containers/challenge.container').ChallengeContainer

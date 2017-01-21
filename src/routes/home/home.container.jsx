@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import { Home } from "./components/home";
 
 const mapStateToProps = (state) => ({
-    user: state.auth.user
+    user: state.auth.user,
+    courses: state.courses.byName,
 });
 
 const mapDispatchToProps = (dispatch) => ({

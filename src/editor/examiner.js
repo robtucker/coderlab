@@ -79,15 +79,12 @@ export class Examiner {
 
             // now check the rules specific to this task
             rules[fileId].forEach((rule) => {
-
                 //console.log('create parser method', rule);
                 let method = parser[rule.method].bind(parser);
                 //console.log('preparing to run parser method', method);
-
                 if(typeof method !== 'function') {
                     throw new Error(`Method not found: ${rule.method}`);
                 }
-
                 // any truthy return value is considered to be an error message
                 let res = method(rule.args);
                 //console.log('res', res);

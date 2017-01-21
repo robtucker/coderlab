@@ -1,22 +1,26 @@
 import { connect } from "react-redux";
 import { Challenge } from "../components/challenge";
 import { breakpoints } from "../../../styles";
+import {utils} from "../../../core/utils";
 import { 
     toggleNavbar, 
     hideNavbar,
-    startCourseLevel, 
+    putMe,
+    putUserCourse,
+    setCourseLevel, 
     courseNotFound,
     toggleVideo, 
     toggleChallengeSidebar,
     startChallenge, 
     showChallengeErrors,
     completeChallenge,
+    userCompleteChallenge,
+    userCompleteLevel,
     setCurrentTask,
     closeCompletionModal,
 } from "../../../actions";
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    startCourseLevel: (courseName, levelId, levelData) => dispatch(startCourseLevel(courseName, levelId, levelData)),
     courseNotFound: () => dispatch(courseNotFound()),
     toggleVideo: () => dispatch(toggleVideo()),
     toggleNavbar: () => dispatch(toggleNavbar()),
@@ -26,7 +30,48 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     setCurrentTask: (value) => dispatch(setCurrentTask(value)),
     showErrors: (errors) => dispatch(showChallengeErrors(errors)),
     resetErrors: () => dispatch(showChallengeErrors([])),
-    completeChallenge: () => dispatch(completeChallenge()),
+    // does not update user data - simply updates the state tree
+    setCourseLevel: (courseName, course, levelIndex) => dispatch(setCourseLevel(courseName, course, levelIndex)),
+    // update user data (dealing with zero indexed level and challenge numbers here)
+    startChallenge: (course, levelIndex, challengeIndex) => {
+        //console.log('start challenge', course, levelIndex, challengeIndex);
+        let level = course.levels[levelIndex];
+        let challenge = level.challenges[challengeIndex];
+        // The "dateStarted" property is an array of timestamps from earliest to latest
+        let data = {[course.id]: {levels: {[level.id]: {challenges: {[challenge.id]: {
+            dateStarted: [utils.timestamp()]
+        }}}}}};
+        let req = putUserCourse(data);
+        req.then(u => dispatch(startChallenge(challenge)));
+    },
+    // just mark challenge as complete
+    completeChallenge: (course, levelIndex, challengeIndex) => {
+        console.log('complete challenge', course, levelIndex, challengeIndex);
+        let level = course.levels[levelIndex];
+        let challenge = level.challenges[challengeIndex];
+        let data = {[course.id]: {levels: {[level.id]: {challenges: {[challenge.id]: {
+            dateCompleted: utils.timestamp()
+        }}}}}}
+        let req = putUserCourse(data);
+        req.then(u => dispatch(completeChallenge(challenge)));
+    },
+    // mark both level and challenge as complete
+    completeLevel: (course, levelIndex, challengeIndex) => {
+        let now = utils.timestamp();
+        console.log('complete level', course, levelIndex, challengeIndex);
+        let level = course.levels[levelIndex];
+        let challenge = level.challenges[challengeIndex];
+        let data = {[course.id]: {levels: {[level.id]: {
+            dateCompleted: now,
+            challenges: {
+                [challenge.id]: {
+                    dateCompleted: now
+                }
+            }
+        }}}};
+        let req = putUserCourse(data);
+        req.then(u => dispatch(completeChallenge(challenge)));
+    },
     closeCompletionModal: () => dispatch(closeCompletionModal())
 })
 
@@ -53,7 +98,7 @@ const mapStateToProps = (state, ownProps) => {
     }
 
     if(state.courses.byName[ownProps.params.courseName].levels) {
-        props.level = find(state.courses.byName[ownProps.params.courseName].levels, l => l.id === ownProps.params.levelId)
+        props.level = find(state.courses.byName[ownProps.params.courseName].levels, l => l.id === ownProps.params.levelIndex)
 
     }
     return props;

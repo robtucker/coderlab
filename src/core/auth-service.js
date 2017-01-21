@@ -1,6 +1,6 @@
 import { cache } from "./cache";
 import { getAppStore } from "../store";
-import { base64Encode, base64Decode, timestamp } from "./utils";
+import {utils} from "./utils";
 import { LOGIN, LOGOUT } from "../actions";
 import config from "../config";
 import {merge} from "lodash";
@@ -47,8 +47,7 @@ export class AuthService {
 
     _getUserFromCache () {
         let data = cache.get(this._authKey);
-        //console.log('retrieved auth user data', JSON.parse(base64Decode(data)));
-        return data ? this._user = JSON.parse(base64Decode(data)) : false;
+        return data ? this._user = JSON.parse(utils.base64Decode(data)) : false;
     }
 
     _check(user) {
@@ -60,17 +59,16 @@ export class AuthService {
 
         let payload
         try {
-            payload = JSON.parse(base64Decode(split[1]));
+            payload = JSON.parse(utils.base64Decode(split[1]));
         } catch(e) {
             return false;
         }
-        //console.log('check token', payload, parseInt(payload.exp) > timestamp());
-        return payload.exp && payload.exp > timestamp()
+        return payload.exp && payload.exp > utils.timestamp()
 
     }
 
     _set(user) {
-        return cache.set(this._authKey, base64Encode(JSON.stringify(user)));
+        return cache.set(this._authKey, utils.base64Encode(JSON.stringify(user)));
     }
 
     _dispatch(action) {

@@ -1,28 +1,36 @@
 import React,  { PropTypes } from 'react';
 import {Link} from "react-router";
-
+import {find} from "lodash";
 import { PageContainer } from "../../../components/page-container";
-import { CourseMenu } from "../../courses/components/course-menu";
+import { CourseIndex } from "../../courses/components/course-index";
+//import { CourseMenu } from "../../courses/components/course-menu";
 
-const Home = ({user}) => {
+const Home = ({user, courses}) => {
      
-    var inProgress;
-
-    if(!user.courses) {
-        inProgress = (
-            <div>You do not currently have any courses. Start one of our courses 
-                <Link to="courses" className="primary1 cursor-pointer"> here</Link>
-            </div>
+    //console.log("Home", user);
+    
+    if(!user.courses || !Object.keys(user.courses).length) {
+        return (
+            <CourseIndex 
+                courses={courses}
+                title="Get started by choosing a course" 
+                subtitle={`If you're unsure where to start we recommend learning HTML first.`} />
         );
-    } else {
-        inProgress = (<CourseMenu courses={user.courses} />);
     }
 
+    // filter the user's active courses
+    let active = Object.keys(user.courses).map(k => {
+        //console.log('user course', k, courses);
+        return find(courses, c => c.id === k);
+    });
+
+    //console.log('active courses', active)
     return (
-        <PageContainer>
-            <h3>Home</h3>
-            {inProgress}
-        </PageContainer>
+
+        <CourseIndex 
+            courses={active}
+            title="Welcome back" 
+            subtitle={`Ready to continue coding? Click on a course below to get started!`} />
     );
 }
 

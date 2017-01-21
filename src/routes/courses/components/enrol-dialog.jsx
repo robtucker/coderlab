@@ -25,7 +25,6 @@ const EnrolDialog = (props) => {
                         return browserHistory.push('/register');
                     } else {
                         props.startCourse(props.course);
-                        return browserHistory.push(`courses/${props.course.slug}/level/1/1`);
                     }
                 }}/>
         </div>

@@ -1,12 +1,10 @@
 import { browserHistory } from "react-router";
 import { UserApi } from "../api/user-api";
-import { utils } from "../core/utils";
 import {authService} from "../core/auth-service";
-import {merge} from "lodash";
+import {utils} from "../core/utils";
 
 let api = new UserApi();
 
-export const USER_START_COURSE = "START_COURSE";
 export const USER_SETTINGS_UPDATED = "USER_SETTINGS_UPDATED";
 
 export const getMe = (data) => {
@@ -19,19 +17,12 @@ export const putMe = (data) => {
     return req;
 }
 
-export const userStartCourse = (course) => {
-    let data = {[course.id]: {
-        dateStarted: utils.timestamp(),
-        levels: {
-
-        }
-    }}
-
-    let req = api.put('me', null, merge(authService.user(), {courses: data}));
-    req.then(u => authService.updateUser(u));
-
-    return {course, type: USER_START_COURSE}  
-};
-
+export const putUserCourse = (courseData) => {
+    // copy the user object over
+    let user = Object.assign({}, authService.user())
+    // merge the course data and concat timestamp arrays
+    user.courses = utils.deepMergeArrayConcat(user.courses, courseData);
+    return putMe(user);
+}
 
 export const userSettingsUpdated = () => ({type: USER_SETTINGS_UPDATED});

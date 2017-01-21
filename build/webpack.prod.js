@@ -37,6 +37,9 @@ module.exports = helpers.mergeWebpackConfig({
                 {src: "https://unpkg.com/react-dom@15/dist/react-dom.min.js"},
                 {src: "https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"}
             ],
+            links: [
+                {href: "https://fonts.googleapis.com/icon?family=Material+Icons"}
+            ],
             metas: [
                 {"charset": "utf-8"},
                 {"name": "author"},

@@ -25,43 +25,45 @@ const validate = values => {
 const Form = (props) => {
     let { handleSubmit, pristine, reset, submitting } = props;
     return (
-        <form onSubmit={handleSubmit(props.doSubmit)} 
-            style={{minHeight: props.contentHeight}}
-            className="col justify-center align-center height-100">
+        <div>
+            <form onSubmit={handleSubmit(props.doSubmit)} 
+                style={{minHeight: props.contentHeight}}
+                className="col justify-center align-center height-100">
 
-            <h2 className="margin-bottom-lg">{props.title || 'Create an account'}</h2>
+                <h2 className="margin-y-lg">{props.title || 'Create an account'}</h2>
 
-            <div>
-                <Field name="username" component={renderTextField} label="username"/>
-            </div>
+                <div>
+                    <Field name="username" component={renderTextField} label="username"/>
+                </div>
 
-            <div>
-                <Field name="firstName" component={renderTextField} label="First Name"/>
-            </div>
-            <div>
-                <Field name="lastName" component={renderTextField} label="Last Name"/>
-            </div>
-            <div>
-                <Field name="email" component={renderTextField} label="Email"/>
-            </div>
-            <div>
-                <Field name="password" component={renderPasswordField} label="Password"/>
-            </div>
-            <div>
-                <Field name="passwordConfirmation" component={renderPasswordField} label="Confirm password"/>
-            </div>
+                <div>
+                    <Field name="firstName" component={renderTextField} label="First Name"/>
+                </div>
+                <div>
+                    <Field name="lastName" component={renderTextField} label="Last Name"/>
+                </div>
+                <div>
+                    <Field name="email" component={renderTextField} label="Email"/>
+                </div>
+                <div>
+                    <Field name="password" component={renderPasswordField} label="Password"/>
+                </div>
+                <div>
+                    <Field name="passwordConfirmation" component={renderPasswordField} label="Confirm password"/>
+                </div>
 
 
-            {renderSubmitButtons(pristine, submitting)}
+                {renderSubmitButtons(pristine, submitting)}
 
-            <Link 
-                to="login" 
-                className="cursor-pointer text-decoration-underline" 
-                style={{color: palette.accent3Color}}>
-                Already have an account? Login here.
-            </Link>
+                <Link 
+                    to="login" 
+                    className="cursor-pointer text-decoration-underline margin-y-lg" 
+                    style={{color: palette.accent3Color}}>
+                    Already have an account? Login here.
+                </Link>
 
-        </form>
+            </form>
+        </div>
     );
 }
 

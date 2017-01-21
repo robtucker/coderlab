@@ -1,28 +1,50 @@
-export const addIndefiniteArticle = (text) => {
+import {mergeWith, isObject} from "lodash";
+
+const deepMerge = (object, source) => {
+    return mergeWith(object, source, (objValue, srcValue) => {
+        //console.log('COMPARING', objValue, srcValue);
+        if(isObject(objValue) && srcValue) {
+            return deepMerge(objValue, srcValue);
+        }
+    });
+}
+
+const deepMergeArrayConcat = (object, source) => {
+    return mergeWith(object, source, (objValue, srcValue) => {
+        //console.log('COMPARING', objValue, srcValue);
+        if(Array.isArray(objValue) && Array.isArray(srcValue)) {
+            return objValue.concat(srcValue);
+        } else if(isObject(objValue) && srcValue) {
+            return deepMergeArrayConcat(objValue, srcValue);
+        } 
+    });
+}
+
+const addIndefiniteArticle = (text) => {
     return ['a', 'e', 'i', 'o', 'u'].indexOf(text.charAt(0)) === -1 ? 'a ' + text : 'an ' + text;
 }
 
-export const getTagNameArticle = (text) => {
+const getTagNameArticle = (text) => {
     // the indefinite article for desciribing tag names 
     // has h instead of u, e.g. a <ul> tag or an <h1> tag
     return ['a', 'e', 'i', 'o', 'h'].indexOf(text.charAt(0)) === -1 ? 'a' : 'an';
 }
 
 // todo - do this properly later
-export const numToWords = (num) => {
+const numToWords = (num) => {
     let words = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']
     return words[num]
 }
 
-export const countWords = (str) => {
+const countWords = (str) => {
     return str.split(/\s+/).length;
 }
 
-export const strToArray = (str) => {
+const strToArray = (str) => {
     return str.split(/\s+/);
 }
 
-export const getLineNumber = (haystack, needle) => {
+const getLineNumber = (haystack, needle) => {
     let i = haystack.indexOf(needle);
 
     // maybe it simply isn't there
@@ -32,7 +54,7 @@ export const getLineNumber = (haystack, needle) => {
     return (haystack.substr(0, i).match(/\n/g) || []).length + 1;
 };
 
-export const evalQueryOperator = (subj, operator, val) => {
+const evalQueryOperator = (subj, operator, val) => {
     //console.log('evalQueryOperator', subj.indexOf(val))
     switch(operator) {
     case '=':
@@ -59,36 +81,38 @@ export const evalQueryOperator = (subj, operator, val) => {
 }
 
 // 4 char key is fine for ephemeral data like notifications
-export const s4 = () => {
+const s4 = () => {
     return Math.floor((1 + Math.random()) * 0x10000)
       .toString(16)
       .substring(1);
 }
 
-export const shortKey = () => {
+const shortKey = () => {
     return s4() + s4();
 }
 
 // still pretty quick compared to using some crypto lib i guess
-export const guid = () => {
+const guid = () => {
     return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
 }
 
-export const base64Encode = (str) => {
+const base64Encode = (str) => {
     if(btoa) return btoa(str);
     return new Buffer(str).toString('base64')
 }
 
-export const base64Decode = (str) => {
+const base64Decode = (str) => {
     if(atob) return atob(str);
     return new Buffer(str, 'base64').toString('ascii')
 }
 
-export const timestamp = () => {
+const timestamp = () => {
     return Math.floor(+new Date() / 1000)
 }
 
 export const utils = {
+    deepMerge,
+    deepMergeArrayConcat,
     addIndefiniteArticle,
     getTagNameArticle,
     numToWords,

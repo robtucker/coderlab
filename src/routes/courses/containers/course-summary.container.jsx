@@ -1,15 +1,34 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from "react-redux";
-import findIndex from "lodash/findIndex";
+import {browserHistory} from "react-router";
+import {findIndex} from "lodash";
 import { breakpoints } from "../../../styles";
+import {utils} from "../../../core/utils";
+import {authService} from "../../../core/auth-service";
 import { Logger } from "isolog";
 import { CourseSummary } from "../components/course-summary";
-import { setNavbarColor, toggleEnrolDialog, setAuthRedirect, userStartCourse } from "../../../actions";
+import { setNavbarColor, toggleEnrolDialog, setAuthRedirect, putUserCourse } from "../../../actions";
 
 const mapDispatchToProps = (dispatch) => ({
     setNavbarColor: (color) => dispatch(setNavbarColor(color)),
     toggleEnrolDialog: () => dispatch(toggleEnrolDialog()),
-    startCourse: (course) => dispatch(userStartCourse(course))
+    startCourse: (course) => {
+
+        let now = utils.timestamp();
+        let data = {
+            [course.id]: {
+                dateStarted: now,
+                levels: {
+                    [course.levels[0].id]: {
+                        dateStarted: now,
+                    }
+                }
+            }
+        };
+
+        let req = putUserCourse(data);
+        req.then(u => browserHistory.push(`courses/${course.slug}/level/1/1`));
+    }
 });
 
 const mapStateToProps = (state, ownProps) => {

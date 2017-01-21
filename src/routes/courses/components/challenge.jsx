@@ -28,88 +28,96 @@ export class Challenge extends Component {
     componentWillMount() {
         // console.log('mounting challenge');
         // console.log(this.props);
-        let {courseName, levelId, challengeId} = this.props.params
-
-        this.getChallenge(courseName, parseInt(levelId), parseInt(challengeId));
+        let {courseName, levelIndex, challengeIndex} = this.props.params;
+        this.getChallenge(levelIndex, challengeIndex);
         this.props.hideNavbar();
     }
 
-    getChallenge(courseName, levelId, challengeId) {
-        // console.log('getChallenge', courseName, levelId, challengeId) 
+    getChallenge(levelIndex, challengeIndex) {
+        // start by zero indexing the level and challenge numbers
+        levelIndex = parseInt(levelIndex) - 1;
+        challengeIndex = parseInt(challengeIndex) - 1;
+        let courseName = this.props.params.courseName;
 
-        let courseLevel = getCourseLevel(courseName, levelId);
+        let req = getCourseLevel(courseName, levelIndex);
 
-        courseLevel.then((level) => {
-            let challenge = find(level.challenges, c => c.id === challengeId);
+        req.then(course => {
+            let challenge = course.levels[levelIndex].challenges[challengeIndex];
             //console.log('courseLevel', level, challenge) 
-            if(level && challenge) {
-                this.props.startCourseLevel(courseName, levelId, level);
-                this.props.startChallenge(challenge);
+            if(course && challenge) {
+                this.props.setCourseLevel(courseName, course, levelIndex);
+                this.props.startChallenge(course, levelIndex, challengeIndex);
             } else {
-                this.props.courseNotFound(courseName, LevelId);
+                this.props.courseNotFound(courseName, levelIndex);
             }
         });
 
-        courseLevel.catch((err) => {
+        req.catch((err) => {
             //console.log('courseLevel error', err);
-            this.props.courseNotFound(courseName, LevelId);
+            this.props.courseNotFound(courseName, levelIndex);
         })
     }
     
     nextChallenge() {
+        console.log('next challenge', this.props.course)
+        // dealing with NON zero indexed level and challenge numbers
+        let {courseName} = this.props.params;
+        let levelNum = parseInt(this.props.params.levelIndex);
+        let challNum =  parseInt(this.props.params.challengeIndex);
+        let challCount = this.props.course.levels[levelNum - 1].challenges.length;
+        let levelComplete = challNum >= challCount;
+        let nextChallenge =  levelComplete ? 1 : challNum + 1;
+        let nextLevel = levelComplete ? levelNum + 1 : levelNum;
 
-        let {courseName, levelId, challengeId} = this.props.params;
-        let challengeCount = this.props.course.levels[parseInt(levelId - 1)].challenges.length;
-        let levelComplete = parseInt(challengeId) >= challengeCount;
+        this.getChallenge(nextLevel, nextChallenge);
 
-        // console.log('next challenge', challengeCount, levelComplete);
-
-        let nextChallenge =  levelComplete ? 1 : parseInt(challengeId) + 1;
-        let nextLevel = levelComplete ? parseInt(levelId) + 1 : parseInt(levelId);
-
-        //console.log('next challenge', challengeCount, challengeComplete, nextLevel, nextChallenge);
-
-        this.getChallenge(courseName, nextLevel, nextChallenge);
         browserHistory.push(`courses/${courseName}/level/${nextLevel}/${nextChallenge}`);
     }
 
     handleSubmit () {
         let examiner = new Examiner(this.props.challenge);
 
-        // console.log('examiner', examiner);
-        
+        // console.log('examiner', examiner);    
         if(examiner.parserErrors.length) {
-            this.props.showErrors(examiner.parserErrors);
+            return this.props.showErrors(examiner.parserErrors);
 
-        } else {
-            examiner.examineAllTasks();
+        } 
 
-            // Time to line up the next task. Rather than simply incrementing the counter by one,
-            // instead check outstanding errors and explicitly set the correct value on the state tree
-            // Thus, if the user has gone ahead then they can skip over tasks they have already completed
-            // and if the user has undone some of their work we can ensure they move back and redo the task
-            let nextTask = examiner.getNextTask();
+        examiner.examineAllTasks();
 
-            // console.log('nextTask', nextTask, this.props.currentTask, this.props.challenge.tasks.length);
+        // Time to line up the next task. Rather than simply incrementing the counter by one,
+        // instead check outstanding errors and explicitly set the correct value on the state tree
+        // Thus, if the user has gone ahead then they can skip over tasks they have already completed
+        // and if the user has undone some of their work we can ensure they move back and redo the task
+        let nextTask = examiner.getNextTask();
 
-            // if the challenge is complete
-            if(nextTask >= this.props.challenge.tasks.length) {
-                // todo - save this to the db
-                //this.props.saveProgress()
-                return this.props.completeChallenge();
+        // console.log('nextTask', nextTask, this.props.currentTask, this.props.challenge.tasks.length);
+
+        // if the challenge is complete
+        if(nextTask >= this.props.challenge.tasks.length) {
+            let levelNum = parseInt(this.props.params.levelIndex);
+            let challNum =  parseInt(this.props.params.challengeIndex);
+            let challCount = this.props.course.levels[levelNum - 1].challenges.length;
+            let levelComplete = challNum >= challCount;
+            //console.log('challenge complete', challCount, levelComplete);
+
+            if(levelComplete) {
+                return this.props.completeLevel(this.props.course, levelNum - 1, challNum - 1); 
+            } else {
+                return this.props.completeChallenge(this.props.course, levelNum - 1, challNum - 1);
             }
-
-            // don't show errors if they have just finished a task
-            // i.e. only show them errors if they are on the same task or lower
-            if(nextTask <= this.props.currentTask) {
-                let showableErrors = flatten(examiner.taskErrors.slice(0, nextTask + 1))
-                // console.log('showableErrors', examiner.taskErrors.slice(0, nextTask), showableErrors);
-                this.props.showErrors(showableErrors);
-            }
-
-            // regardless of what happens always set the current task
-            this.props.setCurrentTask(nextTask);
         }
+
+        // don't show errors if they have just finished a task
+        // i.e. only show them errors if they are on the same task or lower
+        if(nextTask <= this.props.currentTask) {
+            let showableErrors = flatten(examiner.taskErrors.slice(0, nextTask + 1))
+            // console.log('showableErrors', examiner.taskErrors.slice(0, nextTask), showableErrors);
+            this.props.showErrors(showableErrors);
+        }
+
+        // regardless of what happens always set the current task
+        return this.props.setCurrentTask(nextTask);
     }
 
     getNavigationDrawer() {
@@ -117,7 +125,8 @@ export class Challenge extends Component {
             <ChallengeNavigation
                 sidebarVisible={this.props.sidebarVisible} 
                 toggleNavigationDrawer={this.props.toggleNavigationDrawer} 
-                course={this.props.course}/>
+                course={this.props.course}
+                getChallenge={this.getChallenge.bind(this)}/>
         );
     }
 
@@ -166,6 +175,26 @@ export class Challenge extends Component {
         );
     }
 
+    getWebChallenge(){
+        return (
+            <div>
+                {this.getVideo()}
+                {this.getNavigationDrawer()}
+                <div className="col-xs row-lg justify-center-xs justify-start-lg align-center-xs align-start-lg height-100" 
+                    style={containerStyles}>  
+                    {this.getInstructions()}
+                    {this.getEditor()}
+                </div>
+            </div>
+        );
+    }
+
+    getIrlCourse() {
+        return (
+            <div>IRL</div>
+        )
+    }
+
     render() {
         //console.log('render challenge', this.props.course, this.props.challenge);
         // we might be waiting for the api to return the course level
@@ -179,16 +208,12 @@ export class Challenge extends Component {
             backgroundColor: editorThemes[this.props.editorTheme].cream,
         };
         
-        return (
-            <div>
-                {this.getVideo()}
-                {this.getNavigationDrawer()}
-                <div className="col-xs row-lg justify-center-xs justify-start-lg align-center-xs align-start-lg height-100" 
-                    style={containerStyles}>  
-                    {this.getInstructions()}
-                    {this.getEditor()}
-                </div>
-            </div>
-        );
+        switch(this.props.challenge.type) {
+        case "irl":
+            return this.getIrlCourse();
+        case 'web':
+        default:
+            return this.getWebChallenge();
+        }
     }
 }

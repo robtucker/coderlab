@@ -27,28 +27,30 @@ const Form = (props) => {
     let { handleSubmit, pristine, reset, submitting } = props;
 
     return (
-        <form onSubmit={handleSubmit(props.doSubmit)} 
-            style={{minHeight: props.contentHeight}}
-            className="col justify-center align-center height-100">
+        <div>
+            <form onSubmit={handleSubmit(props.doSubmit)} 
+                style={{minHeight: props.contentHeight}}
+                className="col justify-center align-center height-100">
 
-            <h2 className="margin-bottom-lg">Login</h2>
+                <h2 className="margin-y-lg">Login</h2>
 
-            <div>
-                <Field name="username" component={renderTextField} label="Username"/>
-            </div>
-            <div>
-                <Field name="password" type="password" component={renderPasswordField} label="Password"/>
-            </div>
+                <div>
+                    <Field name="username" component={renderTextField} label="Username"/>
+                </div>
+                <div>
+                    <Field name="password" type="password" component={renderPasswordField} label="Password"/>
+                </div>
 
-            {renderSubmitButtons(pristine, submitting)}
+                {renderSubmitButtons(pristine, submitting)}
 
-            <Link 
-                to="register" 
-                className="cursor-pointer text-decoration-underline" 
-                style={{color: palette.accent3Color}}>
-                Don't have an account? Sign up here
-            </Link>
-        </form>
+                <Link 
+                    to="register" 
+                    className="cursor-pointer text-decoration-underline margin-y-lg" 
+                    style={{color: palette.accent3Color}}>
+                    Don't have an account? Sign up here
+                </Link>
+            </form>
+        </div>
     );
 }
 

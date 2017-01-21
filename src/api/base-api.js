@@ -1,8 +1,10 @@
 import fetch from 'isomorphic-fetch'
+import {browserHistory} from "react-router";
 import config from "../config";
 import { UrlParameterError } from "../core/exceptions";
 import {format} from "url";
 import { getAppStore } from "../store";
+import {authService} from "../core/auth-service";
 
 var httpService = fetch;
 
@@ -83,6 +85,9 @@ export class BaseApi {
                         if(s) {
                             this._dispatch(Object.assign({}, e, {type: `API_SUCCESS`, body}));
                             this._dispatch(Object.assign({}, e, {type: `${actionType}_SUCCESS`, body}));
+                        } else if (response.status === 403){
+                            authService.logout()
+                            browserHistory.push('/login');
                         } else {
                             this._dispatch(Object.assign({}, e, {type: `API_ERROR`, body}));
                             this._dispatch(Object.assign({}, e, {type: `${actionType}_ERROR`, body}));

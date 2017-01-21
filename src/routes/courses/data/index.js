@@ -32,14 +32,15 @@ export const getCourse = (courseName) => {
     });
 }
 
-export const getCourseLevel = (courseName, levelId) => {
+export const getCourseLevel = (courseName, levelIndex) => {
     let course = require("./" + courseName + "/index.js");
-    let courseMap = course.courseMap;
-    // console.log('getCourseLevel', courseName, levelId, courseMap);
+    // console.log('getCourseLevel', courseName, levelIndex, course);
     return require.ensure([], (require) => {
-        //console.log('level index', courseMap[parseInt(levelId) - 1])
-        let level = require('./' + courseName + "/" + courseMap[parseInt(levelId) - 1]);
-        //console.log('getLevel', level);
-        if (level && level.default) return level.default
+        let level = require('./' + courseName + "/" + course.courseMap[levelIndex]);
+        if (level && level.default) {
+            course.summary.levels[levelIndex] = level.default;
+            //console.log('course with level', course.summary);
+            return course.summary;
+        }
     });
 }

@@ -28,32 +28,34 @@ const validate = values => {
 const Form = (props) => {
     let { handleSubmit, pristine, reset, submitting } = props;
     return (
-        <form onSubmit={handleSubmit(props.doSubmit)} className="col justify-center align-center margin-y-xxl height-100">
+        <div>
+            <form onSubmit={handleSubmit(props.doSubmit)} className="col justify-center align-center margin-y-xxl height-100">
 
-            <h2 className="margin-bottom-lg">{props.title || 'Settings'}</h2>
+                <h2 className="margin-y-lg">{props.title || 'Settings'}</h2>
 
-            <div>
-                <Field name="username" component={renderTextField} label="First Name"/>
-            </div>
-            <div>
-                <Field name="firstName" component={renderTextField} label="First Name"/>
-            </div>
-            <div>
-                <Field name="lastName" component={renderTextField} label="Last Name"/>
-            </div>
-            <div>
-                <Field name="email" component={renderTextField} label="Email"/>
-            </div>
-            <div>
-                <Field name="password" component={renderPasswordField} label="Password"/>
-            </div>
-            <div>
-                <Field name="passwordConfirmation" component={renderPasswordField} label="Confirm password"/>
-            </div>
+                <div>
+                    <Field name="username" component={renderTextField} label="First Name"/>
+                </div>
+                <div>
+                    <Field name="firstName" component={renderTextField} label="First Name"/>
+                </div>
+                <div>
+                    <Field name="lastName" component={renderTextField} label="Last Name"/>
+                </div>
+                <div>
+                    <Field name="email" component={renderTextField} label="Email"/>
+                </div>
+                <div>
+                    <Field name="password" component={renderPasswordField} label="Password"/>
+                </div>
+                <div>
+                    <Field name="passwordConfirmation" component={renderPasswordField} label="Confirm password"/>
+                </div>
 
 
-            {renderSubmitButtons(pristine, submitting)}
-        </form>
+                {renderSubmitButtons(pristine, submitting)}
+            </form>
+        </div>
     );
 }
 

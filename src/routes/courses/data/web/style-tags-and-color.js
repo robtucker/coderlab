@@ -7,7 +7,7 @@ background color
 div attribute
 */
 export default {
-    id: 2,
+    id: 'd2dce5f5',
     title: "Style it up",
     description:  `HTML on its own can be a little boring. Introduce a bit of color with CSS. 
         We'll show you how to customize the look of your website, and what style is really all about`,

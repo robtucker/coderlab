@@ -1,5 +1,5 @@
 export const summary = {
-    id: 3,
+    id: '01d0ec1d',
     slug: "python",
     title: "Python",
     subtitle: "An entry to programming",
@@ -25,7 +25,7 @@ export const summary = {
     },
     levels: [
         {
-            id: 1,
+            id: '11053a8e',
             title: "Getting set up in Unity",
             description:  `Learn professional web development using HTML, CSS and SASS. 
                 Kick start your career as a programmer with this practical hands-on course.`,
@@ -35,7 +35,7 @@ export const summary = {
             },
         },
         {
-            id: 2,
+            id: 'fccd8a8f',
             title: "Game objects",
             description:  `Learn professional web development using HTML, CSS and SASS. 
                 Kick start your career as a programmer with this practical hands-on course.`,
@@ -45,7 +45,7 @@ export const summary = {
             },
         },
         {
-            id: 3,
+            id: '5a7ca6c8',
             title: "Cameras and lighting",
             description:  `Learn professional web development using HTML, CSS and SASS. 
                 Kick start your career as a programmer with this practical hands-on course.`,
@@ -55,7 +55,7 @@ export const summary = {
             },
         },
         {
-            id: 4,
+            id: '510b5aa9',
             title: "Movement",
             description:  `Learn professional web development using HTML, CSS and SASS. 
                 Kick start your career as a programmer with this practical hands-on course.`,
@@ -65,7 +65,7 @@ export const summary = {
             },
         },
         {
-            id: 5,
+            id: '8169fbeb',
             title: "Boundaries and hazards",
             description:  `Learn professional web development using HTML, CSS and SASS. 
                 Kick start your career as a programmer with this practical hands-on course.`,
@@ -75,7 +75,7 @@ export const summary = {
             },
         },
         {
-            id: 6,
+            id: '3a2d3bb8',
             title: "Game logic and scoring",
             description:  `Learn professional web development using HTML, CSS and SASS. 
                 Kick start your career as a programmer with this practical hands-on course.`,
@@ -85,7 +85,7 @@ export const summary = {
             },
         },
         {
-            id: 7,
+            id: 'aa35361b',
             title: "Finishing and releasing games",
             description:  `Learn professional web development using HTML, CSS and SASS. 
                 Kick start your career as a programmer with this practical hands-on course.`,
