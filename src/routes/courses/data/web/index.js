@@ -1,6 +1,9 @@
 export const summary = {
     id: '6254df79',
     slug: "web",
+    type: 'web',
+    price: 'Free',
+    location: 'Online',
     title: "HTML/CSS",
     subtitle: "The fundamentals of web development",
     description: `Learn professional web development using HTML, CSS and SASS. 

@@ -15,7 +15,7 @@ const SidebarLayout = ({width, sidebar, children}) => {
         <div className="container">
             <div className="col-xs row-lg justify-start align-start">
                 <div className="width-100">{children}</div>
-                <Paper className="width-100 sidebar padding-x-sm padding-y-lg" style={sidebarStyles}>{sidebar}</Paper>
+                <Paper className="width-100 sidebar padding-x-sm padding-y-sm" style={sidebarStyles}>{sidebar}</Paper>
             </div>
         </div>
     );

@@ -13,7 +13,7 @@ export default {
         background: "#c75c5c",
     },
     challenges: [{
-        id: 5,
+        id: 'cd5a0660',
         type: "web",
         video: "https://www.youtube.com/embed/v4oN4DuR7YU",
         title: "Wrapping it up",

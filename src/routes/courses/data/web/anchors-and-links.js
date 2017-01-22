@@ -17,7 +17,7 @@ export default {
         background: "#c75c5c",
     },
     challenges: [{
-        id: 1,
+        id: '89115a2b',
         type: "web",
         video: "https://www.youtube.com/embed/v4oN4DuR7YU",
         title: "Hypertext References",
@@ -100,7 +100,7 @@ export default {
         ]
     },
     {
-        id: 2,
+        id: '7531689c',
         type: "web",
         video: "https://www.youtube.com/embed/v4oN4DuR7YU",
         title: "Relative links",

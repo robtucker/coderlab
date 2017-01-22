@@ -6,7 +6,8 @@
   "scripts": {
     "build": "NODE_ENV=production webpack",
     "start": "webpack-dev-server --watch",
-    "test": "mocha --opts ./mocha.opts"
+    "test": "mocha --opts ./mocha.opts",
+    "keys": "node ./build/scripts/keys"
   },
   "author": "Rob Tucker <rob@coderlab.co.uk>",
   "license": "ISC",

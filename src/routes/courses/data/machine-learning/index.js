@@ -1,6 +1,9 @@
 export const summary = {
     id: '2f008982',
     slug: "machine-learning",
+    type: 'individual',
+    price: '£300',
+    location: 'London',
     title: "Machine Learning",
     subtitle: "Learn how to build machines that can think",
     description: `This course is designed for professional programmers. From deep learning, 

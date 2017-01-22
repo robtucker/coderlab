@@ -189,9 +189,9 @@ export class Challenge extends Component {
         );
     }
 
-    getIrlCourse() {
+    getIndividualCourse() {
         return (
-            <div>IRL</div>
+            <div>individual</div>
         )
     }
 
@@ -209,8 +209,8 @@ export class Challenge extends Component {
         };
         
         switch(this.props.challenge.type) {
-        case "irl":
-            return this.getIrlCourse();
+        case "individual":
+            return this.getIndividualCourse();
         case 'web':
         default:
             return this.getWebChallenge();

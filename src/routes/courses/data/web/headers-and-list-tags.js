@@ -17,7 +17,7 @@ export default {
     },
     challenges: [{
 
-        id: 1, // 1.1
+        id: 'd8edd730',
         type: "web",
         video: "https://www.youtube.com/embed/v4oN4DuR7YU",
         title: "Welcome to Web Design!",
@@ -131,7 +131,7 @@ background-color: #42a5f5;
         ]
     },
     {
-        id: 2, // 1.2 - h1, h2 and p tags
+        id: '977ecf49', // 1.2 - h1, h2 and p tags
         type: "web",
         video: "https://www.youtube.com/embed/v4oN4DuR7YU",
         title: "Your first job...",
@@ -239,7 +239,7 @@ To book a table please email bookings@jeanclaudefrites.com. The waiting time is 
         ]
     },
     {
-        id: 3,
+        id: '3b967496',
         type: "web",
         video: "https://www.youtube.com/embed/v4oN4DuR7YU",
         title: "Lists, lists, lists",
@@ -420,7 +420,7 @@ Clotted cream with bolognase sauce
         ]
     },
     {
-        id: 4,
+        id: 'd7047bd3',
         type: "web",
         video: "https://www.youtube.com/embed/v4oN4DuR7YU",
         title: "Ordered lists",
@@ -511,7 +511,7 @@ Sun - 10am to 10pm
         ]
     },
     {
-        id: 5,
+        id: 'eec2787d',
         type: "web",
         video: "https://www.youtube.com/embed/v4oN4DuR7YU",
         title: "Wrapping it up",

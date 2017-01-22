@@ -1,5 +1,5 @@
 import React, { PropTypes } from "react";
-import { typography } from "../styles";
+import { typography } from "../../../styles";
 
 let avatarStyle = (url) => ({
     backgroundImage:`url(${url})`,
@@ -13,7 +13,8 @@ let avatarStyle = (url) => ({
 
 let titleStyle = {
     marginBottom: '12px',
-    color: typography.textDarkBlack
+    color: typography.textDarkBlack,
+    fontSize: '18px'
 }
 
 let subtitleStyle = {
@@ -22,12 +23,13 @@ let subtitleStyle = {
     fontSize: "16px"
 }
 
-const Avatar = ({img, title, subtitle}) => (
+const CourseInstructor = ({img, title, subtitle}) => (
     <div className="col-xs row-md justify-start align-center">
 
         <div className={`margin-y-sm`} style={avatarStyle(img)}></div>
 
         <div className="max-width-400 margin-y-sm text-center text-md-left">
+            <h6 style={{color: typography.textLightBlack}}>Course Instructor</h6>
             <div style={titleStyle}>{title}</div>
             {subtitle && <div style={subtitleStyle}>{subtitle}</div>}
         </div>
@@ -35,10 +37,10 @@ const Avatar = ({img, title, subtitle}) => (
     </div>
 )
 
-Avatar.propTypes = {
+CourseInstructor.propTypes = {
     img: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string,
 }
 
-export { Avatar }
+export { CourseInstructor }

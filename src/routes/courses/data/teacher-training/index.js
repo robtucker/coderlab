@@ -1,6 +1,9 @@
 export const summary = {
     id: '436e2bda',
     slug: "teacher-training",
+    type: 'individual',
+    price: '£300',
+    location: 'London',
     title: "Teacher Training",
     subtitle: "Get the help you need to teach your students",
     description: `Our fun but structured courses are guaranteed to make your students fall in love with programming. 

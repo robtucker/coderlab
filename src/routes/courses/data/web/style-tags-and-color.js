@@ -16,7 +16,7 @@ export default {
         background: "#c75c5c",
     },
     challenges: [{
-        id: 1,
+        id: 'fc8d06f5',
         type: "web",
         video: "https://www.youtube.com/embed/v4oN4DuR7YU",
         title: "Do it with style",

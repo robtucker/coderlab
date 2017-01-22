@@ -29,6 +29,15 @@ export const CourseRoutes = (store) => {
             }
         },
         {
+            path: "/courses/:name/payment",
+            getComponent(nextState, cb) {
+                require.ensure([], (require) => {
+                    let CoursePaymentContainer = require('./containers/course-payment.container').CoursePaymentContainer
+                    cb(null, CoursePaymentContainer);
+                })
+            }
+        },
+        {
             path: 'courses/:courseName/level/:levelIndex/:challengeIndex',
             getComponent(nextState, cb) {
                 require.ensure([], (require) => {

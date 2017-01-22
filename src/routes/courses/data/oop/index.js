@@ -1,6 +1,9 @@
 export const summary = {
     id: 'c38b16dc',
     slug: "oop",
+    type: 'individual',
+    price: '£300',
+    location: 'London',
     title: "Object-Oriented Programming",
     subtitle: "A map of programming design patterns",
     description: `Object Oriented design patterns are at the heart of programming. 

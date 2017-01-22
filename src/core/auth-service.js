@@ -28,7 +28,7 @@ export class AuthService {
         if(this._check(user)) {
             this._set(user)
             this._dispatch({type: LOGIN, user});
-            return this._user = user;
+            this._user = user;
         } else {
             //todo dispatch login failure
         }

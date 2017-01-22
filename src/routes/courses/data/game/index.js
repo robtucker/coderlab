@@ -1,6 +1,9 @@
 export const summary = {
     id: '1c3da4c3',
     slug: "game",
+    type: 'individual',
+    price: '£300',
+    location: 'London',
     title: "Game Development",
     subtitle: "The fundamentals of game development",
     description: `Learn the Unity game engine, and make your own video game. 

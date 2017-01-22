@@ -12,6 +12,7 @@ import { setNavbarColor, toggleEnrolDialog, setAuthRedirect, putUserCourse } fro
 const mapDispatchToProps = (dispatch) => ({
     setNavbarColor: (color) => dispatch(setNavbarColor(color)),
     toggleEnrolDialog: () => dispatch(toggleEnrolDialog()),
+    setAuthRedirect: (url) => dispatch(setAuthRedirect(url)),
     startCourse: (course) => {
 
         let now = utils.timestamp();
@@ -27,7 +28,21 @@ const mapDispatchToProps = (dispatch) => ({
         };
 
         let req = putUserCourse(data);
-        req.then(u => browserHistory.push(`courses/${course.slug}/level/1/1`));
+
+        let redirect;
+        switch(course.type) {
+        case 'individual':
+            redirect = `courses/${course.slug}/payment`;
+            break;
+        case 'web':
+            redirect = `courses/${course.slug}/level/1/1`;
+            break;
+        default:
+            throw new Error("The course did not specify a valid type")
+
+        }
+
+        req.then(u => browserHistory.push(redirect));
     }
 });
 

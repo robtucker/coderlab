@@ -1,6 +1,9 @@
 export const summary = {
     id: '7c4f0a63',
     slug: "javascript",
+    type: 'individual',
+    price: '£300',
+    location: 'London',
     title: "Javascript",
     subtitle: "The language of the web",
     description: `From interactive user experiences to real-time chat applications, 

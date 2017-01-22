@@ -44,6 +44,13 @@ const strToArray = (str) => {
     return str.split(/\s+/);
 }
 
+/**
+ * no native strdup for js as far as I am aware
+ */
+const strdup = (str) => {
+    return (" " + str).substr(1);
+}
+
 const getLineNumber = (haystack, needle) => {
     let i = haystack.indexOf(needle);
 
@@ -118,6 +125,7 @@ export const utils = {
     numToWords,
     countWords,
     strToArray,
+    strdup,
     getLineNumber,
     evalQueryOperator,
     s4,

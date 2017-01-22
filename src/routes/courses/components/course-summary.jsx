@@ -2,12 +2,13 @@ import React, { PropTypes, Component } from 'react';
 import {browserHistory} from"react-router";
 import Drawer from 'material-ui/Drawer';
 import {List, ListItem} from 'material-ui/List';
+import { typography } from "../../../styles";
 
 import { PageContainer} from "../../../components/page-container";
 import { LinkCard } from "../../../components/link-card";
 import { SidebarLayout } from "../../../components/sidebar-layout";
 import { MenuLink } from "../../../components/menu-link";
-import { Avatar } from "../../../components/avatar";
+import { CourseInstructor } from "./course-instructor";
 import { StarRating } from "../../../components/star-rating";
 import { CourseBanner } from "./course-banner";
 import { EnrolDialog } from "../components/enrol-dialog";
@@ -36,23 +37,36 @@ export class CourseSummary extends Component {
     }
 
     getSidebar () {
+        let bold = {fontWeight: 'bold'};
+        let dark = {color: typography.textDarkBlack}
+        let light = {color: typography.textLightBlack}
+
         return ( 
             <section>
-                <h6>Course instructor:</h6>
 
-                <div className="margin-bottom-md margin-x-sm">
-                    <Avatar 
+                <div className="margin-bottom-sm">
+                    <CourseInstructor 
                         img={this.props.course.teacher.img} 
                         title={this.props.course.teacher.name} 
                         subtitle={this.props.course.teacher.subtitle} />
                 </div>
 
-                <h6>Difficulty:</h6> 
-                <div className="margin-x-sm margin-bottom-md">
+                <div className="row align-center margin-y-sm">
+                    <span style={dark}>Price:&nbsp;</span> 
+                    <span style={light}>{this.props.course.price}</span> 
+                </div>
+
+                <div className="row align-center margin-y-xs">
+                    <span style={dark}>Location:&nbsp;</span>
+                    <span style={light}>{this.props.course.location}</span>
+                </div>
+
+                <div className="row align-center margin-y-xs">
+                    <span  style={dark}>Difficulty:&nbsp;</span>
                     <StarRating count={this.props.course.difficultyRating} />
                 </div>
 
-                <h6>Other courses:</h6>
+                <span  style={dark}>Other courses:</span>
                 <List>
                     {this.props.relatedCourses.map((c) => (
                         <ListItem key={c.id} primaryText={c.title} 
@@ -98,6 +112,7 @@ export class CourseSummary extends Component {
                     toggle={this.props.toggleEnrolDialog} 
                     isLoggedIn={this.props.isLoggedIn}
                     startCourse={this.props.startCourse}
+                    setAuthRedirect={this.props.setAuthRedirect}
                     course={this.props.course} />
             </div>
 
