@@ -8,7 +8,7 @@ import { browserHistory } from "react-router";
 const EnrolDialog = (props) => {
     // console.log('EnrolDialog', props);
     const actions = (
-        <div className="margin-y-lg">
+        <div className="margin-bottom-md">
 
             <RaisedButton
                 className="margin-x-xs"
@@ -54,12 +54,10 @@ const EnrolDialog = (props) => {
         body = (
             <div>
                 <p>This is a paid course costing {props.course.price} in which an instructor will sit down with you and teach you one on one.</p>
-                <p>All you need to do is arrange a time and a place, and we'll introduce you to your instructor.</p>
-                <p>Next up we're going to take you to a payment page where you'll be able to book in your course.</p>
+                <p>All you have to do is to choose a date when it's convenient for you to take your course.</p>
             </div>
         )
     }
-
 
     return (
         <Dialog

@@ -4,8 +4,6 @@ import { injectReducer } from "../../store";
 
 import { CourseIndexContainer } from './containers/course-index.container';
 
-//export const coursesData = [web, game, javascript, python, teacher, advanced];
-
 export const CourseRoutes = (store) => {
 
     const editorReducer = require('./editor.reducer').reducer
@@ -29,11 +27,11 @@ export const CourseRoutes = (store) => {
             }
         },
         {
-            path: "/courses/:name/payment",
+            path: "/courses/:name/booking",
             getComponent(nextState, cb) {
                 require.ensure([], (require) => {
-                    let CoursePaymentContainer = require('./containers/course-payment.container').CoursePaymentContainer
-                    cb(null, CoursePaymentContainer);
+                    let CourseBookingContainer = require('./containers/course-booking.container').CourseBookingContainer
+                    cb(null, CourseBookingContainer);
                 })
             }
         },

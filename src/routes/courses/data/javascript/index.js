@@ -2,7 +2,8 @@ export const summary = {
     id: '7c4f0a63',
     slug: "javascript",
     type: 'individual',
-    price: '£300',
+    price: '£900',
+    days: 3,
     location: 'London',
     title: "Javascript",
     subtitle: "The language of the web",
@@ -29,70 +30,80 @@ export const summary = {
     },
     levels: [
         {
-            id: 'ac069138',
-            title: "Getting set up in Unity",
-            description:  `Learn professional web development using HTML, CSS and SASS. 
-                Kick start your career as a programmer with this practical hands-on course.`,
+            id: '574d71c9',
+            title: "Working with variables",
+            description:  `Variables are the basis of all computing. Learning how to use variables is easy, 
+                what we're going to teach you is how the computer uses them.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
             },
         },
         {
-            id: '0bdb1ed0',
-            title: "Game objects",
-            description:  `Learn professional web development using HTML, CSS and SASS. 
-                Kick start your career as a programmer with this practical hands-on course.`,
+            id: '72609d8b',
+            title: "Stringing things together",
+            description:  `We'll teach you how it is that computers can read and save text.
+                The aim for this level is to get you comfortable with the concept of data types.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
             },
         },
         {
-            id: 'b4fcc748',
-            title: "Cameras and lighting",
-            description:  `Learn professional web development using HTML, CSS and SASS. 
-                Kick start your career as a programmer with this practical hands-on course.`,
+            id: '2fb68be1',
+            title: "The Function game",
+            description:  `Master the concept of functions in less than 15 minutes with our super awesome function game.
+                Once you've understood the beauty of functions, all of programming is yours!`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
             },
         },
         {
-            id: '527b2d94',
-            title: "Movement",
-            description:  `Learn professional web development using HTML, CSS and SASS. 
-                Kick start your career as a programmer with this practical hands-on course.`,
+            id: '59693aac',
+            title: "If this then that",
+            description: `Tell your program how to follow conditional rules with the if-then statement. 
+                Conditionals aren't just a technique, they're an entire way of thinking about things.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
             },
         },
         {
-            id: '4c73106d',
-            title: "Boundaries and hazards",
-            description:  `Learn professional web development using HTML, CSS and SASS. 
-                Kick start your career as a programmer with this practical hands-on course.`,
+            id: 'ac389fd0',
+            title: "Loop the loop",
+            description:  `In this level we'll discuss why it is that programs tend to go round in circles repeating
+                the same bits of code over and over, and how to think in loops.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
             },
         },
         {
-            id: 'ffdf2148',
-            title: "Game logic and scoring",
-            description:  `Learn professional web development using HTML, CSS and SASS. 
-                Kick start your career as a programmer with this practical hands-on course.`,
+            id: 'c5ee44f5',
+            title: "Arrays and Objects",
+            description:  `In this level, we'll cover some advanced data types, arrays and objects.
+                These data types are the basis of advanced programming so we'll be spending a lot of time on them.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
             },
         },
         {
-            id: '79242c9e',
-            title: "Finishing and releasing games",
-            description:  `Learn professional web development using HTML, CSS and SASS. 
-                Kick start your career as a programmer with this practical hands-on course.`,
+            id: '741a1c75',
+            title: "The Document Object Model",
+            description:  `Javascript is unique amongst programming languages in its relationship the browser. In this level,
+                we'll discuss how exactly that works.`,
+            icon: {
+                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
+                background: "#c75c5c",
+            }
+        },
+        {
+            id: 'd76371b2',
+            title: "Querying the DOM",
+            description:  `In the final level we'll show you how to manipulate HTML elements.
+                After this level, consider taking the course in Object-Oriented Programming to continue your javascript journey`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",

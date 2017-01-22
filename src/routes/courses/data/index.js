@@ -1,7 +1,7 @@
 import config from "../../../config";
 
 import * as web from "./web";
-import * as game from "./game";
+import * as unity from "./unity";
 import * as javascript from "./javascript";
 import * as python from "./python";
 import * as machineLearning from "./machine-learning";
@@ -9,7 +9,7 @@ import * as oop from "./oop";
 
 let courses = {
     web,
-    game,
+    unity,
     javascript,
     python,
     machineLearning,
@@ -18,7 +18,7 @@ let courses = {
 
 export const getSummaries = () => ({
     web: web.summary,
-    game: game.summary,
+    unity: unity.summary,
     javascript: javascript.summary,
     python: python.summary,
     machineLearning: machineLearning.summary,

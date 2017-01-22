@@ -30,7 +30,7 @@ let sliderPanels = [
         title: "Make video games in Unity",
         subtitle: unityLogo,
         img: require("../../../assets/img/backgrounds/fantasy.jpg"),
-        url: "courses/game"
+        url: "courses/unity"
     },
     {
         id: 3,

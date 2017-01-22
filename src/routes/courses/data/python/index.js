@@ -2,7 +2,8 @@ export const summary = {
     id: '46df99fe',
     slug: "python",
     type: 'individual',
-    price: '£300',
+    price: '£900',
+    days: 3,
     location: 'London',
     title: "Python",
     subtitle: "An entry to programming",
@@ -22,16 +23,16 @@ export const summary = {
         name: "Rob Tucker",
         subtitle: "Python Developer",
         description: `Rob is a Python developer with a love for natural language processing, linguistics 
-            and compiler design. He also plays piano and has a dog named Izzy.`,
+            and compiler design. He also plays piano and loves dogs`,
         img: require('../../../../assets/img/mentors/rob-tucker.jpg'),
         tags: ["javascript", "python"]
     },
     levels: [
         {
             id: '11053a8e',
-            title: "Getting set up in Unity",
-            description:  `Learn professional web development using HTML, CSS and SASS. 
-                Kick start your career as a programmer with this practical hands-on course.`,
+            title: "Working with variables",
+            description:  `Variables are the basis of all computing. Learning how to use variables is easy, 
+                what we're going to teach you is how the computer uses them.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
@@ -39,9 +40,9 @@ export const summary = {
         },
         {
             id: 'fccd8a8f',
-            title: "Game objects",
-            description:  `Learn professional web development using HTML, CSS and SASS. 
-                Kick start your career as a programmer with this practical hands-on course.`,
+            title: "Stringing things together",
+            description:  `We'll teach you how it is that computers can read and save text.
+                The aim for this level is to get you comfortable with the concept of data types.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
@@ -49,9 +50,9 @@ export const summary = {
         },
         {
             id: '5a7ca6c8',
-            title: "Cameras and lighting",
-            description:  `Learn professional web development using HTML, CSS and SASS. 
-                Kick start your career as a programmer with this practical hands-on course.`,
+            title: "The Function game",
+            description:  `Master the concept of functions in less than 15 minutes with our super awesome function game.
+                Once you've understood the beauty of functions, all of programming is yours!`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
@@ -59,9 +60,9 @@ export const summary = {
         },
         {
             id: '510b5aa9',
-            title: "Movement",
-            description:  `Learn professional web development using HTML, CSS and SASS. 
-                Kick start your career as a programmer with this practical hands-on course.`,
+            title: "If this then that",
+            description: `Tell your program how to follow conditional rules with the if-then statement. 
+                Conditionals aren't just a technique, they're an entire way of thinking about things.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
@@ -69,9 +70,9 @@ export const summary = {
         },
         {
             id: '8169fbeb',
-            title: "Boundaries and hazards",
-            description:  `Learn professional web development using HTML, CSS and SASS. 
-                Kick start your career as a programmer with this practical hands-on course.`,
+            title: "Loop the loop",
+            description:  `In this level we'll discuss why it is that programs tend to go round in circles repeating
+                the same bits of code over and over, and how to think in loops.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
@@ -79,9 +80,9 @@ export const summary = {
         },
         {
             id: '3a2d3bb8',
-            title: "Game logic and scoring",
-            description:  `Learn professional web development using HTML, CSS and SASS. 
-                Kick start your career as a programmer with this practical hands-on course.`,
+            title: "Lists and Dictionaries",
+            description:  `In this course we'll cover some advanced data types, lists and dictionaries.
+                These data types are the basis of advanced programming so we'll be spending a lot of time on them.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
@@ -89,9 +90,19 @@ export const summary = {
         },
         {
             id: 'aa35361b',
-            title: "Finishing and releasing games",
-            description:  `Learn professional web development using HTML, CSS and SASS. 
-                Kick start your career as a programmer with this practical hands-on course.`,
+            title: "Opening and saving files",
+            description:  `Working with different file formats is an important step towards making your new 
+                found programming skills useful for the real world.`,
+            icon: {
+                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
+                background: "#c75c5c",
+            }
+        },
+        {
+            id: '688526c2',
+            title: "Modules",
+            description:  `Our beginner level course ends with modules. We'll show you some common modules and how to use them.
+                After this level, consider taking the course in Object-Oriented Programming to continue your python journey`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",

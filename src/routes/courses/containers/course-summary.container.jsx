@@ -32,7 +32,7 @@ const mapDispatchToProps = (dispatch) => ({
         let redirect;
         switch(course.type) {
         case 'individual':
-            redirect = `courses/${course.slug}/payment`;
+            redirect = `courses/${course.slug}/booking`;
             break;
         case 'web':
             redirect = `courses/${course.slug}/level/1/1`;

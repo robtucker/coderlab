@@ -7,7 +7,7 @@ export const summary = {
     title: "Machine Learning",
     subtitle: "Learn how to build machines that can think",
     description: `This course is designed for professional programmers. From deep learning, 
-        to neural nets, we'll help you push further than ever before`,
+        to neural nets, we'll open up the world of machine learning for you`,
     difficultyRating: 5,
     icon: {
         img: require('../../../../assets/img/courses/advanced/icons/pen.svg'),

@@ -4,7 +4,6 @@ import { Link, browserHistory } from 'react-router';
 import { Field, reduxForm } from 'redux-form'
 import { 
     renderTextField, 
-    renderPasswordField, 
     renderSubmitButtons } from '../../../components/form-fields'
 import { FormValidator } from "../../../core/validators"
 import { formConstants } from "../../../config";
@@ -16,12 +15,9 @@ const asyncValidate = () => {
 
 const validate = values => {
     return new FormValidator(values)
-        .required([])
-        .email()
+        .required(['addressLine1', 'city', 'postCode', 'phoneNumber'])
         .min('username', formConstants.USERNAME_MIN_LENGTH)
         .min('password', formConstants.PASSWORD_MIN_LENGTH)
-        .password()
-        .passwordConfirmation()
         .getErrors();
 }
 
@@ -29,29 +25,29 @@ const Form = (props) => {
     let { handleSubmit, pristine, reset, submitting } = props;
     return (
         <div>
-            <form onSubmit={handleSubmit(props.doSubmit)} 
+            <form onSubmit={handleSubmit(props.doSubmit)}
                 style={{minHeight: props.contentHeight}}
                 className="col justify-center align-center height-100">
 
-                <h2 className="margin-y-lg">{props.title || 'Settings'}</h2>
+                <h2 className="margin-y-lg">{props.title || 'Book your course'}</h2>
 
                 <div>
-                    <Field name="username" component={renderTextField} label="First Name"/>
+                    <Field name="addressLine1" component={renderTextField} label="Address line 1"/>
                 </div>
                 <div>
-                    <Field name="firstName" component={renderTextField} label="First Name"/>
+                    <Field name="addressLine2" component={renderTextField} label="Address Line 2"/>
                 </div>
                 <div>
-                    <Field name="lastName" component={renderTextField} label="Last Name"/>
+                    <Field name="city" component={renderTextField} label="City"/>
                 </div>
                 <div>
-                    <Field name="email" component={renderTextField} label="Email"/>
+                    <Field name="county" component={renderTextField} label="County"/>
                 </div>
                 <div>
-                    <Field name="password" component={renderPasswordField} label="Password"/>
+                    <Field name="postCode" component={renderTextField} label="Post Code"/>
                 </div>
                 <div>
-                    <Field name="passwordConfirmation" component={renderPasswordField} label="Confirm password"/>
+                    <Field name="phoneNumber" component={renderTextField} label="Phone number"/>
                 </div>
 
 
@@ -61,7 +57,7 @@ const Form = (props) => {
     );
 }
 
-export const SettingsForm = reduxForm({
-    form: 'settingsForm',  // a unique identifier for this form
+export const CourseBookingForm = reduxForm({
+    form: 'courseBookingForm',  // a unique identifier for this form
     validate
 })(Form)

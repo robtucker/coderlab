@@ -2,12 +2,13 @@ export const summary = {
     id: 'c38b16dc',
     slug: "oop",
     type: 'individual',
-    price: '£300',
+    price: '£600',
+    days: 2,
     location: 'London',
     title: "Object-Oriented Programming",
     subtitle: "A map of programming design patterns",
-    description: `Object Oriented design patterns are at the heart of programming. 
-        Learn how to think about programming at a higher level`,
+    description: `You can sit this course using any programming language. We'll be teaching you how to think 
+        about programming at a higher level of abstraction.`,
     difficultyRating: 1,
     icon: {
         img: require('../../../../assets/img/courses/teacher/icons/books.svg'),
@@ -29,29 +30,39 @@ export const summary = {
     levels: [
         {
             id: '6cfd4a41',
-            title: "Getting set up in Unity",
-            description:  `Learn professional web development using HTML, CSS and SASS. 
-                Kick start your career as a programmer with this practical hands-on course.`,
+            title: "Yeah but what are classes really?",
+            description:  `Classes are the basis of most programming languages, so they are well worth understanding in depth!
+                To understand classes we'll have to take a slightly deeper look at how programming languages really work.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
-            },
+            }
         },
         {
             id: '672c6cb0',
-            title: "Game objects",
-            description:  `Learn professional web development using HTML, CSS and SASS. 
-                Kick start your career as a programmer with this practical hands-on course.`,
+            title: "The Factory Pattern",
+            description:  `A factory class, is like a production line that creates new instances of a particular type of object. 
+                Once you get the hang of it this is one of the easiest design patterns that you will use frequently in your code.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
             },
         },
         {
+            id: '6cfd4a41',
+            title: "The Decorator Pattern",
+            description:  `Decorators are all about extending the behaviour of an object at the very last minute.
+                So just as it is used it gains new powers. It's a pretty pwerful technique for many use cases.`,
+            icon: {
+                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
+                background: "#c75c5c",
+            }
+        },
+        {
             id: '555e44f9',
-            title: "Cameras and lighting",
-            description:  `Learn professional web development using HTML, CSS and SASS. 
-                Kick start your career as a programmer with this practical hands-on course.`,
+            title: "Strategies and Adapters",
+            description:  `The strategy pattern is often used in situations where you could perform a task in more than one way.
+                It's all about picking the most appropriate strategy.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
@@ -59,9 +70,9 @@ export const summary = {
         },
         {
             id: '56ec3e62',
-            title: "Movement",
-            description:  `Learn professional web development using HTML, CSS and SASS. 
-                Kick start your career as a programmer with this practical hands-on course.`,
+            title: "SOLID principles",
+            description:  `The SOLID principles are at the heart of Object-Oriented programming. It may take a little while
+                for them to sink in, but once you've got them they will underpin every line of code you write.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
@@ -69,9 +80,9 @@ export const summary = {
         },
         {
             id: '22e95199',
-            title: "Boundaries and hazards",
-            description:  `Learn professional web development using HTML, CSS and SASS. 
-                Kick start your career as a programmer with this practical hands-on course.`,
+            title: "The Observer Pattern",
+            description:  `How do you persuade a class to wait and listen out for a particular event and then act on it? 
+                Observers are a very powerful technique that are often used by professional coders.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
@@ -79,9 +90,9 @@ export const summary = {
         },
         {
             id: '9143a84b',
-            title: "Game logic and scoring",
-            description:  `Learn professional web development using HTML, CSS and SASS. 
-                Kick start your career as a programmer with this practical hands-on course.`,
+            title: "The chain of responsibility",
+            description:  `In this level we'll discuss some advanced techniques for chaining classes together and 
+                passing responsibility down the chain.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",
@@ -89,9 +100,9 @@ export const summary = {
         },
         {
             id: '7a8a1cc5',
-            title: "Finishing and releasing games",
-            description:  `Learn professional web development using HTML, CSS and SASS. 
-                Kick start your career as a programmer with this practical hands-on course.`,
+            title: "Composition vs inheritance",
+            description:  `In the final level we'll take a step back to discuss the bigger picture for design patterns
+                and their usage. We'll look at some more real world use cases and some important concepts.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
                 background: "#c75c5c",

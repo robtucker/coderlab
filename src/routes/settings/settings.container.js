@@ -3,7 +3,8 @@ import { SettingsForm } from "./components/settings-form";
 import {putMe, userSettingsUpdated} from "../../actions";
 
 const mapStateToProps = (state) => ({
-    initialValues: state.auth.user
+    initialValues: state.auth.user,
+    contentHeight: state.app.contentHeight
 });
 
 const mapDispatchToProps = (dispatch) => ({
