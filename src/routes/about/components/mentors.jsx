@@ -3,7 +3,7 @@ import { MentorCard } from "./mentor-card";
 
 const Mentors = ({mentors}) => (
 
-    <div className="row flex-wrap align-stretch justify-center">
+    <div className="grid">
         {
             mentors.map((mentor) => (
                 <div key={mentor.id} className="max-width-300 margin-x-sm margin-y-sm flex-1">

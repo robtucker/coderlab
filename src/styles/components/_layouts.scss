@@ -19,6 +19,17 @@ html, body, #app {
     display: inline-block;
 }
 
+.grid {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.grid:after {
+    content: "";
+    flex: auto
+}
+
 .sidebar {
     box-shadow: inherit;
 }
