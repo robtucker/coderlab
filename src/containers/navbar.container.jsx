@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import {breakpoints} from "../styles";
 import { Navbar } from "../components/navbar";
 
-import { toggleNavbar, toggleSidebar, logout } from "../actions";
+import { toggleNavbar, toggleMobileNavbar, hideMobileNavbar, logout } from "../actions";
 
 let navMenu = [
     {
@@ -11,20 +11,14 @@ let navMenu = [
         url: "/",
         className: ""
     },
-    // {
-    //     id: 2,
-    //     label: "CoderLab",
-    //     url: "/",
-    //     className: "font-size-xl"
-    // },
     {
-        id: 3,
+        id: 2,
         label: "Courses",
         url: "/courses",
         className: ""
     },
     {
-        id: 4,
+        id: 3,
         label: "About",
         url: "/about",
         className: ""
@@ -41,11 +35,10 @@ let navMenu = [
 const mapStateToProps = (state) => ({
     appTitle: state.config.APP_TITLE,
     navMenu: navMenu,
-    isMobile: state.app.width < breakpoints.md,
+    isMobile: state.app.width < breakpoints.sm,
     navbarVisible: state.navbar.navbarVisible,
-    sidebarVisible: state.navbar.sidebarVisible,
     backgroundColor: state.navbar.backgroundColor,
-    sidebarVisible: state.navbar.sidebarVisible,
+    mobileNavbarVisible: state.navbar.mobileNavbarVisible,
     navbarVisible: state.navbar.navbarVisible,
     authDialogOpen: state.auth.authDialogOpen,
     authDialogType: state.auth.authDialogType,
@@ -55,12 +48,9 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    toggleSidebar: () => {
-        dispatch(toggleSidebar());
-    },
-    toggleNavbar: () => {
-        dispatch(toggleNavbar());
-    },
+    toggleNavbar: () => dispatch(toggleNavbar()),
+    toggleMobile: () => dispatch(toggleMobileNavbar()),
+    hideMobile: () => dispatch(hideMobileNavbar()),
     logout: logout
 })
 
