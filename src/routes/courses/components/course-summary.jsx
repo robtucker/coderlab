@@ -62,6 +62,11 @@ export class CourseSummary extends Component {
                 </div>
 
                 <div className="row align-center margin-y-xs">
+                    <span style={dark}>Duration:&nbsp;</span>
+                    <span style={light}>{this.props.course.duration}</span>
+                </div>
+
+                <div className="row align-center margin-y-xs">
                     <span  style={dark}>Difficulty:&nbsp;</span>
                     <StarRating count={this.props.course.difficultyRating} />
                 </div>

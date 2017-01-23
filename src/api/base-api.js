@@ -45,6 +45,7 @@ export class BaseApi {
     }
 
     _request(method, endpoint, params, body, query, cacheResponse = false) {
+        console.log('new api request', method, endpoint, params, body, query, cacheResponse);
         return new Promise((resolve, reject) => {
             
             let state = this._state();

@@ -1,15 +1,15 @@
 export const summary = {
     id: 'c38b16dc',
     slug: "oop",
-    type: 'individual',
-    price: '£600',
-    days: 2,
-    location: 'London',
     title: "Object-Oriented Programming",
+    type: 'individual',
+    price: '£300',
+    duration: '1 day',
+    location: 'London',
     subtitle: "A map of programming design patterns",
     description: `You can sit this course using any programming language. We'll be teaching you how to think 
         about programming at a higher level of abstraction.`,
-    difficultyRating: 1,
+    difficultyRating: 4,
     icon: {
         img: require('../../../../assets/img/courses/teacher/icons/books.svg'),
         background: "#c75c5c",

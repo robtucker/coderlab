@@ -1,11 +1,11 @@
 export const summary = {
     id: '46df99fe',
     slug: "python",
+    title: "Python",
     type: 'individual',
     price: '£900',
-    days: 3,
+    duration: '3 days',
     location: 'London',
-    title: "Python",
     subtitle: "An entry to programming",
     description: `The most popular programming language of our times, Python is readable fast, and 
         used by beginners and experts alike.`,

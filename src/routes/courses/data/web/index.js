@@ -3,6 +3,7 @@ export const summary = {
     slug: "web",
     type: 'web',
     price: 'Free',
+    duration: 'Self-paced',
     location: 'Online',
     title: "HTML/CSS",
     subtitle: "The fundamentals of web development",
