@@ -33,8 +33,8 @@ module.exports = helpers.mergeWebpackConfig({
             template: 'index.ejs', 
             favicon: '../src/assets/img/favicon.png',
             cdns: [
-                {src: "https://unpkg.com/react@15/dist/react.min.js"},
-                {src: "https://unpkg.com/react-dom@15/dist/react-dom.min.js"},
+                {src: "https://unpkg.com/react@15/dist/react.js"},
+                {src: "https://unpkg.com/react-dom@15/dist/react-dom.js"},
                 {src: "https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.4/lodash.min.js"}
             ],
             links: [
