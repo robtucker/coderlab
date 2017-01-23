@@ -5,7 +5,7 @@ export const summary = {
     type: 'individual',
     price: '£300',
     location: 'London',
-    prerequisites: ['javascript'],
+    prerequisites: ['Javascript'],
     subtitle: "The fundamentals of Unity game development",
     description: `Learn the Unity game engine, and make your own video game. 
         This beginner level course will guide you through the ABCs of game development.`,

@@ -19,8 +19,7 @@ const CourseIndex = ({courses, title, subtitle, nextPageUrl, nextPageLabel}) => 
 
 CourseIndex.defaultProps = {
     title: "Choose a course...",
-    subtitle: `Our courses are a mixture of online and offline learning. 
-        You don't need to have a mentor to complete them but we advise that you do.`,
+    subtitle: `If you're not sure where to begin we recommend starting with HTML`,
     nextPageUrl: "courses/web",
     nextPageLabel: "Web"
 }
