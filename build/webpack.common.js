@@ -21,6 +21,7 @@ module.exports = {
             'react-tap-event-plugin',
             'react-slick',
             'react-router-scroll',
+            'lodash',
             'isolog'
         ],
         main: "./main.jsx",

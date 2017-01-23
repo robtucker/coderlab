@@ -21,11 +21,11 @@ module.exports = helpers.mergeWebpackConfig({
         // Use external version of React
         "react": "React",
         "react-dom": "ReactDOM",
-        lodash : {
-            commonjs: "lodash",
-            amd: "lodash",
-            root: "_" // indicates global variable
-        }
+        //lodash : {
+        //    commonjs: "lodash",
+        //    amd: "lodash",
+        //    root: "_" // indicates global variable
+        //}
     },
     plugins: [
         new HtmlWebpackPlugin({
