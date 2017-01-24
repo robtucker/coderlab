@@ -37,7 +37,7 @@ export const summary = {
                 what we're going to teach you is how the computer uses them.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-                background: "#c75c5c",
+                background: "#3b3c45",
             },
         },
         {
@@ -47,7 +47,7 @@ export const summary = {
                 The aim for this level is to get you comfortable with the concept of data types.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-                background: "#c75c5c",
+                background: "#3b3c45",
             },
         },
         {
@@ -57,7 +57,7 @@ export const summary = {
                 Once you've understood the beauty of functions, all of programming is yours!`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-                background: "#c75c5c",
+                background: "#3b3c45",
             },
         },
         {
@@ -67,7 +67,7 @@ export const summary = {
                 Conditionals aren't just a technique, they're an entire way of thinking about things.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-                background: "#c75c5c",
+                background: "#3b3c45",
             },
         },
         {
@@ -77,7 +77,7 @@ export const summary = {
                 the same bits of code over and over, and how to think in loops.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-                background: "#c75c5c",
+                background: "#3b3c45",
             },
         },
         {
@@ -87,7 +87,7 @@ export const summary = {
                 These data types are the basis of advanced programming so we'll be spending a lot of time on them.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-                background: "#c75c5c",
+                background: "#3b3c45",
             },
         },
         {
@@ -97,7 +97,7 @@ export const summary = {
                 we'll discuss how exactly that works.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-                background: "#c75c5c",
+                background: "#3b3c45",
             }
         },
         {
@@ -107,7 +107,7 @@ export const summary = {
                 After this level, consider taking the course in Object-Oriented Programming to continue your javascript journey`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-                background: "#c75c5c",
+                background: "#3b3c45",
             }
         },
     ]

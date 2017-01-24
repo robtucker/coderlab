@@ -12,7 +12,7 @@ export const summary = {
     difficultyRating: 4,
     icon: {
         img: require('../../../../assets/img/courses/teacher/icons/books.svg'),
-        background: "#c75c5c",
+        background: "#3b3c45",
     },
     banner: {
         img: require('../../../../assets/img/courses/teacher/banners/kids.png'),
@@ -35,7 +35,7 @@ export const summary = {
                 To understand classes we'll have to take a slightly deeper look at how programming languages really work.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-                background: "#c75c5c",
+                background: "#3b3c45",
             }
         },
         {
@@ -45,7 +45,7 @@ export const summary = {
                 Once you get the hang of it this is one of the easiest design patterns that you will use frequently in your code.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-                background: "#c75c5c",
+                background: "#3b3c45",
             },
         },
         {
@@ -55,7 +55,7 @@ export const summary = {
                 So just as it is used it gains new powers. It's a pretty pwerful technique for many use cases.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-                background: "#c75c5c",
+                background: "#3b3c45",
             }
         },
         {
@@ -65,7 +65,7 @@ export const summary = {
                 It's all about picking the most appropriate strategy.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-                background: "#c75c5c",
+                background: "#3b3c45",
             },
         },
         {
@@ -75,7 +75,7 @@ export const summary = {
                 for them to sink in, but once you've got them they will underpin every line of code you write.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-                background: "#c75c5c",
+                background: "#3b3c45",
             },
         },
         {
@@ -85,7 +85,7 @@ export const summary = {
                 Observers are a very powerful technique that are often used by professional coders.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-                background: "#c75c5c",
+                background: "#3b3c45",
             },
         },
         {
@@ -95,7 +95,7 @@ export const summary = {
                 passing responsibility down the chain.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-                background: "#c75c5c",
+                background: "#3b3c45",
             },
         },
         {
@@ -105,7 +105,7 @@ export const summary = {
                 and their usage. We'll look at some more real world use cases and some important concepts.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-                background: "#c75c5c",
+                background: "#3b3c45",
             }
         },
     ]

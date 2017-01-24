@@ -13,7 +13,7 @@ export const summary = {
     difficultyRating: 3,
     icon: {
         img: require('../../../../assets/img/courses/game/icons/phone.svg'),
-        background: "#c75c5c",
+        background: "#3b3c45",
     },
     banner: {
         img: require('../../../../assets/img/courses/game/banners/frog.png'),
@@ -38,7 +38,7 @@ export const summary = {
                 Discover the tricks and shortcuts that make working with Unity a breeze.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-                background: "#c75c5c",
+                background: "#3b3c45",
             },
         },
         {
@@ -48,7 +48,7 @@ export const summary = {
                 as reusable objects that can be moved and manipulated.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-                background: "#c75c5c",
+                background: "#3b3c45",
             },
         },
         {
@@ -58,7 +58,7 @@ export const summary = {
                 and get to grips with professional techniques for lighting your scenes`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-                background: "#c75c5c",
+                background: "#3b3c45",
             },
         },
         {
@@ -68,7 +68,7 @@ export const summary = {
                 In this basic introduction we'll teach you how to navigate and control objects using a key pad`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-                background: "#c75c5c",
+                background: "#3b3c45",
             },
         },
         {
@@ -78,7 +78,7 @@ export const summary = {
                 Understand the basics of the Unity physics engine and how to handle collisions.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-                background: "#c75c5c",
+                background: "#3b3c45",
             },
         },
         {
@@ -88,7 +88,7 @@ export const summary = {
                 and keep players coming back for more.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-                background: "#c75c5c",
+                background: "#3b3c45",
             },
         },
         {
@@ -98,7 +98,7 @@ export const summary = {
                 including pc, playstation and the web.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-                background: "#c75c5c",
+                background: "#3b3c45",
             }
         },
     ]

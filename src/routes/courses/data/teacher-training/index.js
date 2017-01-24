@@ -11,7 +11,7 @@ export const summary = {
     difficultyRating: 1,
     icon: {
         img: require('../../../../assets/img/courses/teacher/icons/books.svg'),
-        background: "#c75c5c",
+        background: "#3b3c45",
     },
     banner: {
         img: require('../../../../assets/img/courses/teacher/banners/kids.png'),
@@ -34,7 +34,7 @@ export const summary = {
                 Kick start your career as a programmer with this practical hands-on course.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-                background: "#c75c5c",
+                background: "#3b3c45",
             },
         },
         {
@@ -44,7 +44,7 @@ export const summary = {
                 Kick start your career as a programmer with this practical hands-on course.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-                background: "#c75c5c",
+                background: "#3b3c45",
             },
         },
         {
@@ -54,7 +54,7 @@ export const summary = {
                 Kick start your career as a programmer with this practical hands-on course.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-                background: "#c75c5c",
+                background: "#3b3c45",
             },
         },
         {
@@ -64,7 +64,7 @@ export const summary = {
                 Kick start your career as a programmer with this practical hands-on course.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-                background: "#c75c5c",
+                background: "#3b3c45",
             },
         },
         {
@@ -74,7 +74,7 @@ export const summary = {
                 Kick start your career as a programmer with this practical hands-on course.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-                background: "#c75c5c",
+                background: "#3b3c45",
             },
         },
         {
@@ -84,7 +84,7 @@ export const summary = {
                 Kick start your career as a programmer with this practical hands-on course.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-                background: "#c75c5c",
+                background: "#3b3c45",
             },
         },
         {
@@ -94,7 +94,7 @@ export const summary = {
                 Kick start your career as a programmer with this practical hands-on course.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-                background: "#c75c5c",
+                background: "#3b3c45",
             }
         },
     ]

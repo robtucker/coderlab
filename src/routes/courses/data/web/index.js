@@ -35,7 +35,7 @@ export const summary = {
                 In this first level, we'll give you a crash course in what HTML is and how it works.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-                background: "#c75c5c",
+                background: "#3b3c45",
             },
         },
         {
@@ -45,7 +45,7 @@ export const summary = {
                 We'll show you how to customize the look of your website, and what style is really all about`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-                background: "#c75c5c",
+                background: "#3b3c45",
             },
         },
         {
@@ -55,7 +55,7 @@ export const summary = {
                 You'll get a solid understanding of how requests work, and how to create links to other pages.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-                background: "#c75c5c",
+                background: "#3b3c45",
             },
         },
         {
@@ -65,7 +65,7 @@ export const summary = {
                 In this level you'll up your design skills by learning all about paddings, margins and borders.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-                background: "#c75c5c",
+                background: "#3b3c45",
             },
         },
         {
@@ -75,7 +75,7 @@ export const summary = {
                 we'll discuss using separate files, and how different files are loaded in HTML.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-                background: "#c75c5c",
+                background: "#3b3c45",
             },
         },
         {
@@ -85,7 +85,7 @@ export const summary = {
                 styles to different elements using classes and ids, and what CSS is really all about.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-                background: "#c75c5c",
+                background: "#3b3c45",
             },
         },
         {
@@ -95,7 +95,7 @@ export const summary = {
                 art of sizing and positioning images to make your websites look good on any device.`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-                background: "#c75c5c",
+                background: "#3b3c45",
             }
         },
         {
@@ -105,7 +105,7 @@ export const summary = {
                 font and give you some guidelines on choosing a good font`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-                background: "#c75c5c",
+                background: "#3b3c45",
             }
         },
         {
@@ -115,7 +115,7 @@ export const summary = {
                 form inputs and how you send data back to the server`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-                background: "#c75c5c",
+                background: "#3b3c45",
             }
         },
         {
@@ -125,7 +125,7 @@ export const summary = {
                 under your belt you're going be styling up websites like a boss!`,
             icon: {
                 img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-                background: "#c75c5c",
+                background: "#3b3c45",
             }
         }
     ]
