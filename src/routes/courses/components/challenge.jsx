@@ -176,6 +176,9 @@ export class Challenge extends Component {
     }
 
     getWebChallenge(){
+        let containerStyles = {
+            backgroundColor: editorThemes[this.props.editorTheme].cream,
+        };
         return (
             <div>
                 {this.getVideo()}
