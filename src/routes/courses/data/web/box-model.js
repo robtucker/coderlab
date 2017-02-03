@@ -14,7 +14,7 @@ export default {
         In this level you'll up your design skills by learning all about paddings, margins and borders.`,
     icon: {
         img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-        background: "#c75c5c",
+        background: "#3b3c45",
     },
     challenges: []
 }

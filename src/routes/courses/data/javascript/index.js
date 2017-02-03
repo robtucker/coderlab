@@ -12,8 +12,8 @@ export const summary = {
         learn the language of the web with JavaScript.`,
     difficultyRating: 1,
     icon: {
-        img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-        background: "#c75c5c",
+        img: require('../../../../assets/img/courses/advanced/icons/pen.svg'),
+        background: "#3b3c45",
     },
     banner: {
         img: require('../../../../assets/img/courses/javascript/banners/blocks2.jpg'),

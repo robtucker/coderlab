@@ -9,7 +9,7 @@ export default {
         under your belt you're going be styling up websites like a boss!`,
     icon: {
         img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-        background: "#c75c5c",
+        background: "#3b3c45",
     },
     challenges: []
 }

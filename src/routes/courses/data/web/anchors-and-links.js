@@ -14,7 +14,7 @@ export default {
         You'll get a solid understanding of how the web works, and how to create links to other pages.`,
     icon: {
         img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-        background: "#c75c5c",
+        background: "#3b3c45",
     },
     challenges: [{
         id: '89115a2b',

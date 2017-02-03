@@ -13,7 +13,7 @@ export default {
         We'll show you how to customize the look of your website, and what style is really all about`,
     icon: {
         img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-        background: "#c75c5c",
+        background: "#3b3c45",
     },
     challenges: [{
         id: 'fc8d06f5',

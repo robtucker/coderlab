@@ -10,7 +10,7 @@ export default {
         form inputs and how you send data back to the server`,
     icon: {
         img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-        background: "#c75c5c",
+        background: "#3b3c45",
     },
     challenges: []
 };

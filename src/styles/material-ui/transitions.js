@@ -7,15 +7,15 @@ export default {
         easeFunction = easeFunction || this.easeOutFunction;
 
         if (property && Object.prototype.toString.call(property) === '[object Array]') {
-        let transitions = '';
-        for (let i = 0; i < property.length; i++) {
-            if (transitions) transitions += ',';
-            transitions += this.create(duration, property[i], delay, easeFunction);
-        }
+            let transitions = '';
+            for (let i = 0; i < property.length; i++) {
+                if (transitions) transitions += ',';
+                transitions += this.create(duration, property[i], delay, easeFunction);
+            }
 
-        return transitions;
+            return transitions;
         } else {
-        return this.create(duration, property, delay, easeFunction);
+            return this.create(duration, property, delay, easeFunction);
         }
     },
 

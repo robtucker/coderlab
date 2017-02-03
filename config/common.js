@@ -12,6 +12,8 @@ module.exports = {
     "INDEX_DB_VERSION": 1,
     "INDEX_DB_WIPE_ON_REFRESH": false,
     "INDEX_DB_EXPIRY": 86400,
-    "LOCAL_STORAGE_AUTH_KEY": "cl.auth"
+    "LOCAL_STORAGE_AUTH_KEY": "cl.auth",
+    "STORE_PERSISTANCE_THROTTLE": 1000,
+    "STATE_CACHE_KEY": "state",
     
 }

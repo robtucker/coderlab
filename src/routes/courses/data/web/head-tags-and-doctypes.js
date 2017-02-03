@@ -10,7 +10,7 @@ export default {
         we'll discuss using separate files, and how different files are loaded in HTML.`,
     icon: {
         img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-        background: "#c75c5c",
+        background: "#3b3c45",
     },
     challenges: [{
         id: 'cd5a0660',

@@ -11,7 +11,7 @@ export const summary = {
         to neural nets, we'll open up the world of machine learning for you`,
     difficultyRating: 5,
     icon: {
-        img: require('../../../../assets/img/courses/advanced/icons/pen.svg'),
+        img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
         background: "#3b3c45",
     },
     banner: {

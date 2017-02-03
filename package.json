@@ -72,6 +72,7 @@
     "material-ui": "^0.16.4",
     "mocha": "^3.1.2",
     "node-sass": "^3.10.0",
+    "node-uuid": "^1.4.7",
     "nuka-carousel": "^2.0.3",
     "parse5": "^2.2.3",
     "postcss-loader": "^1.0.0",

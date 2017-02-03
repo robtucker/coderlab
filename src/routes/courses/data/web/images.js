@@ -14,7 +14,7 @@ export default {
         art of sizing and positioning images to make your websites look good on any device.`,
     icon: {
         img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
-        background: "#c75c5c",
+        background: "#3b3c45",
     },
     challenges: []
 };
