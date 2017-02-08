@@ -131,9 +131,9 @@ export class BaseApi {
     _setBaseUrl() {
         let url = config.API_URL;
 
-        if(config.API_PORT !== 80) {
-            url += ":" + config.API_PORT;
-        }
+        // if(config.API_PORT !== 80 || config.API_PORT !== 443) {
+        //     url += ":" + config.API_PORT;
+        // }
 
         this._baseUrl = url;
     }

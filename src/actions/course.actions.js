@@ -15,4 +15,3 @@ export const setCourseLevel = (courseName, course, levelIndex) => {
 }
 
 export const courseNotFound = (courseName, levelIndex) => ({courseName, levelIndex, type: COURSE_NOT_FOUND});
-

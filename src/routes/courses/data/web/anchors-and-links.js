@@ -13,7 +13,7 @@ export default {
     description: `In this level we'll discuss how information flows around the web and HTTP really means.
         You'll get a solid understanding of how the web works, and how to create links to other pages.`,
     icon: {
-        img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
+        img: require('./assets/icons/htmltags.png'),
         background: "#3b3c45",
     },
     challenges: [{

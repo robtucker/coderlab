@@ -12,7 +12,7 @@ export default {
     description:  `HTML on its own can be a little boring. Introduce a bit of color with CSS. 
         We'll show you how to customize the look of your website, and what style is really all about`,
     icon: {
-        img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
+        img: require('./assets/icons/htmltags.png'),
         background: "#3b3c45",
     },
     challenges: [{

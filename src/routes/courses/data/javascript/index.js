@@ -12,11 +12,11 @@ export const summary = {
         learn the language of the web with JavaScript.`,
     difficultyRating: 1,
     icon: {
-        img: require('../../../../assets/img/courses/advanced/icons/pen.svg'),
+        img: require('./assets/icons/pen.svg'),
         background: "#3b3c45",
     },
     banner: {
-        img: require('../../../../assets/img/courses/javascript/banners/blocks2.jpg'),
+        img: require('./assets/banners/blocks2.jpg'),
         background: "#facb00"
     },
 
@@ -36,7 +36,7 @@ export const summary = {
             description:  `Variables are the basis of all computing. Learning how to use variables is easy, 
                 what we're going to teach you is how the computer uses them.`,
             icon: {
-                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('./assets/icons/pen.svg'),
                 background: "#3b3c45",
             },
         },
@@ -46,7 +46,7 @@ export const summary = {
             description:  `We'll teach you how it is that computers can read and save text.
                 The aim for this level is to get you comfortable with the concept of data types.`,
             icon: {
-                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('./assets/icons/pen.svg'),
                 background: "#3b3c45",
             },
         },
@@ -56,7 +56,7 @@ export const summary = {
             description:  `Master the concept of functions in less than 15 minutes with our super awesome function game.
                 Once you've understood the beauty of functions, all of programming is yours!`,
             icon: {
-                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('./assets/icons/pen.svg'),
                 background: "#3b3c45",
             },
         },
@@ -66,7 +66,7 @@ export const summary = {
             description: `Tell your program how to follow conditional rules with the if-then statement. 
                 Conditionals aren't just a technique, they're an entire way of thinking about things.`,
             icon: {
-                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('./assets/icons/pen.svg'),
                 background: "#3b3c45",
             },
         },
@@ -76,7 +76,7 @@ export const summary = {
             description:  `In this level we'll discuss why it is that programs tend to go round in circles repeating
                 the same bits of code over and over, and how to think in loops.`,
             icon: {
-                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('./assets/icons/pen.svg'),
                 background: "#3b3c45",
             },
         },
@@ -86,7 +86,7 @@ export const summary = {
             description:  `In this level, we'll cover some advanced data types, arrays and objects.
                 These data types are the basis of advanced programming so we'll be spending a lot of time on them.`,
             icon: {
-                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('./assets/icons/pen.svg'),
                 background: "#3b3c45",
             },
         },
@@ -96,7 +96,7 @@ export const summary = {
             description:  `Javascript is unique amongst programming languages in its relationship the browser. In this level,
                 we'll discuss how exactly that works.`,
             icon: {
-                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('./assets/icons/pen.svg'),
                 background: "#3b3c45",
             }
         },
@@ -106,7 +106,7 @@ export const summary = {
             description:  `In the final level we'll show you how to manipulate HTML elements.
                 After this level, consider taking the course in Object-Oriented Programming to continue your javascript journey`,
             icon: {
-                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('./assets/icons/pen.svg'),
                 background: "#3b3c45",
             }
         },

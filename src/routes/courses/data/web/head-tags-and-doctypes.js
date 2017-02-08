@@ -9,7 +9,7 @@ export default {
     description: `Learning how to keep your code neat and tidy is crucial as your website grows. In this chapter
         we'll discuss using separate files, and how different files are loaded in HTML.`,
     icon: {
-        img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
+        img: require('./assets/icons/htmltags.png'),
         background: "#3b3c45",
     },
     challenges: [{

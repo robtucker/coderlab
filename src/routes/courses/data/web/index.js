@@ -11,11 +11,11 @@ export const summary = {
         Kick start your career as a programmer with this practical hands-on course.`,
     difficultyRating: 1,
     icon: {
-        img: require('../../../../assets/img/courses/web/icons/html.svg'),
+        img: require('./assets/icons/html.svg'),
         background: "#c75c5c",
     },
     banner: {
-        img: require('../../../../assets/img/courses/web/banners/design.jpg'),
+        img: require('./assets/banners/design.jpg'),
         background: "#539c90"
     },
     teacher: {
@@ -34,7 +34,7 @@ export const summary = {
             description:  `Ever wondered how the internet actually works. Well... wonder no more. 
                 In this first level, we'll give you a crash course in what HTML is and how it works.`,
             icon: {
-                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('./assets/icons/htmltags.png'),
                 background: "#3b3c45",
             },
         },
@@ -44,7 +44,7 @@ export const summary = {
             description:  `HTML on its own can be a little boring. Introduce a bit of color with CSS. 
                 We'll show you how to customize the look of your website, and what style is really all about`,
             icon: {
-                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('./assets/icons/htmltags.png'),
                 background: "#3b3c45",
             },
         },
@@ -54,7 +54,7 @@ export const summary = {
             description:  `In this level we'll discuss how information flows around the web and what the word HTTP really means.
                 You'll get a solid understanding of how requests work, and how to create links to other pages.`,
             icon: {
-                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('./assets/icons/htmltags.png'),
                 background: "#3b3c45",
             },
         },
@@ -64,7 +64,7 @@ export const summary = {
             description:  `The Box Model is an essential part of how content is designed and layed out on HTML pages.
                 In this level you'll up your design skills by learning all about paddings, margins and borders.`,
             icon: {
-                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('./assets/icons/htmltags.png'),
                 background: "#3b3c45",
             },
         },
@@ -74,7 +74,7 @@ export const summary = {
             description: `Learning how to keep your code neat and tidy is crucial as your website grows. In this chapter
                 we'll discuss using separate files, and how different files are loaded in HTML.`,
             icon: {
-                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('./assets/icons/htmltags.png'),
                 background: "#3b3c45",
             },
         },
@@ -84,7 +84,7 @@ export const summary = {
             description:  `Learn how to style HTML like a pro. We'll discuss the secrets of applying different 
                 styles to different elements using classes and ids, and what CSS is really all about.`,
             icon: {
-                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('./assets/icons/htmltags.png'),
                 background: "#3b3c45",
             },
         },
@@ -94,7 +94,7 @@ export const summary = {
             description:  `It's hard to make a website look good without pictures. In this level we'll show you the secret 
                 art of sizing and positioning images to make your websites look good on any device.`,
             icon: {
-                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('./assets/icons/htmltags.png'),
                 background: "#3b3c45",
             }
         },
@@ -104,7 +104,7 @@ export const summary = {
             description:  `With CSS loading different fonts is a piece of cake. We'll discuss the different types of 
                 font and give you some guidelines on choosing a good font`,
             icon: {
-                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('./assets/icons/htmltags.png'),
                 background: "#3b3c45",
             }
         },
@@ -114,7 +114,7 @@ export const summary = {
             description:  `A website wouldn't be very good if you couldn't input data! In this level we'll discuss 
                 form inputs and how you send data back to the server`,
             icon: {
-                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('./assets/icons/htmltags.png'),
                 background: "#3b3c45",
             }
         },
@@ -124,7 +124,7 @@ export const summary = {
             description:  `The final cherry on our CSS cake is the subject of layouts. With layouts and positioning 
                 under your belt you're going be styling up websites like a boss!`,
             icon: {
-                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('./assets/icons/htmltags.png'),
                 background: "#3b3c45",
             }
         }
