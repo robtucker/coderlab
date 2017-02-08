@@ -9,7 +9,7 @@ export default {
     description:  `A website wouldn't be very good if you couldn't input data! In this level we'll discuss 
         form inputs and how you send data back to the server`,
     icon: {
-        img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
+        img: require('./assets/icons/htmltags.png'),
         background: "#3b3c45",
     },
     challenges: []

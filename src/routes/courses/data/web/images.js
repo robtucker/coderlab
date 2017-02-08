@@ -13,7 +13,7 @@ export default {
     description:  `It's hard to make a website look good without pictures. In this level we'll show you the secret 
         art of sizing and positioning images to make your websites look good on any device.`,
     icon: {
-        img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
+        img: require('./assets/icons/htmltags.png'),
         background: "#3b3c45",
     },
     challenges: []

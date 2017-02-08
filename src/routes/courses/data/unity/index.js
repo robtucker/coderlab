@@ -12,11 +12,11 @@ export const summary = {
         This beginner level course will guide you through the ABCs of game development.`,
     difficultyRating: 3,
     icon: {
-        img: require('../../../../assets/img/courses/game/icons/phone.svg'),
+        img: require('./assets/icons/phone.svg'),
         background: "#3b3c45",
     },
     banner: {
-        img: require('../../../../assets/img/courses/game/banners/frog.png'),
+        img: require('./assets/banners/frog.png'),
         //background: "#3f51b5"
         background: "#c75c5c"
     },
@@ -37,7 +37,7 @@ export const summary = {
             description:  `Get accustomed to the Unity interface and how games are laid out.
                 Discover the tricks and shortcuts that make working with Unity a breeze.`,
             icon: {
-                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('./assets/icons/phone.svg'),
                 background: "#3b3c45",
             },
         },
@@ -47,7 +47,7 @@ export const summary = {
             description:  `Build the elements of your game, from players to environments, 
                 as reusable objects that can be moved and manipulated.`,
             icon: {
-                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('./assets/icons/phone.svg'),
                 background: "#3b3c45",
             },
         },
@@ -57,7 +57,7 @@ export const summary = {
             description:  `Learn how to position cameras in both first and third person,
                 and get to grips with professional techniques for lighting your scenes`,
             icon: {
-                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('./assets/icons/phone.svg'),
                 background: "#3b3c45",
             },
         },
@@ -67,7 +67,7 @@ export const summary = {
             description:  `Movement and animation are amongst the hardest aspects of game development.
                 In this basic introduction we'll teach you how to navigate and control objects using a key pad`,
             icon: {
-                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('./assets/icons/phone.svg'),
                 background: "#3b3c45",
             },
         },
@@ -77,7 +77,7 @@ export const summary = {
             description:  `Make objects interact with other in a realistic way that follows the laws of physics.
                 Understand the basics of the Unity physics engine and how to handle collisions.`,
             icon: {
-                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('./assets/icons/phone.svg'),
                 background: "#3b3c45",
             },
         },
@@ -87,7 +87,7 @@ export const summary = {
             description:  `Learn how to create levels, scoring systems, and player stats that give structure to your games,
                 and keep players coming back for more.`,
             icon: {
-                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('./assets/icons/phone.svg'),
                 background: "#3b3c45",
             },
         },
@@ -97,7 +97,7 @@ export const summary = {
             description:  `One of the huge advantages of Unity is that you can package your game for any platform, 
                 including pc, playstation and the web.`,
             icon: {
-                img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
+                img: require('./assets/icons/phone.svg'),
                 background: "#3b3c45",
             }
         },

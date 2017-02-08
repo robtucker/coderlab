@@ -12,7 +12,7 @@ export default {
     description:  `Learn professional web development using HTML, CSS and SASS. 
         Kick start your career as a programmer with this practical hands-on course.`,
     icon: {
-        img: require('../../../../assets/img/courses/javascript/icons/node.svg'),
+        img: require('./assets/icons/htmltags.png'),
         background: "#3b3c45",
     },
     challenges: [{

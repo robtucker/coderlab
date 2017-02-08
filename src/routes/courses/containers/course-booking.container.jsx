@@ -6,6 +6,7 @@ import {paymentPutCard, paymentPostTransaction } from "../../../actions";
 const mapDispatchToProps = (dispatch) => ({
     doSubmit: () => {
         console.log('todo - course booking submit')
+        dispatch()
     }
 });
 
