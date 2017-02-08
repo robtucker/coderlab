@@ -63,7 +63,7 @@ export class BaseApi {
             if(body) {
                 options.body = JSON.stringify(body);
             }
-
+            console.log('creating http req auth', state.auth.isLoggedIn);
             if(state.auth.isLoggedIn) {
                 options.headers['x-access-token'] = state.auth.user.token;
             }
