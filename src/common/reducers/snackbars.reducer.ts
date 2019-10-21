@@ -1,4 +1,4 @@
-import {utils} from "../core/utils";
+import {utils} from "../../core/utils";
 import {without} from "lodash"
 import {SHOW_SNACKBAR, HIDE_SNACKBAR, USER_SETTINGS_UPDATED} from "../actions";
 

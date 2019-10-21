@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { SettingsForm } from "./components/settings-form";
-import {putMe, userSettingsUpdated} from "../../actions";
+import {putMe, userSettingsUpdated} from "../../common/actions";
 
 const mapStateToProps = (state) => ({
     initialValues: state.auth.user,

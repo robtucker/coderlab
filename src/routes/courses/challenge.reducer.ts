@@ -10,7 +10,7 @@ import {
     SET_CURRENT_TASK,
     SHOW_CHALLENGE_ERRORS,
     COMPLETE_CHALLENGE,
-    CLOSE_COMPLETION_MODAL} from "../../actions";
+    CLOSE_COMPLETION_MODAL} from "../../common/actions";
 
 let initialState = {
     sidebarVisible: false,

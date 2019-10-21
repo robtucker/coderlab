@@ -1,10 +1,10 @@
 import fetch from 'isomorphic-fetch'
-import {browserHistory} from "react-router";
-import config from "../config";
-import { UrlParameterError } from "../core/exceptions";
+import {browserHistory} from "../actions/node_modules/react-router";
+import config from "../../config";
+import { UrlParameterError } from "../../core/exceptions";
 import {format} from "url";
-import { getAppStore } from "../store";
-import {authService} from "../core/auth-service";
+import { getAppStore } from "../../store";
+import {authService} from "../../core/auth-service";
 
 var httpService = fetch;
 

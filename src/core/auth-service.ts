@@ -1,7 +1,7 @@
 import { cache } from "./cache";
 import { getAppStore } from "../store";
 import {utils} from "./utils";
-import { LOGIN, LOGOUT } from "../actions";
+import { LOGIN, LOGOUT } from "../common/actions";
 import config from "../config";
 import {merge} from "lodash";
 

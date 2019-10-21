@@ -7,7 +7,7 @@ import thunkMiddleware from 'redux-thunk'
 import createLogger from 'redux-logger'
 
 //reducers
-import * as reducers from "./reducers"
+import * as reducers from "./common/reducers"
 import { reducer as formReducer } from 'redux-form'
 reducers.form = formReducer;
 

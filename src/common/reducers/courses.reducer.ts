@@ -1,5 +1,5 @@
 import {find} from "lodash";
-import {getSummaries} from "../routes/courses/data"; //seed data
+import {getSummaries} from "../../routes/courses/data"; //seed data
 
 const summaries = getSummaries();
 //console.log(summaries);

@@ -1,7 +1,7 @@
 import config, {dbConfig} from "../config";
 import { Dispatcher } from "./dispatcher";
 import dbProvider from "idb";
-import { cacheFailure } from "../actions";
+import { cacheFailure } from "../common/actions";
 import { getAppStore } from "../store";
 
 export class Db  {

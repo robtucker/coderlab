@@ -2,7 +2,7 @@ import {
     getMe,
     putMe,
     userSettingsUpdated
-} from "../../src/actions";
+} from "../../src/common/actions";
 
 describe('User Actions', function() {
 

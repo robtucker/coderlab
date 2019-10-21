@@ -1,7 +1,7 @@
 import React, {PropTypes, Component} from 'react';
 import {connect} from "react-redux";
 import {CourseBookingForm} from "../components/course-booking-form";
-import {paymentPutCard, paymentPostTransaction } from "../../../actions";
+import {paymentPutCard, paymentPostTransaction } from "../../../common/actions";
 
 const mapDispatchToProps = (dispatch) => ({
     doSubmit: () => {

@@ -1,7 +1,7 @@
 import { browserHistory } from "react-router";
 import { UserApi } from "../api/user-api";
-import {authService} from "../core/auth-service";
-import {utils} from "../core/utils";
+import {authService} from "../../core/auth-service";
+import {utils} from "../../core/utils";
 
 let api = new UserApi();
 

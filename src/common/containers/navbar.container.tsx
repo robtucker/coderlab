@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import {breakpoints} from "../styles";
+import {breakpoints} from "../../styles";
 import { Navbar } from "../components/navbar";
 
 import { toggleNavbar, toggleMobileNavbar, hideMobileNavbar, logout } from "../actions";

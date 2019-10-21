@@ -1,5 +1,5 @@
-import { authService } from "../core/auth-service";
-import config from "../config";
+import { authService } from "../../core/auth-service";
+import config from "../../config";
 
 import { 
     LOGIN,

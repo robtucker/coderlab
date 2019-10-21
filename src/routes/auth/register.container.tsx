@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 
 import { RegisterForm } from "./components/register-form";
 
-import { postRegister } from "../../actions";
+import { postRegister } from "../../common/actions";
 
 const mapStateToProps = (state) => ({
     authRedirect: state.auth.authRedirect,

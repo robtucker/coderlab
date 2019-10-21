@@ -1,8 +1,8 @@
 import { store } from "../store";
 
-import { guestMiddleware } from "../middleware/auth.middleware";
+import { guestMiddleware } from "../common/middleware/auth.middleware";
 
-import { AppContainer } from "../containers/app.container";
+import { AppContainer } from "../common/containers/app.container";
 import { LoginRoute, RegisterRoute } from "./auth";
 import { LandingContainer } from "./landing";
 

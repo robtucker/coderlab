@@ -1,5 +1,5 @@
 //import { setAuthRedirect } from "../actions";
-import { getAppStore } from "../store";
+import { getAppStore } from "../../store";
 
 export const authMiddleware = (store, to = "login") => {
 

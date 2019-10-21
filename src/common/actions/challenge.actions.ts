@@ -1,5 +1,5 @@
 import { map, property } from "lodash";
-import {getAppStore} from "../store";
+import {getAppStore} from "../../store";
 
 export const START_CHALLENGE = "START_CHALLENGE";
 export const TOGGLE_VIDEO = "TOGGLE_VIDEO";

@@ -7,7 +7,7 @@ import {
     updateChallengeFile,
     updateChallengeDisplay, 
     setVisibleFile,
-} from "../actions";
+} from "../common/actions";
 
 // most of the methods used by the EditorContainer 
 // are provided as props by the Challenge component

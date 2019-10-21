@@ -1,4 +1,4 @@
-import { palette } from "../styles";
+import { palette } from "../../styles";
 
 import {TOGGLE_NAVBAR, TOGGLE_MOBILE_NAVBAR, HIDE_NAVBAR, SET_NAVBAR_COLOR} from "../actions";
 

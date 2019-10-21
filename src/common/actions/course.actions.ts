@@ -1,5 +1,5 @@
 //import { CourseApi } from "../api/course-api";
-import { getAppStore } from "../store";
+import { getAppStore } from "../../store";
 import { find } from "lodash"
 
 //let api = new CourseApi();

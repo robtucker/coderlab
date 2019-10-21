@@ -1,5 +1,5 @@
 import { HomeContainer } from "./home.container";
-import { authMiddleware } from "../../middleware/auth.middleware";
+import { authMiddleware } from "../../common/middleware/auth.middleware";
 import { injectReducer } from "../../store";
 
 export const HomeRoutes = (store) => ({

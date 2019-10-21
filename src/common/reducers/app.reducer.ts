@@ -1,5 +1,5 @@
 import { SCREEN_RESIZE, HIDE_NAVBAR, TOGGLE_NAVBAR } from "../actions";
-import { AppTheme, editorThemes, breakpoints } from "../styles";
+import { AppTheme, editorThemes, breakpoints } from "../../styles";
 
 // need these keys to obey specific order 
 // iterating over objects doesn't guarantee order

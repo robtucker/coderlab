@@ -1,4 +1,4 @@
-import {SET_EDITOR_THEME} from "../../actions";
+import {SET_EDITOR_THEME} from "../../common/actions";
 
 let initialState = {
     theme: 'dracula'

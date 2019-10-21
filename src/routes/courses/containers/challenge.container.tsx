@@ -18,7 +18,7 @@ import {
     userCompleteLevel,
     setCurrentTask,
     closeCompletionModal,
-} from "../../../actions";
+} from "../../../common/actions";
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
     courseNotFound: () => dispatch(courseNotFound()),

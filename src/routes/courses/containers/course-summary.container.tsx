@@ -7,7 +7,7 @@ import {utils} from "../../../core/utils";
 import {authService} from "../../../core/auth-service";
 import { Logger } from "isolog";
 import { CourseSummary } from "../components/course-summary";
-import { setNavbarColor, toggleEnrolDialog, setAuthRedirect, putUserCourse } from "../../../actions";
+import { setNavbarColor, toggleEnrolDialog, setAuthRedirect, putUserCourse } from "../../../common/actions";
 
 const mapDispatchToProps = (dispatch) => ({
     setNavbarColor: (color) => dispatch(setNavbarColor(color)),

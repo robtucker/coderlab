@@ -1,5 +1,5 @@
 import * as mocha from "mocha";
-import { BaseApi } from "../../src/api/base-api";
+import { BaseApi } from "../../src/common/api/base-api";
 import * as Faker from "faker";
 
 let api = new BaseApi();
