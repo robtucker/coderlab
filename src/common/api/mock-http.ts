@@ -1,7 +1,7 @@
 import config from "../../config";
 import { merge } from "lodash";
 import * as Faker from "faker";
-import { utils } from "../../core/utils";
+import { utils } from "../core/utils";
 
 // mock response object
 // mimics the Response class of the fetch api

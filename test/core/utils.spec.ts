@@ -1,4 +1,4 @@
-import { utils} from "../../src/core/utils";
+import { utils} from "../../src/common/core/utils";
 import { assert, expect } from "chai";
 
 describe('shortKey', function() {

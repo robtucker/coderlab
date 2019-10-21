@@ -1,4 +1,4 @@
-import { authService } from "../../core/auth-service";
+import { authService } from "../core/auth-service";
 import config from "../../config";
 
 import { 

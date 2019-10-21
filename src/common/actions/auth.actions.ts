@@ -1,8 +1,8 @@
-import { Router, browserHistory } from 'react-router';
+import { Router, browserHistory } from '../../learn/courses/components/node_modules/react-router';
 import { AuthApi } from "../api/auth-api";
-import { authService } from "../../core/auth-service";
+import { authService } from "../core/auth-service";
 import {getAppStore} from "../../store";
-import {utils} from "../../core/utils";
+import {utils} from "../core/utils";
 
 let api = new AuthApi();
 
